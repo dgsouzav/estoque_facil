@@ -52,14 +52,14 @@
             panelDados.Controls.Add(lblID);
             panelDados.Location=new Point(12, 12);
             panelDados.Name="panelDados";
-            panelDados.Size=new Size(636, 537);
+            panelDados.Size=new Size(536, 437);
             panelDados.TabIndex=0;
             // 
             // txtNome
             // 
             txtNome.Location=new Point(3, 99);
             txtNome.Name="txtNome";
-            txtNome.Size=new Size(630, 23);
+            txtNome.Size=new Size(530, 23);
             txtNome.TabIndex=3;
             // 
             // txtID
@@ -96,16 +96,16 @@
             panelBotoes.Controls.Add(btnSalvar);
             panelBotoes.Controls.Add(btnAlterar);
             panelBotoes.Controls.Add(btnExcluir);
-            panelBotoes.Location=new Point(654, 12);
+            panelBotoes.Location=new Point(554, 12);
             panelBotoes.Name="panelBotoes";
-            panelBotoes.Size=new Size(118, 537);
+            panelBotoes.Size=new Size(118, 437);
             panelBotoes.TabIndex=1;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location=new Point(19, 443);
+            btnCancelar.Location=new Point(19, 384);
             btnCancelar.Name="btnCancelar";
-            btnCancelar.Size=new Size(80, 80);
+            btnCancelar.Size=new Size(80, 50);
             btnCancelar.TabIndex=11;
             btnCancelar.Text="CANCELAR";
             btnCancelar.UseVisualStyleBackColor=true;
@@ -113,9 +113,9 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location=new Point(19, 13);
+            btnInserir.Location=new Point(19, 4);
             btnInserir.Name="btnInserir";
-            btnInserir.Size=new Size(80, 80);
+            btnInserir.Size=new Size(80, 50);
             btnInserir.TabIndex=6;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
@@ -123,9 +123,9 @@
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(19, 99);
+            btnLocalizar.Location=new Point(19, 80);
             btnLocalizar.Name="btnLocalizar";
-            btnLocalizar.Size=new Size(80, 80);
+            btnLocalizar.Size=new Size(80, 50);
             btnLocalizar.TabIndex=7;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
@@ -133,9 +133,9 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location=new Point(19, 357);
+            btnSalvar.Location=new Point(19, 308);
             btnSalvar.Name="btnSalvar";
-            btnSalvar.Size=new Size(80, 80);
+            btnSalvar.Size=new Size(80, 50);
             btnSalvar.TabIndex=10;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
@@ -143,9 +143,9 @@
             // 
             // btnAlterar
             // 
-            btnAlterar.Location=new Point(19, 185);
+            btnAlterar.Location=new Point(19, 156);
             btnAlterar.Name="btnAlterar";
-            btnAlterar.Size=new Size(80, 80);
+            btnAlterar.Size=new Size(80, 50);
             btnAlterar.TabIndex=8;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
@@ -153,9 +153,9 @@
             // 
             // btnExcluir
             // 
-            btnExcluir.Location=new Point(19, 271);
+            btnExcluir.Location=new Point(19, 232);
             btnExcluir.Name="btnExcluir";
-            btnExcluir.Size=new Size(80, 80);
+            btnExcluir.Size=new Size(80, 50);
             btnExcluir.TabIndex=9;
             btnExcluir.Text="EXCLUIR";
             btnExcluir.UseVisualStyleBackColor=true;
@@ -165,7 +165,7 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(784, 561);
+            ClientSize=new Size(684, 461);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name="formCadastroCategoria";

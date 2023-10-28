@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class formCadastro : Form
+    public partial class formExCadastro : Form
     {
         public String operacao;
-        public formCadastro()
+        public formExCadastro()
         {
             InitializeComponent();
         }
@@ -76,7 +76,7 @@ namespace UI
 
         private void formCadastro_Load(object sender, EventArgs e)
         {
-            this.menuBotoes(1);
+
         }
 
         private void panelDados_Paint(object sender, PaintEventArgs e)

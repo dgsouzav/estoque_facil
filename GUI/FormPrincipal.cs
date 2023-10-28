@@ -17,21 +17,24 @@ namespace UI
             InitializeComponent();
         }
 
-        private void CadastroToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formCadastroCategoria form = new formCadastroCategoria();
-            form.ShowDialog();
-            form.Dispose();
+            formCadastroCategoria f = new formCadastroCategoria();
+            f.ShowDialog();
+            f.Dispose();
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
 
+        private void CategoriaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaCategoria f = new formConsultaCategoria();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // voltar ao formLogin
         }
     }
 }
