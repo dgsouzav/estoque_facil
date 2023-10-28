@@ -1,0 +1,15 @@
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\bin\Debug\net6.0\DAL.deps.json
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\bin\Debug\net6.0\DAL.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\bin\Debug\net6.0\DAL.pdb
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\bin\Debug\net6.0\Modelo.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\bin\Debug\net6.0\Modelo.pdb
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\DAL.pdb
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\DAO\obj\Debug\net6.0\ref\DAL.dll
