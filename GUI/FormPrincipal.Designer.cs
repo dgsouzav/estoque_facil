@@ -79,6 +79,7 @@
             SubCategoriaToolStripMenuItem.Name="SubCategoriaToolStripMenuItem";
             SubCategoriaToolStripMenuItem.Size=new Size(188, 22);
             SubCategoriaToolStripMenuItem.Text="SUBCATEGORIA";
+            SubCategoriaToolStripMenuItem.Click+=SubCategoriaToolStripMenuItem_Click;
             // 
             // UnidadeMedidaToolStripMenuItem
             // 
@@ -128,6 +129,7 @@
             SubCategoriaToolStripMenuItem1.Name="SubCategoriaToolStripMenuItem1";
             SubCategoriaToolStripMenuItem1.Size=new Size(188, 22);
             SubCategoriaToolStripMenuItem1.Text="SUBCATEGORIA";
+            SubCategoriaToolStripMenuItem1.Click+=SubCategoriaToolStripMenuItem1_Click;
             // 
             // UnidadeMedidaToolStripMenuItem1
             // 

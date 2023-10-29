@@ -36,5 +36,19 @@ namespace UI
         {
             // voltar ao formLogin
         }
+
+        private void SubCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroSubCategoria f = new formCadastroSubCategoria();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void SubCategoriaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaSubCategoria f = new formConsultaSubCategoria();
+            f.ShowDialog(); 
+            f.Dispose();
+        }
     }
 }

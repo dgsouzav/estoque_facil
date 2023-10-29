@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class formCadastroCategoria
+    partial class formCadastroSubCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelDados=new Panel();
-            txtNomeCategoria=new TextBox();
-            txtCategoriaID=new TextBox();
-            lblNomeCategoria=new Label();
-            lblCategoriaID=new Label();
             panelBotoes=new Panel();
             btnCancelar=new Button();
             btnInserir=new Button();
@@ -40,53 +35,16 @@
             btnSalvar=new Button();
             btnAlterar=new Button();
             btnExcluir=new Button();
-            panelDados.SuspendLayout();
+            panelDados=new Panel();
+            cmbCategoriaID=new ComboBox();
+            lblCategoriaNome=new Label();
+            txtNomeSubCategoria=new TextBox();
+            txtSubCategoriaID=new TextBox();
+            lblNomeSubCategoria=new Label();
+            lblSubCategoriaID=new Label();
             panelBotoes.SuspendLayout();
+            panelDados.SuspendLayout();
             SuspendLayout();
-            // 
-            // panelDados
-            // 
-            panelDados.Controls.Add(txtNomeCategoria);
-            panelDados.Controls.Add(txtCategoriaID);
-            panelDados.Controls.Add(lblNomeCategoria);
-            panelDados.Controls.Add(lblCategoriaID);
-            panelDados.Location=new Point(12, 12);
-            panelDados.Name="panelDados";
-            panelDados.Size=new Size(536, 437);
-            panelDados.TabIndex=0;
-            // 
-            // txtNomeCategoria
-            // 
-            txtNomeCategoria.Location=new Point(3, 99);
-            txtNomeCategoria.Name="txtNomeCategoria";
-            txtNomeCategoria.Size=new Size(530, 23);
-            txtNomeCategoria.TabIndex=3;
-            // 
-            // txtCategoriaID
-            // 
-            txtCategoriaID.Enabled=false;
-            txtCategoriaID.Location=new Point(3, 46);
-            txtCategoriaID.Name="txtCategoriaID";
-            txtCategoriaID.Size=new Size(81, 23);
-            txtCategoriaID.TabIndex=2;
-            // 
-            // lblNomeCategoria
-            // 
-            lblNomeCategoria.AutoSize=true;
-            lblNomeCategoria.Location=new Point(3, 81);
-            lblNomeCategoria.Name="lblNomeCategoria";
-            lblNomeCategoria.Size=new Size(110, 15);
-            lblNomeCategoria.TabIndex=1;
-            lblNomeCategoria.Text="Nome da Categoria";
-            // 
-            // lblCategoriaID
-            // 
-            lblCategoriaID.AutoSize=true;
-            lblCategoriaID.Location=new Point(3, 28);
-            lblCategoriaID.Name="lblCategoriaID";
-            lblCategoriaID.Size=new Size(88, 15);
-            lblCategoriaID.TabIndex=0;
-            lblCategoriaID.Text="ID da Categoria";
             // 
             // panelBotoes
             // 
@@ -99,7 +57,7 @@
             panelBotoes.Location=new Point(554, 12);
             panelBotoes.Name="panelBotoes";
             panelBotoes.Size=new Size(118, 437);
-            panelBotoes.TabIndex=1;
+            panelBotoes.TabIndex=3;
             // 
             // btnCancelar
             // 
@@ -161,24 +119,89 @@
             btnExcluir.UseVisualStyleBackColor=true;
             btnExcluir.Click+=btnExcluir_Click;
             // 
-            // formCadastroCategoria
+            // panelDados
+            // 
+            panelDados.Controls.Add(cmbCategoriaID);
+            panelDados.Controls.Add(lblCategoriaNome);
+            panelDados.Controls.Add(txtNomeSubCategoria);
+            panelDados.Controls.Add(txtSubCategoriaID);
+            panelDados.Controls.Add(lblNomeSubCategoria);
+            panelDados.Controls.Add(lblSubCategoriaID);
+            panelDados.Location=new Point(12, 12);
+            panelDados.Name="panelDados";
+            panelDados.Size=new Size(536, 437);
+            panelDados.TabIndex=2;
+            // 
+            // cmbCategoriaID
+            // 
+            cmbCategoriaID.FormattingEnabled=true;
+            cmbCategoriaID.Location=new Point(3, 160);
+            cmbCategoriaID.Name="cmbCategoriaID";
+            cmbCategoriaID.Size=new Size(232, 23);
+            cmbCategoriaID.TabIndex=4;
+            // 
+            // lblCategoriaNome
+            // 
+            lblCategoriaNome.AutoSize=true;
+            lblCategoriaNome.Location=new Point(4, 142);
+            lblCategoriaNome.Name="lblCategoriaNome";
+            lblCategoriaNome.Size=new Size(110, 15);
+            lblCategoriaNome.TabIndex=0;
+            lblCategoriaNome.Text="Nome da Categoria";
+            // 
+            // txtNomeSubCategoria
+            // 
+            txtNomeSubCategoria.Location=new Point(3, 98);
+            txtNomeSubCategoria.Name="txtNomeSubCategoria";
+            txtNomeSubCategoria.Size=new Size(515, 23);
+            txtNomeSubCategoria.TabIndex=3;
+            // 
+            // txtSubCategoriaID
+            // 
+            txtSubCategoriaID.Enabled=false;
+            txtSubCategoriaID.Location=new Point(3, 40);
+            txtSubCategoriaID.Name="txtSubCategoriaID";
+            txtSubCategoriaID.Size=new Size(81, 23);
+            txtSubCategoriaID.TabIndex=2;
+            // 
+            // lblNomeSubCategoria
+            // 
+            lblNomeSubCategoria.AutoSize=true;
+            lblNomeSubCategoria.Location=new Point(3, 80);
+            lblNomeSubCategoria.Name="lblNomeSubCategoria";
+            lblNomeSubCategoria.Size=new Size(133, 15);
+            lblNomeSubCategoria.TabIndex=1;
+            lblNomeSubCategoria.Text="Nome da Sub Categoria";
+            // 
+            // lblSubCategoriaID
+            // 
+            lblSubCategoriaID.AutoSize=true;
+            lblSubCategoriaID.Location=new Point(3, 22);
+            lblSubCategoriaID.Name="lblSubCategoriaID";
+            lblSubCategoriaID.Size=new Size(111, 15);
+            lblSubCategoriaID.TabIndex=0;
+            lblSubCategoriaID.Text="ID da Sub Categoria";
+            // 
+            // formCadastroSubCategoria
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(684, 461);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
-            Name="formCadastroCategoria";
+            Name="formCadastroSubCategoria";
             StartPosition=FormStartPosition.CenterScreen;
-            Text="Cadastro de Categoria";
-            Load+=formCadastroCategoria_Load;
+            Text="Cadastro de Sub Categoria";
+            Load+=formCadastroSubCategoria_Load;
+            panelBotoes.ResumeLayout(false);
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();
-            panelBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
+
+        protected Panel panelBotoes;
         protected Button btnCancelar;
         protected Button btnInserir;
         protected Button btnLocalizar;
@@ -186,10 +209,11 @@
         protected Button btnAlterar;
         protected Button btnExcluir;
         protected Panel panelDados;
-        protected Panel panelBotoes;
-        private TextBox txtCategoriaID;
-        private Label lblNomeCategoria;
-        private Label lblCategoriaID;
-        private TextBox txtNomeCategoria;
+        private Label lblCategoriaNome;
+        private TextBox txtNomeSubCategoria;
+        private TextBox txtSubCategoriaID;
+        private Label lblNomeSubCategoria;
+        private Label lblSubCategoriaID;
+        private ComboBox cmbCategoriaID;
     }
 }

@@ -60,8 +60,8 @@ namespace UI
 
         public void LimpaTela()
         {
-            txtID.Clear();
-            txtNome.Clear();
+            txtCategoriaID.Clear();
+            txtNomeCategoria.Clear();
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -78,7 +78,23 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            formConsultaCategoria f = new formConsultaCategoria();
+            f.ShowDialog();
+            if (f.id != 0)
+            {
+                BLLCategoria bll = new BLLCategoria(cx);
+                ModeloCategoria modelo = bll.CarregaModeloCategoria(f.id);
+                txtCategoriaID.Text = modelo.CategoriaID.ToString();
+                txtNomeCategoria.Text = modelo.CategoriaNome;
+                this.menuBotoes(3);
+            }
+            else
+            {
+                this.LimpaTela();
+                this.menuBotoes(1);
+            }
+            f.Dispose();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -88,7 +104,7 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCategoria bll = new BLLCategoria(cx);
                 ModeloCategoria modelo = new ModeloCategoria();
-                modelo.CategoriaNome = txtNome.Text;
+                modelo.CategoriaNome = txtNomeCategoria.Text;
 
                 if (this.operacao == "inserir")
                 {
@@ -97,7 +113,7 @@ namespace UI
                 }
                 else
                 {
-                    modelo.CategoriaID = Convert.ToInt32(txtID.Text);
+                    modelo.CategoriaID = Convert.ToInt32(txtCategoriaID.Text);
                     bll.Alterar(modelo);
                     MessageBox.Show("Cadastro alterado com sucesso!");
                 }
@@ -125,7 +141,7 @@ namespace UI
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLCategoria bll = new BLLCategoria(cx);
-                    bll.Excluir(Convert.ToInt32(txtID.Text));
+                    bll.Excluir(Convert.ToInt32(txtCategoriaID.Text));
                     this.LimpaTela();
                     this.menuBotoes(1);
                 }

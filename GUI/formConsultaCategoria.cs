@@ -29,7 +29,6 @@ namespace UI
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // voltar ao FormPrincipal
             this.Close();
         }
 
@@ -40,6 +39,15 @@ namespace UI
             dtgvDados.Columns[0].Width = 60;
             dtgvDados.Columns[1].HeaderText = "Categoria";
             dtgvDados.Columns[1].Width = 557;
+        }
+
+        private void dtgvDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                this.id = Convert.ToInt32(dtgvDados.Rows[e.RowIndex].Cells[0].Value);
+                this.Close();
+            }
         }
     }
 }

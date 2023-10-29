@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class formConsultaCategoria
+    partial class formConsultaSubCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -28,38 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnLocalizar=new Button();
-            txtConsultaCategoria=new TextBox();
-            lblCategoria=new Label();
             dtgvDados=new DataGridView();
+            lblSubCategoria=new Label();
+            txtConsultaSubCategoria=new TextBox();
+            btnLocalizar=new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvDados).BeginInit();
             SuspendLayout();
-            // 
-            // btnLocalizar
-            // 
-            btnLocalizar.Location=new Point(558, 60);
-            btnLocalizar.Name="btnLocalizar";
-            btnLocalizar.Size=new Size(114, 23);
-            btnLocalizar.TabIndex=0;
-            btnLocalizar.Text="LOCALIZAR";
-            btnLocalizar.UseVisualStyleBackColor=true;
-            btnLocalizar.Click+=btnLocalizar_Click_1;
-            // 
-            // txtConsultaCategoria
-            // 
-            txtConsultaCategoria.Location=new Point(12, 61);
-            txtConsultaCategoria.Name="txtConsultaCategoria";
-            txtConsultaCategoria.Size=new Size(540, 23);
-            txtConsultaCategoria.TabIndex=1;
-            // 
-            // lblCategoria
-            // 
-            lblCategoria.AutoSize=true;
-            lblCategoria.Location=new Point(12, 43);
-            lblCategoria.Name="lblCategoria";
-            lblCategoria.Size=new Size(58, 15);
-            lblCategoria.TabIndex=2;
-            lblCategoria.Text="Categoria";
             // 
             // dtgvDados
             // 
@@ -73,22 +47,48 @@
             dtgvDados.RowTemplate.Height=25;
             dtgvDados.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
             dtgvDados.Size=new Size(660, 348);
-            dtgvDados.TabIndex=3;
+            dtgvDados.TabIndex=7;
             dtgvDados.CellDoubleClick+=dtgvDados_CellDoubleClick;
             // 
-            // formConsultaCategoria
+            // lblSubCategoria
+            // 
+            lblSubCategoria.AutoSize=true;
+            lblSubCategoria.Location=new Point(12, 43);
+            lblSubCategoria.Name="lblSubCategoria";
+            lblSubCategoria.Size=new Size(78, 15);
+            lblSubCategoria.TabIndex=6;
+            lblSubCategoria.Text="SubCategoria";
+            // 
+            // txtConsultaSubCategoria
+            // 
+            txtConsultaSubCategoria.Location=new Point(12, 61);
+            txtConsultaSubCategoria.Name="txtConsultaSubCategoria";
+            txtConsultaSubCategoria.Size=new Size(540, 23);
+            txtConsultaSubCategoria.TabIndex=5;
+            // 
+            // btnLocalizar
+            // 
+            btnLocalizar.Location=new Point(558, 60);
+            btnLocalizar.Name="btnLocalizar";
+            btnLocalizar.Size=new Size(114, 23);
+            btnLocalizar.TabIndex=4;
+            btnLocalizar.Text="LOCALIZAR";
+            btnLocalizar.UseVisualStyleBackColor=true;
+            btnLocalizar.Click+=btnLocalizar_Click;
+            // 
+            // formConsultaSubCategoria
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(684, 461);
             Controls.Add(dtgvDados);
-            Controls.Add(lblCategoria);
-            Controls.Add(txtConsultaCategoria);
+            Controls.Add(lblSubCategoria);
+            Controls.Add(txtConsultaSubCategoria);
             Controls.Add(btnLocalizar);
-            Name="formConsultaCategoria";
+            Name="formConsultaSubCategoria";
             StartPosition=FormStartPosition.CenterScreen;
-            Text="Consulta de Categoria";
-            Load+=formConsultaCategoria_Load;
+            Text="Consulta de Sub Categoria";
+            Load+=formConsultaSubCategoria_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvDados).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -96,9 +96,9 @@
 
         #endregion
 
-        private Button btnLocalizar;
-        private TextBox txtConsultaCategoria;
-        private Label lblCategoria;
         private DataGridView dtgvDados;
+        private Label lblSubCategoria;
+        private TextBox txtConsultaSubCategoria;
+        private Button btnLocalizar;
     }
 }

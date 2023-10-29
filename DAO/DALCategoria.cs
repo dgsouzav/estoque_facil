@@ -73,8 +73,8 @@ namespace DAL
             if (registro.HasRows)
             {
                 registro.Read();
-                modelo.CategoriaID = Convert.ToInt32((string)registro["categoria_id"]);
-                modelo.CategoriaNome = Convert.ToString((string)registro["nome_categoria"]);
+                modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
+                modelo.CategoriaNome = Convert.ToString(registro["nome_categoria"]);
             }
             conexao.Desconectar();
             return modelo;

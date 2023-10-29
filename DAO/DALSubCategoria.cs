@@ -62,7 +62,6 @@ namespace DAL
             {
                 conexao.Desconectar();
             }
-            conexao.Desconectar();
         }
 
         public void Excluir(int id)
