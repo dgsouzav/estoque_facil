@@ -34,7 +34,7 @@ namespace BLL
         {
             if (modelo.CategoriaID <= 0)
             {
-                throw new Exception("O código da categoria é obrigatório");
+                throw new Exception("O ID da categoria é obrigatório");
             }
 
             if (modelo.CategoriaNome.Trim().Length == 0)

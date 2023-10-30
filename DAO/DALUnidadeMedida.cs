@@ -4,9 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modelo;
-using BLL;
 using System.Data;
+using Modelo;
 
 namespace DAL
 {
@@ -24,9 +23,10 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "insert into undmedida(undmed_nome) values (@nome); select @@IDENTITY;";
+                cmd.CommandText = "insert into unidadeMedida(undmed_nome) values (@nome); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@nome", modelo.UndMedNome);
                 conexao.Conectar();
+                modelo.UndMedID = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception erro)
             {
@@ -44,10 +44,11 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "update undmedida set undmed_nome = @nome where undmed_id = @codigo;";
+                cmd.CommandText = "update unidadeMedida set undmed_nome = @nome where undmed_id = @id;";
                 cmd.Parameters.AddWithValue("@nome", modelo.UndMedNome);
-                cmd.Parameters.AddWithValue("@codigo", modelo.UndMedID);
+                cmd.Parameters.AddWithValue("@id", modelo.UndMedID);
                 conexao.Conectar();
+                cmd.ExecuteNonQuery();
             }
             catch (Exception erro)
             {
@@ -65,9 +66,10 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "delete from undmedida where undmed_id = @id;";
+                cmd.CommandText = "delete from unidadeMedida where undmed_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
                 conexao.Conectar();
+                cmd.ExecuteNonQuery();
             }
             catch (Exception erro)
             {
@@ -82,18 +84,46 @@ namespace DAL
         public DataTable Localizar(String valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from undmedida where undmed_nome like '%" + 
+            SqlDataAdapter da = new SqlDataAdapter("select * from unidadeMedida where undmed_nome like '%" + 
                 valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
+        public int VerificaUnidadeMedida(string nomeUnidadeMedida)
+        {
+            int resultado = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "select undmed_id from unidadeMedida where undmed_nome = @nome;";
+                cmd.Parameters.AddWithValue("@nome", nomeUnidadeMedida);
+                conexao.Conectar();
+                SqlDataReader registro = cmd.ExecuteReader();
+                if (registro.HasRows)
+                {
+                    registro.Read();
+                    resultado = Convert.ToInt32(registro["undmed_id"]);
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+            finally
+            {
+                conexao.Desconectar();
+            }
+            return resultado;
+        }
+
 
         public ModeloUnidadeMedida CarregaModeloUnidadeMedida(int id)
         {
             ModeloUnidadeMedida modelo = new ModeloUnidadeMedida();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select * from undmedida where undmed_id = @id;";
+            cmd.CommandText = "select * from unidadeMedida where undmed_id = @id;";
             cmd.Parameters.AddWithValue("@id", id);
             conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();
@@ -106,5 +136,6 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
+
     }
 }

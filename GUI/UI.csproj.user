@@ -4,6 +4,9 @@
     <Compile Update="formCadastroSubCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formCadastroUnidadeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="formConsultaSubCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -11,6 +14,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="formConsultaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="formConsultaUnidadeMedida.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormPrincipal.cs">

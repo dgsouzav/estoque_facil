@@ -47,7 +47,21 @@ namespace UI
         private void SubCategoriaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             formConsultaSubCategoria f = new formConsultaSubCategoria();
-            f.ShowDialog(); 
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void UnidadeMedidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroUnidadeMedida f = new formCadastroUnidadeMedida();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void UnidadeMedidaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaUnidadeMedida f = new formConsultaUnidadeMedida();
+            f.ShowDialog();
             f.Dispose();
         }
     }

@@ -1,7 +1,10 @@
 ﻿using DAL;
+using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +20,9 @@ namespace BLL
 
         public void Incluir(ModeloUnidadeMedida modelo)
         {
-            if(modelo.UndMedID <= 0)
+            if(modelo.UndMedID < 0)
             {
-                throw new Exception("O código da unidade de medida é obrigatório");
+                throw new Exception("O ID da unidade de medida é obrigatório");
             }
             if(modelo.UndMedNome.Trim().Length == 0)
             {
@@ -32,7 +35,7 @@ namespace BLL
         {
             if (modelo.UndMedID <= 0)
             {
-                throw new Exception("O código da unidade de medida é obrigatório");
+                throw new Exception("O ID da unidade de medida é obrigatório");
             }
             if (modelo.UndMedNome.Trim().Length == 0)
             {
@@ -41,22 +44,26 @@ namespace BLL
             DALUnidadeMedida DALobj = new DALUnidadeMedida(conexao);
             DALobj.Alterar(modelo);
         }
-        public void Excluir(int codigo)
+        public void Excluir(int id)
         {
             DALUnidadeMedida DALobj = new DALUnidadeMedida(conexao);
-            DALobj.Excluir(codigo);
+            DALobj.Excluir(id);
         }
 
-        public System.Data.DataTable Localizar(String valor)
+        public DataTable Localizar(String valor)
         {
             DALUnidadeMedida DALobj = new DALUnidadeMedida(conexao);
             return DALobj.Localizar(valor);
         }
-
-        public ModeloUnidadeMedida CarregaModeloUnidadeMedida(int codigo)
+        public int VerificaUnidadeMedida(String valor)
+        {
+            DALUnidadeMedida DALobj = new DALUnidadeMedida(conexao);        
+            return DALobj.VerificaUnidadeMedida(valor);
+        }
+        public ModeloUnidadeMedida CarregaModeloUnidadeMedida(int id)
         {
             DALUnidadeMedida DALobj = new DALUnidadeMedida(conexao);
-            return DALobj.CarregaModeloUnidadeMedida(codigo);
+            return DALobj.CarregaModeloUnidadeMedida(id);
         }
     }
 }

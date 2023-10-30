@@ -89,11 +89,14 @@ namespace DAL
         public DataTable Localizar(String valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from subCategoria where subCategoria_nome like '%" +
-                               valor + "%'", conexao.StringConexao);
+            SqlDataAdapter da = new SqlDataAdapter("select sc.subCategoria_id, sc.subCategoria_nome, sc.categoria_id, c.nome_categoria" +
+                " from subCategoria sc inner join categoria c on sc.categoria_id = c.categoria_id where subCategoria_nome like '%" +
+                valor + "%'", conexao.StringConexao);
+
             da.Fill(tabela);
             return tabela;
         }
+
 
         public ModeloSubCategoria CarregaModeloSubCategoria(int id)
         {

@@ -28,8 +28,8 @@ namespace UI
             dtgvDados.Columns[1].Width = 200;
             dtgvDados.Columns[2].HeaderText = "ID da Categoria";
             dtgvDados.Columns[2].Width = 100;
-            //dtgvDados.Columns[3].HeaderText = "Nome da Categoria";
-            //dtgvDados.Columns[3].Width = 100;
+            dtgvDados.Columns[3].HeaderText = "Nome da Categoria";
+            dtgvDados.Columns[3].Width = 100;
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)

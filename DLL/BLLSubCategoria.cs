@@ -27,12 +27,12 @@ namespace BLL
 
             if (modelo.SubCategoriaID < 0)
             {
-                throw new Exception("O código da sub categoria é obrigatório");
+                throw new Exception("O ID da sub categoria é obrigatório");
             }
 
             if (modelo.CategoriaID <= 0)
             {
-                throw new Exception("O código da categoria é obrigatório");
+                throw new Exception("O ID da categoria é obrigatório");
             }
 
             DALSubCategoria DALobj = new DALSubCategoria(conexao);
@@ -42,7 +42,7 @@ namespace BLL
         {
             if (modelo.SubCategoriaID <= 0)
             {
-                throw new Exception("O código da sub categoria é obrigatório");
+                throw new Exception("O ID da sub categoria é obrigatório");
             }
 
             if (modelo.SubCategoriaNome.Trim().Length == 0)
@@ -52,7 +52,7 @@ namespace BLL
 
             if (modelo.CategoriaID <= 0)
             {
-                throw new Exception("O código da categoria é obrigatório");
+                throw new Exception("O ID da categoria é obrigatório");
             }
 
             DALSubCategoria DALobj = new DALSubCategoria(conexao);
