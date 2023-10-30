@@ -189,10 +189,12 @@
             ClientSize=new Size(684, 461);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
+            KeyPreview=true;
             Name="formCadastroSubCategoria";
             StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Sub Categoria";
             Load+=formCadastroSubCategoria_Load;
+            KeyDown+=formCadastroSubCategoria_KeyDown;
             panelBotoes.ResumeLayout(false);
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();

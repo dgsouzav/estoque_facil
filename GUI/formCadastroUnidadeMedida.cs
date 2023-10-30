@@ -150,13 +150,13 @@ namespace UI
 
         private void txtNomeUnidadeMedida_Leave(object sender, EventArgs e)
         {
-            if(this.operacao == "inserir")
+            if (this.operacao == "inserir")
             {
                 int resultado = 0;
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLUnidadeMedida bll = new BLLUnidadeMedida(cx);
                 resultado = bll.VerificaUnidadeMedida(txtNomeUnidadeMedida.Text);
-                if(resultado > 0)
+                if (resultado > 0)
                 {
                     DialogResult d = MessageBox.Show("Já existe um registro com esse valor. Deseja alterar o registro?", "Aviso", MessageBoxButtons.YesNo);
                     if (d.ToString() == "Yes")
@@ -172,7 +172,16 @@ namespace UI
                         this.limpaTela();
                         this.menuBotoes(1);
                     }
-                }  
+                }
+            }
+        }
+
+        private void formCadastroUnidadeMedida_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
             }
         }
     }

@@ -169,10 +169,12 @@
             ClientSize=new Size(684, 461);
             Controls.Add(panelDados);
             Controls.Add(panelBotoes);
+            KeyPreview=true;
             Name="formCadastroUnidadeMedida";
             StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Unidade de Medida";
             Load+=formCadastroUnidadeMedida_Load;
+            KeyDown+=formCadastroUnidadeMedida_KeyDown;
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();
             panelBotoes.ResumeLayout(false);

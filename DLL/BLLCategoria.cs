@@ -47,10 +47,10 @@ namespace BLL
             DALobj.Alterar(modelo);
         }
 
-        public void Excluir(int codigo)
+        public void Excluir(int id)
         {
             DALCategoria DALobj = new DALCategoria(conexao);
-            DALobj.Excluir(codigo);
+            DALobj.Excluir(id);
         }
 
         public DataTable Localizar(String valor)
@@ -59,10 +59,10 @@ namespace BLL
             return DALobj.Localizar(valor);
         }
 
-        public ModeloCategoria CarregaModeloCategoria(int codigo)
+        public ModeloCategoria CarregaModeloCategoria(int id)
         {
             DALCategoria DALobj = new DALCategoria(conexao);
-            return DALobj.CarregaModeloCategoria(codigo);
+            return DALobj.CarregaModeloCategoria(id);
         }
 
     }

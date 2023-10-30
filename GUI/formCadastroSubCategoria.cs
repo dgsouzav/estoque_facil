@@ -61,8 +61,8 @@ namespace UI
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLL.BLLCategoria bll = new BLL.BLLCategoria(cx);
             cmbCategoriaID.DataSource = bll.Localizar("");
-            cmbCategoriaID.DisplayMember = "nome_categoria"; 
-            cmbCategoriaID.ValueMember = "categoria_id"; 
+            cmbCategoriaID.DisplayMember = "nome_categoria";
+            cmbCategoriaID.ValueMember = "categoria_id";
         }
 
 
@@ -156,6 +156,15 @@ namespace UI
         {
             this.menuBotoes(1);
             this.LimpaTela();
+        }
+
+        private void formCadastroSubCategoria_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+            }
         }
     }
 }

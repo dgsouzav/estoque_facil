@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    internal class ModeloProduto
+    public class ModeloProduto
     {
         public ModeloProduto() 
         {
@@ -67,8 +67,8 @@ namespace Modelo
             set { this.valorvenda = value; }
         }
 
-        private float produto_qtde;
-        public float ProdutoQtde
+        private Double produto_qtde;
+        public Double ProdutoQtde
         {
             get { return this.produto_qtde; }
             set { this.produto_qtde = value; }

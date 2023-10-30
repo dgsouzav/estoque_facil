@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             panelDados=new Panel();
-            txtNomeCategoria=new TextBox();
-            txtCategoriaID=new TextBox();
-            lblNomeCategoria=new Label();
-            lblCategoriaID=new Label();
             panelBotoes=new Panel();
             btnCancelar=new Button();
             btnInserir=new Button();
@@ -40,53 +36,24 @@
             btnSalvar=new Button();
             btnAlterar=new Button();
             btnExcluir=new Button();
+            lblNomeCategoria=new Label();
+            lblCategoriaID=new Label();
+            txtNomeCategoria=new TextBox();
+            txtCategoriaID=new TextBox();
             panelDados.SuspendLayout();
             panelBotoes.SuspendLayout();
             SuspendLayout();
             // 
             // panelDados
             // 
-            panelDados.Controls.Add(txtNomeCategoria);
             panelDados.Controls.Add(txtCategoriaID);
-            panelDados.Controls.Add(lblNomeCategoria);
+            panelDados.Controls.Add(txtNomeCategoria);
             panelDados.Controls.Add(lblCategoriaID);
+            panelDados.Controls.Add(lblNomeCategoria);
             panelDados.Location=new Point(12, 12);
             panelDados.Name="panelDados";
             panelDados.Size=new Size(536, 437);
             panelDados.TabIndex=0;
-            // 
-            // txtNomeCategoria
-            // 
-            txtNomeCategoria.Location=new Point(3, 99);
-            txtNomeCategoria.Name="txtNomeCategoria";
-            txtNomeCategoria.Size=new Size(530, 23);
-            txtNomeCategoria.TabIndex=3;
-            // 
-            // txtCategoriaID
-            // 
-            txtCategoriaID.Enabled=false;
-            txtCategoriaID.Location=new Point(3, 46);
-            txtCategoriaID.Name="txtCategoriaID";
-            txtCategoriaID.Size=new Size(81, 23);
-            txtCategoriaID.TabIndex=2;
-            // 
-            // lblNomeCategoria
-            // 
-            lblNomeCategoria.AutoSize=true;
-            lblNomeCategoria.Location=new Point(3, 81);
-            lblNomeCategoria.Name="lblNomeCategoria";
-            lblNomeCategoria.Size=new Size(110, 15);
-            lblNomeCategoria.TabIndex=1;
-            lblNomeCategoria.Text="Nome da Categoria";
-            // 
-            // lblCategoriaID
-            // 
-            lblCategoriaID.AutoSize=true;
-            lblCategoriaID.Location=new Point(3, 28);
-            lblCategoriaID.Name="lblCategoriaID";
-            lblCategoriaID.Size=new Size(88, 15);
-            lblCategoriaID.TabIndex=0;
-            lblCategoriaID.Text="ID da Categoria";
             // 
             // panelBotoes
             // 
@@ -161,6 +128,38 @@
             btnExcluir.UseVisualStyleBackColor=true;
             btnExcluir.Click+=btnExcluir_Click;
             // 
+            // lblNomeCategoria
+            // 
+            lblNomeCategoria.AutoSize=true;
+            lblNomeCategoria.Location=new Point(3, 77);
+            lblNomeCategoria.Name="lblNomeCategoria";
+            lblNomeCategoria.Size=new Size(110, 15);
+            lblNomeCategoria.TabIndex=0;
+            lblNomeCategoria.Text="Nome da Categoria";
+            // 
+            // lblCategoriaID
+            // 
+            lblCategoriaID.AutoSize=true;
+            lblCategoriaID.Location=new Point(3, 13);
+            lblCategoriaID.Name="lblCategoriaID";
+            lblCategoriaID.Size=new Size(72, 15);
+            lblCategoriaID.TabIndex=1;
+            lblCategoriaID.Text="Categoria ID";
+            // 
+            // txtNomeCategoria
+            // 
+            txtNomeCategoria.Location=new Point(3, 95);
+            txtNomeCategoria.Name="txtNomeCategoria";
+            txtNomeCategoria.Size=new Size(530, 23);
+            txtNomeCategoria.TabIndex=2;
+            // 
+            // txtCategoriaID
+            // 
+            txtCategoriaID.Location=new Point(3, 31);
+            txtCategoriaID.Name="txtCategoriaID";
+            txtCategoriaID.Size=new Size(100, 23);
+            txtCategoriaID.TabIndex=3;
+            // 
             // formCadastroCategoria
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
@@ -168,10 +167,12 @@
             ClientSize=new Size(684, 461);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
+            KeyPreview=true;
             Name="formCadastroCategoria";
             StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Categoria";
             Load+=formCadastroCategoria_Load;
+            KeyDown+=formCadastroCategoria_KeyDown;
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();
             panelBotoes.ResumeLayout(false);
@@ -188,8 +189,8 @@
         protected Panel panelDados;
         protected Panel panelBotoes;
         private TextBox txtCategoriaID;
-        private Label lblNomeCategoria;
-        private Label lblCategoriaID;
         private TextBox txtNomeCategoria;
+        private Label lblCategoriaID;
+        private Label lblNomeCategoria;
     }
 }
