@@ -32,14 +32,15 @@
             txtConsultaCategoria=new TextBox();
             lblCategoria=new Label();
             dtgvDados=new DataGridView();
+            btnExcluir=new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvDados).BeginInit();
             SuspendLayout();
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(558, 60);
+            btnLocalizar.Location=new Point(592, 61);
             btnLocalizar.Name="btnLocalizar";
-            btnLocalizar.Size=new Size(114, 23);
+            btnLocalizar.Size=new Size(80, 60);
             btnLocalizar.TabIndex=0;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
@@ -49,7 +50,7 @@
             // 
             txtConsultaCategoria.Location=new Point(12, 61);
             txtConsultaCategoria.Name="txtConsultaCategoria";
-            txtConsultaCategoria.Size=new Size(540, 23);
+            txtConsultaCategoria.Size=new Size(561, 23);
             txtConsultaCategoria.TabIndex=1;
             // 
             // lblCategoria
@@ -67,20 +68,31 @@
             dtgvDados.AllowUserToDeleteRows=false;
             dtgvDados.AllowUserToOrderColumns=true;
             dtgvDados.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvDados.Location=new Point(12, 101);
+            dtgvDados.Location=new Point(12, 90);
             dtgvDados.Name="dtgvDados";
             dtgvDados.ReadOnly=true;
             dtgvDados.RowTemplate.Height=25;
             dtgvDados.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
-            dtgvDados.Size=new Size(660, 348);
+            dtgvDados.Size=new Size(561, 316);
             dtgvDados.TabIndex=3;
             dtgvDados.CellDoubleClick+=dtgvDados_CellDoubleClick;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Location=new Point(592, 138);
+            btnExcluir.Name="btnExcluir";
+            btnExcluir.Size=new Size(80, 60);
+            btnExcluir.TabIndex=4;
+            btnExcluir.Text="EXCLUIR";
+            btnExcluir.UseVisualStyleBackColor=true;
+            btnExcluir.Click+=btnExcluir_Click;
             // 
             // formConsultaCategoria
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(684, 461);
+            ClientSize=new Size(684, 418);
+            Controls.Add(btnExcluir);
             Controls.Add(dtgvDados);
             Controls.Add(lblCategoria);
             Controls.Add(txtConsultaCategoria);
@@ -100,5 +112,6 @@
         private TextBox txtConsultaCategoria;
         private Label lblCategoria;
         private DataGridView dtgvDados;
+        private Button btnExcluir;
     }
 }

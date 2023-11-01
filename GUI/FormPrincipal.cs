@@ -64,5 +64,19 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void ProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroProduto f = new formCadastroProduto();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void ProdutoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaProduto f = new formConsultaProduto();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

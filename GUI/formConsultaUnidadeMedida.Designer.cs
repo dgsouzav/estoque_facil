@@ -32,6 +32,7 @@
             lblNomeUnidadeMedida=new Label();
             txtConsultaUnidadeMedida=new TextBox();
             btnLocalizar=new Button();
+            btnExcluir=new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvDados).BeginInit();
             SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             dtgvDados.ReadOnly=true;
             dtgvDados.RowTemplate.Height=25;
             dtgvDados.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
-            dtgvDados.Size=new Size(660, 348);
+            dtgvDados.Size=new Size(561, 317);
             dtgvDados.TabIndex=11;
             dtgvDados.CellDoubleClick+=dtgvDados_CellDoubleClick;
             // 
@@ -63,24 +64,35 @@
             // 
             txtConsultaUnidadeMedida.Location=new Point(12, 49);
             txtConsultaUnidadeMedida.Name="txtConsultaUnidadeMedida";
-            txtConsultaUnidadeMedida.Size=new Size(540, 23);
+            txtConsultaUnidadeMedida.Size=new Size(561, 23);
             txtConsultaUnidadeMedida.TabIndex=9;
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(558, 48);
+            btnLocalizar.Location=new Point(592, 49);
             btnLocalizar.Name="btnLocalizar";
-            btnLocalizar.Size=new Size(114, 23);
+            btnLocalizar.Size=new Size(80, 60);
             btnLocalizar.TabIndex=8;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
             // 
+            // btnExcluir
+            // 
+            btnExcluir.Location=new Point(592, 124);
+            btnExcluir.Name="btnExcluir";
+            btnExcluir.Size=new Size(80, 60);
+            btnExcluir.TabIndex=12;
+            btnExcluir.Text="EXCLUIR";
+            btnExcluir.UseVisualStyleBackColor=true;
+            btnExcluir.Click+=btnExcluir_Click;
+            // 
             // formConsultaUnidadeMedida
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(684, 461);
+            ClientSize=new Size(684, 418);
+            Controls.Add(btnExcluir);
             Controls.Add(dtgvDados);
             Controls.Add(lblNomeUnidadeMedida);
             Controls.Add(txtConsultaUnidadeMedida);
@@ -100,5 +112,6 @@
         private Label lblNomeUnidadeMedida;
         private TextBox txtConsultaUnidadeMedida;
         private Button btnLocalizar;
+        private Button btnExcluir;
     }
 }

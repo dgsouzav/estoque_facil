@@ -21,7 +21,6 @@ namespace UI
             panelDados.Enabled = false;
             btnInserir.Enabled = false;
             btnAlterar.Enabled = false;
-            btnExcluir.Enabled = false;
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
             btnLocalizar.Enabled = false;
@@ -42,7 +41,6 @@ namespace UI
             if (op == 3)
             {
                 btnAlterar.Enabled = true;
-                btnExcluir.Enabled = true;
                 btnCancelar.Enabled = true;
             }
         }
@@ -96,23 +94,7 @@ namespace UI
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DialogResult d = MessageBox.Show("Deseja excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
-                if (d.ToString() == "Yes")
-                {
-                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLUnidadeMedida bll = new BLLUnidadeMedida(cx);
-                    bll.Excluir(Convert.ToInt32(txtUnidadeMedidaID.Text));
-                    this.limpaTela();
-                    this.menuBotoes(1);
-                }
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-                this.menuBotoes(3);
-            }
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

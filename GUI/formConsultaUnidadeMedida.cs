@@ -45,5 +45,25 @@ namespace UI
             }
         }
 
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult d = MessageBox.Show("Deseja excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
+                if (d.ToString() == "Yes")
+                {
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLUnidadeMedida bll = new BLLUnidadeMedida(cx);
+                    bll.Excluir(Convert.ToInt32(dtgvDados.Rows[dtgvDados.SelectedCells[0].RowIndex].Cells[0].Value));
+                    MessageBox.Show("Excluido com sucesso!");
+                    btnLocalizar_Click(sender, e);
+
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
     }
 }

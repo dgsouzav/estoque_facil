@@ -34,7 +34,6 @@
             btnLocalizar=new Button();
             btnSalvar=new Button();
             btnAlterar=new Button();
-            btnExcluir=new Button();
             panelDados=new Panel();
             cmbCategoriaID=new ComboBox();
             lblCategoriaNome=new Label();
@@ -53,25 +52,24 @@
             panelBotoes.Controls.Add(btnLocalizar);
             panelBotoes.Controls.Add(btnSalvar);
             panelBotoes.Controls.Add(btnAlterar);
-            panelBotoes.Controls.Add(btnExcluir);
             panelBotoes.Location=new Point(554, 12);
             panelBotoes.Name="panelBotoes";
-            panelBotoes.Size=new Size(118, 437);
+            panelBotoes.Size=new Size(118, 394);
             panelBotoes.TabIndex=3;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location=new Point(19, 384);
+            btnCancelar.Location=new Point(19, 332);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 50);
             btnCancelar.TabIndex=11;
-            btnCancelar.Text="CANCELAR";
+            btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
             // 
             // btnInserir
             // 
-            btnInserir.Location=new Point(19, 4);
+            btnInserir.Location=new Point(19, 13);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 50);
             btnInserir.TabIndex=6;
@@ -81,7 +79,7 @@
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(19, 80);
+            btnLocalizar.Location=new Point(19, 98);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 50);
             btnLocalizar.TabIndex=7;
@@ -91,7 +89,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location=new Point(19, 308);
+            btnSalvar.Location=new Point(19, 253);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 50);
             btnSalvar.TabIndex=10;
@@ -101,23 +99,13 @@
             // 
             // btnAlterar
             // 
-            btnAlterar.Location=new Point(19, 156);
+            btnAlterar.Location=new Point(19, 176);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 50);
             btnAlterar.TabIndex=8;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;
-            // 
-            // btnExcluir
-            // 
-            btnExcluir.Location=new Point(19, 232);
-            btnExcluir.Name="btnExcluir";
-            btnExcluir.Size=new Size(80, 50);
-            btnExcluir.TabIndex=9;
-            btnExcluir.Text="EXCLUIR";
-            btnExcluir.UseVisualStyleBackColor=true;
-            btnExcluir.Click+=btnExcluir_Click;
             // 
             // panelDados
             // 
@@ -129,7 +117,7 @@
             panelDados.Controls.Add(lblSubCategoriaID);
             panelDados.Location=new Point(12, 12);
             panelDados.Name="panelDados";
-            panelDados.Size=new Size(536, 437);
+            panelDados.Size=new Size(536, 394);
             panelDados.TabIndex=2;
             // 
             // cmbCategoriaID
@@ -186,7 +174,7 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(684, 461);
+            ClientSize=new Size(684, 418);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             KeyPreview=true;
@@ -209,7 +197,6 @@
         protected Button btnLocalizar;
         protected Button btnSalvar;
         protected Button btnAlterar;
-        protected Button btnExcluir;
         protected Panel panelDados;
         private Label lblCategoriaNome;
         private TextBox txtNomeSubCategoria;

@@ -32,7 +32,6 @@ namespace UI
             panelDados.Enabled = false;
             btnInserir.Enabled = false;
             btnAlterar.Enabled = false;
-            btnExcluir.Enabled = false;
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
             btnLocalizar.Enabled = false;
@@ -53,7 +52,6 @@ namespace UI
             if (op == 3)
             {
                 btnAlterar.Enabled = true;
-                btnExcluir.Enabled = true;
                 btnCancelar.Enabled = true;
             }
         }
@@ -130,27 +128,6 @@ namespace UI
         {
             this.operacao = "alterar";
             this.menuBotoes(2);
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult d = MessageBox.Show("Deseja realmente excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
-                if (d.ToString() == "Yes")
-                {
-                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLCategoria bll = new BLLCategoria(cx);
-                    bll.Excluir(Convert.ToInt32(txtCategoriaID.Text));
-                    this.LimpaTela();
-                    this.menuBotoes(1);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("ERRO: \nO registro está sendo utilizado em outro local.");
-                this.menuBotoes(3);
-            }
         }
 
         private void formCadastroCategoria_KeyDown(object sender, KeyEventArgs e)

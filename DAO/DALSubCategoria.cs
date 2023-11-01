@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,7 +97,16 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
+        public DataTable LocalizarPorCategoria(int categoria)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select sc.subCategoria_id, sc.subCategoria_nome, sc.categoria_id, c.nome_categoria" +
+                " from subCategoria sc inner join categoria c on sc.categoria_id = c.categoria_id where sc.subCategoria_id = " +
+                categoria.ToString(), conexao.StringConexao);
 
+            da.Fill(tabela);
+            return tabela;
+        }
 
         public ModeloSubCategoria CarregaModeloSubCategoria(int id)
         {
