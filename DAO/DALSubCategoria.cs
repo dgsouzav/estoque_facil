@@ -101,13 +101,13 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select sc.subCategoria_id, sc.subCategoria_nome, sc.categoria_id, c.nome_categoria" +
-                " from subCategoria sc inner join categoria c on sc.categoria_id = c.categoria_id where sc.subCategoria_id = " +
-                categoria.ToString(), conexao.StringConexao);
+                               " from subCategoria sc inner join categoria c on sc.categoria_id = c.categoria_id where sc.categoria_id = " +
+                                              categoria.ToString(), conexao.StringConexao);
 
             da.Fill(tabela);
             return tabela;
         }
-
+        
         public ModeloSubCategoria CarregaModeloSubCategoria(int id)
         {
             ModeloSubCategoria modelo = new ModeloSubCategoria();

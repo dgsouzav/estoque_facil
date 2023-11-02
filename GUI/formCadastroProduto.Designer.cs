@@ -35,8 +35,6 @@
             btnSalvar=new Button();
             btnAlterar=new Button();
             panelDados=new Panel();
-            lblFornecedorID=new Label();
-            cmbFornecedorID=new ComboBox();
             cmbUndMedID=new ComboBox();
             cmbCategoriaID=new ComboBox();
             cmbSubCategoriaID=new ComboBox();
@@ -123,8 +121,6 @@
             // 
             // panelDados
             // 
-            panelDados.Controls.Add(lblFornecedorID);
-            panelDados.Controls.Add(cmbFornecedorID);
             panelDados.Controls.Add(cmbUndMedID);
             panelDados.Controls.Add(cmbCategoriaID);
             panelDados.Controls.Add(cmbSubCategoriaID);
@@ -148,24 +144,6 @@
             panelDados.Size=new Size(536, 393);
             panelDados.TabIndex=2;
             // 
-            // lblFornecedorID
-            // 
-            lblFornecedorID.AutoSize=true;
-            lblFornecedorID.Location=new Point(283, 181);
-            lblFornecedorID.Name="lblFornecedorID";
-            lblFornecedorID.Size=new Size(67, 15);
-            lblFornecedorID.TabIndex=19;
-            lblFornecedorID.Text="Fornecedor";
-            // 
-            // cmbFornecedorID
-            // 
-            cmbFornecedorID.FormattingEnabled=true;
-            cmbFornecedorID.Location=new Point(283, 199);
-            cmbFornecedorID.Name="cmbFornecedorID";
-            cmbFornecedorID.Size=new Size(250, 23);
-            cmbFornecedorID.TabIndex=14;
-            cmbFornecedorID.Text="Selecionar";
-            // 
             // cmbUndMedID
             // 
             cmbUndMedID.FormattingEnabled=true;
@@ -173,7 +151,6 @@
             cmbUndMedID.Name="cmbUndMedID";
             cmbUndMedID.Size=new Size(250, 23);
             cmbUndMedID.TabIndex=11;
-            cmbUndMedID.Text="Selecionar";
             // 
             // cmbCategoriaID
             // 
@@ -182,7 +159,7 @@
             cmbCategoriaID.Name="cmbCategoriaID";
             cmbCategoriaID.Size=new Size(250, 23);
             cmbCategoriaID.TabIndex=12;
-            cmbCategoriaID.Text="Selecionar";
+            cmbCategoriaID.SelectedIndexChanged+=cmbCategoriaID_SelectedIndexChanged;
             // 
             // cmbSubCategoriaID
             // 
@@ -191,7 +168,6 @@
             cmbSubCategoriaID.Name="cmbSubCategoriaID";
             cmbSubCategoriaID.Size=new Size(250, 23);
             cmbSubCategoriaID.TabIndex=13;
-            cmbSubCategoriaID.Text="Selecionar";
             // 
             // lblUnidadeMedidaID
             // 
@@ -226,7 +202,6 @@
             txtValorPagoProduto.Name="txtValorPagoProduto";
             txtValorPagoProduto.Size=new Size(129, 23);
             txtValorPagoProduto.TabIndex=8;
-            txtValorPagoProduto.Text="0.00";
             txtValorPagoProduto.KeyPress+=txtValorPagoProduto_KeyPress;
             txtValorPagoProduto.Leave+=txtValorPagoProduto_Leave;
             // 
@@ -236,7 +211,6 @@
             txtQtdeProduto.Name="txtQtdeProduto";
             txtQtdeProduto.Size=new Size(129, 23);
             txtQtdeProduto.TabIndex=9;
-            txtQtdeProduto.Text="0.00";
             txtQtdeProduto.KeyPress+=txtQtdeProduto_KeyPress;
             txtQtdeProduto.Leave+=txtQtdeProduto_Leave;
             // 
@@ -246,7 +220,6 @@
             txtValorVendaProduto.Name="txtValorVendaProduto";
             txtValorVendaProduto.Size=new Size(129, 23);
             txtValorVendaProduto.TabIndex=10;
-            txtValorVendaProduto.Text="0.00";
             txtValorVendaProduto.KeyPress+=txtValorVendaProduto_KeyPress;
             txtValorVendaProduto.Leave+=txtValorVendaProduto_Leave;
             // 
@@ -371,7 +344,5 @@
         private ComboBox cmbUndMedID;
         private ComboBox cmbCategoriaID;
         private ComboBox cmbSubCategoriaID;
-        private Label lblFornecedorID;
-        private ComboBox cmbFornecedorID;
     }
 }

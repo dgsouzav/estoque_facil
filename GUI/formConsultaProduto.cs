@@ -28,7 +28,7 @@ namespace UI
                 if (d.ToString() == "Yes")
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLCategoria bll = new BLLCategoria(cx);
+                    BLLProduto bll = new BLLProduto(cx);
                     bll.Excluir(Convert.ToInt32(dtgvDados.Rows[dtgvDados.CurrentRow.Index].Cells[0].Value));
                     MessageBox.Show("Registro excluído com sucesso!");
                     btnLocalizar_Click(sender, e);
@@ -59,7 +59,24 @@ namespace UI
         private void formConsultaProduto_Load(object sender, EventArgs e)
         {
             btnLocalizar_Click(sender, e);
-
+            dtgvDados.Columns[0].HeaderText = "Código do produto";
+            dtgvDados.Columns[0].Width = 50;
+            dtgvDados.Columns[1].HeaderText = "Nome do produto";
+            dtgvDados.Columns[1].Width = 60;
+            dtgvDados.Columns[2].HeaderText = "Descrição do produto";
+            dtgvDados.Columns[2].Width = 100;
+            dtgvDados.Columns[3].HeaderText = "Valor pago";
+            dtgvDados.Columns[3].Width = 50;
+            dtgvDados.Columns[4].HeaderText = "Valor de venda";
+            dtgvDados.Columns[4].Width = 50;
+            dtgvDados.Columns[5].HeaderText = "Quantidade";
+            dtgvDados.Columns[5].Width = 80;
+            dtgvDados.Columns[6].HeaderText = "Unidade de medida";
+            dtgvDados.Columns[6].Width = 50;
+            dtgvDados.Columns[7].HeaderText = "Categoria";
+            dtgvDados.Columns[7].Width = 100;
+            dtgvDados.Columns[8].HeaderText = "Subcategoria";
+            dtgvDados.Columns[8].Width = 100;
         }
 
     }

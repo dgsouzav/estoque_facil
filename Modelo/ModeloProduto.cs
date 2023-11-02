@@ -22,7 +22,7 @@ namespace Modelo
         }
 
         public ModeloProduto(int produto_id, String produto_nome, String produto_descricao, 
-            Double produto_valorpago, Double produto_valorvenda, float produto_qtde, 
+            Double produto_valorpago, Double produto_valorvenda, Double produto_qtde, 
             int undmed_id, int categoria_id, int subCategoria_id)
         {
             this.produto_id = produto_id;

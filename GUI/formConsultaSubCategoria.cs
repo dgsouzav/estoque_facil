@@ -57,7 +57,7 @@ namespace UI
                 if (d.ToString() == "Yes")
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLCategoria bll = new BLLCategoria(cx);
+                    BLLSubCategoria bll = new BLLSubCategoria(cx);
                     bll.Excluir(Convert.ToInt32(dtgvDados.Rows[dtgvDados.CurrentRow.Index].Cells[0].Value));
                     MessageBox.Show("Registro excluído com sucesso!");
                     btnLocalizar_Click(sender, e);

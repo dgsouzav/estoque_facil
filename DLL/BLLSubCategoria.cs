@@ -68,15 +68,16 @@ namespace BLL
             DALSubCategoria DALobj = new DALSubCategoria(conexao);
             return DALobj.Localizar(valor);
         }
+        public DataTable LocalizarPorCategoria(int categoria)
+        {
+            DALSubCategoria DALobj = new DALSubCategoria(conexao);
+            return DALobj.LocalizarPorCategoria(categoria);
+        }
         public ModeloSubCategoria CarregaModeloSubCategoria(int id)
         {
             DALSubCategoria DALobj = new DALSubCategoria(conexao);
             return DALobj.CarregaModeloSubCategoria(id);
         }
-        public DataTable LocalizarPorCategoria(int categoriaID)
-        {
-            DALSubCategoria DALobj = new DALSubCategoria(conexao);
-            return DALobj.LocalizarPorCategoria(categoriaID);
-        }
+        
     }
 }

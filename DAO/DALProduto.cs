@@ -21,10 +21,9 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into produto(produto_ id, produto_nome, produto_descricao, produto_valorpago, produto_valorvenda, " +
-                "produto_qtde, undmed_id, categoria_id, subCategoria_id) values (@id, @nome, @descricao, @valorpago, @valorvenda, " +
+            cmd.CommandText = "insert into produto(produto_nome, produto_descricao, produto_valorpago, produto_valorvenda, " +
+                "produto_qtde, undmed_id, categoria_id, subCategoria_id) values (@nome, @descricao, @valorpago, @valorvenda, " +
                 "@qtde, @undmed, @categoria, @subcategoria); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@id", modelo.ProdutoID);
             cmd.Parameters.AddWithValue("@nome", modelo.ProdutoNome);
             cmd.Parameters.AddWithValue("@descricao", modelo.ProdutoDescricao);
             cmd.Parameters.AddWithValue("@valorpago", modelo.ProdutoValorPago);
@@ -72,13 +71,16 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select p.produto_id, p.produto_nome, p.produto_descricao, p.produto_valorpago, " +
-                               "p.produto_valorvenda, p.produto_qtde, p.undmed_id, p.categoria_id, p.subCategoria_id, u.undmed_nome, c.nome_categoria, " +
-                               "sc.subCategoria_nome from produto p inner join unidadeMedida u on p.undmed_id = u.undmed_id inner join categoria c on " +
-                               "p.categoria_id = c.categoria_id inner join subCategoria sc on p.subCategoria_id = sc.subcategoria_id where p.produto_nome like '%" +
-                               valor + "%'", conexao.StringConexao);
+                "p.produto_valorvenda, p.produto_qtde, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome " +
+                "from produto p " +
+                "inner join unidadeMedida u on p.undmed_id = u.undmed_id " +
+                "inner join categoria c on p.categoria_id = c.categoria_id " +
+                "inner join subCategoria sc on p.subCategoria_id = sc.subcategoria_id " +
+                "where p.produto_nome like '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
+
         public ModeloProduto CarregaModeloProduto(int id)
         {
             ModeloProduto modelo = new ModeloProduto();
@@ -93,11 +95,10 @@ namespace DAL
                 registro.Read();
                 modelo.ProdutoID = Convert.ToInt32(registro["produto_id"]);
                 modelo.ProdutoNome = Convert.ToString(registro["produto_nome"]);
-                modelo.ProdutoDescricao = Convert.ToString(registro["produto_descricao"]);
                 modelo.ProdutoValorPago = Convert.ToDouble(registro["produto_valorpago"]);
                 modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorvenda"]);
-                modelo.ProdutoQtde = Convert.ToDouble(registro["produto_qtde"]);
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
+                modelo.ProdutoQtde = Convert.ToDouble(registro["produto_qtde"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
             }

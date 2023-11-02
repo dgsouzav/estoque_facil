@@ -49,6 +49,13 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\BLL.p
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\Modelo.pdb
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.csproj.AssemblyReference.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroCategoria.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroProduto.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroSubCategoria.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroUnidadeMedida.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCategoria.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaProduto.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaSubCategoria.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaUnidadeMedida.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.FormPrincipal.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.csproj.GenerateResource.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
@@ -61,10 +68,3 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\refin
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.pdb
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\ref\UI.dll
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCategoria.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroSubCategoria.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaSubCategoria.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroUnidadeMedida.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaUnidadeMedida.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroProduto.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaProduto.resources
