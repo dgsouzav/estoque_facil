@@ -78,5 +78,19 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void tIPODEPAGAMENTOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroTipoPagamento f = new formCadastroTipoPagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void tIPODEPAGAMENTOToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }
