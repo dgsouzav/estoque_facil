@@ -57,7 +57,7 @@ namespace BLL
         {
             if (modelo.ProdutoID <= 0)
             {
-                throw new Exception("O código do produto é obrigatório");
+                throw new Exception("O ID do produto é obrigatório");
             }
             if (modelo.ProdutoNome.Trim().Length == 0)
             {

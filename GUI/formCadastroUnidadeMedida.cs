@@ -122,6 +122,7 @@ namespace UI
             {
                 MessageBox.Show(erro.Message);
             }
+            this.menuBotoes(1);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
