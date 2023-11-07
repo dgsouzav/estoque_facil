@@ -21,12 +21,11 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into usuario(usuario_nome, usuario_senha, usuario_tipo, usuario_fone, usuario_email) values (@nome, @senha, @tipo, @fone, @email)";
+            cmd.CommandText = "insert into usuario(usuario_nome, usuario_senha, usuario_nivelAcesso) values (@nome, @senha, @nivelAcesso)";
             cmd.Parameters.AddWithValue("@nome", modelo.UsuarioNome);
             cmd.Parameters.AddWithValue("@senha", modelo.UsuarioSenha);
-            cmd.Parameters.AddWithValue("@tipo", modelo.UsuarioTipo);
-            cmd.Parameters.AddWithValue("@fone", modelo.UsuarioFone);
-            cmd.Parameters.AddWithValue("@email", modelo.UsuarioEmail);
+            cmd.Parameters.AddWithValue("@nivelAcesso", modelo.UsuarioNivelAcesso);
+            
 
             conexao.Conectar();
             modelo.UsuarioID = Convert.ToInt32(cmd.ExecuteScalar());
@@ -36,13 +35,11 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "update usuario set usuario_id = @id, usuario_nome = @nome, usuario_senha = @senha, usuario_tipo = @tipo, usuario_fone = @fone, usuario_email = @email";
+            cmd.CommandText = "update usuario set usuario_id = @id, usuario_nome = @nome, usuario_senha = @senha, usuario_nivelAcesso = @nivelAcesso";
             cmd.Parameters.AddWithValue("@id", modelo.UsuarioID);
             cmd.Parameters.AddWithValue("@nome", modelo.UsuarioNome);
             cmd.Parameters.AddWithValue("@senha", modelo.UsuarioSenha);
-            cmd.Parameters.AddWithValue("@tipo", modelo.UsuarioTipo);
-            cmd.Parameters.AddWithValue("@fone", modelo.UsuarioFone);
-            cmd.Parameters.AddWithValue("@email", modelo.UsuarioEmail);
+            cmd.Parameters.AddWithValue("@nivelAcesso", modelo.UsuarioNivelAcesso);
 
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -82,9 +79,7 @@ namespace DAL
                 modelo.UsuarioID = Convert.ToInt32(registro["usuario_id"]);
                 modelo.UsuarioNome = Convert.ToString(registro["usuario_nome"]);
                 modelo.UsuarioSenha = Convert.ToString(registro["usuario_senha"]);
-                modelo.UsuarioTipo = Convert.ToString(registro["usuario_tipo"]);
-                modelo.UsuarioFone = Convert.ToString(registro["usuario_fone"]);
-                modelo.UsuarioEmail = Convert.ToString(registro["usuario_email"]);
+                modelo.UsuarioNivelAcesso = Convert.ToString(registro["usuario_nivelAcesso"]);
             }
             conexao.Desconectar();
             return modelo;

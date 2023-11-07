@@ -13,18 +13,16 @@ namespace Modelo
             this.usuario_id = 0;
             this.usuario_nome = "";
             this.usuario_senha = "";
-            this.usuario_tipo = "";
-            this.usuario_fone = "";
-            this.usuario_email = "";
+            this.usuario_nivelAcesso = "";
+            
         }
-        public ModeloUsuario(int usuario_id, String usuario_nome, String usuario_senha, String usuario_tipo, String usuario_fone, String usuario_email)
+        public ModeloUsuario(int usuario_id, String usuario_nome, String usuario_senha, String usuario_nivelAcesso )
         {
             this.usuario_id = usuario_id;
             this.usuario_nome = usuario_nome;
             this.usuario_senha = usuario_senha;
-            this.usuario_tipo = usuario_tipo;
-            this.usuario_fone = usuario_fone;
-            this.usuario_email = usuario_email;
+            this.usuario_nivelAcesso = usuario_nivelAcesso;
+            
         }
         private int usuario_id;
         public int UsuarioID
@@ -44,23 +42,12 @@ namespace Modelo
             get { return this.usuario_senha; }
             set { this.usuario_senha = value; }
         }
-        private String usuario_tipo;
-        public String UsuarioTipo
+        private String usuario_nivelAcesso;
+        public String UsuarioNivelAcesso
         {
-            get { return this.usuario_tipo; }
-            set { this.usuario_tipo = value; }
+            get { return this.usuario_nivelAcesso; }
+            set { this.usuario_nivelAcesso = value; }
         }
-        private String usuario_fone;
-        public String UsuarioFone
-        {
-            get { return this.usuario_fone; }
-            set { this.usuario_fone = value; }
-        }
-        private String usuario_email;
-        public String UsuarioEmail
-        {
-            get { return this.usuario_email; }
-            set { this.usuario_email = value; }
-        }
+        
     }
 }

@@ -1,0 +1,425 @@
+﻿namespace UI
+{
+    partial class formCadastroFornecedor
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            panelBotoes=new Panel();
+            btnCancelar=new Button();
+            btnInserir=new Button();
+            btnLocalizar=new Button();
+            btnSalvar=new Button();
+            btnAlterar=new Button();
+            panelDados=new Panel();
+            txtCEP=new TextBox();
+            txtEstado=new TextBox();
+            txtCNPJ=new TextBox();
+            txtEndNumero=new TextBox();
+            txtBairro=new TextBox();
+            txtCidade=new TextBox();
+            txtEmail=new TextBox();
+            txtFone=new TextBox();
+            txtEnderecoFornecedor=new TextBox();
+            txtInscricaoEstadual=new TextBox();
+            txtRazaoSocial=new TextBox();
+            lblCidade=new Label();
+            lblBairro=new Label();
+            lblEndNumero=new Label();
+            label8=new Label();
+            lblEstado=new Label();
+            label13=new Label();
+            lblEmail=new Label();
+            lblFone=new Label();
+            lblEndereco=new Label();
+            label17=new Label();
+            label18=new Label();
+            txtFornecedorID=new TextBox();
+            txtNomeFornecedor=new TextBox();
+            lblFornecedorID=new Label();
+            label20=new Label();
+            panelBotoes.SuspendLayout();
+            panelDados.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panelBotoes
+            // 
+            panelBotoes.Controls.Add(btnCancelar);
+            panelBotoes.Controls.Add(btnInserir);
+            panelBotoes.Controls.Add(btnLocalizar);
+            panelBotoes.Controls.Add(btnSalvar);
+            panelBotoes.Controls.Add(btnAlterar);
+            panelBotoes.Location=new Point(554, 12);
+            panelBotoes.Name="panelBotoes";
+            panelBotoes.Size=new Size(118, 393);
+            panelBotoes.TabIndex=3;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location=new Point(18, 322);
+            btnCancelar.Name="btnCancelar";
+            btnCancelar.Size=new Size(80, 60);
+            btnCancelar.TabIndex=11;
+            btnCancelar.Text="LIMPAR";
+            btnCancelar.UseVisualStyleBackColor=true;
+            btnCancelar.Click+=btnCancelar_Click;
+            // 
+            // btnInserir
+            // 
+            btnInserir.Location=new Point(18, 10);
+            btnInserir.Name="btnInserir";
+            btnInserir.Size=new Size(80, 60);
+            btnInserir.TabIndex=6;
+            btnInserir.Text="INSERIR";
+            btnInserir.UseVisualStyleBackColor=true;
+            btnInserir.Click+=btnInserir_Click;
+            // 
+            // btnLocalizar
+            // 
+            btnLocalizar.Location=new Point(18, 86);
+            btnLocalizar.Name="btnLocalizar";
+            btnLocalizar.Size=new Size(80, 60);
+            btnLocalizar.TabIndex=7;
+            btnLocalizar.Text="LOCALIZAR";
+            btnLocalizar.UseVisualStyleBackColor=true;
+            btnLocalizar.Click+=btnLocalizar_Click;
+            // 
+            // btnSalvar
+            // 
+            btnSalvar.Location=new Point(18, 246);
+            btnSalvar.Name="btnSalvar";
+            btnSalvar.Size=new Size(80, 60);
+            btnSalvar.TabIndex=10;
+            btnSalvar.Text="SALVAR";
+            btnSalvar.UseVisualStyleBackColor=true;
+            btnSalvar.Click+=btnSalvar_Click;
+            // 
+            // btnAlterar
+            // 
+            btnAlterar.Location=new Point(18, 162);
+            btnAlterar.Name="btnAlterar";
+            btnAlterar.Size=new Size(80, 60);
+            btnAlterar.TabIndex=8;
+            btnAlterar.Text="ALTERAR";
+            btnAlterar.UseVisualStyleBackColor=true;
+            btnAlterar.Click+=btnAlterar_Click;
+            // 
+            // panelDados
+            // 
+            panelDados.Controls.Add(txtCEP);
+            panelDados.Controls.Add(txtEstado);
+            panelDados.Controls.Add(txtCNPJ);
+            panelDados.Controls.Add(txtEndNumero);
+            panelDados.Controls.Add(txtBairro);
+            panelDados.Controls.Add(txtCidade);
+            panelDados.Controls.Add(txtEmail);
+            panelDados.Controls.Add(txtFone);
+            panelDados.Controls.Add(txtEnderecoFornecedor);
+            panelDados.Controls.Add(txtInscricaoEstadual);
+            panelDados.Controls.Add(txtRazaoSocial);
+            panelDados.Controls.Add(lblCidade);
+            panelDados.Controls.Add(lblBairro);
+            panelDados.Controls.Add(lblEndNumero);
+            panelDados.Controls.Add(label8);
+            panelDados.Controls.Add(lblEstado);
+            panelDados.Controls.Add(label13);
+            panelDados.Controls.Add(lblEmail);
+            panelDados.Controls.Add(lblFone);
+            panelDados.Controls.Add(lblEndereco);
+            panelDados.Controls.Add(label17);
+            panelDados.Controls.Add(label18);
+            panelDados.Controls.Add(txtFornecedorID);
+            panelDados.Controls.Add(txtNomeFornecedor);
+            panelDados.Controls.Add(lblFornecedorID);
+            panelDados.Controls.Add(label20);
+            panelDados.Location=new Point(12, 13);
+            panelDados.Name="panelDados";
+            panelDados.Size=new Size(536, 393);
+            panelDados.TabIndex=2;
+            // 
+            // txtCEP
+            // 
+            txtCEP.Location=new Point(361, 207);
+            txtCEP.Name="txtCEP";
+            txtCEP.Size=new Size(172, 23);
+            txtCEP.TabIndex=25;
+            // 
+            // txtEstado
+            // 
+            txtEstado.Location=new Point(275, 295);
+            txtEstado.Name="txtEstado";
+            txtEstado.Size=new Size(258, 23);
+            txtEstado.TabIndex=24;
+            // 
+            // txtCNPJ
+            // 
+            txtCNPJ.Location=new Point(190, 207);
+            txtCNPJ.Name="txtCNPJ";
+            txtCNPJ.Size=new Size(165, 23);
+            txtCNPJ.TabIndex=23;
+            // 
+            // txtEndNumero
+            // 
+            txtEndNumero.Location=new Point(447, 162);
+            txtEndNumero.Name="txtEndNumero";
+            txtEndNumero.Size=new Size(86, 23);
+            txtEndNumero.TabIndex=22;
+            // 
+            // txtBairro
+            // 
+            txtBairro.Location=new Point(275, 251);
+            txtBairro.Name="txtBairro";
+            txtBairro.Size=new Size(258, 23);
+            txtBairro.TabIndex=21;
+            // 
+            // txtCidade
+            // 
+            txtCidade.Location=new Point(5, 295);
+            txtCidade.Name="txtCidade";
+            txtCidade.Size=new Size(258, 23);
+            txtCidade.TabIndex=20;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location=new Point(5, 345);
+            txtEmail.Name="txtEmail";
+            txtEmail.Size=new Size(528, 23);
+            txtEmail.TabIndex=19;
+            // 
+            // txtFone
+            // 
+            txtFone.Location=new Point(5, 251);
+            txtFone.Name="txtFone";
+            txtFone.Size=new Size(258, 23);
+            txtFone.TabIndex=18;
+            // 
+            // txtEnderecoFornecedor
+            // 
+            txtEnderecoFornecedor.Location=new Point(5, 162);
+            txtEnderecoFornecedor.Name="txtEnderecoFornecedor";
+            txtEnderecoFornecedor.Size=new Size(437, 23);
+            txtEnderecoFornecedor.TabIndex=17;
+            // 
+            // txtInscricaoEstadual
+            // 
+            txtInscricaoEstadual.Location=new Point(5, 208);
+            txtInscricaoEstadual.Name="txtInscricaoEstadual";
+            txtInscricaoEstadual.Size=new Size(180, 23);
+            txtInscricaoEstadual.TabIndex=16;
+            // 
+            // txtRazaoSocial
+            // 
+            txtRazaoSocial.Location=new Point(5, 119);
+            txtRazaoSocial.Name="txtRazaoSocial";
+            txtRazaoSocial.Size=new Size(529, 23);
+            txtRazaoSocial.TabIndex=15;
+            // 
+            // lblCidade
+            // 
+            lblCidade.AutoSize=true;
+            lblCidade.Location=new Point(3, 277);
+            lblCidade.Name="lblCidade";
+            lblCidade.Size=new Size(44, 15);
+            lblCidade.TabIndex=14;
+            lblCidade.Text="Cidade";
+            // 
+            // lblBairro
+            // 
+            lblBairro.AutoSize=true;
+            lblBairro.Location=new Point(275, 233);
+            lblBairro.Name="lblBairro";
+            lblBairro.Size=new Size(38, 15);
+            lblBairro.TabIndex=13;
+            lblBairro.Text="Bairro";
+            // 
+            // lblEndNumero
+            // 
+            lblEndNumero.AutoSize=true;
+            lblEndNumero.Location=new Point(447, 145);
+            lblEndNumero.Name="lblEndNumero";
+            lblEndNumero.Size=new Size(51, 15);
+            lblEndNumero.TabIndex=12;
+            lblEndNumero.Text="Número";
+            // 
+            // label8
+            // 
+            label8.AutoSize=true;
+            label8.Location=new Point(190, 190);
+            label8.Name="label8";
+            label8.Size=new Size(34, 15);
+            label8.TabIndex=11;
+            label8.Text="CNPJ";
+            // 
+            // lblEstado
+            // 
+            lblEstado.AutoSize=true;
+            lblEstado.Location=new Point(276, 277);
+            lblEstado.Name="lblEstado";
+            lblEstado.Size=new Size(42, 15);
+            lblEstado.TabIndex=10;
+            lblEstado.Text="Estado";
+            // 
+            // label13
+            // 
+            label13.AutoSize=true;
+            label13.Location=new Point(361, 190);
+            label13.Name="label13";
+            label13.Size=new Size(28, 15);
+            label13.TabIndex=9;
+            label13.Text="CEP";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize=true;
+            lblEmail.Location=new Point(5, 327);
+            lblEmail.Name="lblEmail";
+            lblEmail.Size=new Size(41, 15);
+            lblEmail.TabIndex=8;
+            lblEmail.Text="E-mail";
+            // 
+            // lblFone
+            // 
+            lblFone.AutoSize=true;
+            lblFone.Location=new Point(4, 233);
+            lblFone.Name="lblFone";
+            lblFone.Size=new Size(51, 15);
+            lblFone.TabIndex=7;
+            lblFone.Text="Telefone";
+            // 
+            // lblEndereco
+            // 
+            lblEndereco.AutoSize=true;
+            lblEndereco.Location=new Point(5, 144);
+            lblEndereco.Name="lblEndereco";
+            lblEndereco.Size=new Size(155, 15);
+            lblEndereco.TabIndex=6;
+            lblEndereco.Text="Endereço(Rua, Avenida, etc)";
+            // 
+            // label17
+            // 
+            label17.AutoSize=true;
+            label17.Location=new Point(3, 190);
+            label17.Name="label17";
+            label17.Size=new Size(101, 15);
+            label17.TabIndex=5;
+            label17.Text="Inscrição estadual";
+            // 
+            // label18
+            // 
+            label18.AutoSize=true;
+            label18.Location=new Point(3, 101);
+            label18.Name="label18";
+            label18.Size=new Size(175, 15);
+            label18.TabIndex=4;
+            label18.Text="Razão Social(nome da empresa)";
+            // 
+            // txtFornecedorID
+            // 
+            txtFornecedorID.Enabled=false;
+            txtFornecedorID.Location=new Point(5, 31);
+            txtFornecedorID.Name="txtFornecedorID";
+            txtFornecedorID.Size=new Size(100, 23);
+            txtFornecedorID.TabIndex=3;
+            // 
+            // txtNomeFornecedor
+            // 
+            txtNomeFornecedor.Location=new Point(5, 75);
+            txtNomeFornecedor.Name="txtNomeFornecedor";
+            txtNomeFornecedor.Size=new Size(530, 23);
+            txtNomeFornecedor.TabIndex=2;
+            // 
+            // lblFornecedorID
+            // 
+            lblFornecedorID.AutoSize=true;
+            lblFornecedorID.Location=new Point(3, 13);
+            lblFornecedorID.Name="lblFornecedorID";
+            lblFornecedorID.Size=new Size(81, 15);
+            lblFornecedorID.TabIndex=1;
+            lblFornecedorID.Text="Fornecedor ID";
+            // 
+            // label20
+            // 
+            label20.AutoSize=true;
+            label20.Location=new Point(4, 57);
+            label20.Name="label20";
+            label20.Size=new Size(120, 15);
+            label20.TabIndex=0;
+            label20.Text="Nome do Fornecedor";
+            // 
+            // formCadastroFornecedor
+            // 
+            AutoScaleDimensions=new SizeF(7F, 15F);
+            AutoScaleMode=AutoScaleMode.Font;
+            ClientSize=new Size(684, 418);
+            Controls.Add(panelDados);
+            Controls.Add(panelBotoes);
+            Name="formCadastroFornecedor";
+            StartPosition=FormStartPosition.CenterScreen;
+            Text="Cadastro de Fornecedor";
+            Load+=formCadastroFornecedor_Load;
+            KeyDown+=formCadastroFornecedor_KeyDown;
+            panelBotoes.ResumeLayout(false);
+            panelDados.ResumeLayout(false);
+            panelDados.PerformLayout();
+            ResumeLayout(false);
+        }
+
+        #endregion
+        protected Panel panelBotoes;
+        protected Button btnCancelar;
+        protected Button btnInserir;
+        protected Button btnLocalizar;
+        protected Button btnSalvar;
+        protected Button btnAlterar;
+        protected Panel panelDados;
+        private TextBox txtCEP;
+        private TextBox txtEstado;
+        private TextBox txtCNPJ;
+        private TextBox txtEndNumero;
+        private TextBox txtBairro;
+        private TextBox txtCidade;
+        private TextBox txtEmail;
+        private TextBox txtFone;
+        private TextBox txtEnderecoFornecedor;
+        private TextBox txtInscricaoEstadual;
+        private TextBox txtRazaoSocial;
+        private Label lblCidade;
+        private Label lblBairro;
+        private Label lblEndNumero;
+        private Label label8;
+        private Label lblEstado;
+        private Label label13;
+        private Label lblEmail;
+        private Label lblFone;
+        private Label lblEndereco;
+        private Label label17;
+        private Label label18;
+        private TextBox txtFornecedorID;
+        private TextBox txtNomeFornecedor;
+        private Label lblFornecedorID;
+        private Label label20;
+    }
+}

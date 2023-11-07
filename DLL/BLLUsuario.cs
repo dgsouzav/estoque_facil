@@ -24,17 +24,9 @@ namespace BLL
             {
                 throw new Exception("A senha do usuário é obrigatória");
             }
-            if (modelo.UsuarioTipo.Trim().Length == 0)
+            if(modelo.UsuarioNivelAcesso.Trim().Length == 0)
             {
-                throw new Exception("O tipo do usuário é obrigatório");
-            }
-            if (modelo.UsuarioFone.Trim().Length == 0)
-            {
-                throw new Exception("O telefone do usuário é obrigatório");
-            }
-            if (modelo.UsuarioEmail.Trim().Length == 0)
-            {
-                throw new Exception("O email do usuário é obrigatório");
+                throw new Exception("O nível de acesso do usuário é obrigatório");
             }
             DALUsuario DALobj = new DALUsuario(conexao);
             DALobj.Incluir(modelo);
@@ -53,17 +45,9 @@ namespace BLL
             {
                 throw new Exception("A senha do usuário é obrigatória");
             }
-            if (modelo.UsuarioTipo.Trim().Length == 0)
+            if (modelo.UsuarioNivelAcesso.Trim().Length == 0)
             {
-                throw new Exception("O tipo do usuário é obrigatório");
-            }
-            if (modelo.UsuarioFone.Trim().Length == 0)
-            {
-                throw new Exception("O telefone do usuário é obrigatório");
-            }
-            if (modelo.UsuarioEmail.Trim().Length == 0)
-            {
-                throw new Exception("O email do usuário é obrigatório");
+                throw new Exception("O nível de acesso do usuário é obrigatório");
             }
             DALUsuario DALobj = new DALUsuario(conexao);
             DALobj.Alterar(modelo);

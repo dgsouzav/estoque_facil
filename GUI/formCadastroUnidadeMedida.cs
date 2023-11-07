@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace UI
 {
     public partial class formCadastroUnidadeMedida : Form
-    {
+    {  
         public String operacao;
         public void menuBotoes(int op)
         {

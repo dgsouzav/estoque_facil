@@ -146,15 +146,15 @@ namespace BLL
             DALFornecedor DALobj = new DALFornecedor(conexao);
             return DALobj.LocalizarPorCNPJ(valor);
         }
-        public ModeloFornecedor CarregaModeloFornecedorID(int id)
+        public ModeloFornecedor CarregaModeloFornecedor(int id)
         {
             DALFornecedor DALobj = new DALFornecedor(conexao);
-            return DALobj.CarregaModeloFornecedorID(id);
+            return DALobj.CarregaModeloFornecedor(id);
         }
-        public ModeloFornecedor CarregaModeloFornecedorCNPJ(string cnpj)
+        public ModeloFornecedor CarregaModeloFornecedor(string cnpj)
         {
             DALFornecedor DALobj = new DALFornecedor(conexao);
-            return DALobj.CarregaModeloFornecedorCNPJ(cnpj);
+            return DALobj.CarregaModeloFornecedor(cnpj);
         }
     }
 }

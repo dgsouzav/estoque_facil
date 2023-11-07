@@ -96,7 +96,7 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
-        public ModeloFornecedor CarregaModeloFornecedorID(int id)
+        public ModeloFornecedor CarregaModeloFornecedor(int id)
         {
             ModeloFornecedor modelo = new ModeloFornecedor();
             SqlCommand cmd = new SqlCommand();
@@ -128,7 +128,7 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
-        public ModeloFornecedor CarregaModeloFornecedorCNPJ(string cnpj)
+        public ModeloFornecedor CarregaModeloFornecedor(string cnpj)
         {
             ModeloFornecedor modelo = new ModeloFornecedor();
             SqlCommand cmd = new SqlCommand();

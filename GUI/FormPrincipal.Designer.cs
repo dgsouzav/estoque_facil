@@ -119,6 +119,7 @@
             FornecedorToolStripMenuItem.Name="FornecedorToolStripMenuItem";
             FornecedorToolStripMenuItem.Size=new Size(189, 22);
             FornecedorToolStripMenuItem.Text="FORNECEDOR";
+            FornecedorToolStripMenuItem.Click+=FornecedorToolStripMenuItem_Click;
             // 
             // UsuarioToolStripMenuItem
             // 
@@ -183,6 +184,7 @@
             FornecedorToolStripMenuItem1.Name="FornecedorToolStripMenuItem1";
             FornecedorToolStripMenuItem1.Size=new Size(189, 22);
             FornecedorToolStripMenuItem1.Text="FORNECEDOR";
+            FornecedorToolStripMenuItem1.Click+=FornecedorToolStripMenuItem1_Click;
             // 
             // uSUÁRIOToolStripMenuItem
             // 

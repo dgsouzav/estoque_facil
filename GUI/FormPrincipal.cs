@@ -92,5 +92,19 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroFornecedor f = new formCadastroFornecedor();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void FornecedorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaFornecedor f = new formConsultaFornecedor();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }
