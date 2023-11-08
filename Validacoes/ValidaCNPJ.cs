@@ -1,6 +1,6 @@
 ﻿namespace Validacoes
 {
-    public class validaCNPJ
+    public class ValidaCNPJ
     {
         public static bool IsCnpj(string cnpj)
         {

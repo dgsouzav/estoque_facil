@@ -166,7 +166,7 @@
             // 
             lblCnpjInvalido.AutoSize=true;
             lblCnpjInvalido.ForeColor=Color.Red;
-            lblCnpjInvalido.Location=new Point(257, 145);
+            lblCnpjInvalido.Location=new Point(231, 145);
             lblCnpjInvalido.Name="lblCnpjInvalido";
             lblCnpjInvalido.Size=new Size(82, 15);
             lblCnpjInvalido.TabIndex=26;
@@ -177,7 +177,7 @@
             // 
             txtCEP.Location=new Point(6, 161);
             txtCEP.Name="txtCEP";
-            txtCEP.Size=new Size(172, 23);
+            txtCEP.Size=new Size(118, 23);
             txtCEP.TabIndex=25;
             txtCEP.Leave+=txtCEP_Leave;
             // 
@@ -190,10 +190,11 @@
             // 
             // txtCNPJ
             // 
-            txtCNPJ.Location=new Point(184, 161);
+            txtCNPJ.Location=new Point(130, 161);
             txtCNPJ.Name="txtCNPJ";
-            txtCNPJ.Size=new Size(165, 23);
+            txtCNPJ.Size=new Size(183, 23);
             txtCNPJ.TabIndex=23;
+            txtCNPJ.KeyPress+=txtCNPJ_KeyPress;
             txtCNPJ.Leave+=txtCNPJ_Leave;
             // 
             // txtEndNumero
@@ -230,6 +231,7 @@
             txtFone.Name="txtFone";
             txtFone.Size=new Size(258, 23);
             txtFone.TabIndex=18;
+            txtFone.KeyPress+=txtFone_KeyPress;
             // 
             // txtEnderecoFornecedor
             // 
@@ -240,10 +242,11 @@
             // 
             // txtInscricaoEstadual
             // 
-            txtInscricaoEstadual.Location=new Point(353, 161);
+            txtInscricaoEstadual.Location=new Point(319, 161);
             txtInscricaoEstadual.Name="txtInscricaoEstadual";
-            txtInscricaoEstadual.Size=new Size(180, 23);
+            txtInscricaoEstadual.Size=new Size(214, 23);
             txtInscricaoEstadual.TabIndex=16;
+            txtInscricaoEstadual.KeyPress+=txtInscricaoEstadual_KeyPress;
             // 
             // txtRazaoSocial
             // 
@@ -282,7 +285,7 @@
             // label8
             // 
             label8.AutoSize=true;
-            label8.Location=new Point(184, 144);
+            label8.Location=new Point(130, 145);
             label8.Name="label8";
             label8.Size=new Size(34, 15);
             label8.TabIndex=11;
@@ -336,7 +339,7 @@
             // label17
             // 
             label17.AutoSize=true;
-            label17.Location=new Point(357, 144);
+            label17.Location=new Point(319, 145);
             label17.Name="label17";
             label17.Size=new Size(101, 15);
             label17.TabIndex=5;
@@ -395,7 +398,6 @@
             StartPosition=FormStartPosition.CenterScreen;
             Text="Cadastro de Fornecedor";
             Load+=formCadastroFornecedor_Load;
-            KeyDown+=formCadastroFornecedor_KeyDown;
             panelBotoes.ResumeLayout(false);
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();

@@ -75,3 +75,8 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\refin
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.pdb
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\ref\UI.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\Validacoes.deps.json
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\Validacoes.runtimeconfig.json
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\Validacoes.exe
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\Validacoes.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\Validacoes.pdb

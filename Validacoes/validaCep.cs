@@ -2,7 +2,7 @@
 
 namespace Validacoes
 {
-    public class validaCep
+    public class ValidaCEP
     {
         static public String cep = "";
         static public String cidade = "";

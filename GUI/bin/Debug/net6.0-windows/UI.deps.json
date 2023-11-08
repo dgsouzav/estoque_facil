@@ -94,7 +94,8 @@
       "BLL/1.0.0": {
         "dependencies": {
           "DAL": "1.0.0",
-          "Modelo": "1.0.0"
+          "Modelo": "1.0.0",
+          "Validacoes": "1.0.0"
         },
         "runtime": {
           "BLL.dll": {}
@@ -112,6 +113,11 @@
       "Modelo/1.0.0": {
         "runtime": {
           "Modelo.dll": {}
+        }
+      },
+      "Validacoes/1.0.0": {
+        "runtime": {
+          "Validacoes.dll": {}
         }
       }
     }
@@ -196,6 +202,11 @@
       "sha512": ""
     },
     "Modelo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Validacoes/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

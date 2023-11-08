@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using Modelo;
+using System.Text.RegularExpressions;
 using Validacoes;
 
 namespace UI
@@ -156,23 +157,14 @@ namespace UI
             this.menuBotoes(1);
         }
 
-        private void formCadastroFornecedor_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
-                e.Handled = true;
-            }
-        }
-
         private void txtCEP_Leave(object sender, EventArgs e)
         {
-            if (validaCep.verificaCEP(txtCEP.Text) == true)
+            if (ValidaCEP.verificaCEP(txtCEP.Text) == true)
             {
-                txtEnderecoFornecedor.Text = validaCep.endereco;
-                txtBairro.Text = validaCep.bairro;
-                txtCidade.Text = validaCep.cidade;
-                txtEstado.Text = validaCep.estado;
+                txtEnderecoFornecedor.Text = ValidaCEP.endereco;
+                txtBairro.Text = ValidaCEP.bairro;
+                txtCidade.Text = ValidaCEP.cidade;
+                txtEstado.Text = ValidaCEP.estado;
             }
             else
             {
@@ -185,10 +177,100 @@ namespace UI
 
         private void txtCNPJ_Leave(object sender, EventArgs e)
         {
-            lblCnpjInvalido.Visible = false;
-            if (validaCNPJ.IsCnpj(txtCNPJ.Text) == false)
+            //lblCnpjInvalido.Visible = false;
+            //if (ValidaCNPJ.IsCnpj(txtCNPJ.Text) == false)
+            //{
+            //    lblCnpjInvalido.Visible = true;
+            //}
+        }
+
+        private void txtCNPJ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
-                lblCnpjInvalido.Visible = true;
+                e.Handled = true;
+            }
+
+            if (txtCNPJ.Text.Length == 2 || txtCNPJ.Text.Length == 6 || txtCNPJ.Text.Length == 10 || txtCNPJ.Text.Length == 15)
+            {
+                e.Handled = true; 
+            }
+
+            if (e.KeyChar != (char)8)
+            {
+                if (txtCNPJ.Text.Length == 2 || txtCNPJ.Text.Length == 6)
+                {
+                    txtCNPJ.Text = txtCNPJ.Text + ".";
+                    txtCNPJ.SelectionStart = txtCNPJ.Text.Length + 1;
+                }
+                else if (txtCNPJ.Text.Length == 10)
+                {
+                    txtCNPJ.Text = txtCNPJ.Text + "/";
+                    txtCNPJ.SelectionStart = txtCNPJ.Text.Length + 1;
+                }
+                else if (txtCNPJ.Text.Length == 15)
+                {
+                    txtCNPJ.Text = txtCNPJ.Text + "-";
+                    txtCNPJ.SelectionStart = txtCNPJ.Text.Length + 1;
+                }
+            }
+        }
+
+        private void txtInscricaoEstadual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+
+            if (txtInscricaoEstadual.Text.Length == 3 || txtInscricaoEstadual.Text.Length == 7 || txtInscricaoEstadual.Text.Length == 11 || txtInscricaoEstadual.Text.Length == 15)
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar != (char)8)
+            {
+                if (txtInscricaoEstadual.Text.Length == 3 || txtInscricaoEstadual.Text.Length == 7 || txtInscricaoEstadual.Text.Length == 11)
+                {
+                    txtInscricaoEstadual.Text = txtInscricaoEstadual.Text + ".";
+                    txtInscricaoEstadual.SelectionStart = txtInscricaoEstadual.Text.Length + 1;
+                }
+                else if (txtInscricaoEstadual.Text.Length == 15)
+                {
+                    txtInscricaoEstadual.Text = txtInscricaoEstadual.Text + "-";
+                    txtInscricaoEstadual.SelectionStart = txtInscricaoEstadual.Text.Length + 1;
+                }
+            }
+        }
+
+
+        private void txtFone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar != (char)8)
+            {
+                if (txtFone.Text.Length == 0)
+                {
+                    txtFone.Text = "(";
+                    txtFone.SelectionStart = txtFone.Text.Length + 1;
+                }
+                else if (txtFone.Text.Length == 3)
+                {
+                    txtFone.Text = txtFone.Text + ")";
+                    txtFone.SelectionStart = txtFone.Text.Length + 1;
+                }
+                else if (txtFone.Text.Length == 9)
+                {
+                    txtFone.Text = txtFone.Text + "-";
+                    txtFone.SelectionStart = txtFone.Text.Length + 1;
+                }
+                else if (txtFone.Text.Length == 14)
+                {
+                    e.Handled = true;
+                }
             }
         }
     }

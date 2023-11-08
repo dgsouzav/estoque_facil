@@ -33,10 +33,6 @@ namespace BLL
         }
         public void Alterar(Modelo.ModeloUsuario modelo)
         {
-            if (modelo.UsuarioID <= 0)
-            {
-                throw new Exception("O ID do usuário é obrigatório");
-            }
             if (modelo.UsuarioNome.Trim().Length == 0)
             {
                 throw new Exception("O nome do usuário é obrigatório");

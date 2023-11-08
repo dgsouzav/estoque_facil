@@ -32,11 +32,6 @@ namespace UI
             f.Dispose();
         }
 
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // voltar ao formLogin
-        }
-
         private void SubCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formCadastroSubCategoria f = new formCadastroSubCategoria();
@@ -103,6 +98,20 @@ namespace UI
         private void FornecedorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             formConsultaFornecedor f = new formConsultaFornecedor();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroUsuario f = new formCadastroUsuario();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void SairToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formLogin f = new formLogin();
             f.ShowDialog();
             f.Dispose();
         }

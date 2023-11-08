@@ -2,6 +2,7 @@
 using Modelo;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using Validacoes;
 
 namespace BLL
@@ -31,10 +32,6 @@ namespace BLL
             {
                 throw new Exception("O CNPJ do fornecedor é obrigatório");
             }
-            if(validaCNPJ.IsCnpj(modelo.FornecedorCNPJ) == false)
-            {
-                throw new Exception("O CNPJ é inválido");
-            }
             if (modelo.FornecedorCEP.Trim().Length == 0)
             {
                 throw new Exception("O CEP do fornecedor é obrigatório");
@@ -55,9 +52,11 @@ namespace BLL
             {
                 throw new Exception("O email do fornecedor é obrigatório");
             }
-            if (modelo.FornecedorEndNumero.Trim().Length == 0)
+            string strRegex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            Regex re = new Regex(strRegex);
+            if (!re.IsMatch(modelo.FornecedorEmail))
             {
-                throw new Exception("O número do endereço do fornecedor é obrigatório");
+                throw new Exception("Digite um email válido.");
             }
             if (modelo.FornecedorCidade.Trim().Length == 0)
             {
@@ -112,9 +111,11 @@ namespace BLL
             {
                 throw new Exception("O email do fornecedor é obrigatório");
             }
-            if (modelo.FornecedorEndNumero.Trim().Length == 0)
+            string strRegex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            Regex re = new Regex(strRegex);
+            if (!re.IsMatch(modelo.FornecedorEmail))
             {
-                throw new Exception("O número do endereço do fornecedor é obrigatório");
+                throw new Exception("Digite um email válido.");
             }
             if (modelo.FornecedorCidade.Trim().Length == 0)
             {
