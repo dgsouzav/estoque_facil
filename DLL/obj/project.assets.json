@@ -154,6 +154,16 @@
         "runtime": {
           "bin/placeholder/Modelo.dll": {}
         }
+      },
+      "Validacoes/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Validacoes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Validacoes.dll": {}
+        }
       }
     }
   },
@@ -408,12 +418,18 @@
       "type": "project",
       "path": "../Modelo/Modelo.csproj",
       "msbuildProject": "../Modelo/Modelo.csproj"
+    },
+    "Validacoes/1.0.0": {
+      "type": "project",
+      "path": "../Validacoes/Validacoes.csproj",
+      "msbuildProject": "../Validacoes/Validacoes.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "DAL >= 1.0.0",
-      "Modelo >= 1.0.0"
+      "Modelo >= 1.0.0",
+      "Validacoes >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -448,6 +464,9 @@
             },
             "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\Modelo.csproj": {
               "projectPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\Modelo.csproj"
+            },
+            "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\Validacoes.csproj": {
+              "projectPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\Validacoes.csproj"
             }
           }
         }

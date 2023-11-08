@@ -1,11 +1,8 @@
 ﻿using DAL;
 using Modelo;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using Validacoes;
 
 namespace BLL
 {
@@ -33,6 +30,10 @@ namespace BLL
             if (modelo.FornecedorCNPJ.Trim().Length == 0)
             {
                 throw new Exception("O CNPJ do fornecedor é obrigatório");
+            }
+            if(validaCNPJ.IsCnpj(modelo.FornecedorCNPJ) == false)
+            {
+                throw new Exception("O CNPJ é inválido");
             }
             if (modelo.FornecedorCEP.Trim().Length == 0)
             {
@@ -133,18 +134,23 @@ namespace BLL
         }
         public DataTable Localizar(String valor)
         {
-            DALFornecedor DALobj = new DALFornecedor(conexao);
-            return DALobj.Localizar(valor);
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from fornecedor where fornecedor_nome like '%" +
+                               valor + "%'", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
         }
         public DataTable LocalizarPorNome(String valor)
         {
-            DALFornecedor DALobj = new DALFornecedor(conexao);
-            return DALobj.LocalizarPorNome(valor);
+            return Localizar(valor);
         }
         public DataTable LocalizarPorCNPJ(String valor)
         {
-            DALFornecedor DALobj = new DALFornecedor(conexao);
-            return DALobj.LocalizarPorCNPJ(valor);
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from fornecedor where fornecedor_cnpj like '%" +
+                                              valor + "%'", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
         }
         public ModeloFornecedor CarregaModeloFornecedor(int id)
         {

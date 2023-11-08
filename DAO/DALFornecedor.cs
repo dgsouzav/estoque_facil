@@ -1,11 +1,6 @@
 ﻿using Modelo;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -58,6 +53,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@endereco", modelo.FornecedorEndereco);
             cmd.Parameters.AddWithValue("@bairro", modelo.FornecedorBairro);
             cmd.Parameters.AddWithValue("@fone", modelo.FornecedorFone);
+            cmd.Parameters.AddWithValue("@email", modelo.FornecedorEmail);
             cmd.Parameters.AddWithValue("@endNumero", modelo.FornecedorEndNumero);
             cmd.Parameters.AddWithValue("@cidade", modelo.FornecedorCidade);
             cmd.Parameters.AddWithValue("@estado", modelo.FornecedorEstado);

@@ -1,13 +1,4 @@
 ﻿using DAL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UI
 {
@@ -26,12 +17,12 @@ namespace UI
             dtgvDados.Columns[0].Width = 60;
             dtgvDados.Columns[1].HeaderText = "Nome";
             dtgvDados.Columns[1].Width = 200;
-            dtgvDados.Columns[2].HeaderText = "CNPJ";
-            dtgvDados.Columns[2].Width = 100;
+            dtgvDados.Columns[2].HeaderText = "Razão Social";
+            dtgvDados.Columns[2].Width = 200;
             dtgvDados.Columns[3].HeaderText = "IE";
             dtgvDados.Columns[3].Width = 100;
-            dtgvDados.Columns[4].HeaderText = "Razão Social";
-            dtgvDados.Columns[4].Width = 200;
+            dtgvDados.Columns[4].HeaderText = "CNPJ";
+            dtgvDados.Columns[4].Width = 100;
             dtgvDados.Columns[5].HeaderText = "CEP";
             dtgvDados.Columns[5].Width = 100;
             dtgvDados.Columns[6].HeaderText = "Endereço";
@@ -42,17 +33,22 @@ namespace UI
             dtgvDados.Columns[8].Width = 100;
             dtgvDados.Columns[9].HeaderText = "Email";
             dtgvDados.Columns[9].Width = 200;
-            dtgvDados.Columns[10].HeaderText = "Cidade";
+            dtgvDados.Columns[10].HeaderText = "Numero";
             dtgvDados.Columns[10].Width = 200;
-            dtgvDados.Columns[11].HeaderText = "Estado";
-            dtgvDados.Columns[11].Width = 100;
+            dtgvDados.Columns[11].HeaderText = "Cidade";
+            dtgvDados.Columns[11].Width = 200;
+            dtgvDados.Columns[12].HeaderText = "Estado";
+            dtgvDados.Columns[12].Width = 100;
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLL.BLLFornecedor bll = new BLL.BLLFornecedor(cx);
-            dtgvDados.DataSource = bll.Localizar(txtConsultaFornecedor.Text);
+            if(rbNome.Checked == true)
+                dtgvDados.DataSource = bll.LocalizarPorNome(txtConsultaFornecedor.Text);
+            else
+                dtgvDados.DataSource = bll.LocalizarPorCNPJ(txtConsultaFornecedor.Text);
 
         }
 

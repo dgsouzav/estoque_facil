@@ -35,6 +35,7 @@
             btnSalvar=new Button();
             btnAlterar=new Button();
             panelDados=new Panel();
+            lblCnpjInvalido=new Label();
             txtCEP=new TextBox();
             txtEstado=new TextBox();
             txtCNPJ=new TextBox();
@@ -129,6 +130,7 @@
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(lblCnpjInvalido);
             panelDados.Controls.Add(txtCEP);
             panelDados.Controls.Add(txtEstado);
             panelDados.Controls.Add(txtCNPJ);
@@ -160,12 +162,24 @@
             panelDados.Size=new Size(536, 393);
             panelDados.TabIndex=2;
             // 
+            // lblCnpjInvalido
+            // 
+            lblCnpjInvalido.AutoSize=true;
+            lblCnpjInvalido.ForeColor=Color.Red;
+            lblCnpjInvalido.Location=new Point(257, 145);
+            lblCnpjInvalido.Name="lblCnpjInvalido";
+            lblCnpjInvalido.Size=new Size(82, 15);
+            lblCnpjInvalido.TabIndex=26;
+            lblCnpjInvalido.Text="CNPJ inválido!";
+            lblCnpjInvalido.Visible=false;
+            // 
             // txtCEP
             // 
-            txtCEP.Location=new Point(361, 207);
+            txtCEP.Location=new Point(6, 161);
             txtCEP.Name="txtCEP";
             txtCEP.Size=new Size(172, 23);
             txtCEP.TabIndex=25;
+            txtCEP.Leave+=txtCEP_Leave;
             // 
             // txtEstado
             // 
@@ -176,14 +190,15 @@
             // 
             // txtCNPJ
             // 
-            txtCNPJ.Location=new Point(190, 207);
+            txtCNPJ.Location=new Point(184, 161);
             txtCNPJ.Name="txtCNPJ";
             txtCNPJ.Size=new Size(165, 23);
             txtCNPJ.TabIndex=23;
+            txtCNPJ.Leave+=txtCNPJ_Leave;
             // 
             // txtEndNumero
             // 
-            txtEndNumero.Location=new Point(447, 162);
+            txtEndNumero.Location=new Point(448, 207);
             txtEndNumero.Name="txtEndNumero";
             txtEndNumero.Size=new Size(86, 23);
             txtEndNumero.TabIndex=22;
@@ -197,7 +212,7 @@
             // 
             // txtCidade
             // 
-            txtCidade.Location=new Point(5, 295);
+            txtCidade.Location=new Point(6, 251);
             txtCidade.Name="txtCidade";
             txtCidade.Size=new Size(258, 23);
             txtCidade.TabIndex=20;
@@ -211,21 +226,21 @@
             // 
             // txtFone
             // 
-            txtFone.Location=new Point(5, 251);
+            txtFone.Location=new Point(6, 295);
             txtFone.Name="txtFone";
             txtFone.Size=new Size(258, 23);
             txtFone.TabIndex=18;
             // 
             // txtEnderecoFornecedor
             // 
-            txtEnderecoFornecedor.Location=new Point(5, 162);
+            txtEnderecoFornecedor.Location=new Point(6, 207);
             txtEnderecoFornecedor.Name="txtEnderecoFornecedor";
             txtEnderecoFornecedor.Size=new Size(437, 23);
             txtEnderecoFornecedor.TabIndex=17;
             // 
             // txtInscricaoEstadual
             // 
-            txtInscricaoEstadual.Location=new Point(5, 208);
+            txtInscricaoEstadual.Location=new Point(353, 161);
             txtInscricaoEstadual.Name="txtInscricaoEstadual";
             txtInscricaoEstadual.Size=new Size(180, 23);
             txtInscricaoEstadual.TabIndex=16;
@@ -240,7 +255,7 @@
             // lblCidade
             // 
             lblCidade.AutoSize=true;
-            lblCidade.Location=new Point(3, 277);
+            lblCidade.Location=new Point(4, 233);
             lblCidade.Name="lblCidade";
             lblCidade.Size=new Size(44, 15);
             lblCidade.TabIndex=14;
@@ -258,7 +273,7 @@
             // lblEndNumero
             // 
             lblEndNumero.AutoSize=true;
-            lblEndNumero.Location=new Point(447, 145);
+            lblEndNumero.Location=new Point(448, 190);
             lblEndNumero.Name="lblEndNumero";
             lblEndNumero.Size=new Size(51, 15);
             lblEndNumero.TabIndex=12;
@@ -267,7 +282,7 @@
             // label8
             // 
             label8.AutoSize=true;
-            label8.Location=new Point(190, 190);
+            label8.Location=new Point(184, 144);
             label8.Name="label8";
             label8.Size=new Size(34, 15);
             label8.TabIndex=11;
@@ -285,7 +300,7 @@
             // label13
             // 
             label13.AutoSize=true;
-            label13.Location=new Point(361, 190);
+            label13.Location=new Point(6, 144);
             label13.Name="label13";
             label13.Size=new Size(28, 15);
             label13.TabIndex=9;
@@ -303,7 +318,7 @@
             // lblFone
             // 
             lblFone.AutoSize=true;
-            lblFone.Location=new Point(4, 233);
+            lblFone.Location=new Point(5, 277);
             lblFone.Name="lblFone";
             lblFone.Size=new Size(51, 15);
             lblFone.TabIndex=7;
@@ -312,7 +327,7 @@
             // lblEndereco
             // 
             lblEndereco.AutoSize=true;
-            lblEndereco.Location=new Point(5, 144);
+            lblEndereco.Location=new Point(6, 189);
             lblEndereco.Name="lblEndereco";
             lblEndereco.Size=new Size(155, 15);
             lblEndereco.TabIndex=6;
@@ -321,7 +336,7 @@
             // label17
             // 
             label17.AutoSize=true;
-            label17.Location=new Point(3, 190);
+            label17.Location=new Point(357, 144);
             label17.Name="label17";
             label17.Size=new Size(101, 15);
             label17.TabIndex=5;
@@ -421,5 +436,6 @@
         private TextBox txtNomeFornecedor;
         private Label lblFornecedorID;
         private Label label20;
+        private Label lblCnpjInvalido;
     }
 }

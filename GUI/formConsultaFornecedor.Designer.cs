@@ -30,15 +30,18 @@
         {
             btnExcluir=new Button();
             dtgvDados=new DataGridView();
-            lblFornecedor=new Label();
             txtConsultaFornecedor=new TextBox();
             btnLocalizar=new Button();
+            grbConsultarNomeCnpj=new GroupBox();
+            rbCnpj=new RadioButton();
+            rbNome=new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dtgvDados).BeginInit();
+            grbConsultarNomeCnpj.SuspendLayout();
             SuspendLayout();
             // 
             // btnExcluir
             // 
-            btnExcluir.Location=new Point(592, 131);
+            btnExcluir.Location=new Point(592, 104);
             btnExcluir.Name="btnExcluir";
             btnExcluir.Size=new Size(80, 60);
             btnExcluir.TabIndex=9;
@@ -52,34 +55,25 @@
             dtgvDados.AllowUserToDeleteRows=false;
             dtgvDados.AllowUserToOrderColumns=true;
             dtgvDados.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvDados.Location=new Point(12, 83);
+            dtgvDados.Location=new Point(12, 70);
             dtgvDados.Name="dtgvDados";
             dtgvDados.ReadOnly=true;
             dtgvDados.RowTemplate.Height=25;
             dtgvDados.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
-            dtgvDados.Size=new Size(561, 316);
+            dtgvDados.Size=new Size(561, 329);
             dtgvDados.TabIndex=8;
             dtgvDados.CellDoubleClick+=dtgvDados_CellDoubleClick;
             // 
-            // lblFornecedor
-            // 
-            lblFornecedor.AutoSize=true;
-            lblFornecedor.Location=new Point(12, 36);
-            lblFornecedor.Name="lblFornecedor";
-            lblFornecedor.Size=new Size(67, 15);
-            lblFornecedor.TabIndex=7;
-            lblFornecedor.Text="Fornecedor";
-            // 
             // txtConsultaFornecedor
             // 
-            txtConsultaFornecedor.Location=new Point(12, 54);
+            txtConsultaFornecedor.Location=new Point(213, 28);
             txtConsultaFornecedor.Name="txtConsultaFornecedor";
-            txtConsultaFornecedor.Size=new Size(561, 23);
+            txtConsultaFornecedor.Size=new Size(360, 23);
             txtConsultaFornecedor.TabIndex=6;
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(592, 54);
+            btnLocalizar.Location=new Point(592, 28);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 60);
             btnLocalizar.TabIndex=5;
@@ -87,14 +81,47 @@
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
             // 
+            // grbConsultarNomeCnpj
+            // 
+            grbConsultarNomeCnpj.Controls.Add(rbCnpj);
+            grbConsultarNomeCnpj.Controls.Add(rbNome);
+            grbConsultarNomeCnpj.Location=new Point(12, 12);
+            grbConsultarNomeCnpj.Name="grbConsultarNomeCnpj";
+            grbConsultarNomeCnpj.Size=new Size(198, 52);
+            grbConsultarNomeCnpj.TabIndex=10;
+            grbConsultarNomeCnpj.TabStop=false;
+            grbConsultarNomeCnpj.Text="Escolha um tipo de consulta:";
+            // 
+            // rbCnpj
+            // 
+            rbCnpj.AutoSize=true;
+            rbCnpj.Checked=true;
+            rbCnpj.Location=new Point(98, 20);
+            rbCnpj.Name="rbCnpj";
+            rbCnpj.Size=new Size(52, 19);
+            rbCnpj.TabIndex=1;
+            rbCnpj.TabStop=true;
+            rbCnpj.Text="CNPJ";
+            rbCnpj.UseVisualStyleBackColor=true;
+            // 
+            // rbNome
+            // 
+            rbNome.AutoSize=true;
+            rbNome.Location=new Point(6, 20);
+            rbNome.Name="rbNome";
+            rbNome.Size=new Size(58, 19);
+            rbNome.TabIndex=0;
+            rbNome.Text="Nome";
+            rbNome.UseVisualStyleBackColor=true;
+            // 
             // formConsultaFornecedor
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(684, 418);
+            Controls.Add(grbConsultarNomeCnpj);
             Controls.Add(btnExcluir);
             Controls.Add(dtgvDados);
-            Controls.Add(lblFornecedor);
             Controls.Add(txtConsultaFornecedor);
             Controls.Add(btnLocalizar);
             Name="formConsultaFornecedor";
@@ -102,6 +129,8 @@
             Text="Consulta de Fornecedor";
             Load+=formConsultaFornecedor_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvDados).EndInit();
+            grbConsultarNomeCnpj.ResumeLayout(false);
+            grbConsultarNomeCnpj.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -110,8 +139,10 @@
 
         private Button btnExcluir;
         private DataGridView dtgvDados;
-        private Label lblFornecedor;
         private TextBox txtConsultaFornecedor;
         private Button btnLocalizar;
+        private GroupBox grbConsultarNomeCnpj;
+        private RadioButton rbCnpj;
+        private RadioButton rbNome;
     }
 }

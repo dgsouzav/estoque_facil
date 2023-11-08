@@ -1,15 +1,7 @@
 ﻿using BLL;
 using DAL;
 using Modelo;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Validacoes;
 
 namespace UI
 {
@@ -120,7 +112,7 @@ namespace UI
                 BLLFornecedor bll = new BLLFornecedor(cx);
                 ModeloFornecedor modelo = new ModeloFornecedor();
                 modelo.FornecedorNome = txtNomeFornecedor.Text;
-                modelo.FornecedorRazaoSocial = txtCNPJ.Text;
+                modelo.FornecedorCNPJ = txtCNPJ.Text;
                 modelo.FornecedorInscricaoEstadual = txtInscricaoEstadual.Text;
                 modelo.FornecedorRazaoSocial = txtRazaoSocial.Text;
                 modelo.FornecedorCEP = txtCEP.Text;
@@ -147,9 +139,9 @@ namespace UI
                 this.LimpaTela();
                 this.menuBotoes(1);
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar o cadastro!");
+                MessageBox.Show("Erro ao salvar o cadastro: " + ex.Message);
             }
         }
 
@@ -170,6 +162,33 @@ namespace UI
             {
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
                 e.Handled = true;
+            }
+        }
+
+        private void txtCEP_Leave(object sender, EventArgs e)
+        {
+            if (validaCep.verificaCEP(txtCEP.Text) == true)
+            {
+                txtEnderecoFornecedor.Text = validaCep.endereco;
+                txtBairro.Text = validaCep.bairro;
+                txtCidade.Text = validaCep.cidade;
+                txtEstado.Text = validaCep.estado;
+            }
+            else
+            {
+                txtEnderecoFornecedor.Clear();
+                txtBairro.Clear();
+                txtCidade.Clear();
+                txtEstado.Clear();
+            }
+        }
+
+        private void txtCNPJ_Leave(object sender, EventArgs e)
+        {
+            lblCnpjInvalido.Visible = false;
+            if (validaCNPJ.IsCnpj(txtCNPJ.Text) == false)
+            {
+                lblCnpjInvalido.Visible = true;
             }
         }
     }

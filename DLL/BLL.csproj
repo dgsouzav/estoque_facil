@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAL.csproj" />
     <ProjectReference Include="..\Modelo\Modelo.csproj" />
+    <ProjectReference Include="..\Validacoes\Validacoes.csproj" />
   </ItemGroup>
 
 </Project>

@@ -136,7 +136,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DAL": "1.0.0",
-          "Modelo": "1.0.0"
+          "Modelo": "1.0.0",
+          "Validacoes": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BLL.dll": {}
@@ -167,6 +168,16 @@
         },
         "runtime": {
           "bin/placeholder/Modelo.dll": {}
+        }
+      },
+      "Validacoes/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Validacoes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Validacoes.dll": {}
         }
       }
     }
@@ -427,6 +438,11 @@
       "type": "project",
       "path": "../Modelo/Modelo.csproj",
       "msbuildProject": "../Modelo/Modelo.csproj"
+    },
+    "Validacoes/1.0.0": {
+      "type": "project",
+      "path": "../Validacoes/Validacoes.csproj",
+      "msbuildProject": "../Validacoes/Validacoes.csproj"
     }
   },
   "projectFileDependencyGroups": {
