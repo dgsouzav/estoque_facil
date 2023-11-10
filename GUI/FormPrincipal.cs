@@ -15,6 +15,16 @@ namespace UI
         public FormPrincipal()
         {
             InitializeComponent();
+            //formLogin f = new formLogin();
+            //f.ShowDialog();
+            //if (f.logado == true)
+            //{
+            //    InitializeComponent();
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
         }
 
         private void CategoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,6 +122,13 @@ namespace UI
         private void SairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             formLogin f = new formLogin();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void CompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCompra f = new formCompra();
             f.ShowDialog();
             f.Dispose();
         }

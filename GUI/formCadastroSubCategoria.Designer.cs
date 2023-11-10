@@ -122,6 +122,8 @@
             // 
             // cmbCategoriaID
             // 
+            cmbCategoriaID.AutoCompleteMode=AutoCompleteMode.Suggest;
+            cmbCategoriaID.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbCategoriaID.FormattingEnabled=true;
             cmbCategoriaID.Location=new Point(3, 160);
             cmbCategoriaID.Name="cmbCategoriaID";

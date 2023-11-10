@@ -25,16 +25,14 @@ namespace DAL
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = "insert into unidadeMedida(undmed_nome) values (@nome); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@nome", modelo.UndMedNome);
+
                 conexao.Conectar();
                 modelo.UndMedID = Convert.ToInt32(cmd.ExecuteScalar());
+                conexao.Desconectar();
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
             }
         } 
 
@@ -47,16 +45,14 @@ namespace DAL
                 cmd.CommandText = "update unidadeMedida set undmed_nome = @nome where undmed_id = @id;";
                 cmd.Parameters.AddWithValue("@nome", modelo.UndMedNome);
                 cmd.Parameters.AddWithValue("@id", modelo.UndMedID);
+
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
+                conexao.Desconectar();
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
             }
         }
 
@@ -68,16 +64,14 @@ namespace DAL
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = "delete from unidadeMedida where undmed_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
+
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
+                conexao.Desconectar();
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
             }
         }
 

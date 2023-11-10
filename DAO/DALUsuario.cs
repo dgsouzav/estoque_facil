@@ -19,42 +19,63 @@ namespace DAL
         }
         public void Incluir(ModeloUsuario modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into usuario(usuario_nome, usuario_senha, usuario_nivelAcesso) values (@nome, @senha, @nivelAcesso)";
-            cmd.Parameters.AddWithValue("@nome", modelo.UsuarioNome);
-            cmd.Parameters.AddWithValue("@senha", modelo.UsuarioSenha);
-            cmd.Parameters.AddWithValue("@nivelAcesso", modelo.UsuarioNivelAcesso);
-            
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "insert into usuario(usuario_nome, usuario_senha, usuario_nivelAcesso) values (@nome, @senha, @nivelAcesso)";
+                cmd.Parameters.AddWithValue("@nome", modelo.UsuarioNome);
+                cmd.Parameters.AddWithValue("@senha", modelo.UsuarioSenha);
+                cmd.Parameters.AddWithValue("@nivelAcesso", modelo.UsuarioNivelAcesso);
 
-            conexao.Conectar();
-            modelo.UsuarioID = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
+
+                conexao.Conectar();
+                modelo.UsuarioID = Convert.ToInt32(cmd.ExecuteScalar());
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public void Alterar(ModeloUsuario modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "update usuario set usuario_id = @id, usuario_nome = @nome, usuario_senha = @senha, usuario_nivelAcesso = @nivelAcesso";
-            cmd.Parameters.AddWithValue("@id", modelo.UsuarioID);
-            cmd.Parameters.AddWithValue("@nome", modelo.UsuarioNome);
-            cmd.Parameters.AddWithValue("@senha", modelo.UsuarioSenha);
-            cmd.Parameters.AddWithValue("@nivelAcesso", modelo.UsuarioNivelAcesso);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "update usuario set usuario_id = @id, usuario_nome = @nome, usuario_senha = @senha, usuario_nivelAcesso = @nivelAcesso";
+                cmd.Parameters.AddWithValue("@id", modelo.UsuarioID);
+                cmd.Parameters.AddWithValue("@nome", modelo.UsuarioNome);
+                cmd.Parameters.AddWithValue("@senha", modelo.UsuarioSenha);
+                cmd.Parameters.AddWithValue("@nivelAcesso", modelo.UsuarioNivelAcesso);
 
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public void Excluir(int id)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "delete from usuario where usuario_id = @id";
-            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "delete from usuario where usuario_id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
 
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public DataTable Localizar(String valor)
         {

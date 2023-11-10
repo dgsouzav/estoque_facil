@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VL5oqWlq77m6kqokZyfN7ouTuPu0M5nc03WFasOGdzqjaUMq/b6vGIgOtdr3LuN18QxQHRCVQRnNi5DFC1qwqA==",
+  "dgSpecHash": "kmYWrSHaU9/71PGQ8stPyyP3B28Cj6FXDXih5fCAzZGnYd1bkt99bG4oiwX6eEiQomF/9p7kNfFaOQ+A5yKNSg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\UI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Diogo\\.nuget\\packages\\google.api.commonprotos\\2.12.0\\google.api.commonprotos.2.12.0.nupkg.sha512",
+    "C:\\Users\\Diogo\\.nuget\\packages\\google.protobuf\\3.23.0\\google.protobuf.3.23.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

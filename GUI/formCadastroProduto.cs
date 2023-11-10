@@ -110,14 +110,14 @@ namespace UI
                 modelo.ProdutoDescricao = txtDescricaoProduto.Text;
                 modelo.ProdutoQtde = Convert.ToDouble(txtQtdeProduto.Text);
                 modelo.ProdutoValorPago = Convert.ToDouble(txtValorPagoProduto.Text);
-                modelo.ProdutoValorVenda = Convert.ToDouble(txtValorVendaProduto.Text); 
+                modelo.ProdutoValorVenda = Convert.ToDouble(txtValorVendaProduto.Text);
                 modelo.UndMedID = Convert.ToInt32(cmbUndMedID.SelectedValue);
                 modelo.CategoriaID = Convert.ToInt32(cmbCategoriaID.SelectedValue);
                 modelo.SubCategoriaID = Convert.ToInt32(cmbSubCategoriaID.SelectedValue);
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
-                if(this.operacao == "inserir")
+                if (this.operacao == "inserir")
                 {
                     bll.Incluir(modelo);
                     MessageBox.Show("Cadastro efetuado com sucesso! \nCódigo: " + modelo.ProdutoID.ToString());
@@ -131,7 +131,7 @@ namespace UI
                 this.LimpaTela();
                 this.menuBotoes(1);
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
             }
@@ -151,6 +151,7 @@ namespace UI
             cmbCategoriaID.DataSource = bll.Localizar("");
             cmbCategoriaID.DisplayMember = "nome_categoria";
             cmbCategoriaID.ValueMember = "categoria_id";
+
             try
             {
                 BLLSubCategoria bll2 = new BLLSubCategoria(cx);

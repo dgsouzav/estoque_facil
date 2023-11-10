@@ -19,38 +19,59 @@ namespace DAL
 
         public void Incluir(ModeloTipoPagamento modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into tipoPagamento(tipoPagamento_nome) values (@nome); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.TipoPagamentoNome);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "insert into tipoPagamento(tipoPagamento_nome) values (@nome); select @@IDENTITY;";
+                cmd.Parameters.AddWithValue("@nome", modelo.TipoPagamentoNome);
 
-            conexao.Conectar();
-            modelo.TipoPagamentoID = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
+                conexao.Conectar();
+                modelo.TipoPagamentoID = Convert.ToInt32(cmd.ExecuteScalar());
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         public void Alterar(ModeloTipoPagamento modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "update tipoPagamento set tipoPagamento_nome = @nome where tipoPagamento_id = @id;";
-            cmd.Parameters.AddWithValue("@nome", modelo.TipoPagamentoNome);
-            cmd.Parameters.AddWithValue("@id", modelo.TipoPagamentoID);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "update tipoPagamento set tipoPagamento_nome = @nome where tipoPagamento_id = @id;";
+                cmd.Parameters.AddWithValue("@nome", modelo.TipoPagamentoNome);
+                cmd.Parameters.AddWithValue("@id", modelo.TipoPagamentoID);
 
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public void Excluir(int id)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "delete from tipoPagamento where tipoPagamento_id = @id;";
-            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "delete from tipoPagamento where tipoPagamento_id = @id;";
+                cmd.Parameters.AddWithValue("@id", id);
 
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public DataTable Localizar(String valor)

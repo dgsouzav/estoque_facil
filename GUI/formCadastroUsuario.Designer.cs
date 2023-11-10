@@ -143,6 +143,8 @@
             // 
             // cmbNivelAcesso
             // 
+            cmbNivelAcesso.AutoCompleteMode=AutoCompleteMode.Suggest;
+            cmbNivelAcesso.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbNivelAcesso.FormattingEnabled=true;
             cmbNivelAcesso.Location=new Point(3, 212);
             cmbNivelAcesso.Name="cmbNivelAcesso";

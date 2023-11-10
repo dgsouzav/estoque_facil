@@ -19,6 +19,9 @@
     <Compile Update="formCadastroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="formConsultaFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>

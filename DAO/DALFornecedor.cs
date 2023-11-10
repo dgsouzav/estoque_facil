@@ -13,66 +13,87 @@ namespace DAL
         }
         public void Incluir(ModeloFornecedor modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
 
-            cmd.CommandText = "insert into fornecedor(fornecedor_nome, fornecedor_razaoSocial, fornecedor_inscricaoEstadual, fornecedor_cnpj, fornecedor_cep, " +
-                "fornecedor_endereco, fornecedor_bairro, fornecedor_fone, fornecedor_email, fornecedor_endNumero, fornecedor_cidade, fornecedor_estado) values " +
-                "(@nome, @razaoSocial, @inscricaoEstadual,@cnpj, @cep, @endereco, @bairro, @fone, @email, @endNumero, @cidade, @estado)";
-            cmd.Parameters.AddWithValue("@nome", modelo.FornecedorNome);
-            cmd.Parameters.AddWithValue("@razaoSocial", modelo.FornecedorRazaoSocial);
-            cmd.Parameters.AddWithValue("@inscricaoEstadual", modelo.FornecedorInscricaoEstadual);
-            cmd.Parameters.AddWithValue("@cnpj", modelo.FornecedorCNPJ);
-            cmd.Parameters.AddWithValue("@cep", modelo.FornecedorCEP);
-            cmd.Parameters.AddWithValue("@endereco", modelo.FornecedorEndereco);
-            cmd.Parameters.AddWithValue("@bairro", modelo.FornecedorBairro);
-            cmd.Parameters.AddWithValue("@fone", modelo.FornecedorFone);
-            cmd.Parameters.AddWithValue("@email", modelo.FornecedorEmail);
-            cmd.Parameters.AddWithValue("@endNumero", modelo.FornecedorEndNumero);
-            cmd.Parameters.AddWithValue("@cidade", modelo.FornecedorCidade);
-            cmd.Parameters.AddWithValue("@estado", modelo.FornecedorEstado);
+                cmd.CommandText = "insert into fornecedor(fornecedor_nome, fornecedor_razaoSocial, fornecedor_inscricaoEstadual, fornecedor_cnpj, fornecedor_cep, " +
+                    "fornecedor_endereco, fornecedor_bairro, fornecedor_fone, fornecedor_email, fornecedor_endNumero, fornecedor_cidade, fornecedor_estado) values " +
+                    "(@nome, @razaoSocial, @inscricaoEstadual,@cnpj, @cep, @endereco, @bairro, @fone, @email, @endNumero, @cidade, @estado)";
+                cmd.Parameters.AddWithValue("@nome", modelo.FornecedorNome);
+                cmd.Parameters.AddWithValue("@razaoSocial", modelo.FornecedorRazaoSocial);
+                cmd.Parameters.AddWithValue("@inscricaoEstadual", modelo.FornecedorInscricaoEstadual);
+                cmd.Parameters.AddWithValue("@cnpj", modelo.FornecedorCNPJ);
+                cmd.Parameters.AddWithValue("@cep", modelo.FornecedorCEP);
+                cmd.Parameters.AddWithValue("@endereco", modelo.FornecedorEndereco);
+                cmd.Parameters.AddWithValue("@bairro", modelo.FornecedorBairro);
+                cmd.Parameters.AddWithValue("@fone", modelo.FornecedorFone);
+                cmd.Parameters.AddWithValue("@email", modelo.FornecedorEmail);
+                cmd.Parameters.AddWithValue("@endNumero", modelo.FornecedorEndNumero);
+                cmd.Parameters.AddWithValue("@cidade", modelo.FornecedorCidade);
+                cmd.Parameters.AddWithValue("@estado", modelo.FornecedorEstado);
 
-            conexao.Conectar();
-            modelo.FornecedorID = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
+                conexao.Conectar();
+                modelo.FornecedorID = Convert.ToInt32(cmd.ExecuteScalar());
+                conexao.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
         }
         public void Alterar(ModeloFornecedor modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
 
-            cmd.CommandText = "update fornecedor set fornecedor_nome = @nome, fornecedor_razaoSocial = @razaoSocial, fornecedor_inscricaoEstadual = @inscricaoEstadual, " +
-                "fornecedor_cnpj = @cnpj, fornecedor_cep = @cep, fornecedor_endereco = @endereco, fornecedor_bairro = @bairro, fornecedor_fone = @fone, " +
-                "fornecedor_email = @email";
-            cmd.Parameters.AddWithValue("@id", modelo.FornecedorID);
-            cmd.Parameters.AddWithValue("@nome", modelo.FornecedorNome);
-            cmd.Parameters.AddWithValue("@razaoSocial", modelo.FornecedorRazaoSocial);
-            cmd.Parameters.AddWithValue("@inscricaoEstadual", modelo.FornecedorInscricaoEstadual);
-            cmd.Parameters.AddWithValue("@cnpj", modelo.FornecedorCNPJ);
-            cmd.Parameters.AddWithValue("@cep", modelo.FornecedorCEP);
-            cmd.Parameters.AddWithValue("@endereco", modelo.FornecedorEndereco);
-            cmd.Parameters.AddWithValue("@bairro", modelo.FornecedorBairro);
-            cmd.Parameters.AddWithValue("@fone", modelo.FornecedorFone);
-            cmd.Parameters.AddWithValue("@email", modelo.FornecedorEmail);
-            cmd.Parameters.AddWithValue("@endNumero", modelo.FornecedorEndNumero);
-            cmd.Parameters.AddWithValue("@cidade", modelo.FornecedorCidade);
-            cmd.Parameters.AddWithValue("@estado", modelo.FornecedorEstado);
+                cmd.CommandText = "update fornecedor set fornecedor_nome = @nome, fornecedor_razaoSocial = @razaoSocial, fornecedor_inscricaoEstadual = @inscricaoEstadual, " +
+                    "fornecedor_cnpj = @cnpj, fornecedor_cep = @cep, fornecedor_endereco = @endereco, fornecedor_bairro = @bairro, fornecedor_fone = @fone, " +
+                    "fornecedor_email = @email";
+                cmd.Parameters.AddWithValue("@id", modelo.FornecedorID);
+                cmd.Parameters.AddWithValue("@nome", modelo.FornecedorNome);
+                cmd.Parameters.AddWithValue("@razaoSocial", modelo.FornecedorRazaoSocial);
+                cmd.Parameters.AddWithValue("@inscricaoEstadual", modelo.FornecedorInscricaoEstadual);
+                cmd.Parameters.AddWithValue("@cnpj", modelo.FornecedorCNPJ);
+                cmd.Parameters.AddWithValue("@cep", modelo.FornecedorCEP);
+                cmd.Parameters.AddWithValue("@endereco", modelo.FornecedorEndereco);
+                cmd.Parameters.AddWithValue("@bairro", modelo.FornecedorBairro);
+                cmd.Parameters.AddWithValue("@fone", modelo.FornecedorFone);
+                cmd.Parameters.AddWithValue("@email", modelo.FornecedorEmail);
+                cmd.Parameters.AddWithValue("@endNumero", modelo.FornecedorEndNumero);
+                cmd.Parameters.AddWithValue("@cidade", modelo.FornecedorCidade);
+                cmd.Parameters.AddWithValue("@estado", modelo.FornecedorEstado);
 
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
         }
         public void Excluir(int id)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
 
-            cmd.CommandText = "delete from fornecedor where fornecedor_id = @id;";
-            cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandText = "delete from fornecedor where fornecedor_id = @id;";
+                cmd.Parameters.AddWithValue("@id", id);
 
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
         }
         public DataTable Localizar(string valor) 
         {

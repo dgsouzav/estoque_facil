@@ -146,6 +146,8 @@
             // 
             // cmbUndMedID
             // 
+            cmbUndMedID.AutoCompleteMode=AutoCompleteMode.Suggest;
+            cmbUndMedID.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbUndMedID.FormattingEnabled=true;
             cmbUndMedID.Location=new Point(283, 30);
             cmbUndMedID.Name="cmbUndMedID";
@@ -154,6 +156,8 @@
             // 
             // cmbCategoriaID
             // 
+            cmbCategoriaID.AutoCompleteMode=AutoCompleteMode.Suggest;
+            cmbCategoriaID.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbCategoriaID.FormattingEnabled=true;
             cmbCategoriaID.Location=new Point(283, 86);
             cmbCategoriaID.Name="cmbCategoriaID";
@@ -163,6 +167,8 @@
             // 
             // cmbSubCategoriaID
             // 
+            cmbSubCategoriaID.AutoCompleteMode=AutoCompleteMode.Suggest;
+            cmbSubCategoriaID.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbSubCategoriaID.FormattingEnabled=true;
             cmbSubCategoriaID.Location=new Point(283, 141);
             cmbSubCategoriaID.Name="cmbSubCategoriaID";

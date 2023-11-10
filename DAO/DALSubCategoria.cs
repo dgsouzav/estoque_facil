@@ -30,14 +30,11 @@ namespace DAL
 
                 conexao.Conectar();
                 modelo.CategoriaID = Convert.ToInt32(cmd.ExecuteScalar());
+                conexao.Desconectar();
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
             }
         }
 
@@ -54,14 +51,11 @@ namespace DAL
 
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
+                conexao.Desconectar();
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
             }
         }
 
@@ -76,14 +70,12 @@ namespace DAL
 
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
             }
         }
 

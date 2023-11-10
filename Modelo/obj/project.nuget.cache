@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "I7drtMWG+QXqsIxQjl2n3ULf7HbztWL21dn/eGQ7TvFkP8V/jmTNRtInMFKIEyXRlK0uR8FfHjeJJCs6gqeuxQ==",
+  "dgSpecHash": "M2LD3AyrTp5MQLFdSz3fdw58GbToYBihDrJZf+MBpKpLax/35E6YA4eJc1hFdn3aMw++QmINt2mwQXcLd0MqvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\Modelo.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Diogo\\.nuget\\packages\\google.api.commonprotos\\2.12.0\\google.api.commonprotos.2.12.0.nupkg.sha512",
+    "C:\\Users\\Diogo\\.nuget\\packages\\google.protobuf\\3.23.0\\google.protobuf.3.23.0.nupkg.sha512"
+  ],
   "logs": []
 }
