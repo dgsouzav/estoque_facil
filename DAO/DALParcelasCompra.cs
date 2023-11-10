@@ -100,5 +100,56 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
+
+        public void ExcluirParcelas(int compra_id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "delete from parcelasCompra where compra_id = @compra_id;";
+                cmd.Parameters.AddWithValue("@compra_id", compra_id);
+
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public DataTable Localizar(int compra_id)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from parcelasCompra where compra_id = " 
+                + compra_id.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+        public ModeloParcelasCompra CarregaModeloParcelasCompra(int ParcelasCompraID, int CompraID)
+        {
+            ModeloParcelasCompra modelo = new ModeloParcelasCompra();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from parcelasCompra where parcelasCompra_id = @parcelasCompra_id and " +
+                "compra_id = @compra_id;";
+            cmd.Parameters.AddWithValue("@parcelasCompra_id", ParcelasCompraID);
+            cmd.Parameters.AddWithValue("@compra_id", CompraID);
+
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.ParcelasCompraID = ParcelasCompraID;
+                modelo.CompraID = CompraID;
+                modelo.ParcelasCompraValor = Convert.ToDouble(registro["parcelasCompra_valor"]);
+                modelo.ParcelasCompraDataPagamento = Convert.ToDateTime(registro["parcelasCompra_dataPagamento"]);
+                modelo.ParcelasCompraDataVencimento = Convert.ToDateTime(registro["parcelasCompra_dataVencimento"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
     }
 }
