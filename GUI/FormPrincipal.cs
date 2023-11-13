@@ -15,16 +15,6 @@ namespace UI
         public FormPrincipal()
         {
             InitializeComponent();
-            //formLogin f = new formLogin();
-            //f.ShowDialog();
-            //if (f.logado == true)
-            //{
-            //    InitializeComponent();
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
         }
 
         private void CategoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,9 +83,7 @@ namespace UI
 
         private void tIPODEPAGAMENTOToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
-            f.ShowDialog();
-            f.Dispose();
+
         }
 
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,6 +109,7 @@ namespace UI
 
         private void SairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            // fechar fomulario principal ao clicar em sair e depois abir o formulario de login
             formLogin f = new formLogin();
             f.ShowDialog();
             f.Dispose();
@@ -129,6 +118,25 @@ namespace UI
         private void CompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formCompra f = new formCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compraToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaCompra f = new formConsultaCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void TipoPagamentoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
             f.ShowDialog();
             f.Dispose();
         }

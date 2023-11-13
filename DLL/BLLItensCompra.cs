@@ -83,7 +83,11 @@ namespace BLL
             DALItensCompra DALobj = new DALItensCompra(conexao);
             DALobj.Excluir(modelo);
         }
-
+        public void ExcluirItens(int compra_id)
+        {
+            DALItensCompra DALobj = new DALItensCompra(conexao);
+            DALobj.ExcluirItens(compra_id);
+        }
         public DataTable Localizar(int compra_id)
         {
             DALItensCompra DALobj = new DALItensCompra(conexao);

@@ -27,15 +27,15 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@parcelasCompra_id", modelo.ParcelasCompraID);
                 cmd.Parameters.AddWithValue("@parcelasCompra_valor", modelo.ParcelasCompraValor);
                 cmd.Parameters.AddWithValue("@compra_id", modelo.CompraID);
-                cmd.Parameters.Add("@parcelasDataVencimento", SqlDbType.Date);
+                cmd.Parameters.Add("@parcelasCompra_dataVencimento", SqlDbType.Date);
 
                 if(modelo.ParcelasCompraDataVencimento == null)
                 {
-                    cmd.Parameters["@parcelasDataVencimento"].Value = DBNull.Value;
+                    cmd.Parameters["@parcelasCompra_dataVencimento"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters["@parcelasDataVencimento"].Value = modelo.ParcelasCompraDataVencimento;
+                    cmd.Parameters["@parcelasCompra_dataVencimento"].Value = modelo.ParcelasCompraDataVencimento;
                 }
 
                 conexao.Conectar();

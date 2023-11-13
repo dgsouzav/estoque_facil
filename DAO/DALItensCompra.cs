@@ -82,6 +82,23 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
+        public void ExcluirItens(int compra_id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "delete from itensCompra where compra_id = @compra_id;";
+                cmd.Parameters.AddWithValue("@compra_id", compra_id);
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public ModeloItensCompra CarregaModeloItensCompra(int ItensCompraID, int CompraID, int ProdutoID)
         {
             ModeloItensCompra modelo = new ModeloItensCompra();
@@ -109,8 +126,10 @@ namespace DAL
         public DataTable Localizar(int compra_id)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from itensCompra where compra_id = " + 
-                compra_id.ToString(), conexao.StringConexao);
+            SqlDataAdapter da = new SqlDataAdapter("select i.compra_id, i.itensCompra_id, i.produto_id, p.produto_nome, i.itensCompra_qtde, i.itensCompra_valor from itensCompra i " +
+                "inner join produto p on p.produto_id = i.produto_id where i.compra_id ="
+                + compra_id.ToString(), conexao.StringConexao);
+
             da.Fill(tabela);
             return tabela;
         }

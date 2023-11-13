@@ -27,8 +27,8 @@ namespace UI
             btnAlterar.Enabled = false;
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
-            btnExcluir.Enabled = false;
             btnLocalizar.Enabled = false;
+            btnExcluir.Enabled = false;
 
             if (op == 1)
             {
@@ -45,9 +45,9 @@ namespace UI
 
             if (op == 3)
             {
+                btnExcluir.Enabled = true;
                 btnAlterar.Enabled = true;
                 btnCancelar.Enabled = true;
-                btnExcluir.Enabled = true;
             }
         }
 
@@ -88,10 +88,6 @@ namespace UI
             this.totalCompra = 0;
             this.menuBotoes(1);
         }
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -101,7 +97,7 @@ namespace UI
             Double valorLocal = totalLocal / parcelas;
             DateTime dt = new DateTime();
             dt = dtpDataInicial.Value;
-            lblCompraTotal.Text = txtCompraTotal.Text;
+            lbl0000.Text = "" + valorLocal.ToString();
 
             for (int i = 1; i <= parcelas; i++)
             {
@@ -121,27 +117,40 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            /*formConsultaFornecedor f = new formConsultaFornecedor();
+            formConsultaCompra f = new formConsultaCompra();
             f.ShowDialog();
             if (f.id != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLFornecedor bll = new BLLFornecedor(cx);
-                ModeloFornecedor modelo = bll.CarregaModeloFornecedor(f.id);
-                txtFornecedorID.Text = modelo.FornecedorID.ToString();
-                txtNomeFornecedor.Text = modelo.FornecedorNome;
-                txtCNPJ.Text = modelo.FornecedorCNPJ;
-                txtInscricaoEstadual.Text = modelo.FornecedorInscricaoEstadual;
-                txtRazaoSocial.Text = modelo.FornecedorRazaoSocial;
-                txtCEP.Text = modelo.FornecedorCEP;
-                txtEnderecoFornecedor.Text = modelo.FornecedorEndereco;
-                txtBairro.Text = modelo.FornecedorBairro;
-                txtFone.Text = modelo.FornecedorFone;
-                txtEmail.Text = modelo.FornecedorEmail;
-                txtEndNumero.Text = modelo.FornecedorEndNumero;
-                txtCidade.Text = modelo.FornecedorCidade;
-                txtEstado.Text = modelo.FornecedorEstado;
+                BLLCompra bll = new BLLCompra(cx);
+                ModeloCompra modelo = bll.CarregaModeloCompra(f.id);
 
+                txtCompraID.Text = modelo.CompraID.ToString();
+                txtNotaFiscal.Text = modelo.CompraNotaFiscal.ToString();
+                dtpDataCompra.Value = modelo.CompraData;
+                txtFornecedorID.Text = modelo.FornecedorID.ToString();
+                txtFornecedorID_Leave(sender, e);
+                cmbTipoPagamento.SelectedValue = modelo.TipoPagamentoID;
+                cmbNumeroParcelas.Text = modelo.CompraNumeroParcelas.ToString();
+                txtCompraTotal.Text = modelo.CompraTotal.ToString();
+
+                this.totalCompra = modelo.CompraTotal;
+
+                BLLItensCompra bLLItensCompra = new BLLItensCompra(cx);
+                DataTable tabela = bLLItensCompra.Localizar(modelo.CompraID);
+
+                for (int i = 0; i < tabela.Rows.Count; i++)
+                {
+                    string id = tabela.Rows[i]["produto_id"].ToString();
+                    string nome = tabela.Rows[i]["produto_nome"].ToString();
+                    string qtde = tabela.Rows[i]["itensCompra_qtde"].ToString();
+                    string valor = tabela.Rows[i]["itensCompra_valor"].ToString();
+
+                    Double TotalLocal = Convert.ToDouble(tabela.Rows[i]["itensCompra_qtde"]) * Convert.ToDouble(tabela.Rows[i]["itensCompra_valor"]);
+
+                    String[] k = new String[] { id, nome, qtde, valor, TotalLocal.ToString() };
+                    this.dtgvItensCompra.Rows.Add(k);
+                }
                 this.menuBotoes(3);
             }
             else
@@ -149,7 +158,7 @@ namespace UI
                 this.LimpaTela();
                 this.menuBotoes(1);
             }
-            f.Dispose();*/
+            f.Dispose();
         }
 
         private void btnLocalizarFornecedor_Click_1(object sender, EventArgs e)
@@ -176,7 +185,7 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLFornecedor bll = new BLLFornecedor(cx);
                 ModeloFornecedor modelo = bll.CarregaModeloFornecedor(Convert.ToInt32(txtFornecedorID.Text));
-                lblFornecedorID.Text = modelo.FornecedorNome;
+                txtFornecedorID.Text = modelo.FornecedorNome;
             }
             catch (Exception ex)
             {
@@ -271,7 +280,7 @@ namespace UI
             try
             {
                 ModeloCompra modelo = new ModeloCompra();
-                modelo.CompraData = dtpDataAtual.Value;
+                modelo.CompraData = dtpDataCompra.Value;
                 modelo.CompraNotaFiscal = Convert.ToInt32(txtNotaFiscal.Text);
                 modelo.CompraNumeroParcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
                 modelo.CompraStatus = "Ativa";
@@ -281,6 +290,9 @@ namespace UI
 
                 ModeloItensCompra itens = new ModeloItensCompra();
                 BLLItensCompra bitens = new BLLItensCompra(cx);
+
+                ModeloParcelasCompra parcelas = new ModeloParcelasCompra();
+                BLLParcelasCompra bparcelas = new BLLParcelasCompra(cx);
 
                 if (this.operacao == "inserir")
                 {
@@ -293,10 +305,16 @@ namespace UI
                         itens.ItensCompraQtde = Convert.ToInt32(dtgvItensCompra.Rows[i].Cells[2].Value);
                         itens.ItensCompraValor = Convert.ToDouble(dtgvItensCompra.Rows[i].Cells[3].Value);
                         bitens.Incluir(itens);
-
-
                     }
-
+                    for (int i = 0; i < dtgvParcelasCompra.RowCount; i++)
+                    {
+                        parcelas.ParcelasCompraID = i + 1;
+                        parcelas.CompraID = modelo.CompraID;
+                        parcelas.ParcelasCompraID = Convert.ToInt32(dtgvParcelasCompra.Rows[i].Cells[0].Value);
+                        parcelas.ParcelasCompraValor = Convert.ToDouble(dtgvParcelasCompra.Rows[i].Cells[1].Value);
+                        parcelas.ParcelasCompraDataVencimento = Convert.ToDateTime(dtgvParcelasCompra.Rows[i].Cells[2].Value);
+                        bparcelas.Incluir(parcelas);
+                    }
 
                     MessageBox.Show("Compra efetuada com sucesso! Código: " + modelo.CompraID.ToString());
                 }
@@ -307,6 +325,7 @@ namespace UI
                     // MessageBox.Show("Compra alterada com sucesso!");
                 }
                 this.LimpaTela();
+                panelFinalizaCompra.Visible = false;
                 this.menuBotoes(1);
             }
             catch (Exception erro)
@@ -319,6 +338,35 @@ namespace UI
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
             panelFinalizaCompra.Visible = false;
+        }
+
+        private void btnExcluir_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult d = MessageBox.Show("Deseja excluir a compra?", "Aviso", MessageBoxButtons.YesNo);
+                if (d.ToString() == "Yes")
+                {
+                    int compraid = Convert.ToInt32(txtCompraID.Text);
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+
+                    BLLParcelasCompra bll = new BLLParcelasCompra(cx);
+                    bll.ExcluirParcelas(compraid);
+
+                    BLLItensCompra bll2 = new BLLItensCompra(cx);
+                    bll2.ExcluirItens(compraid);
+
+                    BLLCompra bll3 = new BLLCompra(cx);
+                    bll3.Excluir(compraid);
+                      
+                    this.LimpaTela();
+                    this.menuBotoes(1);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Impossível excluir o registro. \n O registro está sendo utilizado em outro local.");
+            }
         }
     }
 }

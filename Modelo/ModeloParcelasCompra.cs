@@ -12,7 +12,7 @@ namespace Modelo
         {
             this.ParcelasCompraID = 0;
             this.ParcelasCompraValor = 0;
-            this.ParcelasCompraDataPagamento = DateTime.Now;
+            //this.ParcelasCompraDataPagamento = DateTime.Now;
             this.ParcelasCompraDataVencimento = DateTime.Now;
             this.CompraID = 0;
         }

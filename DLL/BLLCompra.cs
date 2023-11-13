@@ -79,20 +79,30 @@ namespace BLL
             DALCompra DALobj = new DALCompra(conexao);
             DALobj.Excluir(id);
         }
-        public DataTable LocalizarPorFornecedor(int id)
+        public DataTable Localizar(int id)
         {
             DALCompra DALobj = new DALCompra(conexao);
-            return DALobj.LocalizarPorFornecedor(id);
+            return DALobj.Localizar(id);
         }
-        public DataTable LocalizarPorNome(string nome)
+        public DataTable Localizar(string nome)
         {
             DALCompra DALobj = new DALCompra(conexao);
-            return DALobj.LocalizarPorNome(nome);
+            return DALobj.Localizar(nome);
         }
-        public DataTable LocalizarPorData(DateTime dataInicial, DateTime dataFinal)
+        public DataTable Localizar(DateTime dataInicial, DateTime dataFinal)
         {
             DALCompra DALobj = new DALCompra(conexao);
-            return DALobj.LocalizarPorData(dataInicial, dataFinal);
+            return DALobj.Localizar(dataInicial, dataFinal);
+        }
+        public DataTable Localizar()
+        {
+            DALCompra DALobj = new DALCompra(conexao);
+            return DALobj.Localizar();
+        }
+        public DataTable LocalizarParcelasNaoPagas()
+        {
+            DALCompra DALobj = new DALCompra(conexao);
+            return DALobj.LocalizarParcelasNaoPagas();
         }
         public ModeloCompra CarregaModeloCompra(int id)
         {

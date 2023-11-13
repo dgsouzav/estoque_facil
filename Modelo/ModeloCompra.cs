@@ -19,7 +19,7 @@ namespace Modelo
         }
 
         public ModeloCompra(int compra_id, DateTime compra_data, int compra_notaFiscal, 
-            Double compra_total, int compra_numeroParcelas, String compra_status, int fornecedor_id, int tipoPagamento_id)
+            double compra_total, int compra_numeroParcelas, String compra_status, int fornecedor_id, int tipoPagamento_id)
         {
             this.CompraID = compra_id;
             this.CompraData = compra_data;

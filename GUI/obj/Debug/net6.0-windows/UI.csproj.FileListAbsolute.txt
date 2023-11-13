@@ -64,6 +64,7 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.fo
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroUsuario.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCompra.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCategoria.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCompra.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaFornecedor.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaProduto.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaSubCategoria.resources

@@ -94,43 +94,64 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable LocalizarPorFornecedor(int id)
+        // lista por compra
+        public DataTable Localizar(int id)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, c.compra_total, c.compra_numeroParcelas, " +
-                 "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, f.fornecedor_nome " +
+            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+                 "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
                  "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
                  "c.fornecedor_id = " + id.ToString(), conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
-        public DataTable LocalizarPorNome(string nome)
+        // lista pelo nome do fornecedor
+        public DataTable Localizar(string nome)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, c.compra_total, c.compra_numeroParcelas, " +
-                "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.tipoPagamento_id, f.fornecedor_nome " +
-                "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
+            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+                 "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
+                 "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
                 "f.fornecedor_nome like '%" + nome + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
-        public DataTable LocalizarPorData(DateTime DataInicial, DateTime DataFinal)
+        // lista por data inicial e final
+        public DataTable Localizar(DateTime DataInicial, DateTime DataFinal)
         {
             DataTable tabela = new DataTable();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select c.compra_id, c.compra_data, c.compra_notaFiscal, c.compra_total, c.compra_numeroParcelas, " +
-                "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.tipoPagamento_id, f.fornecedor_nome " +
-                "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
+            cmd.CommandText = "select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+                 "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
+                 "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
                  "c.compra_data between @dataInicial and @dataFinal";
             cmd.Parameters.Add("@dataInicial", SqlDbType.DateTime);
             cmd.Parameters["@dataInicial"].Value = DataInicial;
             cmd.Parameters.AddWithValue("@dataFinal", SqlDbType.DateTime);
             cmd.Parameters["@dataFinal"].Value = DataFinal;
-            //conexao.Conectar();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabela);
-            //conexao.Desconectar();
+            return tabela;
+        }
+        // lista todas compras
+        public DataTable Localizar()
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+                 "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
+                 "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+        // localizar pelas parcelas nao pagas
+        public DataTable LocalizarParcelasNaoPagas()
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select distinct c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+                "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total from compra c inner join fornecedor f on " +
+                "c.fornecedor_id = f.fornecedor_id inner join parcelasCompra p on c.compra_id = p.compra_id where p.parcelasCompra_dataPagamento is NULL", conexao.StringConexao);
+            da.Fill(tabela);
             return tabela;
         }
         public ModeloCompra CarregaModeloCompra(int id)
