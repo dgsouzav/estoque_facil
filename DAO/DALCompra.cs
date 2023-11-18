@@ -154,6 +154,20 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
+        // retorna a quantidade de parcelas nao pagas
+        public int QuantidadeParcelasNaoPagas(int compra_id)
+        {
+            int qtde = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select count(compra_id) from parcelasCompra where compra_id = @id and parcelasCompra_dataPagamento is NULL";
+            cmd.Parameters.AddWithValue("@id", compra_id);
+
+            conexao.Conectar();
+            qtde = Convert.ToInt32(cmd.ExecuteScalar());
+            conexao.Desconectar();
+            return qtde;
+        }
         public ModeloCompra CarregaModeloCompra(int id)
         {
             ModeloCompra modelo = new ModeloCompra();

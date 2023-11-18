@@ -113,7 +113,7 @@ namespace UI
                 if (operacao == "inserir")
                 {
                     bll.Incluir(modelo);
-                    MessageBox.Show("Cadastro efetuado com sucesso! Código: " + modelo.SubCategoriaID.ToString());
+                    MessageBox.Show("Cadastro efetuado com sucesso! ID: " + modelo.SubCategoriaID.ToString());
                 }
                 else
                 {

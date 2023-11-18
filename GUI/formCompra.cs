@@ -1,16 +1,7 @@
 ﻿using BLL;
 using DAL;
 using Modelo;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UI
 {
@@ -78,9 +69,23 @@ namespace UI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            this.operacao = "alterar";
-            this.menuBotoes(2);
+            int compraid = Convert.ToInt32(txtCompraID.Text);
+            int qtde = Convert.ToInt32(cmbNumeroParcelas.Text);
+
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCompra bll3 = new BLLCompra(cx);
+            qtde -= bll3.QuantidadeParcelasNaoPagas(compraid);
+            if (qtde == 0)
+            {
+                this.operacao = "alterar";
+                this.menuBotoes(2);
+            }
+            else
+            {
+                MessageBox.Show("Impossível alterar o registro. \n O registro possui parcelas pagas.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -185,12 +190,13 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLFornecedor bll = new BLLFornecedor(cx);
                 ModeloFornecedor modelo = bll.CarregaModeloFornecedor(Convert.ToInt32(txtFornecedorID.Text));
-                txtFornecedorID.Text = modelo.FornecedorNome;
+                txtFornecedorID.Text = modelo.FornecedorID.ToString();
+                lblFornecedorNome.Text = modelo.FornecedorNome;
+
             }
             catch (Exception ex)
             {
                 txtFornecedorID.Clear();
-                lblFornecedorNome.Text = "Informe o nome do Fornecedor ou localize";
                 MessageBox.Show("Erro ao buscar o Fornecedor: " + ex.Message);
             }
         }
@@ -219,14 +225,13 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
                 ModeloProduto modelo = bll.CarregaModeloProduto(Convert.ToInt32(txtProdutoID.Text));
-                lblProdutoID.Text = modelo.ProdutoNome;
                 txtQtde.Text = "1";
                 txtValor.Text = modelo.ProdutoValorPago.ToString();
+                lblProdutoNome.Text = modelo.ProdutoNome;
             }
             catch
             {
                 txtProdutoID.Clear();
-                lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             }
         }
 
@@ -276,17 +281,19 @@ namespace UI
         private void btnSalvarPagamento_Click(object sender, EventArgs e)
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLCompra bll = new BLLCompra(cx);
+
             try
             {
-                ModeloCompra modelo = new ModeloCompra();
-                modelo.CompraData = dtpDataCompra.Value;
-                modelo.CompraNotaFiscal = Convert.ToInt32(txtNotaFiscal.Text);
-                modelo.CompraNumeroParcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
-                modelo.CompraStatus = "Ativa";
-                modelo.CompraTotal = this.totalCompra;
-                modelo.FornecedorID = Convert.ToInt32(txtFornecedorID.Text);
-                modelo.TipoPagamentoID = Convert.ToInt32(cmbTipoPagamento.SelectedValue);
+                ModeloCompra modeloCompra = new ModeloCompra();
+                modeloCompra.CompraData = dtpDataCompra.Value;
+                modeloCompra.CompraNotaFiscal = Convert.ToInt32(txtNotaFiscal.Text);
+                modeloCompra.CompraNumeroParcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
+                modeloCompra.CompraStatus = "Ativa";
+                modeloCompra.CompraTotal = this.totalCompra;
+                modeloCompra.FornecedorID = Convert.ToInt32(txtFornecedorID.Text);
+                modeloCompra.TipoPagamentoID = Convert.ToInt32(cmbTipoPagamento.SelectedValue);
+
+                BLLCompra bll = new BLLCompra(cx);
 
                 ModeloItensCompra itens = new ModeloItensCompra();
                 BLLItensCompra bitens = new BLLItensCompra(cx);
@@ -296,11 +303,11 @@ namespace UI
 
                 if (this.operacao == "inserir")
                 {
-                    bll.Incluir(modelo);
+                    bll.Incluir(modeloCompra);
                     for (int i = 0; i < dtgvItensCompra.RowCount; i++)
                     {
                         itens.ItensCompraID = i + 1;
-                        itens.CompraID = modelo.CompraID;
+                        itens.CompraID = modeloCompra.CompraID;
                         itens.ProdutoID = Convert.ToInt32(dtgvItensCompra.Rows[i].Cells[0].Value);
                         itens.ItensCompraQtde = Convert.ToInt32(dtgvItensCompra.Rows[i].Cells[2].Value);
                         itens.ItensCompraValor = Convert.ToDouble(dtgvItensCompra.Rows[i].Cells[3].Value);
@@ -309,20 +316,43 @@ namespace UI
                     for (int i = 0; i < dtgvParcelasCompra.RowCount; i++)
                     {
                         parcelas.ParcelasCompraID = i + 1;
-                        parcelas.CompraID = modelo.CompraID;
+                        parcelas.CompraID = modeloCompra.CompraID;
                         parcelas.ParcelasCompraID = Convert.ToInt32(dtgvParcelasCompra.Rows[i].Cells[0].Value);
                         parcelas.ParcelasCompraValor = Convert.ToDouble(dtgvParcelasCompra.Rows[i].Cells[1].Value);
                         parcelas.ParcelasCompraDataVencimento = Convert.ToDateTime(dtgvParcelasCompra.Rows[i].Cells[2].Value);
                         bparcelas.Incluir(parcelas);
                     }
 
-                    MessageBox.Show("Compra efetuada com sucesso! Código: " + modelo.CompraID.ToString());
+                    MessageBox.Show("Compra efetuada com sucesso! Código: " + modeloCompra.CompraID.ToString());
                 }
                 else
                 {
-                    //modelo.CompraID = Convert.ToInt32(txtCompraID.Text);
-                    //bll.Alterar(modelo);
-                    // MessageBox.Show("Compra alterada com sucesso!");
+                    modeloCompra.CompraID = Convert.ToInt32(txtCompraID.Text);
+                    bll.Alterar(modeloCompra);
+
+                    bitens.ExcluirItens(modeloCompra.CompraID);
+
+                    for (int i = 0; i < dtgvItensCompra.RowCount; i++)
+                    {
+                        itens.ItensCompraID = i + 1;
+                        itens.CompraID = modeloCompra.CompraID;
+                        itens.ProdutoID = Convert.ToInt32(dtgvItensCompra.Rows[i].Cells[0].Value);
+                        itens.ItensCompraQtde = Convert.ToInt32(dtgvItensCompra.Rows[i].Cells[2].Value);
+                        itens.ItensCompraValor = Convert.ToDouble(dtgvItensCompra.Rows[i].Cells[3].Value);
+                        bitens.Incluir(itens);
+                    }
+                    bparcelas.ExcluirParcelas(modeloCompra.CompraID);
+
+                    for (int i = 0; i < dtgvParcelasCompra.RowCount; i++)
+                    {
+                        parcelas.ParcelasCompraID = i + 1;
+                        parcelas.CompraID = modeloCompra.CompraID;
+                        parcelas.ParcelasCompraID = Convert.ToInt32(dtgvParcelasCompra.Rows[i].Cells[0].Value);
+                        parcelas.ParcelasCompraValor = Convert.ToDouble(dtgvParcelasCompra.Rows[i].Cells[1].Value);
+                        parcelas.ParcelasCompraDataVencimento = Convert.ToDateTime(dtgvParcelasCompra.Rows[i].Cells[2].Value);
+                        bparcelas.Incluir(parcelas);
+                    }
+                    MessageBox.Show("Cadastro alterado com sucesso!");
                 }
                 this.LimpaTela();
                 panelFinalizaCompra.Visible = false;
@@ -348,19 +378,29 @@ namespace UI
                 if (d.ToString() == "Yes")
                 {
                     int compraid = Convert.ToInt32(txtCompraID.Text);
+                    int qtde = Convert.ToInt32(cmbNumeroParcelas.Text);
+
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-
-                    BLLParcelasCompra bll = new BLLParcelasCompra(cx);
-                    bll.ExcluirParcelas(compraid);
-
-                    BLLItensCompra bll2 = new BLLItensCompra(cx);
-                    bll2.ExcluirItens(compraid);
-
                     BLLCompra bll3 = new BLLCompra(cx);
-                    bll3.Excluir(compraid);
-                      
-                    this.LimpaTela();
-                    this.menuBotoes(1);
+                    qtde -= bll3.QuantidadeParcelasNaoPagas(compraid);
+                    if (qtde == 0)
+                    {
+                        BLLParcelasCompra bll = new BLLParcelasCompra(cx);
+                        bll.ExcluirParcelas(compraid);
+
+                        BLLItensCompra bll2 = new BLLItensCompra(cx);
+                        bll2.ExcluirItens(compraid);
+
+
+                        bll3.Excluir(compraid);
+
+                        this.LimpaTela();
+                        this.menuBotoes(1);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não é possível excluir a compra. \n Existem parcelas pagas.");
+                    }
                 }
             }
             catch

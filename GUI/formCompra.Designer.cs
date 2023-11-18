@@ -423,7 +423,7 @@
             lbl0000.AutoSize=true;
             lbl0000.BackColor=Color.FromArgb(255, 128, 128);
             lbl0000.Font=new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl0000.Location=new Point(527, 389);
+            lbl0000.Location=new Point(509, 389);
             lbl0000.Name="lbl0000";
             lbl0000.Size=new Size(35, 15);
             lbl0000.TabIndex=15;
@@ -432,7 +432,7 @@
             // lblCompraTotal2
             // 
             lblCompraTotal2.AutoSize=true;
-            lblCompraTotal2.Location=new Point(433, 389);
+            lblCompraTotal2.Location=new Point(415, 389);
             lblCompraTotal2.Name="lblCompraTotal2";
             lblCompraTotal2.Size=new Size(92, 15);
             lblCompraTotal2.TabIndex=14;

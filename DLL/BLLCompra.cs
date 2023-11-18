@@ -50,7 +50,7 @@ namespace BLL
             {
                 throw new Exception("O código da compra é obrigatório.");
             }
-            if (modelo.CompraData != DateTime.Now)
+            if (modelo.CompraData == DateTime.Now)
             {
                 throw new Exception("A data da compra deve ser igual a data atual.");
             }
@@ -103,6 +103,11 @@ namespace BLL
         {
             DALCompra DALobj = new DALCompra(conexao);
             return DALobj.LocalizarParcelasNaoPagas();
+        }
+        public int QuantidadeParcelasNaoPagas(int compra_id)
+        {
+            DALCompra DALobj = new DALCompra(conexao);
+            return DALobj.QuantidadeParcelasNaoPagas(compra_id);
         }
         public ModeloCompra CarregaModeloCompra(int id)
         {

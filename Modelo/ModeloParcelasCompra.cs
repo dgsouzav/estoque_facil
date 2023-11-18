@@ -16,12 +16,12 @@ namespace Modelo
             this.ParcelasCompraDataVencimento = DateTime.Now;
             this.CompraID = 0;
         }
-        public ModeloParcelasCompra(int parcelasCompra_id, Double parcelasCompra_valor, DateTime parcelasCompra_dataPagamento, 
+        public ModeloParcelasCompra(int parcelasCompra_id, Double parcelasCompra_valor, 
             DateTime parcelasCompra_dataVencimento, int compra_id)
         {
             this.ParcelasCompraID = parcelasCompra_id;
             this.ParcelasCompraValor = parcelasCompra_valor;
-            this.ParcelasCompraDataPagamento = parcelasCompra_dataPagamento;
+            //this.ParcelasCompraDataPagamento = parcelasCompra_dataPagamento;
             this.ParcelasCompraDataVencimento = parcelasCompra_dataVencimento;
             this.CompraID = compra_id;
         }

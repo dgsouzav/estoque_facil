@@ -83,7 +83,9 @@ namespace UI
 
         private void tIPODEPAGAMENTOToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
+            f.ShowDialog();
+            f.Dispose();
         }
 
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace UI
 
         private void TipoPagamentoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
+            formCadastroTipoPagamento f = new formCadastroTipoPagamento();
             f.ShowDialog();
             f.Dispose();
         }
