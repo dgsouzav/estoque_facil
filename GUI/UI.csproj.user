@@ -52,6 +52,9 @@
     <Compile Update="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formPagamentoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

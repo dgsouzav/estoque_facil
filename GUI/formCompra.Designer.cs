@@ -240,7 +240,7 @@
             // lblDataInicial
             // 
             lblDataInicial.AutoSize=true;
-            lblDataInicial.Location=new Point(179, 383);
+            lblDataInicial.Location=new Point(244, 383);
             lblDataInicial.Name="lblDataInicial";
             lblDataInicial.Size=new Size(145, 15);
             lblDataInicial.TabIndex=25;
@@ -257,7 +257,7 @@
             dtgvItensCompra.ReadOnly=true;
             dtgvItensCompra.RowTemplate.Height=25;
             dtgvItensCompra.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
-            dtgvItensCompra.Size=new Size(527, 130);
+            dtgvItensCompra.Size=new Size(527, 180);
             dtgvItensCompra.TabIndex=22;
             dtgvItensCompra.CellDoubleClick+=dtgvItensCompra_CellDoubleClick;
             // 
@@ -295,9 +295,9 @@
             // 
             // dtpDataInicial
             // 
-            dtpDataInicial.Location=new Point(179, 401);
+            dtpDataInicial.Location=new Point(244, 401);
             dtpDataInicial.Name="dtpDataInicial";
-            dtpDataInicial.Size=new Size(248, 23);
+            dtpDataInicial.Size=new Size(183, 23);
             dtpDataInicial.TabIndex=21;
             // 
             // cmbTipoPagamento
@@ -305,9 +305,9 @@
             cmbTipoPagamento.AutoCompleteMode=AutoCompleteMode.Suggest;
             cmbTipoPagamento.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbTipoPagamento.FormattingEnabled=true;
-            cmbTipoPagamento.Location=new Point(6, 351);
+            cmbTipoPagamento.Location=new Point(125, 401);
             cmbTipoPagamento.Name="cmbTipoPagamento";
-            cmbTipoPagamento.Size=new Size(167, 23);
+            cmbTipoPagamento.Size=new Size(113, 23);
             cmbTipoPagamento.TabIndex=20;
             // 
             // cmbNumeroParcelas
@@ -316,7 +316,7 @@
             cmbNumeroParcelas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
             cmbNumeroParcelas.Location=new Point(6, 401);
             cmbNumeroParcelas.Name="cmbNumeroParcelas";
-            cmbNumeroParcelas.Size=new Size(167, 23);
+            cmbNumeroParcelas.Size=new Size(113, 23);
             cmbNumeroParcelas.TabIndex=19;
             // 
             // dtpDataCompra
@@ -396,7 +396,7 @@
             // lblTipoPagamento
             // 
             lblTipoPagamento.AutoSize=true;
-            lblTipoPagamento.Location=new Point(6, 333);
+            lblTipoPagamento.Location=new Point(125, 383);
             lblTipoPagamento.Name="lblTipoPagamento";
             lblTipoPagamento.Size=new Size(110, 15);
             lblTipoPagamento.TabIndex=0;
@@ -412,7 +412,7 @@
             panelFinalizaCompra.Controls.Add(lblTraço);
             panelFinalizaCompra.Controls.Add(lblDadosPagamento);
             panelFinalizaCompra.Controls.Add(dtgvParcelasCompra);
-            panelFinalizaCompra.Location=new Point(678, 11);
+            panelFinalizaCompra.Location=new Point(15, 9);
             panelFinalizaCompra.Name="panelFinalizaCompra";
             panelFinalizaCompra.Size=new Size(649, 437);
             panelFinalizaCompra.TabIndex=4;
@@ -423,7 +423,7 @@
             lbl0000.AutoSize=true;
             lbl0000.BackColor=Color.FromArgb(255, 128, 128);
             lbl0000.Font=new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl0000.Location=new Point(509, 389);
+            lbl0000.Location=new Point(476, 389);
             lbl0000.Name="lbl0000";
             lbl0000.Size=new Size(35, 15);
             lbl0000.TabIndex=15;
@@ -432,7 +432,7 @@
             // lblCompraTotal2
             // 
             lblCompraTotal2.AutoSize=true;
-            lblCompraTotal2.Location=new Point(415, 389);
+            lblCompraTotal2.Location=new Point(378, 389);
             lblCompraTotal2.Name="lblCompraTotal2";
             lblCompraTotal2.Size=new Size(92, 15);
             lblCompraTotal2.TabIndex=14;
@@ -596,7 +596,7 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(1348, 461);
+            ClientSize=new Size(684, 461);
             Controls.Add(panelFinalizaCompra);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);

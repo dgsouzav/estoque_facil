@@ -22,6 +22,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "insert into itensCompra(itensCompra_id, itensCompra_qtde, itensCompra_valor, compra_id, produto_id) values " +
                     "(@itensCompra_id, @itensCompra_qtde, @itensCompra_valor, @compra_id, @produto_id);";
                 cmd.Parameters.AddWithValue("@itensCompra_id", modelo.ItensCompraID);
@@ -30,9 +31,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@compra_id", modelo.CompraID);
                 cmd.Parameters.AddWithValue("@produto_id", modelo.ProdutoID);
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -45,6 +46,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "update itensCompra set itensCompra_qtde = @itensCompra_qtde, itensCompra_valor = @itensCompra_valor, " +
                     "where itensCompra_id = @itensCompra_id and compra_id = @compra_id and produto_id = @produto_id;";
                 cmd.Parameters.AddWithValue("@itensCompra_id", modelo.ItensCompraID);
@@ -53,9 +55,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@compra_id", modelo.CompraID);
                 cmd.Parameters.AddWithValue("@produto_id", modelo.ProdutoID);
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -68,14 +70,15 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "delete from itensCompra where where itensCompra_id = @itensCompra_id and compra_id = @compra_id and produto_id = @produto_id;";
                 cmd.Parameters.AddWithValue("@itensCompra_id", modelo.ItensCompraID);
                 cmd.Parameters.AddWithValue("@compra_id", modelo.CompraID);
                 cmd.Parameters.AddWithValue("@produto_id", modelo.ProdutoID);
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -88,11 +91,13 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "delete from itensCompra where compra_id = @compra_id;";
                 cmd.Parameters.AddWithValue("@compra_id", compra_id);
-                conexao.Conectar();
+                
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {

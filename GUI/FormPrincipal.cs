@@ -142,5 +142,12 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void pagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formPagamentoCompra f = new formPagamentoCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

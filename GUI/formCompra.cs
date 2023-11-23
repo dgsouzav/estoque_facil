@@ -281,9 +281,12 @@ namespace UI
         private void btnSalvarPagamento_Click(object sender, EventArgs e)
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            cx.Conectar();
+            cx.IniciarTransacao();
 
             try
             {
+                // leitura dos dados
                 ModeloCompra modeloCompra = new ModeloCompra();
                 modeloCompra.CompraData = dtpDataCompra.Value;
                 modeloCompra.CompraNotaFiscal = Convert.ToInt32(txtNotaFiscal.Text);
@@ -303,7 +306,9 @@ namespace UI
 
                 if (this.operacao == "inserir")
                 {
+                    // inserir uma compra
                     bll.Incluir(modeloCompra);
+
                     for (int i = 0; i < dtgvItensCompra.RowCount; i++)
                     {
                         itens.ItensCompraID = i + 1;
@@ -313,6 +318,8 @@ namespace UI
                         itens.ItensCompraValor = Convert.ToDouble(dtgvItensCompra.Rows[i].Cells[3].Value);
                         bitens.Incluir(itens);
                     }
+
+                    // inserir as parcelas
                     for (int i = 0; i < dtgvParcelasCompra.RowCount; i++)
                     {
                         parcelas.ParcelasCompraID = i + 1;
@@ -327,11 +334,14 @@ namespace UI
                 }
                 else
                 {
+                    // alterar uma compra
                     modeloCompra.CompraID = Convert.ToInt32(txtCompraID.Text);
                     bll.Alterar(modeloCompra);
 
+                    // exluir os itens
                     bitens.ExcluirItens(modeloCompra.CompraID);
 
+                    // inserir os itens
                     for (int i = 0; i < dtgvItensCompra.RowCount; i++)
                     {
                         itens.ItensCompraID = i + 1;
@@ -341,8 +351,10 @@ namespace UI
                         itens.ItensCompraValor = Convert.ToDouble(dtgvItensCompra.Rows[i].Cells[3].Value);
                         bitens.Incluir(itens);
                     }
+                    // excluir as parcelas
                     bparcelas.ExcluirParcelas(modeloCompra.CompraID);
 
+                    // inserir as parcelas
                     for (int i = 0; i < dtgvParcelasCompra.RowCount; i++)
                     {
                         parcelas.ParcelasCompraID = i + 1;
@@ -357,10 +369,14 @@ namespace UI
                 this.LimpaTela();
                 panelFinalizaCompra.Visible = false;
                 this.menuBotoes(1);
+                cx.TerminarTransacao();
+                cx.Desconectar();
             }
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
+                cx.CancelarTransacao();
+                cx.Desconectar();
             }
         }
 
@@ -372,18 +388,20 @@ namespace UI
 
         private void btnExcluir_Click_1(object sender, EventArgs e)
         {
-            try
+            DialogResult d = MessageBox.Show("Deseja excluir a compra?", "Aviso", MessageBoxButtons.YesNo);
+            if (d.ToString() == "Yes")
             {
-                DialogResult d = MessageBox.Show("Deseja excluir a compra?", "Aviso", MessageBoxButtons.YesNo);
-                if (d.ToString() == "Yes")
-                {
-                    int compraid = Convert.ToInt32(txtCompraID.Text);
-                    int qtde = Convert.ToInt32(cmbNumeroParcelas.Text);
+                int compraid = Convert.ToInt32(txtCompraID.Text);
+                int qtde = Convert.ToInt32(cmbNumeroParcelas.Text);
 
-                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLCompra bll3 = new BLLCompra(cx);
-                    qtde -= bll3.QuantidadeParcelasNaoPagas(compraid);
-                    if (qtde == 0)
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLCompra bll3 = new BLLCompra(cx);
+                qtde -= bll3.QuantidadeParcelasNaoPagas(compraid);
+                if (qtde == 0)
+                {
+                    cx.Conectar();
+                    cx.IniciarTransacao();
+                    try
                     {
                         BLLParcelasCompra bll = new BLLParcelasCompra(cx);
                         bll.ExcluirParcelas(compraid);
@@ -391,21 +409,24 @@ namespace UI
                         BLLItensCompra bll2 = new BLLItensCompra(cx);
                         bll2.ExcluirItens(compraid);
 
-
                         bll3.Excluir(compraid);
 
+                        cx.TerminarTransacao();
+                        cx.Desconectar();
                         this.LimpaTela();
                         this.menuBotoes(1);
                     }
-                    else
+                    catch (Exception erro)
                     {
-                        MessageBox.Show("Não é possível excluir a compra. \n Existem parcelas pagas.");
+                        MessageBox.Show(erro.Message);
+                        cx.CancelarTransacao();
+                        cx.Desconectar();
                     }
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Impossível excluir o registro. \n O registro está sendo utilizado em outro local.");
+                else
+                {
+                    MessageBox.Show("Não é possível excluir a compra. \n Existem parcelas pagas.");
+                }
             }
         }
     }

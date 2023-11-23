@@ -13,8 +13,6 @@ namespace DAL
     {
         private DALConexao conexao;
 
-        //arredondamento de valores
-
         public DALCompra(DALConexao cx)
         {
             this.conexao = cx;
@@ -26,6 +24,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "insert into compra(compra_data, compra_notaFiscal, compra_total, " +
                     "compra_numeroParcelas, compra_status, fornecedor_id, tipoPagamento_id) values " +
                     "(@data, @notaFiscal, @total, @numeroParcelas, @status, @fornecedor, @tipoPagamento); select @@IDENTITY;";
@@ -38,9 +37,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@fornecedor", modelo.FornecedorID);
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
 
-                conexao.Conectar();
+                ///conexao.Conectar();
                 modelo.CompraID = Convert.ToInt32(cmd.ExecuteScalar());
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -54,6 +53,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "update compra set compra_data = @data, compra_notaFiscal = @notaFiscal, compra_total = @total," +
                     " compra_numeroParcelas = @numeroParcelas, compra_status = @status, fornecedor_id = @fornecedor, " +
                     "tipoPagamento_id = @tipoPagamento where compra_id = @id;";
@@ -67,9 +67,9 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
                 cmd.Parameters.AddWithValue("@id", modelo.CompraID);
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -82,12 +82,13 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "delete from compra where compra_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
