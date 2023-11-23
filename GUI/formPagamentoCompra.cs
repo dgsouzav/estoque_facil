@@ -15,6 +15,7 @@ namespace UI
 {
     public partial class formPagamentoCompra : Form
     {
+        public int ParcelasCompraID = 0;
         public formPagamentoCompra()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace UI
         {
             formConsultaCompra f = new formConsultaCompra();
             f.ShowDialog();
+            btnPagar.Enabled = false;
             if (f.id != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
@@ -39,21 +41,44 @@ namespace UI
 
                 txtValor.Text = modelo.CompraTotal.ToString();
 
-                BLLParcelasCompra bLLParcelasCompra = new BLLParcelasCompra(cx);
-                DataTable tabela = bLLParcelasCompra.Localizar(modelo.CompraID);
+                BLLParcelasCompra bllp = new BLLParcelasCompra(cx);
+                dtgvParcelas.DataSource = bllp.Localizar(modelo.CompraID);
 
-                for (int i = 0; i < tabela.Rows.Count; i++)
-                {
-                    string id = tabela.Rows[i]["produto_id"].ToString();
-                    string nome = tabela.Rows[i]["produto_nome"].ToString();
-                    string qtde = tabela.Rows[i]["itensCompra_qtde"].ToString();
-                    string valor = tabela.Rows[i]["itensCompra_valor"].ToString();
+                dtgvParcelas.Columns[0].HeaderText = "ID da Parcela";
+                dtgvParcelas.Columns[1].HeaderText = "Valor";
+                dtgvParcelas.Columns[2].HeaderText = "Data de Pagamento";
+                dtgvParcelas.Columns[3].HeaderText = "Data de Vencimento";
+                dtgvParcelas.Columns[4].Visible = false;
+            }
+        }
 
-                    Double TotalLocal = Convert.ToDouble(tabela.Rows[i]["itensCompra_qtde"]) * Convert.ToDouble(tabela.Rows[i]["itensCompra_valor"]);
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLParcelasCompra bllp = new BLLParcelasCompra(cx);
+            int compraID = Convert.ToInt32(txtID.Text);
+            DateTime data = dtpDataPagamento.Value;
+            bllp.EfetuaPagamentoParcela(compraID, this.ParcelasCompraID, data);
 
-                    String[] k = new String[] { id, nome, qtde, valor, TotalLocal.ToString() };
-                    this.dtgvParcelas.Rows.Add(k);
-                }
+            BLLParcelasCompra bllp2 = new BLLParcelasCompra(cx);
+            dtgvParcelas.DataSource = bllp.Localizar(compraID);
+            btnPagar.Enabled = false;
+            
+            dtgvParcelas.Columns[0].HeaderText = "ID da Parcela";
+            dtgvParcelas.Columns[1].HeaderText = "Valor";
+            dtgvParcelas.Columns[2].HeaderText = "Data de Pagamento";
+            dtgvParcelas.Columns[3].HeaderText = "Data de Vencimento";
+            dtgvParcelas.Columns[4].Visible = false;
+        }
+
+        private void dtgvParcelas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnPagar.Enabled = false;
+            this.ParcelasCompraID = 0;
+            if (e.RowIndex >= 0 && dtgvParcelas.Rows[e.RowIndex].Cells[2].Value.ToString() == "")
+            {
+                btnPagar.Enabled = true;
+                this.ParcelasCompraID = Convert.ToInt32(dtgvParcelas.Rows[e.RowIndex].Cells[0].Value);
             }
         }
     }

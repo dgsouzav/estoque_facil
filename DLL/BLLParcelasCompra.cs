@@ -33,6 +33,18 @@ namespace BLL
             DALParcelasCompra DALobj = new DALParcelasCompra(conexao);
             DALobj.Incluir(modelo);
         }
+        public void EfetuaPagamentoParcela(int compra_id, int parcelasCompra_id, DateTime parcelasCompra_dataPagamento)
+        {
+            if (parcelasCompra_dataPagamento != null)
+            {
+                DALParcelasCompra DALobj = new DALParcelasCompra(conexao);
+                DALobj.EfetuaPagamentoParcela(compra_id, parcelasCompra_id, parcelasCompra_dataPagamento);
+            }
+            else
+            {
+                throw new Exception("A data de pagamento é obrigatória");
+            }
+        }
 
         public void Alterar(ModeloParcelasCompra modelo)
         {

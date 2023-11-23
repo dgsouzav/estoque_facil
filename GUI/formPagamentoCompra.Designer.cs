@@ -40,6 +40,8 @@
             lblParcelas=new Label();
             dtgvParcelas=new DataGridView();
             btnPagar=new Button();
+            dtpDataPagamento=new DateTimePicker();
+            lblDataPagamento=new Label();
             ((System.ComponentModel.ISupportInitialize)dtgvParcelas).BeginInit();
             SuspendLayout();
             // 
@@ -132,28 +134,52 @@
             // 
             // dtgvParcelas
             // 
+            dtgvParcelas.AllowUserToAddRows=false;
+            dtgvParcelas.AllowUserToDeleteRows=false;
             dtgvParcelas.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvParcelas.Location=new Point(12, 140);
             dtgvParcelas.Name="dtgvParcelas";
+            dtgvParcelas.ReadOnly=true;
             dtgvParcelas.RowTemplate.Height=25;
+            dtgvParcelas.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
             dtgvParcelas.Size=new Size(760, 260);
             dtgvParcelas.TabIndex=15;
+            dtgvParcelas.CellClick+=dtgvParcelas_CellClick;
             // 
             // btnPagar
             // 
             btnPagar.Enabled=false;
-            btnPagar.Location=new Point(12, 406);
+            btnPagar.Location=new Point(567, 425);
             btnPagar.Name="btnPagar";
-            btnPagar.Size=new Size(760, 43);
+            btnPagar.Size=new Size(205, 24);
             btnPagar.TabIndex=16;
             btnPagar.Text="Pagar parcela";
             btnPagar.UseVisualStyleBackColor=true;
+            btnPagar.Click+=btnPagar_Click;
+            // 
+            // dtpDataPagamento
+            // 
+            dtpDataPagamento.Location=new Point(12, 426);
+            dtpDataPagamento.Name="dtpDataPagamento";
+            dtpDataPagamento.Size=new Size(240, 23);
+            dtpDataPagamento.TabIndex=18;
+            // 
+            // lblDataPagamento
+            // 
+            lblDataPagamento.AutoSize=true;
+            lblDataPagamento.Location=new Point(12, 408);
+            lblDataPagamento.Name="lblDataPagamento";
+            lblDataPagamento.Size=new Size(174, 15);
+            lblDataPagamento.TabIndex=17;
+            lblDataPagamento.Text="Data que efetuará o pagamento";
             // 
             // formPagamentoCompra
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
             ClientSize=new Size(784, 461);
+            Controls.Add(dtpDataPagamento);
+            Controls.Add(lblDataPagamento);
             Controls.Add(btnPagar);
             Controls.Add(dtgvParcelas);
             Controls.Add(lblParcelas);
@@ -191,5 +217,7 @@
         private Label lblParcelas;
         private DataGridView dtgvParcelas;
         private Button btnPagar;
+        private DateTimePicker dtpDataPagamento;
+        private Label lblDataPagamento;
     }
 }

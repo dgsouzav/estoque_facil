@@ -12,18 +12,9 @@ namespace Modelo
         {
             this.ParcelasCompraID = 0;
             this.ParcelasCompraValor = 0;
-            //this.ParcelasCompraDataPagamento = DateTime.Now;
+            //this.ParcelasCompraDataPagamento = DateTime.MinValue;
             this.ParcelasCompraDataVencimento = DateTime.Now;
             this.CompraID = 0;
-        }
-        public ModeloParcelasCompra(int parcelasCompra_id, Double parcelasCompra_valor, 
-            DateTime parcelasCompra_dataVencimento, int compra_id)
-        {
-            this.ParcelasCompraID = parcelasCompra_id;
-            this.ParcelasCompraValor = parcelasCompra_valor;
-            //this.ParcelasCompraDataPagamento = parcelasCompra_dataPagamento;
-            this.ParcelasCompraDataVencimento = parcelasCompra_dataVencimento;
-            this.CompraID = compra_id;
         }
 
         private int parcelasCompra_id;

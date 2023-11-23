@@ -48,6 +48,21 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
+        public void EfetuaPagamentoParcela(int parcelasCompraID, int compraID, DateTime parcelasCompra_dataPagamento)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "update parcelasCompra set parcelasCompra_dataPagamento = @parcelasCompra_dataPagamento " +
+                "where parcelasCompra_id = @parcelasCompra_id and compra_id = @compra_id;";
+            cmd.Parameters.AddWithValue("@parcelasCompra_id", parcelasCompraID);
+            cmd.Parameters.AddWithValue("@compra_id", compraID);
+            cmd.Parameters.Add("@parcelasCompra_dataPagamento", SqlDbType.Date);
+            cmd.Parameters["@parcelasCompra_dataPagamento"].Value = parcelasCompra_dataPagamento.Date;
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
         public void Alterar(ModeloParcelasCompra modelo)
         {
             try
