@@ -55,20 +55,29 @@ namespace UI
         private void btnPagar_Click(object sender, EventArgs e)
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLParcelasCompra bllp = new BLLParcelasCompra(cx);
-            int compraID = Convert.ToInt32(txtID.Text);
-            DateTime data = dtpDataPagamento.Value;
-            bllp.EfetuaPagamentoParcela(compraID, this.ParcelasCompraID, data);
+            try
+            {
+                //DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLParcelasCompra bllp = new BLLParcelasCompra(cx);
+                int compraID = Convert.ToInt32(txtID.Text);
+                DateTime data = dtpDataPagamento.Value;
+                
+                bllp.EfetuaPagamentoParcela(compraID, this.ParcelasCompraID, data);
 
-            BLLParcelasCompra bllp2 = new BLLParcelasCompra(cx);
-            dtgvParcelas.DataSource = bllp.Localizar(compraID);
-            btnPagar.Enabled = false;
-            
-            dtgvParcelas.Columns[0].HeaderText = "ID da Parcela";
-            dtgvParcelas.Columns[1].HeaderText = "Valor";
-            dtgvParcelas.Columns[2].HeaderText = "Data de Pagamento";
-            dtgvParcelas.Columns[3].HeaderText = "Data de Vencimento";
-            dtgvParcelas.Columns[4].Visible = false;
+                BLLParcelasCompra bllp2 = new BLLParcelasCompra(cx);
+                dtgvParcelas.DataSource = bllp.Localizar(compraID);
+                btnPagar.Enabled = false;
+
+                dtgvParcelas.Columns[0].HeaderText = "ID da Parcela";
+                dtgvParcelas.Columns[1].HeaderText = "Valor";
+                dtgvParcelas.Columns[2].HeaderText = "Data de Pagamento";
+                dtgvParcelas.Columns[3].HeaderText = "Data de Vencimento";
+                dtgvParcelas.Columns[4].Visible = false;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void dtgvParcelas_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -1,11 +1,6 @@
 ﻿using Modelo;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -48,16 +43,17 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
-        public void EfetuaPagamentoParcela(int parcelasCompraID, int compraID, DateTime parcelasCompra_dataPagamento)
+        public void EfetuaPagamentoParcela(int compraID, int parcelasCompraID, DateTime parcelasCompra_dataPagamento)
         {
+
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "update parcelasCompra set parcelasCompra_dataPagamento = @parcelasCompra_dataPagamento " +
-                "where parcelasCompra_id = @parcelasCompra_id and compra_id = @compra_id;";
-            cmd.Parameters.AddWithValue("@parcelasCompra_id", parcelasCompraID);
-            cmd.Parameters.AddWithValue("@compra_id", compraID);
-            cmd.Parameters.Add("@parcelasCompra_dataPagamento", SqlDbType.Date);
-            cmd.Parameters["@parcelasCompra_dataPagamento"].Value = parcelasCompra_dataPagamento.Date;
+            cmd.CommandText = "update parcelasCompra set parcelasCompra_dataPagamento = @dataPagamento " +
+                "where parcelasCompra_id = @parcelasCompraid and compra_id = @compraid;";
+            cmd.Parameters.AddWithValue("@parcelasCompraid", parcelasCompraID);
+            cmd.Parameters.AddWithValue("@compraid", compraID);
+            cmd.Parameters.Add("@dataPagamento", SqlDbType.Date);
+            cmd.Parameters["@dataPagamento"].Value = parcelasCompra_dataPagamento.Date;
 
             conexao.Conectar();
             cmd.ExecuteNonQuery();
