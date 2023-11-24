@@ -52,7 +52,8 @@ namespace DAL
                 cmd.CommandText = "update venda set venda_data = @data, venda_notaFiscal = @notaFiscal, " +
                     "venda_total = @total, venda_numeroParcelas = @numeroParcelas, venda_status = @status, " +
                     "tipoPagamento_id = @tipoPagamento, venda_aVista = @aVista where venda_id = @id;";
-                cmd.Parameters.AddWithValue("@data", modelo.VendaData);
+                cmd.Parameters.Add("@data", SqlDbType.DateTime);
+                cmd.Parameters["@data"].Value = modelo.VendaData;
                 cmd.Parameters.AddWithValue("@notaFiscal", modelo.VendaNotaFiscal);
                 cmd.Parameters.AddWithValue("@total", modelo.VendaTotal);
                 cmd.Parameters.AddWithValue("@numeroParcelas", modelo.VendaNumeroParcelas);
@@ -68,6 +69,110 @@ namespace DAL
                 throw new Exception(erro.Message);
             }
         }
+        public void Excluir(int id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
+                cmd.CommandText = "delete from venda where venda_id = @id;";
+                cmd.Parameters.AddWithValue("@id", id);
 
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
+
+        // implementar cancelar venda
+        public void CancelarVenda(int id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "update venda set venda_status = 'cancelada' where venda_id = @id;";
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
+        public DataTable Localiar(int id)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from venda where venda_id = " + id.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+        
+        //localizar por parcelas em aberto
+        public DataTable LocalizarParcelasAberto()
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select distinct venda_id from parcelasVenda where parcelasVenda_dataPagamento is NULL", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+        
+        //quantidade de parcelas em aberto
+        public int QuantidadeParcelasAberto(int id)
+        {
+            int qtde = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select count(venda_id) from parcelasVenda where venda_id = @venda_id and parcelasVenda_dataPagamento is NULL";
+            cmd.Parameters.AddWithValue("@venda_id", id);
+            conexao.Conectar();
+            qtde = Convert.ToInt32(cmd.ExecuteScalar());
+            conexao.Desconectar();
+            return qtde;
+        }
+        //localizar por data inicial e final
+        public DataTable Localizar(DateTime dtInicial, DateTime dtFinal)
+        {
+            DataTable tabela = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from venda where venda_data between @dtInicial and @dtFinal";
+            cmd.Parameters.AddWithValue("@dtInicial", dtInicial);
+            cmd.Parameters.AddWithValue("@dtFinal", dtFinal);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(tabela);
+            return tabela;
+        }
+
+        // carregar modelo
+        public ModeloVenda CarregaModeloVenda(int id)
+        {
+            ModeloVenda modelo = new ModeloVenda();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from venda where venda_id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.VendaID = Convert.ToInt32(registro["venda_id"]);
+                modelo.VendaData = Convert.ToDateTime(registro["venda_data"]);
+                modelo.VendaNotaFiscal = Convert.ToInt32(registro["venda_notaFiscal"]);
+                modelo.VendaTotal = Convert.ToDouble(registro["venda_total"]);
+                modelo.VendaNumeroParcelas = Convert.ToInt32(registro["venda_numeroParcelas"]);
+                modelo.VendaStatus = Convert.ToString(registro["venda_status"]);
+                modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
+                modelo.VendaAVista = Convert.ToBoolean(registro["venda_aVista"]);
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+        
     }
 }
