@@ -87,27 +87,56 @@ namespace DAL
             }
         }
 
-        // implementar cancelar venda
-        public void CancelarVenda(int id)
+        //cancelar venda percorrendo todos os itens da venda e devolvendo ao estoque
+        public bool CancelarVenda(int id)
         {
+            bool retorno = true;
+            // atualizar o status da venda para cancelada
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            conexao.Conectar();
+            conexao.IniciarTransacao();
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "update venda set venda_status = 'cancelada' where venda_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
-
                 cmd.ExecuteNonQuery();
+
+                // incrementar o estoque com os itens da venda cancelada
+                DataTable tabela = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter("select itensVenda_id, produto_id, itensVenda_qtde, from itensVenda where venda_id = " 
+                    + id.ToString(), conexao.StringConexao);
+                da.Fill(tabela);
+
+                ModeloProduto produto;
+
+                // percorrer os itens da venda cancelada
+                DALProduto dalProduto = new DALProduto(conexao);
+                for (int i = 0; i < tabela.Rows.Count; i++)
+                {
+                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(tabela.Rows[i]["produto_id"]), true);
+
+                    produto.ProdutoQtde = produto.ProdutoQtde + Convert.ToDouble(tabela.Rows[i]["itensVenda_qtde"]);
+                    dalProduto.Alterar(produto, true);
+                }
+                conexao.TerminarTransacao();
+                conexao.Desconectar();
             }
-            catch (Exception erro)
+            catch
             {
-                throw new Exception(erro.Message);
+                conexao.CancelarTransacao();
+                conexao.Desconectar();
+                retorno = false;
             }
+            return retorno;
         }
-        public DataTable Localiar(int id)
+        // localizar todas as vendas
+        public DataTable Localizar()
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from venda where venda_id = " + id.ToString(), conexao.StringConexao);
+            SqlDataAdapter da = new SqlDataAdapter("select venda_id, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
+                               "venda_status, tipoPagamento_id, venda_aVista from venda", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -135,14 +164,14 @@ namespace DAL
             return qtde;
         }
         //localizar por data inicial e final
-        public DataTable Localizar(DateTime dtInicial, DateTime dtFinal)
+        public DataTable LocalizarPorData(DateTime dataInicial, DateTime dataFinal)
         {
             DataTable tabela = new DataTable();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "select * from venda where venda_data between @dtInicial and @dtFinal";
-            cmd.Parameters.AddWithValue("@dtInicial", dtInicial);
-            cmd.Parameters.AddWithValue("@dtFinal", dtFinal);
+            cmd.Parameters.AddWithValue("@dtInicial", dataInicial);
+            cmd.Parameters.AddWithValue("@dtFinal", dataFinal);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabela);
             return tabela;
@@ -168,7 +197,7 @@ namespace DAL
                 modelo.VendaNumeroParcelas = Convert.ToInt32(registro["venda_numeroParcelas"]);
                 modelo.VendaStatus = Convert.ToString(registro["venda_status"]);
                 modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
-                modelo.VendaAVista = Convert.ToBoolean(registro["venda_aVista"]);
+                modelo.VendaAVista = Convert.ToInt32(registro["venda_aVista"]);
             }
             conexao.Desconectar();
             return modelo;

@@ -45,24 +45,24 @@ namespace DAL
             }
         }
 
-        public void Alterar(ModeloProduto modelo)
+        public void Alterar(ModeloProduto obj)
         {
             try
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "update produto set produto_nome = @nome, produto_descricao = @descricao, produto_valorpago = @valorpago, " +
-                    "produto_valorvenda = @valorvenda, produto_qtde = @qtde, undmed_id = @undmed, categoria_id = @categoria, " +
-                    "subCategoria_id = @subcategoria where produto_id = @id;";
-                cmd.Parameters.AddWithValue("@id", modelo.ProdutoID);
-                cmd.Parameters.AddWithValue("@nome", modelo.ProdutoNome);
-                cmd.Parameters.AddWithValue("@descricao", modelo.ProdutoDescricao);
-                cmd.Parameters.AddWithValue("@valorpago", modelo.ProdutoValorPago);
-                cmd.Parameters.AddWithValue("@valorvenda", modelo.ProdutoValorVenda);
-                cmd.Parameters.AddWithValue("@qtde", modelo.ProdutoQtde);
-                cmd.Parameters.AddWithValue("@undmed", modelo.UndMedID);
-                cmd.Parameters.AddWithValue("@categoria", modelo.CategoriaID);
-                cmd.Parameters.AddWithValue("@subcategoria", modelo.SubCategoriaID);
+                cmd.CommandText = "update produto set produto_nome = (@nome), produto_descricao = (@descricao), produto_valorpago = (@valorpago), " +
+                    "produto_valorvenda = (@valorvenda), produto_qtde = (@qtde), undmed_id = (@undmed), categoria_id = (@categoria), " +
+                    "subCategoria_id = (@subcategoria) where produto_id = (@id);";
+                cmd.Parameters.AddWithValue("@id", obj.ProdutoID);
+                cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
+                cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
+                cmd.Parameters.AddWithValue("@valorpago", obj.ProdutoValorPago);
+                cmd.Parameters.AddWithValue("@valorvenda", obj.ProdutoValorVenda);
+                cmd.Parameters.AddWithValue("@qtde", obj.ProdutoQtde);
+                cmd.Parameters.AddWithValue("@undmed", obj.UndMedID);
+                cmd.Parameters.AddWithValue("@categoria", obj.CategoriaID);
+                cmd.Parameters.AddWithValue("@subcategoria", obj.SubCategoriaID);
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
                 conexao.Desconectar();
@@ -72,6 +72,43 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
+        public void Alterar(ModeloProduto obj, bool transacao)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "update produto set produto_nome = (@nome), produto_descricao = (@descricao), produto_valorpago = (@valorpago), " +
+                    "produto_valorvenda = (@valorvenda), produto_qtde = (@qtde), undmed_id = (@undmed), categoria_id = (@categoria), " +
+                    "subCategoria_id = (@subcategoria) where produto_id = (@id);";
+                cmd.Parameters.AddWithValue("@id", obj.ProdutoID);
+                cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
+                cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
+                cmd.Parameters.AddWithValue("@valorpago", obj.ProdutoValorPago);
+                cmd.Parameters.AddWithValue("@valorvenda", obj.ProdutoValorVenda);
+                cmd.Parameters.AddWithValue("@qtde", obj.ProdutoQtde);
+                cmd.Parameters.AddWithValue("@undmed", obj.UndMedID);
+                cmd.Parameters.AddWithValue("@categoria", obj.CategoriaID);
+                cmd.Parameters.AddWithValue("@subcategoria", obj.SubCategoriaID);
+                cmd.Transaction = conexao.ObjetoTransacao;
+            
+                if(transacao)
+                {
+                    cmd.Transaction = conexao.ObjetoTransacao;
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    conexao.Conectar();
+                    cmd.ExecuteNonQuery();
+                    conexao.Desconectar();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }   
         public void Excluir(int id)
         {
             try
@@ -125,6 +162,42 @@ namespace DAL
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
             }
             conexao.Desconectar();
+            return modelo;
+        }
+        public ModeloProduto CarregaModeloProduto(int id, bool transacao)
+        {
+            ModeloProduto modelo = new ModeloProduto();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from produto where produto_id = " + id.ToString();
+            cmd.Parameters.AddWithValue("@id", id);
+            if(transacao == false)
+            {
+                conexao.Conectar();
+            }
+            else
+            {
+                cmd.Transaction = conexao.ObjetoTransacao;
+            }
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.ProdutoID = Convert.ToInt32(registro["produto_id"]);
+                modelo.ProdutoNome = Convert.ToString(registro["produto_nome"]);
+                modelo.ProdutoDescricao = Convert.ToString(registro["produto_descricao"]);
+                modelo.ProdutoValorPago = Convert.ToDouble(registro["produto_valorpago"]);
+                modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorvenda"]);
+                modelo.ProdutoQtde = Convert.ToDouble(registro["produto_qtde"]);
+                modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
+                modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
+                modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
+            }
+            registro.Close();
+            if (transacao == false)
+            {
+                conexao.Desconectar();
+            }
             return modelo;
         }
     }
