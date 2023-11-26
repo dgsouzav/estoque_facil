@@ -16,13 +16,13 @@ namespace Modelo
             this.VendaID = 0;
             this.ProdutoID = 0;
         }
-        public ModeloItensVenda(int id, Double qtde, Double valor, int vendaID, int produtoID)
+        public ModeloItensVenda(int itensVenda_id, Double itensVenda_qtde, Double itensVenda_valor, int venda_id, int produto_id)
         {
-            this.ItensVendaID = id;
-            this.ItensVendaQtde = qtde;
-            this.ItensVendaValor = valor;
-            this.VendaID = vendaID;
-            this.ProdutoID = produtoID;
+            this.ItensVendaID = itensVenda_id;
+            this.ItensVendaQtde = itensVenda_qtde;
+            this.ItensVendaValor = itensVenda_valor;
+            this.VendaID = venda_id;
+            this.ProdutoID = produto_id;
         }
         private int itensVenda_id;
         public int ItensVendaID

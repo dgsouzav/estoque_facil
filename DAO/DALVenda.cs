@@ -150,7 +150,7 @@ namespace DAL
             return tabela;
         }
         
-        //quantidade de parcelas em aberto
+        //quantidade de parcelas em aberto(nao pagas)
         public int QuantidadeParcelasAberto(int id)
         {
             int qtde = 0;

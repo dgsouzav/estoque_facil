@@ -51,8 +51,6 @@ namespace UI
             txtQtde.Clear();
             txtValor.Clear();
             txtCompraTotal.Clear();
-            lblFornecedorNome.Text = "Informe o nome do Fornecedor ou localize";
-            lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             dtgvItensCompra.Rows.Clear();
         }
         public formCompra()
@@ -191,13 +189,20 @@ namespace UI
                 BLLFornecedor bll = new BLLFornecedor(cx);
                 ModeloFornecedor modelo = bll.CarregaModeloFornecedor(Convert.ToInt32(txtFornecedorID.Text));
                 txtFornecedorID.Text = modelo.FornecedorID.ToString();
-                lblFornecedorNome.Text = modelo.FornecedorNome;
-
+                if (modelo.FornecedorID <= 0)
+                {
+                    txtFornecedorID.Clear();
+                    lblFornecedorNome.Text = "Informe o código do fornecedor ou clique em localizar";
+                }
+                else
+                {
+                    lblFornecedorNome.Text = modelo.FornecedorNome;
+                }
             }
-            catch (Exception ex)
+            catch
             {
                 txtFornecedorID.Clear();
-                MessageBox.Show("Erro ao buscar o Fornecedor: " + ex.Message);
+                lblFornecedorNome.Text = "Informe o código do fornecedor ou clique em localizar";
             }
         }
 
@@ -226,29 +231,46 @@ namespace UI
                 BLLProduto bll = new BLLProduto(cx);
                 ModeloProduto modelo = bll.CarregaModeloProduto(Convert.ToInt32(txtProdutoID.Text));
                 txtQtde.Text = "1";
-                txtValor.Text = modelo.ProdutoValorPago.ToString();
-                lblProdutoNome.Text = modelo.ProdutoNome;
+                txtValor.Text = modelo.ProdutoValorVenda.ToString();
+
+                if (modelo.ProdutoQtde <= 0)
+                {
+                    txtProdutoID.Clear();
+                    lblProdutoNome.Text = "Informe o nome do Produto ou localize";
+                }
+                else
+                {
+                    lblProdutoNome.Text = modelo.ProdutoNome;
+                }
             }
             catch
             {
                 txtProdutoID.Clear();
+                lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             }
         }
 
         private void btnAddProduto_Click(object sender, EventArgs e)
         {
-            if ((txtProdutoID.Text != "") && (txtQtde.Text != "") && (txtValor.Text != ""))
+            try
             {
-                Double TotalLocal = Convert.ToDouble(txtQtde.Text) * Convert.ToDouble(txtValor.Text);
-                this.totalCompra = this.totalCompra + TotalLocal;
-                String[] i = new String[] { txtProdutoID.Text, lblProdutoID.Text, txtQtde.Text, txtValor.Text, TotalLocal.ToString() };
-                this.dtgvItensCompra.Rows.Add(i);
+                if ((txtProdutoID.Text != "") && (txtQtde.Text != "") && (txtValor.Text != ""))
+                {
+                    Double TotalLocal = Convert.ToDouble(txtQtde.Text) * Convert.ToDouble(txtValor.Text);
+                    this.totalCompra = this.totalCompra + TotalLocal;
+                    String[] i = new String[] { txtProdutoID.Text, lblProdutoID.Text, txtQtde.Text, txtValor.Text, TotalLocal.ToString() };
+                    this.dtgvItensCompra.Rows.Add(i);
 
-                txtProdutoID.Clear();
-                lblProdutoNome.Text = "Informe o nome do Produto ou localize";
-                txtQtde.Clear();
-                txtValor.Clear();
-                txtCompraTotal.Text = this.totalCompra.ToString();
+                    txtProdutoID.Clear();
+                    lblProdutoNome.Text = "Informe o nome do Produto ou localize";
+                    txtQtde.Clear();
+                    txtValor.Clear();
+                    txtCompraTotal.Text = this.totalCompra.ToString();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Informe apenas números nos campos referentes a quantidade e valor do produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -260,6 +282,7 @@ namespace UI
             cmbTipoPagamento.DataSource = bll.Localizar("");
             cmbTipoPagamento.DisplayMember = "tipoPagamento_nome";
             cmbTipoPagamento.ValueMember = "tipoPagamento_id";
+            cmbNumeroParcelas.SelectedIndex = 0;
         }
 
         private void dtgvItensCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

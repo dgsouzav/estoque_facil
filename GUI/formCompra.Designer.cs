@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panelDados=new Panel();
+            label2=new Label();
+            label1=new Label();
             btnAddProduto=new Button();
             txtValor=new TextBox();
             txtQtde=new TextBox();
@@ -90,6 +92,8 @@
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(label2);
+            panelDados.Controls.Add(label1);
             panelDados.Controls.Add(btnAddProduto);
             panelDados.Controls.Add(txtValor);
             panelDados.Controls.Add(txtQtde);
@@ -118,10 +122,28 @@
             panelDados.Controls.Add(txtCompraID);
             panelDados.Controls.Add(lblCompra);
             panelDados.Controls.Add(lblTipoPagamento);
-            panelDados.Location=new Point(12, 12);
+            panelDados.Location=new Point(9, 15);
             panelDados.Name="panelDados";
             panelDados.Size=new Size(536, 436);
             panelDados.TabIndex=2;
+            // 
+            // label2
+            // 
+            label2.AutoSize=true;
+            label2.Location=new Point(412, 404);
+            label2.Name="label2";
+            label2.Size=new Size(20, 15);
+            label2.TabIndex=42;
+            label2.Text="R$";
+            // 
+            // label1
+            // 
+            label1.AutoSize=true;
+            label1.Location=new Point(179, 176);
+            label1.Name="label1";
+            label1.Size=new Size(20, 15);
+            label1.TabIndex=41;
+            label1.Text="R$";
             // 
             // btnAddProduto
             // 
@@ -135,9 +157,9 @@
             // 
             // txtValor
             // 
-            txtValor.Location=new Point(179, 171);
+            txtValor.Location=new Point(205, 171);
             txtValor.Name="txtValor";
-            txtValor.Size=new Size(166, 23);
+            txtValor.Size=new Size(140, 23);
             txtValor.TabIndex=37;
             // 
             // txtQtde
@@ -240,7 +262,7 @@
             // lblDataInicial
             // 
             lblDataInicial.AutoSize=true;
-            lblDataInicial.Location=new Point(244, 383);
+            lblDataInicial.Location=new Point(223, 383);
             lblDataInicial.Name="lblDataInicial";
             lblDataInicial.Size=new Size(145, 15);
             lblDataInicial.TabIndex=25;
@@ -295,7 +317,7 @@
             // 
             // dtpDataInicial
             // 
-            dtpDataInicial.Location=new Point(244, 401);
+            dtpDataInicial.Location=new Point(223, 401);
             dtpDataInicial.Name="dtpDataInicial";
             dtpDataInicial.Size=new Size(183, 23);
             dtpDataInicial.TabIndex=21;
@@ -305,7 +327,7 @@
             cmbTipoPagamento.AutoCompleteMode=AutoCompleteMode.Suggest;
             cmbTipoPagamento.AutoCompleteSource=AutoCompleteSource.ListItems;
             cmbTipoPagamento.FormattingEnabled=true;
-            cmbTipoPagamento.Location=new Point(125, 401);
+            cmbTipoPagamento.Location=new Point(104, 401);
             cmbTipoPagamento.Name="cmbTipoPagamento";
             cmbTipoPagamento.Size=new Size(113, 23);
             cmbTipoPagamento.TabIndex=20;
@@ -316,7 +338,7 @@
             cmbNumeroParcelas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
             cmbNumeroParcelas.Location=new Point(6, 401);
             cmbNumeroParcelas.Name="cmbNumeroParcelas";
-            cmbNumeroParcelas.Size=new Size(113, 23);
+            cmbNumeroParcelas.Size=new Size(92, 23);
             cmbNumeroParcelas.TabIndex=19;
             // 
             // dtpDataCompra
@@ -328,6 +350,7 @@
             // 
             // txtCompraTotal
             // 
+            txtCompraTotal.Enabled=false;
             txtCompraTotal.Location=new Point(433, 401);
             txtCompraTotal.Name="txtCompraTotal";
             txtCompraTotal.Size=new Size(100, 23);
@@ -372,9 +395,9 @@
             lblNumeroParcelas.AutoSize=true;
             lblNumeroParcelas.Location=new Point(6, 383);
             lblNumeroParcelas.Name="lblNumeroParcelas";
-            lblNumeroParcelas.Size=new Size(113, 15);
+            lblNumeroParcelas.Size=new Size(50, 15);
             lblNumeroParcelas.TabIndex=4;
-            lblNumeroParcelas.Text="Número de parcelas";
+            lblNumeroParcelas.Text="Parcelas";
             // 
             // txtCompraID
             // 
@@ -396,7 +419,7 @@
             // lblTipoPagamento
             // 
             lblTipoPagamento.AutoSize=true;
-            lblTipoPagamento.Location=new Point(125, 383);
+            lblTipoPagamento.Location=new Point(107, 383);
             lblTipoPagamento.Name="lblTipoPagamento";
             lblTipoPagamento.Size=new Size(110, 15);
             lblTipoPagamento.TabIndex=0;
@@ -412,7 +435,7 @@
             panelFinalizaCompra.Controls.Add(lblTraço);
             panelFinalizaCompra.Controls.Add(lblDadosPagamento);
             panelFinalizaCompra.Controls.Add(dtgvParcelasCompra);
-            panelFinalizaCompra.Location=new Point(15, 9);
+            panelFinalizaCompra.Location=new Point(675, 16);
             panelFinalizaCompra.Name="panelFinalizaCompra";
             panelFinalizaCompra.Size=new Size(649, 437);
             panelFinalizaCompra.TabIndex=4;
@@ -577,7 +600,7 @@
             panelBotoes.Controls.Add(btnLocalizar);
             panelBotoes.Controls.Add(btnSalvar);
             panelBotoes.Controls.Add(btnAlterar);
-            panelBotoes.Location=new Point(554, 13);
+            panelBotoes.Location=new Point(551, 16);
             panelBotoes.Name="panelBotoes";
             panelBotoes.Size=new Size(118, 436);
             panelBotoes.TabIndex=3;
@@ -596,7 +619,7 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(684, 461);
+            ClientSize=new Size(1322, 461);
             Controls.Add(panelFinalizaCompra);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
@@ -670,5 +693,7 @@
         private DataGridViewTextBoxColumn parcelaValorPagamento;
         private DataGridViewTextBoxColumn parcelaDataVencimento;
         protected Button btnExcluir;
+        private Label label2;
+        private Label label1;
     }
 }

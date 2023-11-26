@@ -22,6 +22,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "insert into parcelasVenda (parcelasVenda_id, parcelasVenda_valor, parcelasVenda_dataVencimento, venda_id) values " +
                     "(@parcelasVenda_id, @parcelasVenda_valor, @parcelasVenda_dataVencimento, @venda_id); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@parcelasVenda_id", modelo.ParcelasVendaID);
@@ -38,9 +39,9 @@ namespace DAL
                     cmd.Parameters["@parcelasDataVencimento"].Value = modelo.ParcelasVendaDataVencimento;
                 }
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -53,6 +54,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "update parcelasVenda set parcelasVenda_valor = @parcelasVenda_valor, parcelasVenda_dataPagamento = @parcelasVenda_dataPagamento," +
                     " parcelasVenda_dataVencimento = @parcelasVenda_dataVencimento, " +
                     " where parcelasVenda_id = @parcelasVenda_id and venda_id = @venda_id;";
@@ -73,9 +75,9 @@ namespace DAL
 
                 cmd.Parameters["@parcelasDataVencimento"].Value = modelo.ParcelasVendaDataVencimento;
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+               // conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -88,12 +90,14 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "delete from parcelasVenda where parcelasVenda_id = @parcelasVenda_id and venda_id = @venda_id;";
                 cmd.Parameters.AddWithValue("@parcelasVenda_id", modelo.ParcelasVendaID);
                 cmd.Parameters.AddWithValue("@venda_id", modelo.VendaID);
-                conexao.Conectar();
+                
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {
@@ -107,12 +111,13 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "delete from parcelasVenda where venda_id = @venda_id;";
                 cmd.Parameters.AddWithValue("@venda_id", venda_id);
 
-                conexao.Conectar();
+                //conexao.Conectar();
                 cmd.ExecuteNonQuery();
-                conexao.Desconectar();
+                //conexao.Desconectar();
             }
             catch (Exception ex)
             {

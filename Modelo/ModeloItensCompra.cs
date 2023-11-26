@@ -16,7 +16,6 @@ namespace Modelo
             this.CompraID = 0;
             this.ProdutoID = 0;
         }
-
         public ModeloItensCompra(int itensCompra_id, double itensCompra_qtde, double itensCompra_valor, int compra_id, int produto_id)
         {
             this.ItensCompraID = itensCompra_id;
@@ -25,7 +24,6 @@ namespace Modelo
             this.CompraID = compra_id;
             this.ProdutoID = produto_id;
         }
-
         private int itensCompra_id;
         public int ItensCompraID
         {
