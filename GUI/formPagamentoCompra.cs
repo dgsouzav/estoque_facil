@@ -61,7 +61,7 @@ namespace UI
                 BLLParcelasCompra bllp = new BLLParcelasCompra(cx);
                 int compraID = Convert.ToInt32(txtID.Text);
                 DateTime data = dtpDataPagamento.Value;
-                
+
                 bllp.EfetuaPagamentoParcela(compraID, this.ParcelasCompraID, data);
 
                 BLLParcelasCompra bllp2 = new BLLParcelasCompra(cx);
@@ -89,6 +89,11 @@ namespace UI
                 btnPagar.Enabled = true;
                 this.ParcelasCompraID = Convert.ToInt32(dtgvParcelas.Rows[e.RowIndex].Cells[0].Value);
             }
+        }
+
+        private void formPagamentoCompra_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -116,6 +116,7 @@ namespace DAL
                 modelo.SubCategoriaNome = Convert.ToString(registro["subCategoria_nome"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

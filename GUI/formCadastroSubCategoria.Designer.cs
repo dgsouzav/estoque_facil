@@ -62,7 +62,7 @@
             btnCancelar.Location=new Point(19, 332);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 50);
-            btnCancelar.TabIndex=11;
+            btnCancelar.TabIndex=7;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -72,7 +72,7 @@
             btnInserir.Location=new Point(19, 13);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 50);
-            btnInserir.TabIndex=6;
+            btnInserir.TabIndex=3;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -82,7 +82,7 @@
             btnLocalizar.Location=new Point(19, 98);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 50);
-            btnLocalizar.TabIndex=7;
+            btnLocalizar.TabIndex=4;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -92,7 +92,7 @@
             btnSalvar.Location=new Point(19, 253);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 50);
-            btnSalvar.TabIndex=10;
+            btnSalvar.TabIndex=6;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -102,7 +102,7 @@
             btnAlterar.Location=new Point(19, 176);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 50);
-            btnAlterar.TabIndex=8;
+            btnAlterar.TabIndex=5;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;
@@ -128,7 +128,7 @@
             cmbCategoriaID.Location=new Point(3, 160);
             cmbCategoriaID.Name="cmbCategoriaID";
             cmbCategoriaID.Size=new Size(232, 23);
-            cmbCategoriaID.TabIndex=4;
+            cmbCategoriaID.TabIndex=2;
             // 
             // lblCategoriaNome
             // 
@@ -144,7 +144,7 @@
             txtNomeSubCategoria.Location=new Point(3, 98);
             txtNomeSubCategoria.Name="txtNomeSubCategoria";
             txtNomeSubCategoria.Size=new Size(515, 23);
-            txtNomeSubCategoria.TabIndex=3;
+            txtNomeSubCategoria.TabIndex=1;
             // 
             // txtSubCategoriaID
             // 

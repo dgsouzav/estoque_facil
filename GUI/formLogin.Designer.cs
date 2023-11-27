@@ -30,8 +30,8 @@
         {
             lblLogin=new Label();
             lblSenha=new Label();
-            textBox1=new TextBox();
-            textBox2=new TextBox();
+            txtLogin=new TextBox();
+            txtSenha=new TextBox();
             lbEstoqueFacil=new Label();
             btnEntrar=new Button();
             btnCancelar=new Button();
@@ -55,19 +55,19 @@
             lblSenha.TabIndex=1;
             lblSenha.Text="Senha";
             // 
-            // textBox1
+            // txtLogin
             // 
-            textBox1.Location=new Point(63, 122);
-            textBox1.Name="textBox1";
-            textBox1.Size=new Size(216, 23);
-            textBox1.TabIndex=2;
+            txtLogin.Location=new Point(63, 122);
+            txtLogin.Name="txtLogin";
+            txtLogin.Size=new Size(216, 23);
+            txtLogin.TabIndex=1;
             // 
-            // textBox2
+            // txtSenha
             // 
-            textBox2.Location=new Point(63, 172);
-            textBox2.Name="textBox2";
-            textBox2.Size=new Size(216, 23);
-            textBox2.TabIndex=3;
+            txtSenha.Location=new Point(63, 172);
+            txtSenha.Name="txtSenha";
+            txtSenha.Size=new Size(216, 23);
+            txtSenha.TabIndex=2;
             // 
             // lbEstoqueFacil
             // 
@@ -75,7 +75,7 @@
             lbEstoqueFacil.Location=new Point(125, 42);
             lbEstoqueFacil.Name="lbEstoqueFacil";
             lbEstoqueFacil.Size=new Size(76, 15);
-            lbEstoqueFacil.TabIndex=4;
+            lbEstoqueFacil.TabIndex=0;
             lbEstoqueFacil.Text="Estoque Fácil";
             // 
             // btnEntrar
@@ -83,7 +83,7 @@
             btnEntrar.Location=new Point(63, 219);
             btnEntrar.Name="btnEntrar";
             btnEntrar.Size=new Size(90, 23);
-            btnEntrar.TabIndex=5;
+            btnEntrar.TabIndex=3;
             btnEntrar.Text="Entrar";
             btnEntrar.UseVisualStyleBackColor=true;
             // 
@@ -92,7 +92,7 @@
             btnCancelar.Location=new Point(189, 219);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(90, 23);
-            btnCancelar.TabIndex=6;
+            btnCancelar.TabIndex=4;
             btnCancelar.Text="Cancelar";
             btnCancelar.UseVisualStyleBackColor=true;
             // 
@@ -104,8 +104,8 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnEntrar);
             Controls.Add(lbEstoqueFacil);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtSenha);
+            Controls.Add(txtLogin);
             Controls.Add(lblSenha);
             Controls.Add(lblLogin);
             Name="formLogin";
@@ -119,8 +119,8 @@
 
         private Label lblLogin;
         private Label lblSenha;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtLogin;
+        private TextBox txtSenha;
         private Label lbEstoqueFacil;
         private Button btnEntrar;
         private Button btnCancelar;

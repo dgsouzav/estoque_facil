@@ -67,7 +67,7 @@
             txtNomeCategoria.Location=new Point(3, 95);
             txtNomeCategoria.Name="txtNomeCategoria";
             txtNomeCategoria.Size=new Size(530, 23);
-            txtNomeCategoria.TabIndex=2;
+            txtNomeCategoria.TabIndex=1;
             // 
             // lblCategoriaID
             // 
@@ -104,7 +104,7 @@
             btnCancelar.Location=new Point(18, 322);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 60);
-            btnCancelar.TabIndex=11;
+            btnCancelar.TabIndex=6;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -114,7 +114,7 @@
             btnInserir.Location=new Point(18, 10);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 60);
-            btnInserir.TabIndex=6;
+            btnInserir.TabIndex=2;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -124,7 +124,7 @@
             btnLocalizar.Location=new Point(18, 86);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 60);
-            btnLocalizar.TabIndex=7;
+            btnLocalizar.TabIndex=3;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -134,7 +134,7 @@
             btnSalvar.Location=new Point(18, 246);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 60);
-            btnSalvar.TabIndex=10;
+            btnSalvar.TabIndex=5;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -144,7 +144,7 @@
             btnAlterar.Location=new Point(18, 162);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 60);
-            btnAlterar.TabIndex=8;
+            btnAlterar.TabIndex=4;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;

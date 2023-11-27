@@ -94,6 +94,24 @@ namespace BLL
             DALProduto DALobj = new DALProduto(conexao);
             DALobj.Alterar(modelo);
         }
+        public void Alterar(ModeloProduto obj, Boolean transacao)
+        {
+            if (obj.ProdutoID <= 0)
+            {
+                throw new Exception("O ID do produto é obrigatório");
+            }
+            if (obj.ProdutoQtde <= 0)
+            {
+                throw new Exception("A quantidade do produto é obrigatória");
+            }
+            DALProduto DALobj = new DALProduto(conexao);
+            DALobj.Alterar(obj, transacao);
+        }
+        public ModeloProduto CarregaModeloProduto(int id, Boolean transacao)
+        {
+            DALProduto DALobj = new DALProduto(conexao);
+            return DALobj.CarregaModeloProduto(id, transacao);
+        }
         public void Excluir(int id)
         {
             DALProduto DALobj = new DALProduto(conexao);

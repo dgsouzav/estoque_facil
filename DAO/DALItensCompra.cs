@@ -125,6 +125,7 @@ namespace DAL
                 modelo.CompraID = CompraID;
                 modelo.ProdutoID = ProdutoID;
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

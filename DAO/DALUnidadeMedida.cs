@@ -127,6 +127,7 @@ namespace DAL
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
                 modelo.UndMedNome = Convert.ToString(registro["undmed_nome"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

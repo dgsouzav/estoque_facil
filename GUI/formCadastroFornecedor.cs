@@ -9,7 +9,7 @@ namespace UI
     public partial class formCadastroFornecedor : Form
     {
         public String operacao;
-
+        
         public void menuBotoes(int op)
         {
             panelDados.Enabled = false;
@@ -193,7 +193,7 @@ namespace UI
 
             if (txtCNPJ.Text.Length == 2 || txtCNPJ.Text.Length == 6 || txtCNPJ.Text.Length == 10 || txtCNPJ.Text.Length == 15)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
 
             if (e.KeyChar != (char)8)

@@ -74,7 +74,7 @@
             btnCancelar.Location=new Point(18, 322);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 60);
-            btnCancelar.TabIndex=5;
+            btnCancelar.TabIndex=13;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -84,7 +84,7 @@
             btnInserir.Location=new Point(18, 10);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 60);
-            btnInserir.TabIndex=1;
+            btnInserir.TabIndex=9;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -94,7 +94,7 @@
             btnLocalizar.Location=new Point(18, 86);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 60);
-            btnLocalizar.TabIndex=2;
+            btnLocalizar.TabIndex=10;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -104,7 +104,7 @@
             btnSalvar.Location=new Point(18, 246);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 60);
-            btnSalvar.TabIndex=4;
+            btnSalvar.TabIndex=12;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -114,7 +114,7 @@
             btnAlterar.Location=new Point(18, 162);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 60);
-            btnAlterar.TabIndex=3;
+            btnAlterar.TabIndex=11;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;
@@ -152,7 +152,7 @@
             cmbUndMedID.Location=new Point(283, 30);
             cmbUndMedID.Name="cmbUndMedID";
             cmbUndMedID.Size=new Size(250, 23);
-            cmbUndMedID.TabIndex=11;
+            cmbUndMedID.TabIndex=6;
             // 
             // cmbCategoriaID
             // 
@@ -162,7 +162,7 @@
             cmbCategoriaID.Location=new Point(283, 86);
             cmbCategoriaID.Name="cmbCategoriaID";
             cmbCategoriaID.Size=new Size(250, 23);
-            cmbCategoriaID.TabIndex=12;
+            cmbCategoriaID.TabIndex=7;
             cmbCategoriaID.SelectedIndexChanged+=cmbCategoriaID_SelectedIndexChanged;
             // 
             // cmbSubCategoriaID
@@ -173,7 +173,7 @@
             cmbSubCategoriaID.Location=new Point(283, 141);
             cmbSubCategoriaID.Name="cmbSubCategoriaID";
             cmbSubCategoriaID.Size=new Size(250, 23);
-            cmbSubCategoriaID.TabIndex=13;
+            cmbSubCategoriaID.TabIndex=8;
             // 
             // lblUnidadeMedidaID
             // 
@@ -207,7 +207,7 @@
             txtValorPagoProduto.Location=new Point(3, 235);
             txtValorPagoProduto.Name="txtValorPagoProduto";
             txtValorPagoProduto.Size=new Size(129, 23);
-            txtValorPagoProduto.TabIndex=8;
+            txtValorPagoProduto.TabIndex=3;
             txtValorPagoProduto.KeyPress+=txtValorPagoProduto_KeyPress;
             txtValorPagoProduto.Leave+=txtValorPagoProduto_Leave;
             // 
@@ -216,7 +216,7 @@
             txtQtdeProduto.Location=new Point(3, 287);
             txtQtdeProduto.Name="txtQtdeProduto";
             txtQtdeProduto.Size=new Size(129, 23);
-            txtQtdeProduto.TabIndex=9;
+            txtQtdeProduto.TabIndex=4;
             txtQtdeProduto.KeyPress+=txtQtdeProduto_KeyPress;
             txtQtdeProduto.Leave+=txtQtdeProduto_Leave;
             // 
@@ -225,7 +225,7 @@
             txtValorVendaProduto.Location=new Point(3, 340);
             txtValorVendaProduto.Name="txtValorVendaProduto";
             txtValorVendaProduto.Size=new Size(129, 23);
-            txtValorVendaProduto.TabIndex=10;
+            txtValorVendaProduto.TabIndex=5;
             txtValorVendaProduto.KeyPress+=txtValorVendaProduto_KeyPress;
             txtValorVendaProduto.Leave+=txtValorVendaProduto_Leave;
             // 
@@ -271,7 +271,7 @@
             txtDescricaoProduto.Multiline=true;
             txtDescricaoProduto.Name="txtDescricaoProduto";
             txtDescricaoProduto.Size=new Size(257, 60);
-            txtDescricaoProduto.TabIndex=7;
+            txtDescricaoProduto.TabIndex=2;
             // 
             // txtProdutoID
             // 
@@ -286,7 +286,7 @@
             txtNomeProduto.Location=new Point(3, 86);
             txtNomeProduto.Name="txtNomeProduto";
             txtNomeProduto.Size=new Size(257, 23);
-            txtNomeProduto.TabIndex=6;
+            txtNomeProduto.TabIndex=1;
             // 
             // lblProdutoID
             // 

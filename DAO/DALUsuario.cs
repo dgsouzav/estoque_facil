@@ -102,6 +102,7 @@ namespace DAL
                 modelo.UsuarioSenha = Convert.ToString(registro["usuario_senha"]);
                 modelo.UsuarioNivelAcesso = Convert.ToString(registro["usuario_nivelAcesso"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

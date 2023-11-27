@@ -81,6 +81,7 @@
             txtVendaID=new TextBox();
             lblVenda=new Label();
             lblTipoPagamento=new Label();
+            checkBoxVerificaEstoque=new CheckBox();
             panelFinalizaVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvParcelasVenda).BeginInit();
             panelBotoes.SuspendLayout();
@@ -98,7 +99,7 @@
             panelFinalizaVenda.Controls.Add(lblTraço);
             panelFinalizaVenda.Controls.Add(lblDadosPagamento);
             panelFinalizaVenda.Controls.Add(dtgvParcelasVenda);
-            panelFinalizaVenda.Location=new Point(678, 12);
+            panelFinalizaVenda.Location=new Point(678, 14);
             panelFinalizaVenda.Name="panelFinalizaVenda";
             panelFinalizaVenda.Size=new Size(660, 437);
             panelFinalizaVenda.TabIndex=7;
@@ -129,7 +130,7 @@
             btnCancelarPagamento.Location=new Point(553, 152);
             btnCancelarPagamento.Name="btnCancelarPagamento";
             btnCancelarPagamento.Size=new Size(90, 60);
-            btnCancelarPagamento.TabIndex=13;
+            btnCancelarPagamento.TabIndex=19;
             btnCancelarPagamento.Text="CANCELAR";
             btnCancelarPagamento.UseVisualStyleBackColor=true;
             btnCancelarPagamento.Click+=btnCancelarPagamento_Click;
@@ -139,7 +140,7 @@
             btnSalvarPagamento.Location=new Point(553, 83);
             btnSalvarPagamento.Name="btnSalvarPagamento";
             btnSalvarPagamento.Size=new Size(90, 60);
-            btnSalvarPagamento.TabIndex=12;
+            btnSalvarPagamento.TabIndex=18;
             btnSalvarPagamento.Text="SALVAR";
             btnSalvarPagamento.UseVisualStyleBackColor=true;
             btnSalvarPagamento.Click+=btnSalvarPagamento_Click;
@@ -223,7 +224,7 @@
             btnCancelarVenda.Location=new Point(14, 257);
             btnCancelarVenda.Name="btnCancelarVenda";
             btnCancelarVenda.Size=new Size(90, 60);
-            btnCancelarVenda.TabIndex=12;
+            btnCancelarVenda.TabIndex=16;
             btnCancelarVenda.Text="CANCELAR";
             btnCancelarVenda.UseVisualStyleBackColor=true;
             btnCancelarVenda.Click+=btnCancelarVenda_Click;
@@ -233,7 +234,7 @@
             btnCancelar.Location=new Point(14, 323);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(90, 60);
-            btnCancelar.TabIndex=11;
+            btnCancelar.TabIndex=17;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -243,7 +244,7 @@
             btnInserir.Location=new Point(14, 58);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(90, 60);
-            btnInserir.TabIndex=6;
+            btnInserir.TabIndex=13;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -253,7 +254,7 @@
             btnLocalizar.Location=new Point(14, 124);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(90, 60);
-            btnLocalizar.TabIndex=7;
+            btnLocalizar.TabIndex=14;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -263,7 +264,7 @@
             btnSalvar.Location=new Point(14, 191);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(90, 60);
-            btnSalvar.TabIndex=10;
+            btnSalvar.TabIndex=15;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -280,6 +281,7 @@
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(checkBoxVerificaEstoque);
             panelDados.Controls.Add(lblVendaAtiva);
             panelDados.Controls.Add(label2);
             panelDados.Controls.Add(label1);
@@ -346,10 +348,10 @@
             // checkBoxVendaAVista
             // 
             checkBoxVendaAVista.AutoSize=true;
-            checkBoxVendaAVista.Location=new Point(400, 136);
+            checkBoxVendaAVista.Location=new Point(400, 137);
             checkBoxVendaAVista.Name="checkBoxVendaAVista";
             checkBoxVendaAVista.Size=new Size(94, 19);
-            checkBoxVendaAVista.TabIndex=39;
+            checkBoxVendaAVista.TabIndex=8;
             checkBoxVendaAVista.Text="Venda à vista";
             checkBoxVendaAVista.UseVisualStyleBackColor=true;
             checkBoxVendaAVista.CheckedChanged+=checkBoxVendaAVista_CheckedChanged;
@@ -359,7 +361,7 @@
             btnAddProduto.Location=new Point(351, 136);
             btnAddProduto.Name="btnAddProduto";
             btnAddProduto.Size=new Size(27, 24);
-            btnAddProduto.TabIndex=38;
+            btnAddProduto.TabIndex=7;
             btnAddProduto.Text="+";
             btnAddProduto.UseVisualStyleBackColor=true;
             btnAddProduto.Click+=btnAddProduto_Click;
@@ -369,14 +371,14 @@
             txtValor.Location=new Point(200, 136);
             txtValor.Name="txtValor";
             txtValor.Size=new Size(145, 23);
-            txtValor.TabIndex=37;
+            txtValor.TabIndex=6;
             // 
             // txtQtde
             // 
-            txtQtde.Location=new Point(6, 136);
+            txtQtde.Location=new Point(9, 137);
             txtQtde.Name="txtQtde";
             txtQtde.Size=new Size(167, 23);
-            txtQtde.TabIndex=36;
+            txtQtde.TabIndex=5;
             // 
             // lblValor
             // 
@@ -408,7 +410,7 @@
             // lblProdutoID
             // 
             lblProdutoID.AutoSize=true;
-            lblProdutoID.Location=new Point(6, 66);
+            lblProdutoID.Location=new Point(9, 66);
             lblProdutoID.Name="lblProdutoID";
             lblProdutoID.Size=new Size(50, 15);
             lblProdutoID.TabIndex=32;
@@ -416,10 +418,10 @@
             // 
             // txtProdutoID
             // 
-            txtProdutoID.Location=new Point(6, 84);
+            txtProdutoID.Location=new Point(9, 84);
             txtProdutoID.Name="txtProdutoID";
             txtProdutoID.Size=new Size(167, 23);
-            txtProdutoID.TabIndex=31;
+            txtProdutoID.TabIndex=3;
             txtProdutoID.Leave+=txtProdutoID_Leave;
             // 
             // btnLocalizarProduto
@@ -427,7 +429,7 @@
             btnLocalizarProduto.Location=new Point(179, 83);
             btnLocalizarProduto.Name="btnLocalizarProduto";
             btnLocalizarProduto.Size=new Size(100, 24);
-            btnLocalizarProduto.TabIndex=30;
+            btnLocalizarProduto.TabIndex=4;
             btnLocalizarProduto.Text="Localizar";
             btnLocalizarProduto.UseVisualStyleBackColor=true;
             btnLocalizarProduto.Click+=btnLocalizarProduto_Click;
@@ -447,12 +449,12 @@
             dtgvItensVenda.AllowUserToDeleteRows=false;
             dtgvItensVenda.ColumnHeadersHeightSizeMode=DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvItensVenda.Columns.AddRange(new DataGridViewColumn[] { produtoID, produtoNome, produtoQtde, produtoValor, produtoValorTotal });
-            dtgvItensVenda.Location=new Point(9, 166);
+            dtgvItensVenda.Location=new Point(9, 191);
             dtgvItensVenda.Name="dtgvItensVenda";
             dtgvItensVenda.ReadOnly=true;
             dtgvItensVenda.RowTemplate.Height=25;
             dtgvItensVenda.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
-            dtgvItensVenda.Size=new Size(527, 214);
+            dtgvItensVenda.Size=new Size(527, 189);
             dtgvItensVenda.TabIndex=22;
             dtgvItensVenda.CellDoubleClick+=dtgvItensVenda_CellDoubleClick;
             // 
@@ -493,7 +495,7 @@
             dtpDataInicial.Location=new Point(241, 401);
             dtpDataInicial.Name="dtpDataInicial";
             dtpDataInicial.Size=new Size(153, 23);
-            dtpDataInicial.TabIndex=21;
+            dtpDataInicial.TabIndex=11;
             // 
             // cmbTipoPagamento
             // 
@@ -503,7 +505,7 @@
             cmbTipoPagamento.Location=new Point(104, 401);
             cmbTipoPagamento.Name="cmbTipoPagamento";
             cmbTipoPagamento.Size=new Size(131, 23);
-            cmbTipoPagamento.TabIndex=20;
+            cmbTipoPagamento.TabIndex=10;
             // 
             // cmbNumeroParcelas
             // 
@@ -512,14 +514,14 @@
             cmbNumeroParcelas.Location=new Point(6, 401);
             cmbNumeroParcelas.Name="cmbNumeroParcelas";
             cmbNumeroParcelas.Size=new Size(92, 23);
-            cmbNumeroParcelas.TabIndex=19;
+            cmbNumeroParcelas.TabIndex=9;
             // 
             // dtpDataVenda
             // 
             dtpDataVenda.Location=new Point(281, 31);
             dtpDataVenda.Name="dtpDataVenda";
             dtpDataVenda.Size=new Size(252, 23);
-            dtpDataVenda.TabIndex=18;
+            dtpDataVenda.TabIndex=2;
             // 
             // txtVendaTotal
             // 
@@ -527,7 +529,7 @@
             txtVendaTotal.Location=new Point(426, 401);
             txtVendaTotal.Name="txtVendaTotal";
             txtVendaTotal.Size=new Size(100, 23);
-            txtVendaTotal.TabIndex=17;
+            txtVendaTotal.TabIndex=12;
             // 
             // lblVendaTotal
             // 
@@ -552,7 +554,7 @@
             txtNotaFiscal.Location=new Point(104, 30);
             txtNotaFiscal.Name="txtNotaFiscal";
             txtNotaFiscal.Size=new Size(171, 23);
-            txtNotaFiscal.TabIndex=7;
+            txtNotaFiscal.TabIndex=1;
             // 
             // lblNotaFiscal
             // 
@@ -575,7 +577,7 @@
             // txtVendaID
             // 
             txtVendaID.Enabled=false;
-            txtVendaID.Location=new Point(6, 31);
+            txtVendaID.Location=new Point(9, 30);
             txtVendaID.Name="txtVendaID";
             txtVendaID.Size=new Size(92, 23);
             txtVendaID.TabIndex=3;
@@ -583,7 +585,7 @@
             // lblVenda
             // 
             lblVenda.AutoSize=true;
-            lblVenda.Location=new Point(6, 13);
+            lblVenda.Location=new Point(9, 13);
             lblVenda.Name="lblVenda";
             lblVenda.Size=new Size(53, 15);
             lblVenda.TabIndex=1;
@@ -598,11 +600,21 @@
             lblTipoPagamento.TabIndex=0;
             lblTipoPagamento.Text="Tipo de pagamento";
             // 
+            // checkBoxVerificaEstoque
+            // 
+            checkBoxVerificaEstoque.AutoSize=true;
+            checkBoxVerificaEstoque.Location=new Point(9, 165);
+            checkBoxVerificaEstoque.Name="checkBoxVerificaEstoque";
+            checkBoxVerificaEstoque.Size=new Size(263, 19);
+            checkBoxVerificaEstoque.TabIndex=43;
+            checkBoxVerificaEstoque.Text="Verificar quantidade de produtos em estoque";
+            checkBoxVerificaEstoque.UseVisualStyleBackColor=true;
+            // 
             // formVenda
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(1370, 461);
+            ClientSize=new Size(1333, 461);
             Controls.Add(panelFinalizaVenda);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
@@ -675,5 +687,6 @@
         private Label label2;
         private Label label1;
         private Label lblVendaAtiva;
+        private CheckBox checkBoxVerificaEstoque;
     }
 }

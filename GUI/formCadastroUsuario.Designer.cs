@@ -64,7 +64,7 @@
             btnCancelar.Location=new Point(19, 332);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 50);
-            btnCancelar.TabIndex=11;
+            btnCancelar.TabIndex=9;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -74,7 +74,7 @@
             btnInserir.Location=new Point(19, 13);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 50);
-            btnInserir.TabIndex=6;
+            btnInserir.TabIndex=5;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -84,7 +84,7 @@
             btnLocalizar.Location=new Point(19, 98);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 50);
-            btnLocalizar.TabIndex=7;
+            btnLocalizar.TabIndex=6;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -94,7 +94,7 @@
             btnSalvar.Location=new Point(19, 253);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 50);
-            btnSalvar.TabIndex=10;
+            btnSalvar.TabIndex=8;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -104,7 +104,7 @@
             btnAlterar.Location=new Point(19, 176);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 50);
-            btnAlterar.TabIndex=8;
+            btnAlterar.TabIndex=7;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;
@@ -129,7 +129,7 @@
             txtSenha.Location=new Point(3, 151);
             txtSenha.Name="txtSenha";
             txtSenha.Size=new Size(215, 23);
-            txtSenha.TabIndex=6;
+            txtSenha.TabIndex=3;
             txtSenha.UseSystemPasswordChar=true;
             // 
             // lblSenha
@@ -165,7 +165,7 @@
             txtNomeSubCategoria.Location=new Point(3, 98);
             txtNomeSubCategoria.Name="txtNomeSubCategoria";
             txtNomeSubCategoria.Size=new Size(215, 23);
-            txtNomeSubCategoria.TabIndex=3;
+            txtNomeSubCategoria.TabIndex=2;
             // 
             // txtUsuarioID
             // 
@@ -173,7 +173,7 @@
             txtUsuarioID.Location=new Point(3, 40);
             txtUsuarioID.Name="txtUsuarioID";
             txtUsuarioID.Size=new Size(81, 23);
-            txtUsuarioID.TabIndex=2;
+            txtUsuarioID.TabIndex=1;
             // 
             // lblNomeUsuario
             // 

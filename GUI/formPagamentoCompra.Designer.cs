@@ -50,7 +50,7 @@
             btnLocalizarCompra.Location=new Point(567, 77);
             btnLocalizarCompra.Name="btnLocalizarCompra";
             btnLocalizarCompra.Size=new Size(205, 24);
-            btnLocalizarCompra.TabIndex=0;
+            btnLocalizarCompra.TabIndex=5;
             btnLocalizarCompra.Text="Localizar compra";
             btnLocalizarCompra.UseVisualStyleBackColor=true;
             btnLocalizarCompra.Click+=btnLocalizarCompra_Click;
@@ -96,7 +96,7 @@
             txtValor.Location=new Point(258, 35);
             txtValor.Name="txtValor";
             txtValor.Size=new Size(100, 23);
-            txtValor.TabIndex=7;
+            txtValor.TabIndex=2;
             // 
             // lblValor
             // 
@@ -113,7 +113,7 @@
             txtFornecedorNome.Location=new Point(258, 79);
             txtFornecedorNome.Name="txtFornecedorNome";
             txtFornecedorNome.Size=new Size(302, 23);
-            txtFornecedorNome.TabIndex=9;
+            txtFornecedorNome.TabIndex=4;
             // 
             // dtpData
             // 
@@ -121,7 +121,7 @@
             dtpData.Location=new Point(12, 79);
             dtpData.Name="dtpData";
             dtpData.Size=new Size(240, 23);
-            dtpData.TabIndex=13;
+            dtpData.TabIndex=3;
             // 
             // lblParcelas
             // 
@@ -143,7 +143,7 @@
             dtgvParcelas.RowTemplate.Height=25;
             dtgvParcelas.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
             dtgvParcelas.Size=new Size(760, 260);
-            dtgvParcelas.TabIndex=15;
+            dtgvParcelas.TabIndex=8;
             dtgvParcelas.CellClick+=dtgvParcelas_CellClick;
             // 
             // btnPagar
@@ -152,7 +152,7 @@
             btnPagar.Location=new Point(567, 425);
             btnPagar.Name="btnPagar";
             btnPagar.Size=new Size(205, 24);
-            btnPagar.TabIndex=16;
+            btnPagar.TabIndex=7;
             btnPagar.Text="Pagar parcela";
             btnPagar.UseVisualStyleBackColor=true;
             btnPagar.Click+=btnPagar_Click;
@@ -162,7 +162,7 @@
             dtpDataPagamento.Location=new Point(12, 426);
             dtpDataPagamento.Name="dtpDataPagamento";
             dtpDataPagamento.Size=new Size(240, 23);
-            dtpDataPagamento.TabIndex=18;
+            dtpDataPagamento.TabIndex=6;
             // 
             // lblDataPagamento
             // 
@@ -195,6 +195,7 @@
             Name="formPagamentoCompra";
             StartPosition=FormStartPosition.CenterScreen;
             Text="Pagamento de Compras";
+            Load+=formPagamentoCompra_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvParcelas).EndInit();
             ResumeLayout(false);
             PerformLayout();

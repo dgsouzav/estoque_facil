@@ -59,7 +59,7 @@
             txtNomeUnidadeMedida.Location=new Point(3, 99);
             txtNomeUnidadeMedida.Name="txtNomeUnidadeMedida";
             txtNomeUnidadeMedida.Size=new Size(530, 23);
-            txtNomeUnidadeMedida.TabIndex=3;
+            txtNomeUnidadeMedida.TabIndex=1;
             txtNomeUnidadeMedida.Leave+=txtNomeUnidadeMedida_Leave;
             // 
             // txtUnidadeMedidaID
@@ -105,7 +105,7 @@
             btnCancelar.Location=new Point(20, 316);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 50);
-            btnCancelar.TabIndex=11;
+            btnCancelar.TabIndex=6;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -115,7 +115,7 @@
             btnInserir.Location=new Point(20, 19);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 50);
-            btnInserir.TabIndex=6;
+            btnInserir.TabIndex=2;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -125,7 +125,7 @@
             btnLocalizar.Location=new Point(20, 95);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 50);
-            btnLocalizar.TabIndex=7;
+            btnLocalizar.TabIndex=3;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -135,7 +135,7 @@
             btnSalvar.Location=new Point(20, 244);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 50);
-            btnSalvar.TabIndex=10;
+            btnSalvar.TabIndex=5;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -145,7 +145,7 @@
             btnAlterar.Location=new Point(20, 171);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 50);
-            btnAlterar.TabIndex=8;
+            btnAlterar.TabIndex=4;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;

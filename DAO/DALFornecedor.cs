@@ -174,6 +174,7 @@ namespace DAL
                 modelo.FornecedorCidade = Convert.ToString(registro["fornecedor_cidade"]);
                 modelo.FornecedorEstado = Convert.ToString(registro["fornecedor_estado"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

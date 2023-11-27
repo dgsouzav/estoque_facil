@@ -83,7 +83,7 @@
             btnCancelar.Location=new Point(18, 322);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(80, 60);
-            btnCancelar.TabIndex=11;
+            btnCancelar.TabIndex=17;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
             btnCancelar.Click+=btnCancelar_Click;
@@ -93,7 +93,7 @@
             btnInserir.Location=new Point(18, 10);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(80, 60);
-            btnInserir.TabIndex=6;
+            btnInserir.TabIndex=13;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
             btnInserir.Click+=btnInserir_Click;
@@ -103,7 +103,7 @@
             btnLocalizar.Location=new Point(18, 86);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 60);
-            btnLocalizar.TabIndex=7;
+            btnLocalizar.TabIndex=14;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -113,7 +113,7 @@
             btnSalvar.Location=new Point(18, 246);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(80, 60);
-            btnSalvar.TabIndex=10;
+            btnSalvar.TabIndex=16;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
             btnSalvar.Click+=btnSalvar_Click;
@@ -123,7 +123,7 @@
             btnAlterar.Location=new Point(18, 162);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(80, 60);
-            btnAlterar.TabIndex=8;
+            btnAlterar.TabIndex=15;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
             btnAlterar.Click+=btnAlterar_Click;
@@ -178,7 +178,7 @@
             txtCEP.Location=new Point(6, 161);
             txtCEP.Name="txtCEP";
             txtCEP.Size=new Size(118, 23);
-            txtCEP.TabIndex=25;
+            txtCEP.TabIndex=3;
             txtCEP.Leave+=txtCEP_Leave;
             // 
             // txtEstado
@@ -186,14 +186,14 @@
             txtEstado.Location=new Point(275, 295);
             txtEstado.Name="txtEstado";
             txtEstado.Size=new Size(258, 23);
-            txtEstado.TabIndex=24;
+            txtEstado.TabIndex=11;
             // 
             // txtCNPJ
             // 
             txtCNPJ.Location=new Point(130, 161);
             txtCNPJ.Name="txtCNPJ";
             txtCNPJ.Size=new Size(183, 23);
-            txtCNPJ.TabIndex=23;
+            txtCNPJ.TabIndex=4;
             txtCNPJ.KeyPress+=txtCNPJ_KeyPress;
             txtCNPJ.Leave+=txtCNPJ_Leave;
             // 
@@ -202,35 +202,35 @@
             txtEndNumero.Location=new Point(448, 207);
             txtEndNumero.Name="txtEndNumero";
             txtEndNumero.Size=new Size(86, 23);
-            txtEndNumero.TabIndex=22;
+            txtEndNumero.TabIndex=7;
             // 
             // txtBairro
             // 
             txtBairro.Location=new Point(275, 251);
             txtBairro.Name="txtBairro";
             txtBairro.Size=new Size(258, 23);
-            txtBairro.TabIndex=21;
+            txtBairro.TabIndex=9;
             // 
             // txtCidade
             // 
             txtCidade.Location=new Point(6, 251);
             txtCidade.Name="txtCidade";
             txtCidade.Size=new Size(258, 23);
-            txtCidade.TabIndex=20;
+            txtCidade.TabIndex=8;
             // 
             // txtEmail
             // 
             txtEmail.Location=new Point(5, 345);
             txtEmail.Name="txtEmail";
             txtEmail.Size=new Size(528, 23);
-            txtEmail.TabIndex=19;
+            txtEmail.TabIndex=12;
             // 
             // txtFone
             // 
             txtFone.Location=new Point(6, 295);
             txtFone.Name="txtFone";
             txtFone.Size=new Size(258, 23);
-            txtFone.TabIndex=18;
+            txtFone.TabIndex=10;
             txtFone.KeyPress+=txtFone_KeyPress;
             // 
             // txtEnderecoFornecedor
@@ -238,14 +238,14 @@
             txtEnderecoFornecedor.Location=new Point(6, 207);
             txtEnderecoFornecedor.Name="txtEnderecoFornecedor";
             txtEnderecoFornecedor.Size=new Size(437, 23);
-            txtEnderecoFornecedor.TabIndex=17;
+            txtEnderecoFornecedor.TabIndex=6;
             // 
             // txtInscricaoEstadual
             // 
             txtInscricaoEstadual.Location=new Point(319, 161);
             txtInscricaoEstadual.Name="txtInscricaoEstadual";
             txtInscricaoEstadual.Size=new Size(214, 23);
-            txtInscricaoEstadual.TabIndex=16;
+            txtInscricaoEstadual.TabIndex=5;
             txtInscricaoEstadual.KeyPress+=txtInscricaoEstadual_KeyPress;
             // 
             // txtRazaoSocial
@@ -253,7 +253,7 @@
             txtRazaoSocial.Location=new Point(5, 119);
             txtRazaoSocial.Name="txtRazaoSocial";
             txtRazaoSocial.Size=new Size(529, 23);
-            txtRazaoSocial.TabIndex=15;
+            txtRazaoSocial.TabIndex=2;
             // 
             // lblCidade
             // 
@@ -367,7 +367,7 @@
             txtNomeFornecedor.Location=new Point(5, 75);
             txtNomeFornecedor.Name="txtNomeFornecedor";
             txtNomeFornecedor.Size=new Size(530, 23);
-            txtNomeFornecedor.TabIndex=2;
+            txtNomeFornecedor.TabIndex=1;
             // 
             // lblFornecedorID
             // 

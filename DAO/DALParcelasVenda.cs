@@ -144,14 +144,13 @@ namespace DAL
         public DataTable Localizar(int venda_id)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select i.venda_id, i.itensVenda_id, i.produto_id, p.produto_nome, i.itensVenda_qtde, i.itensVenda_valor from itensVenda i " +
-                "inner join produto p on p.produto_id = i.produto_id where i.venda_id ="
+            SqlDataAdapter da = new SqlDataAdapter("select * from parcelasVenda where venda_id = "
                 + venda_id.ToString(), conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
 
-        
+
 
         public ModeloParcelasVenda CarregaModeloParcelasVenda(int ParcelasVendaID, int VendaID)
         {
@@ -174,6 +173,7 @@ namespace DAL
                 modelo.ParcelasVendaDataPagamento = Convert.ToDateTime(registro["parcelasVenda_dataPagamento"]);
                 modelo.ParcelasVendaDataVencimento = Convert.ToDateTime(registro["parcelasVenda_dataVencimento"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

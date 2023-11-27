@@ -164,6 +164,7 @@ namespace DAL
                 modelo.ParcelasCompraDataPagamento = Convert.ToDateTime(registro["parcelasCompra_dataPagamento"]);
                 modelo.ParcelasCompraDataVencimento = Convert.ToDateTime(registro["parcelasCompra_dataVencimento"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

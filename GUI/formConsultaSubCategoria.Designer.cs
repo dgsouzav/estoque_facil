@@ -48,7 +48,7 @@
             dtgvDados.RowTemplate.Height=25;
             dtgvDados.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
             dtgvDados.Size=new Size(561, 348);
-            dtgvDados.TabIndex=7;
+            dtgvDados.TabIndex=4;
             dtgvDados.CellDoubleClick+=dtgvDados_CellDoubleClick;
             // 
             // lblSubCategoria
@@ -65,14 +65,14 @@
             txtConsultaSubCategoria.Location=new Point(12, 61);
             txtConsultaSubCategoria.Name="txtConsultaSubCategoria";
             txtConsultaSubCategoria.Size=new Size(561, 23);
-            txtConsultaSubCategoria.TabIndex=5;
+            txtConsultaSubCategoria.TabIndex=1;
             // 
             // btnLocalizar
             // 
             btnLocalizar.Location=new Point(592, 60);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 60);
-            btnLocalizar.TabIndex=4;
+            btnLocalizar.TabIndex=2;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click;
@@ -82,7 +82,7 @@
             btnExcluir.Location=new Point(592, 137);
             btnExcluir.Name="btnExcluir";
             btnExcluir.Size=new Size(80, 60);
-            btnExcluir.TabIndex=8;
+            btnExcluir.TabIndex=3;
             btnExcluir.Text="EXCLUIR";
             btnExcluir.UseVisualStyleBackColor=true;
             btnExcluir.Click+=btnExcluir_Click;

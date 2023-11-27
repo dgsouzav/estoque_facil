@@ -60,9 +60,9 @@ namespace UI
 
                 }
             }
-            catch (Exception erro)
+            catch 
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Impossível excluir o registro. \n O registro está sendo utilizado em outro local.");
             }
         }
     }

@@ -226,7 +226,7 @@
             rbVendas.Location=new Point(3, 25);
             rbVendas.Name="rbVendas";
             rbVendas.Size=new Size(95, 19);
-            rbVendas.TabIndex=18;
+            rbVendas.TabIndex=1;
             rbVendas.TabStop=true;
             rbVendas.Text="Todas vendas";
             rbVendas.UseVisualStyleBackColor=true;
@@ -238,7 +238,7 @@
             rbParcelas.Location=new Point(3, 75);
             rbParcelas.Name="rbParcelas";
             rbParcelas.Size=new Size(115, 19);
-            rbParcelas.TabIndex=17;
+            rbParcelas.TabIndex=3;
             rbParcelas.Text="Parcelas a vencer";
             rbParcelas.UseVisualStyleBackColor=true;
             rbParcelas.CheckedChanged+=rbVendas_CheckedChanged;
@@ -249,7 +249,7 @@
             rbData.Location=new Point(3, 50);
             rbData.Name="rbData";
             rbData.Size=new Size(100, 19);
-            rbData.TabIndex=15;
+            rbData.TabIndex=2;
             rbData.Text="Data da venda";
             rbData.UseVisualStyleBackColor=true;
             rbData.CheckedChanged+=rbVendas_CheckedChanged;

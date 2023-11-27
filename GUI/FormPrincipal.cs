@@ -163,5 +163,12 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void rEcebimentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formRecebimentoVenda f = new formRecebimentoVenda();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

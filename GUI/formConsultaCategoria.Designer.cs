@@ -41,7 +41,7 @@
             btnLocalizar.Location=new Point(592, 61);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(80, 60);
-            btnLocalizar.TabIndex=0;
+            btnLocalizar.TabIndex=2;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
             btnLocalizar.Click+=btnLocalizar_Click_1;
@@ -74,7 +74,7 @@
             dtgvDados.RowTemplate.Height=25;
             dtgvDados.SelectionMode=DataGridViewSelectionMode.FullRowSelect;
             dtgvDados.Size=new Size(561, 316);
-            dtgvDados.TabIndex=3;
+            dtgvDados.TabIndex=4;
             dtgvDados.CellDoubleClick+=dtgvDados_CellDoubleClick;
             // 
             // btnExcluir
@@ -82,7 +82,7 @@
             btnExcluir.Location=new Point(592, 138);
             btnExcluir.Name="btnExcluir";
             btnExcluir.Size=new Size(80, 60);
-            btnExcluir.TabIndex=4;
+            btnExcluir.TabIndex=3;
             btnExcluir.Text="EXCLUIR";
             btnExcluir.UseVisualStyleBackColor=true;
             btnExcluir.Click+=btnExcluir_Click;

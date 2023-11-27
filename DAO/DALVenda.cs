@@ -156,31 +156,32 @@ namespace DAL
             try
             {
                 cmd.Transaction = conexao.ObjetoTransacao;
-                cmd.CommandText = "update venda set venda_status = 'Cancelada' where venda_id = @id;";
+                cmd.CommandText = "update venda set venda_status='Cancelada' where venda_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
 
                 // incrementar o estoque com os itens da venda cancelada
                 DataTable tabela = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter("select itensVenda_id, produto_id, itensVenda_qtde, from itensVenda where venda_id = "
+                SqlDataAdapter da = new SqlDataAdapter("select itensVenda_id, produto_id, itensVenda_qtde from itensVenda where venda_id = "
                     + id.ToString(), conexao.StringConexao);
                 da.Fill(tabela);
 
                 ModeloProduto produto;
-
+                //DALConexao cxp = new DALConexao(DadosDaConexao.StringDeConexao); 
+                //DALProduto dalProduto = new DALProduto(cxp);
                 DALProduto dalProduto = new DALProduto(conexao);
                 
                 for (int i = 0; i < tabela.Rows.Count; i++)
                 {
-                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(tabela.Rows[i]["produto_id"]),true);
+                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(tabela.Rows[i]["produto_id"]), true);
                     produto.ProdutoQtde = produto.ProdutoQtde + Convert.ToDouble(tabela.Rows[i]["itensVenda_qtde"]);
-                    dalProduto.Alterar(produto,true);
+                    dalProduto.Alterar(produto, true);
                 }
                 conexao.TerminarTransacao();
                 conexao.Desconectar();
             }
             catch
-            {
+            { 
                 conexao.CancelarTransacao();
                 conexao.Desconectar();
                 retorno = false;
@@ -210,6 +211,7 @@ namespace DAL
                 modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
                 modelo.VendaAVista = Convert.ToInt32(registro["venda_aVista"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

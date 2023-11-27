@@ -94,6 +94,22 @@ namespace UI
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            if (this.totalCompra <= 0)
+            {
+                MessageBox.Show("Informe os produtos dessa compra.");
+                return;
+            }
+            if (txtFornecedorID.Text == "")
+            {
+                MessageBox.Show("Informe o fornecedor dessa compra.");
+                return;
+            }
+            if (txtNotaFiscal.Text == "")
+            {
+                MessageBox.Show("Informe a nota fiscal dessa compra.");
+                return;
+            }
+
             dtgvParcelasCompra.Rows.Clear();
             int parcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
             Double totalLocal = this.totalCompra;
@@ -448,8 +464,16 @@ namespace UI
                 }
                 else
                 {
-                    MessageBox.Show("Não é possível excluir a compra. \n Existem parcelas pagas.");
+                    MessageBox.Show("Impossível excluir o registro \nExistem parcelas que estão pagas.");
                 }
+            }
+        }
+
+        private void txtNotaFiscal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
             }
         }
     }

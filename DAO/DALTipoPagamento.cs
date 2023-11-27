@@ -97,6 +97,7 @@ namespace DAL
                 modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
                 modelo.TipoPagamentoNome = Convert.ToString(registro["tipoPagamento_nome"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

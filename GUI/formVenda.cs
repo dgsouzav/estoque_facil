@@ -135,27 +135,22 @@ namespace UI
 
         private void btnCancelarVenda_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
+            if (d.ToString() == "Yes")
             {
-                DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
-                if (d.ToString() == "Yes")
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLVenda bll = new BLLVenda(cx);
+                if (bll.CancelarVenda(Convert.ToInt32(txtVendaID.Text)) == true)
                 {
-                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLVenda bll = new BLLVenda(cx);
-                    if (bll.CancelarVenda(Convert.ToInt32(txtVendaID.Text)) == true)
-                    {
-                        MessageBox.Show("Venda cancelada com sucesso");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao cancelar a venda");
-                    }
+                    MessageBox.Show("Venda cancelada com sucesso");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cancelar a venda");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: " + ex.Message);
-            }
+            this.LimpaTela();
+            this.menuBotoes(1);
 
         }
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -243,13 +238,45 @@ namespace UI
                 lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             }
         }
-
+        private Double VerificaQtdeProdutos(int ProdutoID)
+        {
+            Double QtdeEstoque = 0;
+            try
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLProduto bll = new BLLProduto(cx);
+                ModeloProduto modelo = bll.CarregaModeloProduto(ProdutoID);
+                QtdeEstoque = modelo.ProdutoQtde;
+                for(int i = 0; i < dtgvItensVenda.RowCount; i++)
+                {
+                    if (Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[0].Value) == ProdutoID)
+                    {
+                        QtdeEstoque = QtdeEstoque - Convert.ToDouble(dtgvItensVenda.Rows[i].Cells[2].Value);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Erro ao verificar estoque");
+            }
+            return QtdeEstoque;
+        }
         private void btnAddProduto_Click(object sender, EventArgs e)
         {
+            Double qtde = 0;
             try
             {
                 if ((txtProdutoID.Text != "") && (txtQtde.Text != "") && (txtValor.Text != ""))
                 {
+                    if(checkBoxVerificaEstoque.Checked == true)
+                    {
+                        qtde = VerificaQtdeProdutos(Convert.ToInt32(txtProdutoID.Text));
+                        if(qtde < Convert.ToDouble(txtQtde.Text))
+                        {
+                            MessageBox.Show("Quantidade informada maior que a quantidade em estoque, você possue " + qtde + " unidades em estoque");
+                            return;
+                        }
+                    }
                     Double TotalLocal = Convert.ToDouble(txtQtde.Text) * Convert.ToDouble(txtValor.Text);
                     this.totalVenda = this.totalVenda + TotalLocal;
                     String[] i = new String[] { txtProdutoID.Text, lblProdutoID.Text, txtQtde.Text, txtValor.Text, TotalLocal.ToString() };

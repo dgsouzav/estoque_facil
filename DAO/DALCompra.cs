@@ -190,6 +190,7 @@ namespace DAL
                 modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
                 modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
             }
+            registro.Close();
             conexao.Desconectar();
             return modelo;
         }

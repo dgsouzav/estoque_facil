@@ -241,34 +241,35 @@
             // CompraToolStripMenuItem
             // 
             CompraToolStripMenuItem.Name="CompraToolStripMenuItem";
-            CompraToolStripMenuItem.Size=new Size(152, 22);
+            CompraToolStripMenuItem.Size=new Size(180, 22);
             CompraToolStripMenuItem.Text="Compra";
             CompraToolStripMenuItem.Click+=CompraToolStripMenuItem_Click;
             // 
             // VendaToolStripMenuItem
             // 
             VendaToolStripMenuItem.Name="VendaToolStripMenuItem";
-            VendaToolStripMenuItem.Size=new Size(152, 22);
+            VendaToolStripMenuItem.Size=new Size(180, 22);
             VendaToolStripMenuItem.Text="Venda";
             VendaToolStripMenuItem.Click+=VendaToolStripMenuItem_Click;
             // 
             // toolStripSeparator9
             // 
             toolStripSeparator9.Name="toolStripSeparator9";
-            toolStripSeparator9.Size=new Size(149, 6);
+            toolStripSeparator9.Size=new Size(177, 6);
             // 
             // pagamentoToolStripMenuItem
             // 
             pagamentoToolStripMenuItem.Name="pagamentoToolStripMenuItem";
-            pagamentoToolStripMenuItem.Size=new Size(152, 22);
+            pagamentoToolStripMenuItem.Size=new Size(180, 22);
             pagamentoToolStripMenuItem.Text="Pagamento";
             pagamentoToolStripMenuItem.Click+=pagamentoToolStripMenuItem_Click;
             // 
             // rEcebimentoToolStripMenuItem
             // 
             rEcebimentoToolStripMenuItem.Name="rEcebimentoToolStripMenuItem";
-            rEcebimentoToolStripMenuItem.Size=new Size(152, 22);
+            rEcebimentoToolStripMenuItem.Size=new Size(180, 22);
             rEcebimentoToolStripMenuItem.Text="Recebimento";
+            rEcebimentoToolStripMenuItem.Click+=rEcebimentoToolStripMenuItem_Click;
             // 
             // RelatoriosToolStripMenuItem
             // 

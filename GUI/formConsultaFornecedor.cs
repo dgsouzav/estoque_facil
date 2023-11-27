@@ -68,7 +68,7 @@ namespace UI
             }
             catch
             {
-                MessageBox.Show("ERRO: \nO registro está sendo utilizado em outro local.");
+                MessageBox.Show("Impossível excluir o registro \nO registro está sendo utilizado em outro local.");
             }
         }
 
