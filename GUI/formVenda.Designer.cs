@@ -41,7 +41,7 @@
             parcelaValorPagamento=new DataGridViewTextBoxColumn();
             parcelaDataVencimento=new DataGridViewTextBoxColumn();
             panelBotoes=new Panel();
-            btnExcluir=new Button();
+            btnCancelarVenda=new Button();
             btnCancelar=new Button();
             btnInserir=new Button();
             btnLocalizar=new Button();
@@ -206,7 +206,7 @@
             // 
             // panelBotoes
             // 
-            panelBotoes.Controls.Add(btnExcluir);
+            panelBotoes.Controls.Add(btnCancelarVenda);
             panelBotoes.Controls.Add(btnCancelar);
             panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnLocalizar);
@@ -217,19 +217,19 @@
             panelBotoes.Size=new Size(118, 436);
             panelBotoes.TabIndex=6;
             // 
-            // btnExcluir
+            // btnCancelarVenda
             // 
-            btnExcluir.Location=new Point(14, 282);
-            btnExcluir.Name="btnExcluir";
-            btnExcluir.Size=new Size(90, 60);
-            btnExcluir.TabIndex=12;
-            btnExcluir.Text="CANCELAR";
-            btnExcluir.UseVisualStyleBackColor=true;
-            btnExcluir.Click+=btnExcluir_Click;
+            btnCancelarVenda.Location=new Point(14, 257);
+            btnCancelarVenda.Name="btnCancelarVenda";
+            btnCancelarVenda.Size=new Size(90, 60);
+            btnCancelarVenda.TabIndex=12;
+            btnCancelarVenda.Text="CANCELAR";
+            btnCancelarVenda.UseVisualStyleBackColor=true;
+            btnCancelarVenda.Click+=btnCancelarVenda_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location=new Point(14, 348);
+            btnCancelar.Location=new Point(14, 323);
             btnCancelar.Name="btnCancelar";
             btnCancelar.Size=new Size(90, 60);
             btnCancelar.TabIndex=11;
@@ -239,7 +239,7 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location=new Point(14, 17);
+            btnInserir.Location=new Point(14, 58);
             btnInserir.Name="btnInserir";
             btnInserir.Size=new Size(90, 60);
             btnInserir.TabIndex=6;
@@ -249,7 +249,7 @@
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location=new Point(14, 83);
+            btnLocalizar.Location=new Point(14, 124);
             btnLocalizar.Name="btnLocalizar";
             btnLocalizar.Size=new Size(90, 60);
             btnLocalizar.TabIndex=7;
@@ -259,7 +259,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location=new Point(14, 216);
+            btnSalvar.Location=new Point(14, 190);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(90, 60);
             btnSalvar.TabIndex=10;
@@ -269,13 +269,13 @@
             // 
             // btnAlterar
             // 
-            btnAlterar.Location=new Point(14, 150);
+            btnAlterar.Location=new Point(14, 190);
             btnAlterar.Name="btnAlterar";
             btnAlterar.Size=new Size(90, 60);
             btnAlterar.TabIndex=8;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
-            btnAlterar.Click+=btnAlterar_Click;
+            btnAlterar.Visible=false;
             // 
             // panelDados
             // 
@@ -621,7 +621,7 @@
         private DataGridViewTextBoxColumn parcelaValorPagamento;
         private DataGridViewTextBoxColumn parcelaDataVencimento;
         protected Panel panelBotoes;
-        protected Button btnExcluir;
+        protected Button btnCancelarVenda;
         protected Button btnCancelar;
         protected Button btnInserir;
         protected Button btnLocalizar;

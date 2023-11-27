@@ -16,9 +16,6 @@ namespace UI
     public partial class formConsultaCompra : Form
     {
         public int id = 0;
-        public void ExecutaConsulta(int op)
-        {
-        }
         public formConsultaCompra()
         {
             InitializeComponent();

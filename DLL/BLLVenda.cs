@@ -73,24 +73,24 @@ namespace BLL
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.Localizar();
         }
-        public DataTable LocalizarParcelasAberto()
+        public int QuantidadeParcelasNaoPagas(int venda_id)
         {
+            if (venda_id <= 0)
+            {
+                throw new Exception("O ID da venda deve ser maior que zero.");
+            }
             DALVenda DALobj = new DALVenda(conexao);
-            return DALobj.LocalizarParcelasAberto();
+            return DALobj.QuantidadeParcelasNaoPagas(venda_id);
         }
         public DataTable LocalizarPorData(DateTime dataInicial, DateTime dataFinal) 
         {             
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.LocalizarPorData(dataInicial, dataFinal);
         }
-        public int QuantidadeParcelasAberto(int id)
+        public DataTable LocalizarParcelasNaoPagas()
         {
-            if (id <= 0)
-            {
-                throw new Exception("O ID da venda deve ser maior que zero.");
-            }
             DALVenda DALobj = new DALVenda(conexao);
-            return DALobj.QuantidadeParcelasAberto(id);
+            return DALobj.LocalizarParcelasNaoPagas();
         }
         public ModeloVenda CarregaModeloVenda(int id)
         {

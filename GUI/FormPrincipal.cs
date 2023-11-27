@@ -156,5 +156,12 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void vendaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formConsultaVenda f = new formConsultaVenda();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

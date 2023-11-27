@@ -229,6 +229,7 @@
             vendaToolStripMenuItem1.Name="vendaToolStripMenuItem1";
             vendaToolStripMenuItem1.Size=new Size(192, 22);
             vendaToolStripMenuItem1.Text="Venda";
+            vendaToolStripMenuItem1.Click+=vendaToolStripMenuItem1_Click;
             // 
             // MovimentacoesToolStripMenuItem
             // 

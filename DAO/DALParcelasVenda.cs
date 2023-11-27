@@ -28,15 +28,15 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@parcelasVenda_id", modelo.ParcelasVendaID);
                 cmd.Parameters.AddWithValue("@parcelasVenda_valor", modelo.ParcelasVendaValor);
                 cmd.Parameters.AddWithValue("@venda_id", modelo.VendaID);
-                cmd.Parameters.Add("@parcelasDataVencimento", SqlDbType.Date);
+                cmd.Parameters.Add("@parcelasVenda_dataVencimento", SqlDbType.Date);
 
                 if (modelo.ParcelasVendaDataVencimento == null)
                 {
-                    cmd.Parameters["@parcelasDataVencimento"].Value = DBNull.Value;
+                    cmd.Parameters["@parcelasVenda_dataVencimento"].Value = DBNull.Value;
                 }
                 else
                 {
-                    cmd.Parameters["@parcelasDataVencimento"].Value = modelo.ParcelasVendaDataVencimento;
+                    cmd.Parameters["@parcelasVenda_dataVencimento"].Value = modelo.ParcelasVendaDataVencimento;
                 }
 
                 //conexao.Conectar();
@@ -47,6 +47,22 @@ namespace DAL
             {
                 throw new Exception(ex.Message);
             }
+        }
+        public void EfetuaRecebimentoParcela(int vendaID, int parcelasVendaID, DateTime parcelasVenda_dataPagamento)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "update parcelasVenda set parcelasVenda_dataPagamento = @dataPagamento " +
+                "where parcelasVenda_id = @parcelasVendaid and venda_id = @vendaid;";
+            cmd.Parameters.AddWithValue("@parcelasVendaid", parcelasVendaID);
+            cmd.Parameters.AddWithValue("@vendaid", vendaID);
+            cmd.Parameters.Add("@dataPagamento", SqlDbType.Date);
+            cmd.Parameters["@dataPagamento"].Value = parcelasVenda_dataPagamento.Date;
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
         }
         public void Alterar(ModeloParcelasVenda modelo)
         {
@@ -124,14 +140,19 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
+        //listar todas as parcelas nao pagas
         public DataTable Localizar(int venda_id)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from parcelasVenda where venda_id = "
+            SqlDataAdapter da = new SqlDataAdapter("select i.venda_id, i.itensVenda_id, i.produto_id, p.produto_nome, i.itensVenda_qtde, i.itensVenda_valor from itensVenda i " +
+                "inner join produto p on p.produto_id = i.produto_id where i.venda_id ="
                 + venda_id.ToString(), conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
+
+        
+
         public ModeloParcelasVenda CarregaModeloParcelasVenda(int ParcelasVendaID, int VendaID)
         {
             ModeloParcelasVenda modelo = new ModeloParcelasVenda();

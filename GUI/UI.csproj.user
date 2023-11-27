@@ -49,6 +49,9 @@
     <Compile Update="formConsultaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formConsultaVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>

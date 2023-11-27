@@ -38,6 +38,18 @@ namespace BLL
             DALParcelasVenda DALobj = new DALParcelasVenda(conexao);
             DALobj.Incluir(modelo);
         }
+        public void EfetuaRecebimentoParcela(int vendaID, int parcelasVendaID, DateTime parcelasVenda_dataPagamento)
+        {
+            if (parcelasVenda_dataPagamento != null)
+            {
+                DALParcelasVenda DALobj = new DALParcelasVenda(conexao);
+                DALobj.EfetuaRecebimentoParcela(vendaID, parcelasVendaID, parcelasVenda_dataPagamento);
+            }
+            else
+            {
+                throw new Exception("A data de pagamento é obrigatória");
+            }
+        }
         public void Alterar(ModeloParcelasVenda modelo)
         {
             if (modelo.ParcelasVendaID <= 0)
@@ -83,14 +95,10 @@ namespace BLL
             DALParcelasVenda DALobj = new DALParcelasVenda(conexao);
             DALobj.ExcluirParcelas(VendaID);
         }
-        public DataTable Localizar(int VendaID)
+        public DataTable Localizar(int venda_id)
         {
-            if (VendaID <= 0)
-            {
-                throw new Exception("O ID da venda é obrigatório");
-            }
             DALParcelasVenda DALobj = new DALParcelasVenda(conexao);
-            return DALobj.Localizar(VendaID);
+            return DALobj.Localizar(venda_id);
         }
         public ModeloParcelasVenda CarregaModeloParcelasVenda(int ParcelasVendaID, int VendaID)
         {

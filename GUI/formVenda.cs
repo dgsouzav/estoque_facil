@@ -30,7 +30,7 @@ namespace UI
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
             btnLocalizar.Enabled = false;
-            btnExcluir.Enabled = false;
+            btnCancelarVenda.Enabled = false;
 
             if (op == 1)
             {
@@ -47,7 +47,7 @@ namespace UI
 
             if (op == 3)
             {
-                btnExcluir.Enabled = true;
+                btnCancelarVenda.Enabled = true;
                 btnAlterar.Enabled = true;
                 btnCancelar.Enabled = true;
             }
@@ -73,37 +73,102 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-        }
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            dtgvParcelasVenda.Rows.Clear();
-            int parcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
-            Double totalLocal = this.totalVenda;
-            Double valorLocal = totalLocal / parcelas;
-            DateTime dt = new DateTime();
-            dt = dtpDataInicial.Value;
-            lbl0000.Text = "" + valorLocal.ToString();
-
-            for (int i = 1; i <= parcelas; i++)
+            formConsultaVenda f = new formConsultaVenda();
+            f.ShowDialog();
+            if (f.id != 0)
             {
-                String[] k = new String[] { i.ToString(), valorLocal.ToString(), dt.Date.ToString() };
-                this.dtgvParcelasVenda.Rows.Add(k);
-                if (dt.Month != 12)
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLVenda bll = new BLLVenda(cx);
+                ModeloVenda modelo = bll.CarregaModeloVenda(f.id);
+
+                txtVendaID.Text = modelo.VendaID.ToString();
+                txtNotaFiscal.Text = modelo.VendaNotaFiscal.ToString();
+                dtpDataVenda.Value = modelo.VendaData;
+                cmbTipoPagamento.SelectedValue = modelo.TipoPagamentoID;
+                cmbNumeroParcelas.Text = modelo.VendaNumeroParcelas.ToString();
+                txtVendaTotal.Text = modelo.VendaTotal.ToString();
+                if (modelo.VendaAVista == 1)
                 {
-                    dt = new DateTime(dt.Year, dt.Month + 1, dt.Day);
+                    checkBoxVendaAVista.Checked = true;
                 }
                 else
                 {
-                    dt = new DateTime(dt.Year + 1, 1, dt.Day);
+                    checkBoxVendaAVista.Checked = false;
                 }
+                this.totalVenda = modelo.VendaTotal;
+
+                BLLItensVenda bLLItensVenda = new BLLItensVenda(cx);
+                DataTable tabela = bLLItensVenda.Localizar(modelo.VendaID);
+
+                for (int i = 0; i < tabela.Rows.Count; i++)
+                {
+                    string id = tabela.Rows[i]["produto_id"].ToString();
+                    string nome = tabela.Rows[i]["produto_nome"].ToString();
+                    string qtde = tabela.Rows[i]["itensVenda_qtde"].ToString();
+                    string valor = tabela.Rows[i]["itensVenda_valor"].ToString();
+
+                    Double TotalLocal = Convert.ToDouble(tabela.Rows[i]["itensVenda_qtde"]) * Convert.ToDouble(tabela.Rows[i]["itensVenda_valor"]);
+
+                    String[] k = new String[] { id, nome, qtde, valor, TotalLocal.ToString() };
+                    this.dtgvItensVenda.Rows.Add(k);
+                }
+                this.menuBotoes(3);
             }
-            panelFinalizaVenda.Visible = true;
+            else
+            {
+                this.LimpaTela();
+                this.menuBotoes(1);
+            }
+            f.Dispose();
+        }
+
+        private void btnCancelarVenda_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(txtNotaFiscal.Text) < 0)
+                {
+                    MessageBox.Show("Informe um número válido");
+                    return;
+                }
+                if (totalVenda <= 0)
+                {
+                    MessageBox.Show("Informe um produto para continuar");
+                    return;
+                }
+
+                dtgvParcelasVenda.Rows.Clear();
+                int parcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
+                Double totalLocal = this.totalVenda;
+                Double valorLocal = totalLocal / parcelas;
+                DateTime dt = new DateTime();
+                dt = dtpDataInicial.Value;
+                lbl0000.Text = "" + valorLocal.ToString();
+
+                for (int i = 1; i <= parcelas; i++)
+                {
+                    String[] k = new String[] { i.ToString(), valorLocal.ToString(), dt.Date.ToString() };
+                    this.dtgvParcelasVenda.Rows.Add(k);
+                    if (dt.Month != 12)
+                    {
+                        dt = new DateTime(dt.Year, dt.Month + 1, dt.Day);
+                    }
+                    else
+                    {
+                        dt = new DateTime(dt.Year + 1, 1, dt.Day);
+                    }
+                }
+                panelFinalizaVenda.Visible = true;
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -292,24 +357,6 @@ namespace UI
             }
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
-            if (d.ToString() == "Yes")
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bll = new BLLVenda(cx);
-                if (bll.CancelarVenda(Convert.ToInt32(txtVendaID.Text)) == true)
-                {
-                    MessageBox.Show("Venda cancela!");
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível cancelar a venda!");
-                    this.LimpaTela();
-                    this.menuBotoes(1);
-                }
-            }
-        }
+
     }
 }

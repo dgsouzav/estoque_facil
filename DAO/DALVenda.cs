@@ -86,7 +86,64 @@ namespace DAL
                 throw new Exception(erro.Message);
             }
         }
+        // lista por venda
+        public DataTable Localizar(int id)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select venda_id, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
+                                              "venda_status, tipoPagamento_id, venda_aVista from venda where venda_id = " + id.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
 
+        // localizar todas as vendas
+        public DataTable Localizar()
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select venda_id, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
+                                                             "venda_status, tipoPagamento_id, venda_aVista from venda", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+
+        // retorna a quantidade de parcelas nao pagas
+        public int QuantidadeParcelasNaoPagas(int venda_id)
+        {
+            int qtde = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select count(venda_id) from parcelasVenda where venda_id = @id and parcelasVenda_dataPagamento is NULL";
+            cmd.Parameters.AddWithValue("@id", venda_id);
+
+            conexao.Conectar();
+            qtde = Convert.ToInt32(cmd.ExecuteScalar());
+            conexao.Desconectar();
+            return qtde;
+        }
+
+        //quantidade de parcelas em aberto(nao pagas)
+        public DataTable LocalizarParcelasNaoPagas()
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select distinct v.venda_id, v.venda_data, v.venda_notaFiscal, v.venda_total, v.venda_numeroParcelas, " +
+                               "v.venda_status, v.tipoPagamento_id, v.venda_aVista from venda v inner join parcelasVenda p on v.venda_id = p.venda_id where " +
+                               "p.parcelasVenda_dataPagamento is NULL", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+        //localizar por data inicial e final
+        public DataTable LocalizarPorData(DateTime dataInicial, DateTime dataFinal)
+        {
+            DataTable tabela = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select * from venda where venda_data between @dtInicial and @dtFinal";
+            cmd.Parameters.AddWithValue("@dtInicial", dataInicial);
+            cmd.Parameters.AddWithValue("@dtFinal", dataFinal);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(tabela);
+            return tabela;
+        }
         //cancelar venda percorrendo todos os itens da venda e devolvendo ao estoque
         public bool CancelarVenda(int id)
         {
@@ -105,7 +162,7 @@ namespace DAL
 
                 // incrementar o estoque com os itens da venda cancelada
                 DataTable tabela = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter("select itensVenda_id, produto_id, itensVenda_qtde, from itensVenda where venda_id = " 
+                SqlDataAdapter da = new SqlDataAdapter("select itensVenda_id, produto_id, itensVenda_qtde, from itensVenda where venda_id = "
                     + id.ToString(), conexao.StringConexao);
                 da.Fill(tabela);
 
@@ -130,51 +187,6 @@ namespace DAL
                 retorno = false;
             }
             return retorno;
-        }
-        // localizar todas as vendas
-        public DataTable Localizar()
-        {
-            DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select venda_id, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
-                               "venda_status, tipoPagamento_id, venda_aVista from venda", conexao.StringConexao);
-            da.Fill(tabela);
-            return tabela;
-        }
-        
-        //localizar por parcelas em aberto
-        public DataTable LocalizarParcelasAberto()
-        {
-            DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select distinct venda_id from parcelasVenda where parcelasVenda_dataPagamento is NULL", conexao.StringConexao);
-            da.Fill(tabela);
-            return tabela;
-        }
-        
-        //quantidade de parcelas em aberto(nao pagas)
-        public int QuantidadeParcelasAberto(int id)
-        {
-            int qtde = 0;
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select count(venda_id) from parcelasVenda where venda_id = @venda_id and parcelasVenda_dataPagamento is NULL";
-            cmd.Parameters.AddWithValue("@venda_id", id);
-            conexao.Conectar();
-            qtde = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
-            return qtde;
-        }
-        //localizar por data inicial e final
-        public DataTable LocalizarPorData(DateTime dataInicial, DateTime dataFinal)
-        {
-            DataTable tabela = new DataTable();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select * from venda where venda_data between @dtInicial and @dtFinal";
-            cmd.Parameters.AddWithValue("@dtInicial", dataInicial);
-            cmd.Parameters.AddWithValue("@dtFinal", dataFinal);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(tabela);
-            return tabela;
         }
 
         // carregar modelo
