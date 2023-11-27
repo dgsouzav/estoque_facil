@@ -67,7 +67,6 @@
             btnCancelar.TabIndex=9;
             btnCancelar.Text="LIMPAR";
             btnCancelar.UseVisualStyleBackColor=true;
-            btnCancelar.Click+=btnCancelar_Click;
             // 
             // btnInserir
             // 
@@ -77,7 +76,6 @@
             btnInserir.TabIndex=5;
             btnInserir.Text="INSERIR";
             btnInserir.UseVisualStyleBackColor=true;
-            btnInserir.Click+=btnInserir_Click;
             // 
             // btnLocalizar
             // 
@@ -87,7 +85,6 @@
             btnLocalizar.TabIndex=6;
             btnLocalizar.Text="LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor=true;
-            btnLocalizar.Click+=btnLocalizar_Click;
             // 
             // btnSalvar
             // 
@@ -97,7 +94,6 @@
             btnSalvar.TabIndex=8;
             btnSalvar.Text="SALVAR";
             btnSalvar.UseVisualStyleBackColor=true;
-            btnSalvar.Click+=btnSalvar_Click;
             // 
             // btnAlterar
             // 
@@ -107,7 +103,6 @@
             btnAlterar.TabIndex=7;
             btnAlterar.Text="ALTERAR";
             btnAlterar.UseVisualStyleBackColor=true;
-            btnAlterar.Click+=btnAlterar_Click;
             // 
             // panelDados
             // 

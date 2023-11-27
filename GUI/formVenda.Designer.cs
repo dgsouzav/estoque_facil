@@ -48,6 +48,7 @@
             btnSalvar=new Button();
             btnAlterar=new Button();
             panelDados=new Panel();
+            checkBoxVerificaEstoque=new CheckBox();
             lblVendaAtiva=new Label();
             label2=new Label();
             label1=new Label();
@@ -81,7 +82,6 @@
             txtVendaID=new TextBox();
             lblVenda=new Label();
             lblTipoPagamento=new Label();
-            checkBoxVerificaEstoque=new CheckBox();
             panelFinalizaVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvParcelasVenda).BeginInit();
             panelBotoes.SuspendLayout();
@@ -99,7 +99,7 @@
             panelFinalizaVenda.Controls.Add(lblTraço);
             panelFinalizaVenda.Controls.Add(lblDadosPagamento);
             panelFinalizaVenda.Controls.Add(dtgvParcelasVenda);
-            panelFinalizaVenda.Location=new Point(678, 14);
+            panelFinalizaVenda.Location=new Point(6, 13);
             panelFinalizaVenda.Name="panelFinalizaVenda";
             panelFinalizaVenda.Size=new Size(660, 437);
             panelFinalizaVenda.TabIndex=7;
@@ -314,6 +314,16 @@
             panelDados.Name="panelDados";
             panelDados.Size=new Size(536, 436);
             panelDados.TabIndex=5;
+            // 
+            // checkBoxVerificaEstoque
+            // 
+            checkBoxVerificaEstoque.AutoSize=true;
+            checkBoxVerificaEstoque.Location=new Point(9, 165);
+            checkBoxVerificaEstoque.Name="checkBoxVerificaEstoque";
+            checkBoxVerificaEstoque.Size=new Size(263, 19);
+            checkBoxVerificaEstoque.TabIndex=43;
+            checkBoxVerificaEstoque.Text="Verificar quantidade de produtos em estoque";
+            checkBoxVerificaEstoque.UseVisualStyleBackColor=true;
             // 
             // lblVendaAtiva
             // 
@@ -600,21 +610,11 @@
             lblTipoPagamento.TabIndex=0;
             lblTipoPagamento.Text="Tipo de pagamento";
             // 
-            // checkBoxVerificaEstoque
-            // 
-            checkBoxVerificaEstoque.AutoSize=true;
-            checkBoxVerificaEstoque.Location=new Point(9, 165);
-            checkBoxVerificaEstoque.Name="checkBoxVerificaEstoque";
-            checkBoxVerificaEstoque.Size=new Size(263, 19);
-            checkBoxVerificaEstoque.TabIndex=43;
-            checkBoxVerificaEstoque.Text="Verificar quantidade de produtos em estoque";
-            checkBoxVerificaEstoque.UseVisualStyleBackColor=true;
-            // 
             // formVenda
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(1333, 461);
+            ClientSize=new Size(678, 461);
             Controls.Add(panelFinalizaVenda);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);

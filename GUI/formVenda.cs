@@ -117,13 +117,13 @@ namespace UI
                     this.dtgvItensVenda.Rows.Add(k);
                 }
                 this.menuBotoes(3);
+
                 lblVendaAtiva.Visible = false;
                 if (modelo.VendaStatus != "Ativa")
                 {
                     lblVendaAtiva.Visible = true;
-                    btnCancelarPagamento.Enabled = false;
+                    btnCancelarVenda.Enabled = false;
                 }
-
             }
             else
             {
@@ -247,7 +247,7 @@ namespace UI
                 BLLProduto bll = new BLLProduto(cx);
                 ModeloProduto modelo = bll.CarregaModeloProduto(ProdutoID);
                 QtdeEstoque = modelo.ProdutoQtde;
-                for(int i = 0; i < dtgvItensVenda.RowCount; i++)
+                for (int i = 0; i < dtgvItensVenda.RowCount; i++)
                 {
                     if (Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[0].Value) == ProdutoID)
                     {
@@ -268,10 +268,10 @@ namespace UI
             {
                 if ((txtProdutoID.Text != "") && (txtQtde.Text != "") && (txtValor.Text != ""))
                 {
-                    if(checkBoxVerificaEstoque.Checked == true)
+                    if (checkBoxVerificaEstoque.Checked == true)
                     {
                         qtde = VerificaQtdeProdutos(Convert.ToInt32(txtProdutoID.Text));
-                        if(qtde < Convert.ToDouble(txtQtde.Text))
+                        if (qtde < Convert.ToDouble(txtQtde.Text))
                         {
                             MessageBox.Show("Quantidade informada maior que a quantidade em estoque, você possue " + qtde + " unidades em estoque");
                             return;

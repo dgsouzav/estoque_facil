@@ -170,5 +170,12 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void uSUÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formConsultaUsuario f = new formConsultaUsuario();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }
