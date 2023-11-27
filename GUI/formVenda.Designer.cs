@@ -48,6 +48,7 @@
             btnSalvar=new Button();
             btnAlterar=new Button();
             panelDados=new Panel();
+            lblVendaAtiva=new Label();
             label2=new Label();
             label1=new Label();
             checkBoxVendaAVista=new CheckBox();
@@ -259,7 +260,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location=new Point(14, 190);
+            btnSalvar.Location=new Point(14, 191);
             btnSalvar.Name="btnSalvar";
             btnSalvar.Size=new Size(90, 60);
             btnSalvar.TabIndex=10;
@@ -279,6 +280,7 @@
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(lblVendaAtiva);
             panelDados.Controls.Add(label2);
             panelDados.Controls.Add(label1);
             panelDados.Controls.Add(checkBoxVendaAVista);
@@ -310,6 +312,18 @@
             panelDados.Name="panelDados";
             panelDados.Size=new Size(536, 436);
             panelDados.TabIndex=5;
+            // 
+            // lblVendaAtiva
+            // 
+            lblVendaAtiva.AutoSize=true;
+            lblVendaAtiva.Font=new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblVendaAtiva.ForeColor=Color.Red;
+            lblVendaAtiva.Location=new Point(162, 263);
+            lblVendaAtiva.Name="lblVendaAtiva";
+            lblVendaAtiva.Size=new Size(230, 37);
+            lblVendaAtiva.TabIndex=42;
+            lblVendaAtiva.Text="Venda cancelada";
+            lblVendaAtiva.Visible=false;
             // 
             // label2
             // 
@@ -588,7 +602,7 @@
             // 
             AutoScaleDimensions=new SizeF(7F, 15F);
             AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(1375, 461);
+            ClientSize=new Size(1370, 461);
             Controls.Add(panelFinalizaVenda);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
@@ -660,5 +674,6 @@
         private CheckBox checkBoxVendaAVista;
         private Label label2;
         private Label label1;
+        private Label lblVendaAtiva;
     }
 }

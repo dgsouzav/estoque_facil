@@ -59,11 +59,11 @@ namespace BLL
             DALVenda DALobj = new DALVenda(conexao);
             DALobj.Excluir(id);
         }
-        public bool CancelarVenda(int id)
+        public Boolean CancelarVenda(int id)
         {
             if (id <= 0)
             {
-                throw new Exception("O ID da venda deve ser maior que zero.");
+                throw new Exception("O número deve ser maior que zero.");
             }
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.CancelarVenda(id);

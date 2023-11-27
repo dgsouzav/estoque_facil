@@ -145,9 +145,9 @@ namespace DAL
             return tabela;
         }
         //cancelar venda percorrendo todos os itens da venda e devolvendo ao estoque
-        public bool CancelarVenda(int id)
+        public Boolean CancelarVenda(int id)
         {
-            bool retorno = true;
+            Boolean retorno = true;
             // atualizar o status da venda para cancelada
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
@@ -156,7 +156,7 @@ namespace DAL
             try
             {
                 cmd.Transaction = conexao.ObjetoTransacao;
-                cmd.CommandText = "update venda set venda_status = 'cancelada' where venda_id = @id;";
+                cmd.CommandText = "update venda set venda_status = 'Cancelada' where venda_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
 
@@ -168,14 +168,13 @@ namespace DAL
 
                 ModeloProduto produto;
 
-                // percorrer os itens da venda cancelada
                 DALProduto dalProduto = new DALProduto(conexao);
+                
                 for (int i = 0; i < tabela.Rows.Count; i++)
                 {
-                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(tabela.Rows[i]["produto_id"]), true);
-
+                    produto = dalProduto.CarregaModeloProduto(Convert.ToInt32(tabela.Rows[i]["produto_id"]),true);
                     produto.ProdutoQtde = produto.ProdutoQtde + Convert.ToDouble(tabela.Rows[i]["itensVenda_qtde"]);
-                    dalProduto.Alterar(produto, true);
+                    dalProduto.Alterar(produto,true);
                 }
                 conexao.TerminarTransacao();
                 conexao.Desconectar();

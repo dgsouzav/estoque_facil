@@ -59,9 +59,13 @@ namespace UI
             txtProdutoID.Clear();
             txtNotaFiscal.Clear();
             txtQtde.Clear();
-            txtVendaTotal.Clear();
+            txtVendaTotal.Text = "0,00";
             txtValor.Clear();
             dtgvItensVenda.Rows.Clear();
+            cmbTipoPagamento.SelectedIndex = 0;
+            lblProdutoNome.Text = "Informe o código do produto ou clique em localizar";
+            cmbNumeroParcelas.SelectedIndex = 0;
+            lblVendaAtiva.Visible = false;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -113,6 +117,13 @@ namespace UI
                     this.dtgvItensVenda.Rows.Add(k);
                 }
                 this.menuBotoes(3);
+                lblVendaAtiva.Visible = false;
+                if (modelo.VendaStatus != "Ativa")
+                {
+                    lblVendaAtiva.Visible = true;
+                    btnCancelarPagamento.Enabled = false;
+                }
+
             }
             else
             {
@@ -124,6 +135,27 @@ namespace UI
 
         private void btnCancelarVenda_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
+                if (d.ToString() == "Yes")
+                {
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLVenda bll = new BLLVenda(cx);
+                    if (bll.CancelarVenda(Convert.ToInt32(txtVendaID.Text)) == true)
+                    {
+                        MessageBox.Show("Venda cancelada com sucesso");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao cancelar a venda");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
 
         }
         private void btnSalvar_Click(object sender, EventArgs e)

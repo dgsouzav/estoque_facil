@@ -72,7 +72,7 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
-        public void Alterar(ModeloProduto obj, bool transacao)
+        public void Alterar(ModeloProduto obj, Boolean transacao)
         {
             try
             {
@@ -164,7 +164,7 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
-        public ModeloProduto CarregaModeloProduto(int id, bool transacao)
+        public ModeloProduto CarregaModeloProduto(int id, Boolean transacao)
         {
             ModeloProduto modelo = new ModeloProduto();
             SqlCommand cmd = new SqlCommand();
@@ -179,6 +179,7 @@ namespace DAL
             {
                 cmd.Transaction = conexao.ObjetoTransacao;
             }
+            
             SqlDataReader registro = cmd.ExecuteReader();
             if (registro.HasRows)
             {
