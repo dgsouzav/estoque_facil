@@ -22,3 +22,4 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\refint\Modelo.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.pdb
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\ref\Modelo.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.sourcelink.json

@@ -24,13 +24,13 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = "insert into produto(produto_nome, produto_descricao, produto_valorpago, produto_valorvenda, " +
-                    "produto_qtde, undmed_id, categoria_id, subCategoria_id) values (@nome, @descricao, @valorpago, @valorvenda, " +
-                    "@qtde, @undmed, @categoria, @subcategoria); select @@IDENTITY;";
+                    "produto_lote, undmed_id, categoria_id, subCategoria_id) values (@nome, @descricao, @valorpago, @valorvenda, " +
+                    "@lote, @undmed, @categoria, @subcategoria); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@nome", modelo.ProdutoNome);
                 cmd.Parameters.AddWithValue("@descricao", modelo.ProdutoDescricao);
                 cmd.Parameters.AddWithValue("@valorpago", modelo.ProdutoValorPago);
                 cmd.Parameters.AddWithValue("@valorvenda", modelo.ProdutoValorVenda);
-                cmd.Parameters.AddWithValue("@qtde", modelo.ProdutoQtde);
+                cmd.Parameters.AddWithValue("@lote", modelo.ProdutoLote);
                 cmd.Parameters.AddWithValue("@undmed", modelo.UndMedID);
                 cmd.Parameters.AddWithValue("@categoria", modelo.CategoriaID);
                 cmd.Parameters.AddWithValue("@subcategoria", modelo.SubCategoriaID);
@@ -52,14 +52,14 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = "update produto set produto_nome = (@nome), produto_descricao = (@descricao), produto_valorpago = (@valorpago), " +
-                    "produto_valorvenda = (@valorvenda), produto_qtde = (@qtde), undmed_id = (@undmed), categoria_id = (@categoria), " +
+                    "produto_valorvenda = (@valorvenda), produto_lote = (@lote), undmed_id = (@undmed), categoria_id = (@categoria), " +
                     "subCategoria_id = (@subcategoria) where produto_id = (@id);";
                 cmd.Parameters.AddWithValue("@id", obj.ProdutoID);
                 cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
                 cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
                 cmd.Parameters.AddWithValue("@valorpago", obj.ProdutoValorPago);
                 cmd.Parameters.AddWithValue("@valorvenda", obj.ProdutoValorVenda);
-                cmd.Parameters.AddWithValue("@qtde", obj.ProdutoQtde);
+                cmd.Parameters.AddWithValue("@lote", obj.ProdutoLote);
                 cmd.Parameters.AddWithValue("@undmed", obj.UndMedID);
                 cmd.Parameters.AddWithValue("@categoria", obj.CategoriaID);
                 cmd.Parameters.AddWithValue("@subcategoria", obj.SubCategoriaID);
@@ -94,7 +94,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select p.produto_id, p.produto_nome, p.produto_descricao, p.produto_valorpago, " +
-                "p.produto_valorvenda, p.produto_qtde, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome " +
+                "p.produto_valorvenda, p.produto_lote, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome " +
                 "from produto p " +
                 "inner join unidadeMedida u on p.undmed_id = u.undmed_id " +
                 "inner join categoria c on p.categoria_id = c.categoria_id " +
@@ -108,13 +108,13 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "update produto set produto_nome = @nome, produto_descricao = @descricao, produto_valorpago = @valorpago, " +
-                "produto_valorvenda = @valorvenda, produto_qtde = @qtde, undmed_id = @undmedid, categoria_id = @categoriaid, " +
+                "produto_valorvenda = @valorvenda, produto_lote = @lote, undmed_id = @undmedid, categoria_id = @categoriaid, " +
                 "subCategoria_id = @subcategoriaid where produto_id = @id;";
             cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
             cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
             cmd.Parameters.AddWithValue("@valorpago", obj.ProdutoValorPago);
             cmd.Parameters.AddWithValue("@valorvenda", obj.ProdutoValorVenda);
-            cmd.Parameters.AddWithValue("@qtde", obj.ProdutoQtde);
+            cmd.Parameters.AddWithValue("@lote", obj.ProdutoLote);
             cmd.Parameters.AddWithValue("@undmedid", obj.UndMedID);
             cmd.Parameters.AddWithValue("@categoriaid", obj.CategoriaID);
             cmd.Parameters.AddWithValue("@subcategoriaid", obj.SubCategoriaID);
@@ -159,7 +159,7 @@ namespace DAL
                 modelo.ProdutoDescricao = Convert.ToString(registro["produto_descricao"]);
                 modelo.ProdutoValorPago = Convert.ToDouble(registro["produto_valorpago"]);
                 modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorvenda"]);
-                modelo.ProdutoQtde = Convert.ToDouble(registro["produto_qtde"]);
+                modelo.ProdutoLote = Convert.ToDouble(registro["produto_lote"]);
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
@@ -189,7 +189,7 @@ namespace DAL
                 modelo.ProdutoValorPago = Convert.ToDouble(registro["produto_valorpago"]);
                 modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorvenda"]);
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
-                modelo.ProdutoQtde = Convert.ToDouble(registro["produto_qtde"]);
+                modelo.ProdutoLote = Convert.ToDouble(registro["produto_lote"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
             }

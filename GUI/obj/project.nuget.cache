@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "kmYWrSHaU9/71PGQ8stPyyP3B28Cj6FXDXih5fCAzZGnYd1bkt99bG4oiwX6eEiQomF/9p7kNfFaOQ+A5yKNSg==",
+  "dgSpecHash": "2C9sPrJ8yLIzA8gsf0u+Kd1iqLV+M2gAgMkXcl80GK4FP5eOK+Pb6P2gOsYExcUKPo/74zb6tpx3L98d78r4Pg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\UI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Diogo\\.nuget\\packages\\google.api.commonprotos\\2.12.0\\google.api.commonprotos.2.12.0.nupkg.sha512",
-    "C:\\Users\\Diogo\\.nuget\\packages\\google.protobuf\\3.23.0\\google.protobuf.3.23.0.nupkg.sha512",
+    "C:\\Users\\Diogo\\.nuget\\packages\\google.api.commonprotos\\2.14.0\\google.api.commonprotos.2.14.0.nupkg.sha512",
+    "C:\\Users\\Diogo\\.nuget\\packages\\google.protobuf\\3.25.0\\google.protobuf.3.25.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Diogo\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\Diogo\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Diogo\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],

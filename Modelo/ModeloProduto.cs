@@ -15,25 +15,27 @@ namespace Modelo
             this.produto_descricao = "";
             this.produto_valorpago = 0;
             this.valorvenda = 0;
-            this.produto_qtde = 0;
+            this.produto_lote = 0;
             this.undmed_id = 0;
             this.categoria_id = 0;
             this.subCategoria_id = 0;
+            this.produto_qtde = 0;
         }
 
         public ModeloProduto(int produto_id, String produto_nome, String produto_descricao, 
-            Double produto_valorpago, Double produto_valorvenda, Double produto_qtde, 
-            int undmed_id, int categoria_id, int subCategoria_id)
+            Double produto_valorpago, Double produto_valorvenda, Double produto_lote, 
+            int undmed_id, int categoria_id, int subCategoria_id, float produto_qtde)
         {
             this.produto_id = produto_id;
             this.produto_nome = produto_nome;
             this.produto_descricao = produto_descricao;
             this.produto_valorpago = produto_valorpago;
             this.valorvenda = produto_valorvenda;
-            this.produto_qtde = produto_qtde;
+            this.produto_lote = produto_lote;
             this.undmed_id = undmed_id;
             this.categoria_id = categoria_id;
             this.subCategoria_id = subCategoria_id;
+            this.produto_qtde = produto_qtde;
         }
 
         private int produto_id;
@@ -67,8 +69,14 @@ namespace Modelo
             set { this.valorvenda = value; }
         }
 
-        private Double produto_qtde;
-        public Double ProdutoQtde
+        private Double produto_lote;
+        public Double ProdutoLote
+        {
+            get { return this.produto_lote; }
+            set { this.produto_lote = value; }
+        }
+        public float produto_qtde;
+        public float ProdutoQtde
         {
             get { return this.produto_qtde; }
             set { this.produto_qtde = value; }

@@ -34,9 +34,9 @@ namespace BLL
             {
                 throw new Exception("O valor de venda do produto é obrigatório");
             }
-            if (modelo.ProdutoQtde <= 0)
+            if (modelo.ProdutoLote <= 0)
             {
-                throw new Exception("A quantidade do produto é obrigatória");
+                throw new Exception("O lote do produto é obrigatória");
             }
             if (modelo.UndMedID <= 0)
             {
@@ -75,9 +75,9 @@ namespace BLL
             {
                 throw new Exception("O valor de venda do produto é obrigatório");
             }
-            if (modelo.ProdutoQtde <= 0)
+            if (modelo.ProdutoLote <= 0)
             {
-                throw new Exception("A quantidade do produto é obrigatória");
+                throw new Exception("O lote do produto é obrigatória");
             }
             if (modelo.UndMedID <= 0)
             {
@@ -100,9 +100,9 @@ namespace BLL
             {
                 throw new Exception("O ID do produto é obrigatório");
             }
-            if (obj.ProdutoQtde <= 0)
+            if (obj.ProdutoLote <= 0)
             {
-                throw new Exception("A quantidade do produto é obrigatória");
+                throw new Exception("O lote do produto é obrigatória");
             }
             DALProduto DALobj = new DALProduto(conexao);
             DALobj.Alterar(obj, transacao);

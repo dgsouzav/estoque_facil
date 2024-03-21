@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Google.Api.CommonProtos/2.12.0": {
+      "Google.Api.CommonProtos/2.14.0": {
         "type": "package",
         "dependencies": {
-          "Google.Protobuf": "[3.23.0, 4.0.0)"
+          "Google.Protobuf": "[3.25.0, 4.0.0)"
         },
         "compile": {
           "lib/netstandard2.0/Google.Api.CommonProtos.dll": {
@@ -21,7 +21,7 @@
           "build/_._": {}
         }
       },
-      "Google.Protobuf/3.23.0": {
+      "Google.Protobuf/3.25.0": {
         "type": "package",
         "compile": {
           "lib/net5.0/Google.Protobuf.dll": {
@@ -101,7 +101,7 @@
           }
         }
       },
-      "System.Data.SqlClient/4.8.5": {
+      "System.Data.SqlClient/4.8.6": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -109,10 +109,14 @@
           "runtime.native.System.Data.SqlClient.sni": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {}
+          "ref/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {}
+          "lib/netcoreapp2.1/System.Data.SqlClient.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll": {
@@ -168,7 +172,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Modelo": "1.0.0",
-          "System.Data.SqlClient": "4.8.5"
+          "System.Data.SqlClient": "4.8.6"
         },
         "compile": {
           "bin/placeholder/DAL.dll": {}
@@ -181,7 +185,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Google.Api.CommonProtos": "2.12.0"
+          "Google.Api.CommonProtos": "2.14.0"
         },
         "compile": {
           "bin/placeholder/Modelo.dll": {}
@@ -203,10 +207,10 @@
     }
   },
   "libraries": {
-    "Google.Api.CommonProtos/2.12.0": {
-      "sha512": "E8PT8b7MpkgDt76asK52EmrUNKQCwAPTWRx9M803+k7TbCdHHMqbWTsSPCR2+1HYrRGVfK4HDrS4KBKeE03zVg==",
+    "Google.Api.CommonProtos/2.14.0": {
+      "sha512": "gtlUPKYxA2/zfVDlXNOolefFULxFo94ukTduTdoqRR5FlvzDafORarPH1DdknupP8/g6qCLnK0TlkWpnD52u7Q==",
       "type": "package",
-      "path": "google.api.commonprotos/2.12.0",
+      "path": "google.api.commonprotos/2.14.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -269,7 +273,7 @@
         "content/protos/google/type/postal_address.proto",
         "content/protos/google/type/quaternion.proto",
         "content/protos/google/type/timeofday.proto",
-        "google.api.commonprotos.2.12.0.nupkg.sha512",
+        "google.api.commonprotos.2.14.0.nupkg.sha512",
         "google.api.commonprotos.nuspec",
         "lib/net461/Google.Api.CommonProtos.dll",
         "lib/net461/Google.Api.CommonProtos.pdb",
@@ -279,14 +283,14 @@
         "lib/netstandard2.0/Google.Api.CommonProtos.xml"
       ]
     },
-    "Google.Protobuf/3.23.0": {
-      "sha512": "sH4Jlv/vJQCqvYR9//Ia6RaDgG1HMTFlddBhSz5sbr9rQYYUuJ38SpOBv/m3mKkRfC6/ZdUtFQNczvAiYnIeqw==",
+    "Google.Protobuf/3.25.0": {
+      "sha512": "pIEkH1IqZV1iK8J5MYdG1kOyY0EoQLB6yEKvBq12RYNtvGXwCvnQg5zQsFmcqAEPtIZvSqPozIbUZaEd5a2gCg==",
       "type": "package",
-      "path": "google.protobuf/3.23.0",
+      "path": "google.protobuf/3.25.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.23.0.nupkg.sha512",
+        "google.protobuf.3.25.0.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -409,10 +413,10 @@
         "version.txt"
       ]
     },
-    "System.Data.SqlClient/4.8.5": {
-      "sha512": "fRqxut4lrndPHrXD+ht1XRmCL3obuKldm4XjCRYS9p5f7FSR7shBxAwTkDrpFMsHC9BhNgjjmUtiIjvehn5zkg==",
+    "System.Data.SqlClient/4.8.6": {
+      "sha512": "2Ij/LCaTQRyAi5lAv7UUTV9R2FobC8xN9mE0fXBZohum/xLl8IZVmE98Rq5ugQHjCgTBRKqpXRb4ORulRdA6Ig==",
       "type": "package",
-      "path": "system.data.sqlclient/4.8.5",
+      "path": "system.data.sqlclient/4.8.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -421,19 +425,41 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
+        "lib/net451/System.Data.SqlClient.dll",
+        "lib/net46/System.Data.SqlClient.dll",
+        "lib/net461/System.Data.SqlClient.dll",
+        "lib/net461/System.Data.SqlClient.xml",
         "lib/netcoreapp2.1/System.Data.SqlClient.dll",
+        "lib/netcoreapp2.1/System.Data.SqlClient.xml",
         "lib/netstandard1.2/System.Data.SqlClient.dll",
+        "lib/netstandard1.2/System.Data.SqlClient.xml",
         "lib/netstandard1.3/System.Data.SqlClient.dll",
+        "lib/netstandard1.3/System.Data.SqlClient.xml",
         "lib/netstandard2.0/System.Data.SqlClient.dll",
+        "lib/netstandard2.0/System.Data.SqlClient.xml",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
+        "ref/net451/System.Data.SqlClient.dll",
+        "ref/net46/System.Data.SqlClient.dll",
         "ref/net461/System.Data.SqlClient.dll",
+        "ref/net461/System.Data.SqlClient.xml",
         "ref/netcoreapp2.1/System.Data.SqlClient.dll",
+        "ref/netcoreapp2.1/System.Data.SqlClient.xml",
         "ref/netstandard1.2/System.Data.SqlClient.dll",
+        "ref/netstandard1.2/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/de/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/es/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/fr/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/it/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/ja/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/ko/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/ru/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/zh-hans/System.Data.SqlClient.xml",
+        "ref/netstandard1.2/zh-hant/System.Data.SqlClient.xml",
         "ref/netstandard1.3/System.Data.SqlClient.dll",
         "ref/netstandard1.3/System.Data.SqlClient.xml",
         "ref/netstandard1.3/de/System.Data.SqlClient.xml",
@@ -446,22 +472,28 @@
         "ref/netstandard1.3/zh-hans/System.Data.SqlClient.xml",
         "ref/netstandard1.3/zh-hant/System.Data.SqlClient.xml",
         "ref/netstandard2.0/System.Data.SqlClient.dll",
+        "ref/netstandard2.0/System.Data.SqlClient.xml",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
         "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll",
+        "runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.xml",
         "runtimes/unix/lib/netstandard1.3/System.Data.SqlClient.dll",
         "runtimes/unix/lib/netstandard2.0/System.Data.SqlClient.dll",
+        "runtimes/unix/lib/netstandard2.0/System.Data.SqlClient.xml",
         "runtimes/win/lib/net451/System.Data.SqlClient.dll",
         "runtimes/win/lib/net46/System.Data.SqlClient.dll",
         "runtimes/win/lib/net461/System.Data.SqlClient.dll",
+        "runtimes/win/lib/net461/System.Data.SqlClient.xml",
         "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll",
+        "runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.xml",
         "runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll",
         "runtimes/win/lib/netstandard2.0/System.Data.SqlClient.dll",
+        "runtimes/win/lib/netstandard2.0/System.Data.SqlClient.xml",
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.dll",
         "runtimes/win/lib/uap10.0.16299/System.Data.SqlClient.xml",
-        "system.data.sqlclient.4.8.5.nupkg.sha512",
+        "system.data.sqlclient.4.8.6.nupkg.sha512",
         "system.data.sqlclient.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -609,6 +641,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -630,7 +667,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

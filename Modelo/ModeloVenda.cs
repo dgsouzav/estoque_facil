@@ -18,9 +18,11 @@ namespace Modelo
             this.venda_status = "Válida";
             this.tipoPagamento_id = 0;
             this.venda_aVista = 1;
+            this.fornecedor_id = 0;
+            this.cliente_id = 0;
         }
         public ModeloVenda(int id, DateTime data, int notaFiscal, Double total, int numeroParcelas, 
-            String status, int tipoPagamento_id, int aVista)
+            String status, int tipoPagamento_id, int aVista, int fornecedor_id, int cliente_id)
         {
             this.venda_id = id;
             this.venda_data = data;
@@ -30,6 +32,8 @@ namespace Modelo
             this.venda_status = status;
             this.tipoPagamento_id = tipoPagamento_id;
             this.venda_aVista = aVista;
+            this.fornecedor_id = fornecedor_id;
+            this.cliente_id = cliente_id;
         }
         private int venda_id;
         public int VendaID
@@ -78,6 +82,18 @@ namespace Modelo
         {
             get { return this.venda_aVista; }
             set { this.venda_aVista = value; }
+        }
+        private int fornecedor_id;
+        public int FornecedorID
+        {
+            get { return this.fornecedor_id; }
+            set { this.fornecedor_id = value; }
+        }
+        private int cliente_id;
+        public int ClienteID
+        {
+            get { return this.cliente_id; }
+            set { this.cliente_id = value; }
         }
     }
 }

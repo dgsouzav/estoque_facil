@@ -246,7 +246,7 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
                 ModeloProduto modelo = bll.CarregaModeloProduto(ProdutoID);
-                QtdeEstoque = modelo.ProdutoQtde;
+                QtdeEstoque = modelo.ProdutoLote;
                 for (int i = 0; i < dtgvItensVenda.RowCount; i++)
                 {
                     if (Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[0].Value) == ProdutoID)

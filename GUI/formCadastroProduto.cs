@@ -57,7 +57,7 @@ namespace UI
             txtDescricaoProduto.Clear();
             txtValorPagoProduto.Clear();
             txtValorVendaProduto.Clear();
-            txtQtdeProduto.Clear();
+            txtLoteProduto.Clear();
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace UI
                 txtDescricaoProduto.Text = modelo.ProdutoDescricao;
                 txtValorPagoProduto.Text = modelo.ProdutoValorPago.ToString();
                 txtValorVendaProduto.Text = modelo.ProdutoValorVenda.ToString();
-                txtQtdeProduto.Text = modelo.ProdutoQtde.ToString();
+                txtLoteProduto.Text = modelo.ProdutoLote.ToString();
                 cmbUndMedID.SelectedValue = modelo.UndMedID;
                 cmbCategoriaID.SelectedValue = modelo.CategoriaID;
                 cmbSubCategoriaID.SelectedValue = modelo.SubCategoriaID;
@@ -108,7 +108,7 @@ namespace UI
                 ModeloProduto modelo = new ModeloProduto();
                 modelo.ProdutoNome = txtNomeProduto.Text;
                 modelo.ProdutoDescricao = txtDescricaoProduto.Text;
-                modelo.ProdutoQtde = Convert.ToDouble(txtQtdeProduto.Text);
+                modelo.ProdutoLote = Convert.ToDouble(txtLoteProduto.Text);
                 modelo.ProdutoValorPago = Convert.ToDouble(txtValorPagoProduto.Text);
                 modelo.ProdutoValorVenda = Convert.ToDouble(txtValorVendaProduto.Text);
                 modelo.UndMedID = Convert.ToInt32(cmbUndMedID.SelectedValue);
@@ -255,7 +255,7 @@ namespace UI
             }
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!txtQtdeProduto.Text.Contains(","))
+                if (!txtLoteProduto.Text.Contains(","))
                 {
                     e.KeyChar = ',';
                 }
@@ -265,24 +265,24 @@ namespace UI
 
         private void txtQtdeProduto_Leave(object sender, EventArgs e)
         {
-            if (txtQtdeProduto.Text.Contains(",") == false)
+            if (txtLoteProduto.Text.Contains(",") == false)
             {
-                txtQtdeProduto.Text += ",00";
+                txtLoteProduto.Text += ",00";
             }
             else
             {
-                if (txtQtdeProduto.Text.IndexOf(",") == txtQtdeProduto.Text.Length - 1)
+                if (txtLoteProduto.Text.IndexOf(",") == txtLoteProduto.Text.Length - 1)
                 {
-                    txtQtdeProduto.Text += "00";
+                    txtLoteProduto.Text += "00";
                 }
             }
             try
             {
-                Double d = Convert.ToDouble(txtQtdeProduto.Text);
+                Double d = Convert.ToDouble(txtLoteProduto.Text);
             }
             catch
             {
-                txtQtdeProduto.Text = "0,00";
+                txtLoteProduto.Text = "0,00";
             }
         }
 

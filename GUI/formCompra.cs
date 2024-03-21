@@ -249,7 +249,7 @@ namespace UI
                 txtQtde.Text = "1";
                 txtValor.Text = modelo.ProdutoValorVenda.ToString();
 
-                if (modelo.ProdutoQtde <= 0)
+                if (modelo.ProdutoLote <= 0)
                 {
                     txtProdutoID.Clear();
                     lblProdutoNome.Text = "Informe o nome do Produto ou localize";

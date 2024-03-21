@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Google.Api.CommonProtos/2.12.0": {
+      "Google.Api.CommonProtos/2.14.0": {
         "type": "package",
         "dependencies": {
-          "Google.Protobuf": "[3.23.0, 4.0.0)"
+          "Google.Protobuf": "[3.25.0, 4.0.0)"
         },
         "compile": {
           "lib/netstandard2.0/Google.Api.CommonProtos.dll": {
@@ -21,7 +21,7 @@
           "build/Google.Api.CommonProtos.targets": {}
         }
       },
-      "Google.Protobuf/3.23.0": {
+      "Google.Protobuf/3.25.0": {
         "type": "package",
         "compile": {
           "lib/net5.0/Google.Protobuf.dll": {
@@ -37,10 +37,10 @@
     }
   },
   "libraries": {
-    "Google.Api.CommonProtos/2.12.0": {
-      "sha512": "E8PT8b7MpkgDt76asK52EmrUNKQCwAPTWRx9M803+k7TbCdHHMqbWTsSPCR2+1HYrRGVfK4HDrS4KBKeE03zVg==",
+    "Google.Api.CommonProtos/2.14.0": {
+      "sha512": "gtlUPKYxA2/zfVDlXNOolefFULxFo94ukTduTdoqRR5FlvzDafORarPH1DdknupP8/g6qCLnK0TlkWpnD52u7Q==",
       "type": "package",
-      "path": "google.api.commonprotos/2.12.0",
+      "path": "google.api.commonprotos/2.14.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -103,7 +103,7 @@
         "content/protos/google/type/postal_address.proto",
         "content/protos/google/type/quaternion.proto",
         "content/protos/google/type/timeofday.proto",
-        "google.api.commonprotos.2.12.0.nupkg.sha512",
+        "google.api.commonprotos.2.14.0.nupkg.sha512",
         "google.api.commonprotos.nuspec",
         "lib/net461/Google.Api.CommonProtos.dll",
         "lib/net461/Google.Api.CommonProtos.pdb",
@@ -113,14 +113,14 @@
         "lib/netstandard2.0/Google.Api.CommonProtos.xml"
       ]
     },
-    "Google.Protobuf/3.23.0": {
-      "sha512": "sH4Jlv/vJQCqvYR9//Ia6RaDgG1HMTFlddBhSz5sbr9rQYYUuJ38SpOBv/m3mKkRfC6/ZdUtFQNczvAiYnIeqw==",
+    "Google.Protobuf/3.25.0": {
+      "sha512": "pIEkH1IqZV1iK8J5MYdG1kOyY0EoQLB6yEKvBq12RYNtvGXwCvnQg5zQsFmcqAEPtIZvSqPozIbUZaEd5a2gCg==",
       "type": "package",
-      "path": "google.protobuf/3.23.0",
+      "path": "google.protobuf/3.25.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.23.0.nupkg.sha512",
+        "google.protobuf.3.25.0.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -139,7 +139,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Google.Api.CommonProtos >= 2.12.0"
+      "Google.Api.CommonProtos >= 2.14.0"
     ]
   },
   "packageFolders": {
@@ -175,6 +175,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -183,7 +188,7 @@
         "dependencies": {
           "Google.Api.CommonProtos": {
             "target": "Package",
-            "version": "[2.12.0, )"
+            "version": "[2.14.0, )"
           }
         },
         "imports": [
@@ -202,7 +207,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
