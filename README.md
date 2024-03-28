@@ -19,4 +19,4 @@
 - Subcategoria
 ### Movimentações
 - Compra
-- Venda
+- Venda(frente de caixa)
