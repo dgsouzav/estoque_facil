@@ -84,6 +84,7 @@ namespace UI
                 cmbUndMedID.SelectedValue = modelo.UndMedID;
                 cmbCategoriaID.SelectedValue = modelo.CategoriaID;
                 cmbSubCategoriaID.SelectedValue = modelo.SubCategoriaID;
+                cmbFornecedorID.SelectedValue = modelo.FornecedorID;
 
                 this.menuBotoes(3);
             }
@@ -114,6 +115,7 @@ namespace UI
                 modelo.UndMedID = Convert.ToInt32(cmbUndMedID.SelectedValue);
                 modelo.CategoriaID = Convert.ToInt32(cmbCategoriaID.SelectedValue);
                 modelo.SubCategoriaID = Convert.ToInt32(cmbSubCategoriaID.SelectedValue);
+                modelo.FornecedorID = Convert.ToInt32(cmbFornecedorID.SelectedValue);
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
@@ -166,6 +168,11 @@ namespace UI
             cmbUndMedID.DataSource = bll3.Localizar("");
             cmbUndMedID.DisplayMember = "undmed_nome";
             cmbUndMedID.ValueMember = "undmed_id";
+
+            BLLFornecedor bll4 = new BLLFornecedor(cx);
+            cmbFornecedorID.DataSource = bll4.Localizar("");
+            cmbFornecedorID.DisplayMember = "fornecedor_nome";
+            cmbFornecedorID.ValueMember = "fornecedor_id";
         }
 
         private void txtValorPagoProduto_KeyPress(object sender, KeyPressEventArgs e)
@@ -247,44 +254,6 @@ namespace UI
             }
         }
 
-        private void txtQtdeProduto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ',' || e.KeyChar == '.')
-            {
-                if (!txtLoteProduto.Text.Contains(","))
-                {
-                    e.KeyChar = ',';
-                }
-                else e.Handled = true;
-            }
-        }
-
-        private void txtQtdeProduto_Leave(object sender, EventArgs e)
-        {
-            if (txtLoteProduto.Text.Contains(",") == false)
-            {
-                txtLoteProduto.Text += ",00";
-            }
-            else
-            {
-                if (txtLoteProduto.Text.IndexOf(",") == txtLoteProduto.Text.Length - 1)
-                {
-                    txtLoteProduto.Text += "00";
-                }
-            }
-            try
-            {
-                Double d = Convert.ToDouble(txtLoteProduto.Text);
-            }
-            catch
-            {
-                txtLoteProduto.Text = "0,00";
-            }
-        }
 
         private void cmbCategoriaID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -299,5 +268,6 @@ namespace UI
             }
             catch { }
         }
+
     }
 }

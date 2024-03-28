@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo;
@@ -24,8 +25,8 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = "insert into produto(produto_nome, produto_descricao, produto_valorpago, produto_valorvenda, " +
-                    "produto_lote, undmed_id, categoria_id, subCategoria_id) values (@nome, @descricao, @valorpago, @valorvenda, " +
-                    "@lote, @undmed, @categoria, @subcategoria); select @@IDENTITY;";
+                    "produto_lote, undmed_id, categoria_id, subCategoria_id, fornecedor_id, produto_qtde) values (@nome, @descricao, @valorpago, @valorvenda, " +
+                    "@lote, @undmed, @categoria, @subcategoria, @fornecedor, @qtde); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@nome", modelo.ProdutoNome);
                 cmd.Parameters.AddWithValue("@descricao", modelo.ProdutoDescricao);
                 cmd.Parameters.AddWithValue("@valorpago", modelo.ProdutoValorPago);
@@ -34,6 +35,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@undmed", modelo.UndMedID);
                 cmd.Parameters.AddWithValue("@categoria", modelo.CategoriaID);
                 cmd.Parameters.AddWithValue("@subcategoria", modelo.SubCategoriaID);
+                cmd.Parameters.AddWithValue("@fornecedor", modelo.FornecedorID);
+                cmd.Parameters.AddWithValue("@qtde", modelo.ProdutoQtde);
 
                 conexao.Conectar();
                 modelo.ProdutoID = Convert.ToInt32(cmd.ExecuteScalar());
@@ -53,7 +56,7 @@ namespace DAL
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = "update produto set produto_nome = (@nome), produto_descricao = (@descricao), produto_valorpago = (@valorpago), " +
                     "produto_valorvenda = (@valorvenda), produto_lote = (@lote), undmed_id = (@undmed), categoria_id = (@categoria), " +
-                    "subCategoria_id = (@subcategoria) where produto_id = (@id);";
+                    "subCategoria_id = (@subcategoria),  fornecedor_id = (@fornecedor) where produto_id = (@id);";
                 cmd.Parameters.AddWithValue("@id", obj.ProdutoID);
                 cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
                 cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
@@ -63,6 +66,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@undmed", obj.UndMedID);
                 cmd.Parameters.AddWithValue("@categoria", obj.CategoriaID);
                 cmd.Parameters.AddWithValue("@subcategoria", obj.SubCategoriaID);
+                cmd.Parameters.AddWithValue("@fornecedor", obj.FornecedorID);
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
                 conexao.Desconectar();
@@ -94,11 +98,11 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select p.produto_id, p.produto_nome, p.produto_descricao, p.produto_valorpago, " +
-                "p.produto_valorvenda, p.produto_lote, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome " +
-                "from produto p " +
+                "p.produto_valorvenda, p.produto_lote, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome, f.fornecedor_nome from produto p " +
                 "inner join unidadeMedida u on p.undmed_id = u.undmed_id " +
                 "inner join categoria c on p.categoria_id = c.categoria_id " +
                 "inner join subCategoria sc on p.subCategoria_id = sc.subcategoria_id " +
+                "inner join fornecedor f on p.fornecedor_id = f.fornecedor_id " +
                 "where p.produto_nome like '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
@@ -109,7 +113,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "update produto set produto_nome = @nome, produto_descricao = @descricao, produto_valorpago = @valorpago, " +
                 "produto_valorvenda = @valorvenda, produto_lote = @lote, undmed_id = @undmedid, categoria_id = @categoriaid, " +
-                "subCategoria_id = @subcategoriaid where produto_id = @id;";
+                "subCategoria_id = @subcategoriaid, forncedor_id = @fornecedorid where produto_id = @id;";
             cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
             cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
             cmd.Parameters.AddWithValue("@valorpago", obj.ProdutoValorPago);
@@ -119,6 +123,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@categoriaid", obj.CategoriaID);
             cmd.Parameters.AddWithValue("@subcategoriaid", obj.SubCategoriaID);
             cmd.Parameters.AddWithValue("@id", obj.ProdutoID);
+            cmd.Parameters.AddWithValue("@fornecedor", obj.FornecedorID);
 
             cmd.Transaction = conexao.ObjetoTransacao;
 
@@ -163,6 +168,7 @@ namespace DAL
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
+                modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
             }
             registro.Close();
             if (transacao == false)
@@ -192,6 +198,7 @@ namespace DAL
                 modelo.ProdutoLote = Convert.ToDouble(registro["produto_lote"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
+                modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
             }
             registro.Close();
             conexao.Desconectar();

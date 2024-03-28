@@ -20,11 +20,12 @@ namespace Modelo
             this.categoria_id = 0;
             this.subCategoria_id = 0;
             this.produto_qtde = 0;
+            this.fornecedor_id = 0;
         }
 
         public ModeloProduto(int produto_id, String produto_nome, String produto_descricao, 
             Double produto_valorpago, Double produto_valorvenda, Double produto_lote, 
-            int undmed_id, int categoria_id, int subCategoria_id, float produto_qtde)
+            int undmed_id, int categoria_id, int subCategoria_id, float produto_qtde, int fornecedor_id)
         {
             this.produto_id = produto_id;
             this.produto_nome = produto_nome;
@@ -36,6 +37,7 @@ namespace Modelo
             this.categoria_id = categoria_id;
             this.subCategoria_id = subCategoria_id;
             this.produto_qtde = produto_qtde;
+            this.produto_id = fornecedor_id;
         }
 
         private int produto_id;
@@ -100,6 +102,12 @@ namespace Modelo
         {
             get { return this.subCategoria_id; }
             set { this.subCategoria_id = value; }
+        }
+        private int fornecedor_id;
+        public int FornecedorID
+        {
+            get { return this.fornecedor_id; }
+            set { this.fornecedor_id = value; }
         }
     }
 }

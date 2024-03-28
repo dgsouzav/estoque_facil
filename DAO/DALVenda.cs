@@ -24,8 +24,8 @@ namespace DAL
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "insert into venda (venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
-                    "venda_status, tipoPagamento_id, venda_aVista, fornecedor_id, cliente_id) values (@data, @notaFiscal, @total, @numeroParcelas, " +
-                    "@status, @tipoPagamento, @aVista, @fornecedor, @cliente); select @@IDENTITY;";
+                    "venda_status, tipoPagamento_id, venda_aVista, cliente_id) values (@data, @notaFiscal, @total, @numeroParcelas, " +
+                    "@status, @tipoPagamento, @aVista, @cliente); select @@IDENTITY;";
                 cmd.Parameters.Add("@data", SqlDbType.DateTime);
                 cmd.Parameters["@data"].Value = modelo.VendaData;
                 cmd.Parameters.AddWithValue("@notaFiscal", modelo.VendaNotaFiscal);
@@ -34,7 +34,6 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@status", modelo.VendaStatus);
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
                 cmd.Parameters.AddWithValue("@aVista", modelo.VendaAVista);
-                cmd.Parameters.AddWithValue("@fornecedor", modelo.FornecedorID);
                 cmd.Parameters.AddWithValue("@cliente", modelo.ClienteID);
 
 
@@ -54,7 +53,7 @@ namespace DAL
                 cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "update venda set venda_data = @data, venda_notaFiscal = @notaFiscal, " +
                     "venda_total = @total, venda_numeroParcelas = @numeroParcelas, venda_status = @status, " +
-                    "tipoPagamento_id = @tipoPagamento, venda_aVista = @aVista, fornecedor_id = @fornecedor, cliente_id = @cliente where venda_id = @id;";
+                    "tipoPagamento_id = @tipoPagamento, venda_aVista = @aVista, cliente_id = @cliente where venda_id = @id;";
                 cmd.Parameters.Add("@data", SqlDbType.DateTime);
                 cmd.Parameters["@data"].Value = modelo.VendaData;
                 cmd.Parameters.AddWithValue("@notaFiscal", modelo.VendaNotaFiscal);
@@ -63,7 +62,6 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@status", modelo.VendaStatus);
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
                 cmd.Parameters.AddWithValue("@aVista", modelo.VendaAVista);
-                cmd.Parameters.AddWithValue("@fornecedor", modelo.FornecedorID);
                 cmd.Parameters.AddWithValue("@cliente", modelo.ClienteID);
                 cmd.Parameters.AddWithValue("@id", modelo.VendaID);
 
@@ -96,7 +94,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select venda_id, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
-                                              "venda_status, tipoPagamento_id, venda_aVista from venda where venda_id = " + id.ToString(), conexao.StringConexao);
+                                              "venda_status, tipoPagamento_id, venda_aVista, cliente_id from venda where venda_id = " + id.ToString(), conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -106,7 +104,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select venda_id, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
-                                                             "venda_status, tipoPagamento_id, venda_aVista, fornecedor_id, cliente_id from venda", conexao.StringConexao);
+                                                             "venda_status, tipoPagamento_id, venda_aVista, cliente_id from venda", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -131,7 +129,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select distinct v.venda_id, v.venda_data, v.venda_notaFiscal, v.venda_total, v.venda_numeroParcelas, " +
-                               "v.venda_status, v.tipoPagamento_id, v.venda_aVista, v.fornecedor_id, v.cliente_id from venda v inner join parcelasVenda p on v.venda_id = p.venda_id where " +
+                               "v.venda_status, v.tipoPagamento_id, v.venda_aVista, v.cliente_id from venda v inner join parcelasVenda p on v.venda_id = p.venda_id where " +
                                "p.parcelasVenda_dataPagamento is NULL", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
@@ -161,7 +159,7 @@ namespace DAL
             try
             {
                 cmd.Transaction = conexao.ObjetoTransacao;
-                cmd.CommandText = "update venda set venda_status='Cancelada' where venda_id = @id;";
+                cmd.CommandText = "update venda set venda_status = 'Cancelada' where venda_id = @id;";
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
 
@@ -215,7 +213,6 @@ namespace DAL
                 modelo.VendaStatus = Convert.ToString(registro["venda_status"]);
                 modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
                 modelo.VendaAVista = Convert.ToInt32(registro["venda_aVista"]);
-                modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
                 modelo.ClienteID = Convert.ToInt32(registro["cliente_id"]);
             }
             registro.Close();

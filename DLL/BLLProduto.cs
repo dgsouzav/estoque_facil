@@ -50,6 +50,10 @@ namespace BLL
             {
                 throw new Exception("A subcategoria do produto é obrigatória");
             }
+            if (modelo.FornecedorID <= 0)
+            {
+                throw new Exception("O Fornecedor do produto é obrigatóri0");
+            }
             DALProduto DALobj = new DALProduto(conexao);
             DALobj.Incluir(modelo);
         }
@@ -90,6 +94,10 @@ namespace BLL
             if (modelo.SubCategoriaID <= 0)
             {
                 throw new Exception("A subcategoria do produto é obrigatória");
+            }
+            if (modelo.FornecedorID <= 0)
+            {
+                throw new Exception("O Fornecedor do produto é obrigatóri0");
             }
             DALProduto DALobj = new DALProduto(conexao);
             DALobj.Alterar(modelo);

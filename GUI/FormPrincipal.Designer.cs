@@ -302,6 +302,7 @@
             Name = "FormPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Estoque Fácil";
+            WindowState = FormWindowState.Maximized;
             Load += FormPrincipal_Load;
             menuPrincipal.ResumeLayout(false);
             menuPrincipal.PerformLayout();

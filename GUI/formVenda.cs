@@ -16,6 +16,7 @@ namespace UI
     public partial class formVenda : Form
     {
         public double totalVenda = 0;
+        private int numeroNotaFiscal = 0;
         public formVenda()
         {
             InitializeComponent();
@@ -60,12 +61,12 @@ namespace UI
             txtNotaFiscal.Clear();
             txtQtde.Clear();
             txtVendaTotal.Text = "0,00";
+            txtTroco.Text = "0,00";
             txtValor.Clear();
             dtgvItensVenda.Rows.Clear();
             cmbTipoPagamento.SelectedIndex = 0;
             lblProdutoNome.Text = "Informe o código do produto ou clique em localizar";
             cmbNumeroParcelas.SelectedIndex = 0;
-            lblVendaAtiva.Visible = false;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -73,6 +74,17 @@ namespace UI
             this.operacao = "inserir";
             this.totalVenda = 0;
             this.menuBotoes(2);
+
+            // Verifica se a operação é de inserção e oculta a label lblCaixaLivre
+            if (this.operacao == "inserir")
+            {
+                lblCaixaLivre.Visible = false;
+            }
+            else
+            {
+                lblCaixaLivre.Visible = true;
+                lblCaixaLivre.BringToFront();
+            }
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)
@@ -118,12 +130,7 @@ namespace UI
                 }
                 this.menuBotoes(3);
 
-                lblVendaAtiva.Visible = false;
-                if (modelo.VendaStatus != "Ativa")
-                {
-                    lblVendaAtiva.Visible = true;
-                    btnCancelarVenda.Enabled = false;
-                }
+
             }
             else
             {
@@ -157,11 +164,7 @@ namespace UI
         {
             try
             {
-                if (Convert.ToInt32(txtNotaFiscal.Text) < 0)
-                {
-                    MessageBox.Show("Informe um número válido");
-                    return;
-                }
+                numeroNotaFiscal++;
                 if (totalVenda <= 0)
                 {
                     MessageBox.Show("Informe um produto para continuar");
@@ -190,6 +193,8 @@ namespace UI
                     }
                 }
                 panelFinalizaVenda.Visible = true;
+                ModeloVenda modeloVenda = new ModeloVenda();
+                modeloVenda.VendaNotaFiscal = numeroNotaFiscal;
 
             }
             catch (Exception erro)
@@ -202,6 +207,12 @@ namespace UI
         {
             this.LimpaTela();
             this.menuBotoes(1);
+
+            lblCaixaLivre.Visible = true;
+            lblCaixaLivre.BringToFront();
+
+            // Volta ao início e oculta o lblVendaCancelada quando o botão btnCancelar for pressionado
+            lblVendaCancelada.Visible = false;
         }
 
         private void btnLocalizarProduto_Click(object sender, EventArgs e)
@@ -305,6 +316,7 @@ namespace UI
             cmbTipoPagamento.ValueMember = "tipoPagamento_id";
             cmbNumeroParcelas.SelectedIndex = 0;
             checkBoxVendaAVista.Checked = false;
+            lblVendaCancelada.Visible = false;
         }
 
         private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -339,6 +351,9 @@ namespace UI
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
             panelFinalizaVenda.Visible = false;
+
+            lblVendaCancelada.Visible = true;
+            lblVendaCancelada.BringToFront();
         }
 
         private void btnSalvarPagamento_Click(object sender, EventArgs e)
@@ -407,6 +422,7 @@ namespace UI
                 this.menuBotoes(1);
                 cx.TerminarTransacao();
                 cx.Desconectar();
+
             }
             catch (Exception erro)
             {
@@ -414,8 +430,33 @@ namespace UI
                 cx.CancelarTransacao();
                 cx.Desconectar();
             }
+            // Esconde a label lblCaixaLivre
+            lblCaixaLivre.Visible = false;
         }
 
+        private void txtValorPago_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txtValorPago.Text, out decimal valorPago))
+            {
+                // Calcula o troco
+                decimal troco = valorPago - (decimal)this.totalVenda;
 
+                if (troco >= 0)
+                {
+                    // Exiba o troco no TextBox de troco
+                    txtTroco.Text = $"R$ {troco:F2}";
+                }
+                else
+                {
+                    // Se o valor pago for menor que o total da venda, exiba "Valor Insuficiente"
+                    txtTroco.Text = "Valor Insuficiente";
+                }
+            }
+            else
+            {
+                // Se o valor inserido não for válido, limpe o TextBox de troco
+                txtTroco.Text = "";
+            }
+        }
     }
 }

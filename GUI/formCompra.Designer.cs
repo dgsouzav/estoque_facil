@@ -157,6 +157,7 @@
             // 
             // txtValor
             // 
+            txtValor.Enabled = false;
             txtValor.Location = new Point(205, 171);
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(140, 23);
@@ -436,7 +437,7 @@
             panelFinalizaCompra.Controls.Add(lblTraço);
             panelFinalizaCompra.Controls.Add(lblDadosPagamento);
             panelFinalizaCompra.Controls.Add(dtgvParcelasCompra);
-            panelFinalizaCompra.Location = new Point(675, 16);
+            panelFinalizaCompra.Location = new Point(6, 12);
             panelFinalizaCompra.Name = "panelFinalizaCompra";
             panelFinalizaCompra.Size = new Size(660, 441);
             panelFinalizaCompra.TabIndex = 4;
@@ -620,13 +621,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1247, 461);
+            ClientSize = new Size(675, 461);
             Controls.Add(panelFinalizaCompra);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name = "formCompra";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Compra";
+            WindowState = FormWindowState.Maximized;
             Load += formCompra_Load;
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();

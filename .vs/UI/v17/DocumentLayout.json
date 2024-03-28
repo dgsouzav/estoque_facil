@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\modelo\\modelovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|solutionrelative:modelo\\modelovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\gui\\formcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\dao\\dalvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\dll\\bllvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|solutionrelative:dll\\bllvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,38 +42,77 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "formCompra.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formCompra.cs",
+              "RelativeDocumentMoniker": "GUI\\formCompra.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formCompra.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formCompra.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T11:23:00.124Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "formVenda.cs",
               "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs",
               "RelativeDocumentMoniker": "GUI\\formVenda.cs",
               "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs",
               "RelativeToolTip": "GUI\\formVenda.cs",
-              "ViewState": "AQIAAJEBAAAAAAAAAAAAAKIBAAAAAAAA",
+              "ViewState": "AQIAALYAAAAAAAAAAAAuwMMAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T23:27:52.426Z",
+              "WhenOpened": "2024-03-25T23:48:18.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "formVenda.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs",
               "RelativeDocumentMoniker": "GUI\\formVenda.cs",
               "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs [Projeto]",
               "RelativeToolTip": "GUI\\formVenda.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T23:27:33.07Z",
+              "WhenOpened": "2024-03-25T00:24:13.039Z",
               "EditorCaption": " [Projeto]"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 357,
-          "SelectedChildIndex": -1,
-          "Children": [
+            },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ModeloVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\ModeloVenda.cs",
+              "RelativeDocumentMoniker": "Modelo\\ModeloVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\ModeloVenda.cs",
+              "RelativeToolTip": "Modelo\\ModeloVenda.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAADwv2MAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T00:23:58.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DALVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALVenda.cs",
+              "RelativeDocumentMoniker": "DAO\\DALVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALVenda.cs",
+              "RelativeToolTip": "DAO\\DALVenda.cs",
+              "ViewState": "AQIAAMsAAAAAAAAAAAAQwNcAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T00:23:55.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BLLVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DLL\\BLLVenda.cs",
+              "RelativeDocumentMoniker": "DLL\\BLLVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DLL\\BLLVenda.cs",
+              "RelativeToolTip": "DLL\\BLLVenda.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAuwB8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-25T00:23:51.997Z"
             }
           ]
         }

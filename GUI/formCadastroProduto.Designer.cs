@@ -35,6 +35,8 @@
             btnSalvar = new Button();
             btnAlterar = new Button();
             panelDados = new Panel();
+            cmbFornecedorID = new ComboBox();
+            lblFornecedor = new Label();
             cmbUndMedID = new ComboBox();
             cmbCategoriaID = new ComboBox();
             cmbSubCategoriaID = new ComboBox();
@@ -121,6 +123,8 @@
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(cmbFornecedorID);
+            panelDados.Controls.Add(lblFornecedor);
             panelDados.Controls.Add(cmbUndMedID);
             panelDados.Controls.Add(cmbCategoriaID);
             panelDados.Controls.Add(cmbSubCategoriaID);
@@ -143,6 +147,25 @@
             panelDados.Name = "panelDados";
             panelDados.Size = new Size(536, 393);
             panelDados.TabIndex = 2;
+            // 
+            // cmbFornecedorID
+            // 
+            cmbFornecedorID.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbFornecedorID.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbFornecedorID.FormattingEnabled = true;
+            cmbFornecedorID.Location = new Point(283, 199);
+            cmbFornecedorID.Name = "cmbFornecedorID";
+            cmbFornecedorID.Size = new Size(250, 23);
+            cmbFornecedorID.TabIndex = 17;
+            // 
+            // lblFornecedor
+            // 
+            lblFornecedor.AutoSize = true;
+            lblFornecedor.Location = new Point(283, 181);
+            lblFornecedor.Name = "lblFornecedor";
+            lblFornecedor.Size = new Size(67, 15);
+            lblFornecedor.TabIndex = 16;
+            lblFornecedor.Text = "Fornecedor";
             // 
             // cmbUndMedID
             // 
@@ -217,8 +240,6 @@
             txtLoteProduto.Name = "txtLoteProduto";
             txtLoteProduto.Size = new Size(129, 23);
             txtLoteProduto.TabIndex = 4;
-            txtLoteProduto.KeyPress += txtQtdeProduto_KeyPress;
-            txtLoteProduto.Leave += txtQtdeProduto_Leave;
             // 
             // txtValorVendaProduto
             // 
@@ -350,5 +371,7 @@
         private ComboBox cmbUndMedID;
         private ComboBox cmbCategoriaID;
         private ComboBox cmbSubCategoriaID;
+        private Label lblFornecedor;
+        private ComboBox cmbFornecedorID;
     }
 }

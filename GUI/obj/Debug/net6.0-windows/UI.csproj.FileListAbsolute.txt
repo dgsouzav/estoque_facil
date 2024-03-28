@@ -89,5 +89,3 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\ref\U
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRecebimentoVenda.resources
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.sourcelink.json
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.csproj.Up2Date
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroCliente.resources
-C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCliente.resources
