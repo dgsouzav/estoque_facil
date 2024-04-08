@@ -61,13 +61,10 @@ namespace BLL
         }
         public Boolean CancelarVenda(int id)
         {
-            if (id <= 0)
-            {
-                throw new Exception("O número deve ser maior que zero.");
-            }
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.CancelarVenda(id);
         }
+
         public DataTable Localizar()
         {
             DALVenda DALobj = new DALVenda(conexao);

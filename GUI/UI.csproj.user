@@ -67,5 +67,14 @@
     <Compile Update="formVenda.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\formCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\formCadastroCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

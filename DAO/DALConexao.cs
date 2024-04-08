@@ -60,7 +60,5 @@ namespace DAL
         {
             this._conexao.Close(); 
         }
-
-
     }
 }

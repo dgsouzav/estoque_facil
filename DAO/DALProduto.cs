@@ -113,7 +113,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "update produto set produto_nome = @nome, produto_descricao = @descricao, produto_valorpago = @valorpago, " +
                 "produto_valorvenda = @valorvenda, produto_lote = @lote, undmed_id = @undmedid, categoria_id = @categoriaid, " +
-                "subCategoria_id = @subcategoriaid, forncedor_id = @fornecedorid where produto_id = @id;";
+                "subCategoria_id = @subcategoriaid where produto_id = @id;";
             cmd.Parameters.AddWithValue("@nome", obj.ProdutoNome);
             cmd.Parameters.AddWithValue("@descricao", obj.ProdutoDescricao);
             cmd.Parameters.AddWithValue("@valorpago", obj.ProdutoValorPago);
@@ -123,7 +123,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@categoriaid", obj.CategoriaID);
             cmd.Parameters.AddWithValue("@subcategoriaid", obj.SubCategoriaID);
             cmd.Parameters.AddWithValue("@id", obj.ProdutoID);
-            cmd.Parameters.AddWithValue("@fornecedor", obj.FornecedorID);
 
             cmd.Transaction = conexao.ObjetoTransacao;
 

@@ -33,7 +33,10 @@ namespace Modelo
             this.tipoPagamento_id = tipoPagamento_id;
             this.venda_aVista = aVista;
             this.fornecedor_id = fornecedor_id;
-            this.cliente_id = cliente_id;
+            if (cliente_id != 0)
+            {
+                this.cliente_id = cliente_id;
+            }
         }
         private int venda_id;
         public int VendaID

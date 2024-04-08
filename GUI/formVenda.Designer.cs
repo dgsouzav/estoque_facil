@@ -46,11 +46,10 @@
             panelBotoes = new Panel();
             btnCancelarVenda = new Button();
             btnCancelar = new Button();
-            btnInserir = new Button();
             btnLocalizar = new Button();
             btnSalvar = new Button();
-            btnAlterar = new Button();
             panelDados = new Panel();
+            listBoxClientes = new ListBox();
             lblVendaCancelada = new Label();
             lblCaixaLivre = new Label();
             label3 = new Label();
@@ -66,7 +65,9 @@
             lblValor = new Label();
             lblQtde = new Label();
             lblProdutoNome = new Label();
+            lblCliente = new Label();
             lblProdutoID = new Label();
+            txtClienteFidelidade = new TextBox();
             txtProdutoID = new TextBox();
             btnLocalizarProduto = new Button();
             lblDataInicial = new Label();
@@ -89,8 +90,7 @@
             txtVendaID = new TextBox();
             lblVenda = new Label();
             lblTipoPagamento = new Label();
-            txtClienteFidelidade = new TextBox();
-            lblCliente = new Label();
+            btnInserir = new Button();
             panelFinalizaVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvParcelasVenda).BeginInit();
             panelBotoes.SuspendLayout();
@@ -111,9 +111,9 @@
             panelFinalizaVenda.Controls.Add(lblTraço);
             panelFinalizaVenda.Controls.Add(lblDadosPagamento);
             panelFinalizaVenda.Controls.Add(dtgvParcelasVenda);
-            panelFinalizaVenda.Location = new Point(862, 12);
+            panelFinalizaVenda.Location = new Point(1132, 5);
             panelFinalizaVenda.Name = "panelFinalizaVenda";
-            panelFinalizaVenda.Size = new Size(844, 731);
+            panelFinalizaVenda.Size = new Size(1346, 731);
             panelFinalizaVenda.TabIndex = 7;
             panelFinalizaVenda.Visible = false;
             // 
@@ -121,7 +121,7 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.FromArgb(255, 128, 128);
-            label4.Location = new Point(647, 639);
+            label4.Location = new Point(1153, 588);
             label4.Name = "label4";
             label4.Size = new Size(20, 15);
             label4.TabIndex = 49;
@@ -132,7 +132,7 @@
             lbl0000.AutoSize = true;
             lbl0000.BackColor = Color.FromArgb(255, 128, 128);
             lbl0000.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl0000.Location = new Point(757, 84);
+            lbl0000.Location = new Point(1283, 525);
             lbl0000.Name = "lbl0000";
             lbl0000.Size = new Size(35, 15);
             lbl0000.TabIndex = 15;
@@ -141,7 +141,7 @@
             // txtTroco
             // 
             txtTroco.Enabled = false;
-            txtTroco.Location = new Point(673, 635);
+            txtTroco.Location = new Point(1179, 584);
             txtTroco.Name = "txtTroco";
             txtTroco.Size = new Size(152, 23);
             txtTroco.TabIndex = 47;
@@ -149,7 +149,7 @@
             // lblVendaTotal2
             // 
             lblVendaTotal2.AutoSize = true;
-            lblVendaTotal2.Location = new Point(649, 84);
+            lblVendaTotal2.Location = new Point(1175, 525);
             lblVendaTotal2.Name = "lblVendaTotal2";
             lblVendaTotal2.Size = new Size(102, 15);
             lblVendaTotal2.TabIndex = 14;
@@ -159,7 +159,7 @@
             // 
             lblTroco.AutoSize = true;
             lblTroco.BackColor = Color.Red;
-            lblTroco.Location = new Point(673, 617);
+            lblTroco.Location = new Point(1179, 566);
             lblTroco.Name = "lblTroco";
             lblTroco.Size = new Size(36, 15);
             lblTroco.TabIndex = 48;
@@ -167,7 +167,7 @@
             // 
             // btnCancelarPagamento
             // 
-            btnCancelarPagamento.Location = new Point(110, 621);
+            btnCancelarPagamento.Location = new Point(667, 623);
             btnCancelarPagamento.Name = "btnCancelarPagamento";
             btnCancelarPagamento.Size = new Size(105, 33);
             btnCancelarPagamento.TabIndex = 19;
@@ -177,7 +177,7 @@
             // 
             // btnSalvarPagamento
             // 
-            btnSalvarPagamento.Location = new Point(4, 621);
+            btnSalvarPagamento.Location = new Point(778, 623);
             btnSalvarPagamento.Name = "btnSalvarPagamento";
             btnSalvarPagamento.Size = new Size(100, 33);
             btnSalvarPagamento.TabIndex = 18;
@@ -223,7 +223,7 @@
             dtgvParcelasVenda.ReadOnly = true;
             dtgvParcelasVenda.RowTemplate.Height = 25;
             dtgvParcelasVenda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvParcelasVenda.Size = new Size(640, 537);
+            dtgvParcelasVenda.Size = new Size(1128, 537);
             dtgvParcelasVenda.TabIndex = 0;
             // 
             // parcelaID
@@ -248,79 +248,60 @@
             // 
             // panelBotoes
             // 
+            panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnCancelarVenda);
             panelBotoes.Controls.Add(btnCancelar);
-            panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnLocalizar);
             panelBotoes.Controls.Add(btnSalvar);
-            panelBotoes.Controls.Add(btnAlterar);
             panelBotoes.Location = new Point(12, 633);
             panelBotoes.Name = "panelBotoes";
-            panelBotoes.Size = new Size(844, 111);
+            panelBotoes.Size = new Size(1346, 111);
             panelBotoes.TabIndex = 6;
             // 
             // btnCancelarVenda
             // 
-            btnCancelarVenda.Location = new Point(387, 5);
+            btnCancelarVenda.Location = new Point(726, 13);
             btnCancelarVenda.Name = "btnCancelarVenda";
-            btnCancelarVenda.Size = new Size(90, 28);
+            btnCancelarVenda.Size = new Size(95, 28);
             btnCancelarVenda.TabIndex = 16;
-            btnCancelarVenda.Text = "CANCELAR";
+            btnCancelarVenda.Text = "CANCELAR(F4)";
             btnCancelarVenda.UseVisualStyleBackColor = true;
             btnCancelarVenda.Click += btnCancelarVenda_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(483, 5);
+            btnCancelar.Location = new Point(827, 13);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(90, 28);
             btnCancelar.TabIndex = 17;
-            btnCancelar.Text = "LIMPAR";
+            btnCancelar.Text = "LIMPAR(F5)";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // btnInserir
-            // 
-            btnInserir.Location = new Point(3, 5);
-            btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(90, 28);
-            btnInserir.TabIndex = 13;
-            btnInserir.Text = "INSERIR";
-            btnInserir.UseVisualStyleBackColor = true;
-            btnInserir.Click += btnInserir_Click;
-            // 
             // btnLocalizar
             // 
-            btnLocalizar.Location = new Point(99, 5);
+            btnLocalizar.Location = new Point(519, 13);
             btnLocalizar.Name = "btnLocalizar";
-            btnLocalizar.Size = new Size(90, 28);
+            btnLocalizar.Size = new Size(106, 28);
             btnLocalizar.TabIndex = 14;
-            btnLocalizar.Text = "LOCALIZAR";
+            btnLocalizar.Text = "LOCALIZAR(F2)";
             btnLocalizar.UseVisualStyleBackColor = true;
             btnLocalizar.Click += btnLocalizar_Click;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(291, 5);
+            btnSalvar.Location = new Point(630, 13);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(90, 28);
             btnSalvar.TabIndex = 15;
-            btnSalvar.Text = "SALVAR";
+            btnSalvar.Text = "SALVAR(F3)";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
-            // btnAlterar
-            // 
-            btnAlterar.Location = new Point(195, 5);
-            btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(90, 28);
-            btnAlterar.TabIndex = 8;
-            btnAlterar.Text = "ALTERAR";
-            btnAlterar.UseVisualStyleBackColor = true;
-            btnAlterar.Visible = false;
-            // 
             // panelDados
             // 
+            panelDados.Controls.Add(panelFinalizaVenda);
+            panelDados.Controls.Add(listBoxClientes);
             panelDados.Controls.Add(lblVendaCancelada);
             panelDados.Controls.Add(lblCaixaLivre);
             panelDados.Controls.Add(label3);
@@ -358,8 +339,18 @@
             panelDados.Controls.Add(lblTipoPagamento);
             panelDados.Location = new Point(12, 12);
             panelDados.Name = "panelDados";
-            panelDados.Size = new Size(844, 615);
+            panelDados.Size = new Size(1346, 615);
             panelDados.TabIndex = 5;
+            // 
+            // listBoxClientes
+            // 
+            listBoxClientes.FormattingEnabled = true;
+            listBoxClientes.ItemHeight = 15;
+            listBoxClientes.Location = new Point(965, 55);
+            listBoxClientes.Name = "listBoxClientes";
+            listBoxClientes.Size = new Size(120, 94);
+            listBoxClientes.TabIndex = 49;
+            listBoxClientes.SelectedIndexChanged += listBoxClientes_SelectedIndexChanged;
             // 
             // lblVendaCancelada
             // 
@@ -367,7 +358,7 @@
             lblVendaCancelada.BackColor = Color.Red;
             lblVendaCancelada.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
             lblVendaCancelada.ForeColor = Color.Black;
-            lblVendaCancelada.Location = new Point(49, 336);
+            lblVendaCancelada.Location = new Point(479, 84);
             lblVendaCancelada.Name = "lblVendaCancelada";
             lblVendaCancelada.Size = new Size(465, 65);
             lblVendaCancelada.TabIndex = 48;
@@ -379,7 +370,7 @@
             lblCaixaLivre.BackColor = Color.Lime;
             lblCaixaLivre.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
             lblCaixaLivre.ForeColor = Color.Black;
-            lblCaixaLivre.Location = new Point(138, 268);
+            lblCaixaLivre.Location = new Point(565, 5);
             lblCaixaLivre.Name = "lblCaixaLivre";
             lblCaixaLivre.Size = new Size(293, 65);
             lblCaixaLivre.TabIndex = 47;
@@ -390,7 +381,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.FromArgb(255, 128, 128);
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(613, 578);
+            label3.Location = new Point(1102, 578);
             label3.Name = "label3";
             label3.Size = new Size(29, 21);
             label3.TabIndex = 46;
@@ -399,7 +390,7 @@
             // txtValorPago
             // 
             txtValorPago.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorPago.Location = new Point(643, 564);
+            txtValorPago.Location = new Point(1132, 564);
             txtValorPago.Multiline = true;
             txtValorPago.Name = "txtValorPago";
             txtValorPago.Size = new Size(198, 43);
@@ -410,7 +401,7 @@
             // 
             lblValorPago.AutoSize = true;
             lblValorPago.BackColor = Color.Red;
-            lblValorPago.Location = new Point(643, 546);
+            lblValorPago.Location = new Point(1132, 546);
             lblValorPago.Name = "lblValorPago";
             lblValorPago.Size = new Size(63, 15);
             lblValorPago.TabIndex = 45;
@@ -431,7 +422,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(255, 128, 128);
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(613, 426);
+            label2.Location = new Point(1102, 426);
             label2.Name = "label2";
             label2.Size = new Size(29, 21);
             label2.TabIndex = 41;
@@ -442,7 +433,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(255, 128, 128);
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(613, 505);
+            label1.Location = new Point(1102, 505);
             label1.Name = "label1";
             label1.Size = new Size(29, 21);
             label1.TabIndex = 40;
@@ -461,7 +452,7 @@
             // 
             // btnAddProduto
             // 
-            btnAddProduto.Location = new Point(316, 95);
+            btnAddProduto.Location = new Point(331, 93);
             btnAddProduto.Name = "btnAddProduto";
             btnAddProduto.Size = new Size(100, 24);
             btnAddProduto.TabIndex = 7;
@@ -473,7 +464,7 @@
             // 
             txtValor.Enabled = false;
             txtValor.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValor.Location = new Point(643, 414);
+            txtValor.Location = new Point(1132, 414);
             txtValor.Multiline = true;
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(198, 43);
@@ -482,7 +473,7 @@
             // txtQtde
             // 
             txtQtde.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtQtde.Location = new Point(643, 336);
+            txtQtde.Location = new Point(1132, 336);
             txtQtde.Multiline = true;
             txtQtde.Name = "txtQtde";
             txtQtde.Size = new Size(198, 43);
@@ -492,7 +483,7 @@
             // 
             lblValor.AutoSize = true;
             lblValor.BackColor = Color.Red;
-            lblValor.Location = new Point(643, 395);
+            lblValor.Location = new Point(1132, 395);
             lblValor.Name = "lblValor";
             lblValor.Size = new Size(77, 15);
             lblValor.TabIndex = 35;
@@ -501,7 +492,7 @@
             // lblQtde
             // 
             lblQtde.AutoSize = true;
-            lblQtde.Location = new Point(643, 318);
+            lblQtde.Location = new Point(1132, 318);
             lblQtde.Name = "lblQtde";
             lblQtde.Size = new Size(69, 15);
             lblQtde.TabIndex = 34;
@@ -516,6 +507,15 @@
             lblProdutoNome.TabIndex = 33;
             lblProdutoNome.Text = "Nome do Produto";
             // 
+            // lblCliente
+            // 
+            lblCliente.AutoSize = true;
+            lblCliente.Location = new Point(965, 12);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(101, 15);
+            lblCliente.TabIndex = 32;
+            lblCliente.Text = "Cliente Fidelidade";
+            // 
             // lblProdutoID
             // 
             lblProdutoID.AutoSize = true;
@@ -524,6 +524,15 @@
             lblProdutoID.Size = new Size(50, 15);
             lblProdutoID.TabIndex = 32;
             lblProdutoID.Text = "Produto";
+            // 
+            // txtClienteFidelidade
+            // 
+            txtClienteFidelidade.Location = new Point(965, 30);
+            txtClienteFidelidade.Name = "txtClienteFidelidade";
+            txtClienteFidelidade.Size = new Size(120, 23);
+            txtClienteFidelidade.TabIndex = 3;
+            txtClienteFidelidade.TextChanged += txtClienteFidelidade_TextChanged;
+            txtClienteFidelidade.Leave += txtProdutoID_Leave;
             // 
             // txtProdutoID
             // 
@@ -546,7 +555,7 @@
             // lblDataInicial
             // 
             lblDataInicial.AutoSize = true;
-            lblDataInicial.Location = new Point(613, 59);
+            lblDataInicial.Location = new Point(1132, 174);
             lblDataInicial.Name = "lblDataInicial";
             lblDataInicial.Size = new Size(145, 15);
             lblDataInicial.TabIndex = 25;
@@ -563,7 +572,7 @@
             dtgvItensVenda.ReadOnly = true;
             dtgvItensVenda.RowTemplate.Height = 25;
             dtgvItensVenda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvItensVenda.Size = new Size(604, 444);
+            dtgvItensVenda.Size = new Size(1093, 444);
             dtgvItensVenda.TabIndex = 22;
             dtgvItensVenda.CellDoubleClick += dtgvItensVenda_CellDoubleClick;
             // 
@@ -601,9 +610,9 @@
             // 
             // dtpDataInicial
             // 
-            dtpDataInicial.Location = new Point(613, 77);
+            dtpDataInicial.Location = new Point(1132, 192);
             dtpDataInicial.Name = "dtpDataInicial";
-            dtpDataInicial.Size = new Size(228, 23);
+            dtpDataInicial.Size = new Size(198, 23);
             dtpDataInicial.TabIndex = 11;
             // 
             // cmbTipoPagamento
@@ -612,7 +621,7 @@
             cmbTipoPagamento.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbTipoPagamento.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cmbTipoPagamento.FormattingEnabled = true;
-            cmbTipoPagamento.Location = new Point(643, 225);
+            cmbTipoPagamento.Location = new Point(1132, 73);
             cmbTipoPagamento.Name = "cmbTipoPagamento";
             cmbTipoPagamento.Size = new Size(198, 25);
             cmbTipoPagamento.TabIndex = 10;
@@ -622,23 +631,23 @@
             cmbNumeroParcelas.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cmbNumeroParcelas.FormattingEnabled = true;
             cmbNumeroParcelas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            cmbNumeroParcelas.Location = new Point(643, 182);
+            cmbNumeroParcelas.Location = new Point(1132, 30);
             cmbNumeroParcelas.Name = "cmbNumeroParcelas";
             cmbNumeroParcelas.Size = new Size(198, 25);
             cmbNumeroParcelas.TabIndex = 9;
             // 
             // dtpDataVenda
             // 
-            dtpDataVenda.Location = new Point(613, 27);
+            dtpDataVenda.Location = new Point(1132, 142);
             dtpDataVenda.Name = "dtpDataVenda";
-            dtpDataVenda.Size = new Size(228, 23);
+            dtpDataVenda.Size = new Size(198, 23);
             dtpDataVenda.TabIndex = 2;
             // 
             // txtVendaTotal
             // 
             txtVendaTotal.Enabled = false;
             txtVendaTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtVendaTotal.Location = new Point(643, 495);
+            txtVendaTotal.Location = new Point(1132, 495);
             txtVendaTotal.Multiline = true;
             txtVendaTotal.Name = "txtVendaTotal";
             txtVendaTotal.Size = new Size(198, 43);
@@ -648,7 +657,7 @@
             // 
             lblVendaTotal.AutoSize = true;
             lblVendaTotal.BackColor = Color.Red;
-            lblVendaTotal.Location = new Point(643, 477);
+            lblVendaTotal.Location = new Point(1132, 477);
             lblVendaTotal.Name = "lblVendaTotal";
             lblVendaTotal.Size = new Size(83, 15);
             lblVendaTotal.TabIndex = 16;
@@ -657,7 +666,7 @@
             // lblDataVenda
             // 
             lblDataVenda.AutoSize = true;
-            lblDataVenda.Location = new Point(613, 9);
+            lblDataVenda.Location = new Point(1132, 124);
             lblDataVenda.Name = "lblDataVenda";
             lblDataVenda.Size = new Size(82, 15);
             lblDataVenda.TabIndex = 12;
@@ -682,7 +691,7 @@
             // lblNumeroParcelas
             // 
             lblNumeroParcelas.AutoSize = true;
-            lblNumeroParcelas.Location = new Point(643, 164);
+            lblNumeroParcelas.Location = new Point(1132, 12);
             lblNumeroParcelas.Name = "lblNumeroParcelas";
             lblNumeroParcelas.Size = new Size(50, 15);
             lblNumeroParcelas.TabIndex = 4;
@@ -708,35 +717,26 @@
             // lblTipoPagamento
             // 
             lblTipoPagamento.AutoSize = true;
-            lblTipoPagamento.Location = new Point(643, 207);
+            lblTipoPagamento.Location = new Point(1132, 55);
             lblTipoPagamento.Name = "lblTipoPagamento";
             lblTipoPagamento.Size = new Size(110, 15);
             lblTipoPagamento.TabIndex = 0;
             lblTipoPagamento.Text = "Tipo de pagamento";
             // 
-            // txtClienteFidelidade
+            // btnInserir
             // 
-            txtClienteFidelidade.Location = new Point(316, 30);
-            txtClienteFidelidade.Name = "txtClienteFidelidade";
-            txtClienteFidelidade.Size = new Size(202, 23);
-            txtClienteFidelidade.TabIndex = 3;
-            txtClienteFidelidade.Leave += txtProdutoID_Leave;
-            // 
-            // lblCliente
-            // 
-            lblCliente.AutoSize = true;
-            lblCliente.Location = new Point(315, 12);
-            lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(101, 15);
-            lblCliente.TabIndex = 32;
-            lblCliente.Text = "Cliente Fidelidade";
+            btnInserir.Location = new Point(407, 13);
+            btnInserir.Name = "btnInserir";
+            btnInserir.Size = new Size(106, 28);
+            btnInserir.TabIndex = 18;
+            btnInserir.Text = "INSERIR(F2)";
+            btnInserir.UseVisualStyleBackColor = true;
             // 
             // formVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1370, 749);
-            Controls.Add(panelFinalizaVenda);
+            ClientSize = new Size(1370, 686);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name = "formVenda";
@@ -744,6 +744,7 @@
             Text = "Venda";
             WindowState = FormWindowState.Maximized;
             Load += formVenda_Load;
+            KeyDown += formVenda_KeyDown;
             panelFinalizaVenda.ResumeLayout(false);
             panelFinalizaVenda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvParcelasVenda).EndInit();
@@ -771,10 +772,8 @@
         protected Panel panelBotoes;
         protected Button btnCancelarVenda;
         protected Button btnCancelar;
-        protected Button btnInserir;
         protected Button btnLocalizar;
         protected Button btnSalvar;
-        protected Button btnAlterar;
         protected Panel panelDados;
         private Button btnAddProduto;
         private TextBox txtValor;
@@ -819,5 +818,7 @@
         private Label lblVendaCancelada;
         private Label lblCliente;
         private TextBox txtClienteFidelidade;
+        private ListBox listBoxClientes;
+        protected Button btnInserir;
     }
 }

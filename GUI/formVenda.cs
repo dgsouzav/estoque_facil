@@ -17,17 +17,25 @@ namespace UI
     {
         public double totalVenda = 0;
         private int numeroNotaFiscal = 0;
+        private int ClienteIDSelecionado = 0;
+
+        private static DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+        BLLTipoPagamento bll = new BLLTipoPagamento(cx);
+      
         public formVenda()
         {
             InitializeComponent();
+
+            this.KeyPreview = true;
+
+            this.KeyDown += formVenda_KeyDown;
         }
         public String operacao;
 
-        public void menuBotoes(int op)
+        /*public void menuBotoes(int op)
         {
             panelDados.Enabled = false;
             btnInserir.Enabled = false;
-            btnAlterar.Enabled = false;
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
             btnLocalizar.Enabled = false;
@@ -49,10 +57,9 @@ namespace UI
             if (op == 3)
             {
                 btnCancelarVenda.Enabled = true;
-                btnAlterar.Enabled = true;
                 btnCancelar.Enabled = true;
             }
-        }
+        }*/
 
         public void LimpaTela()
         {
@@ -67,13 +74,13 @@ namespace UI
             cmbTipoPagamento.SelectedIndex = 0;
             lblProdutoNome.Text = "Informe o código do produto ou clique em localizar";
             cmbNumeroParcelas.SelectedIndex = 0;
+            txtClienteFidelidade.Clear();
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
             this.operacao = "inserir";
             this.totalVenda = 0;
-            this.menuBotoes(2);
 
             // Verifica se a operação é de inserção e oculta a label lblCaixaLivre
             if (this.operacao == "inserir")
@@ -128,14 +135,10 @@ namespace UI
                     String[] k = new String[] { id, nome, qtde, valor, TotalLocal.ToString() };
                     this.dtgvItensVenda.Rows.Add(k);
                 }
-                this.menuBotoes(3);
-
-
             }
             else
             {
                 this.LimpaTela();
-                this.menuBotoes(1);
             }
             f.Dispose();
         }
@@ -157,8 +160,6 @@ namespace UI
                 }
             }
             this.LimpaTela();
-            this.menuBotoes(1);
-
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -205,8 +206,9 @@ namespace UI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.LimpaTela();
-            this.menuBotoes(1);
+            //this.LimpaTela();
+            btnInserir_Click(sender, e);
+            //this.menuBotoes(1);
 
             lblCaixaLivre.Visible = true;
             lblCaixaLivre.BringToFront();
@@ -227,7 +229,6 @@ namespace UI
             else
             {
                 this.LimpaTela();
-                this.menuBotoes(1);
             }
             f.Dispose();
         }
@@ -308,15 +309,21 @@ namespace UI
 
         private void formVenda_Load(object sender, EventArgs e)
         {
-            this.menuBotoes(1);
-            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLTipoPagamento bll = new BLLTipoPagamento(cx);
+            this.Focus();
+
+            //DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            //BLLTipoPagamento bll = new BLLTipoPagamento(cx);
             cmbTipoPagamento.DataSource = bll.Localizar("");
             cmbTipoPagamento.DisplayMember = "tipoPagamento_nome";
             cmbTipoPagamento.ValueMember = "tipoPagamento_id";
+
             cmbNumeroParcelas.SelectedIndex = 0;
+
             checkBoxVendaAVista.Checked = false;
             lblVendaCancelada.Visible = false;
+
+            this.operacao = "inserir";
+            this.totalVenda = 0;
         }
 
         private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -372,6 +379,7 @@ namespace UI
                 modeloVenda.VendaStatus = "Ativa";
                 modeloVenda.VendaTotal = this.totalVenda;
                 modeloVenda.TipoPagamentoID = Convert.ToInt32(cmbTipoPagamento.SelectedValue);
+                modeloVenda.ClienteID = this.ClienteIDSelecionado;
                 if (checkBoxVendaAVista.Checked == true)
                 {
                     modeloVenda.VendaAVista = 1;
@@ -419,7 +427,6 @@ namespace UI
 
                 this.LimpaTela();
                 panelFinalizaVenda.Visible = false;
-                this.menuBotoes(1);
                 cx.TerminarTransacao();
                 cx.Desconectar();
 
@@ -430,7 +437,6 @@ namespace UI
                 cx.CancelarTransacao();
                 cx.Desconectar();
             }
-            // Esconde a label lblCaixaLivre
             lblCaixaLivre.Visible = false;
         }
 
@@ -438,24 +444,81 @@ namespace UI
         {
             if (decimal.TryParse(txtValorPago.Text, out decimal valorPago))
             {
-                // Calcula o troco
                 decimal troco = valorPago - (decimal)this.totalVenda;
 
                 if (troco >= 0)
                 {
-                    // Exiba o troco no TextBox de troco
                     txtTroco.Text = $"R$ {troco:F2}";
                 }
                 else
                 {
-                    // Se o valor pago for menor que o total da venda, exiba "Valor Insuficiente"
                     txtTroco.Text = "Valor Insuficiente";
                 }
             }
             else
             {
-                // Se o valor inserido não for válido, limpe o TextBox de troco
                 txtTroco.Text = "";
+            }
+        }
+
+        private void txtClienteFidelidade_TextChanged(object sender, EventArgs e)
+        {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            cx.Conectar();
+            cx.IniciarTransacao();
+            string textoDigitado = txtClienteFidelidade.Text;
+            BLLCliente bll = new BLLCliente(cx);
+            DataTable cliente = bll.LocalizarPorNome(textoDigitado);
+
+            listBoxClientes.DataSource = null;
+
+            listBoxClientes.DataSource = cliente; 
+            listBoxClientes.DisplayMember = "cliente_nome"; 
+            listBoxClientes.ValueMember = "cliente_id"; 
+        }
+
+
+        private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxClientes.SelectedItem != null)
+            {
+                DataRowView clienteSelecionado = listBoxClientes.SelectedItem as DataRowView;
+                txtClienteFidelidade.Text = clienteSelecionado["cliente_nome"].ToString();
+                int ClienteID = Convert.ToInt32(clienteSelecionado["cliente_id"]);
+                this.ClienteIDSelecionado = ClienteID;
+            }
+        }
+
+        private void formVenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                btnInserir_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                btnLocalizar_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F3)
+            {
+                btnSalvar_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F4)
+            {
+                btnCancelarVenda_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                btnCancelar_Click(sender, e);
+            }
+            
+            if (e.KeyCode == Keys.F9)
+            {
+                btnCancelarPagamento_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F10)
+            {
+                btnSalvarPagamento_Click(sender, e);
             }
         }
     }

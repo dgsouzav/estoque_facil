@@ -34,7 +34,14 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@status", modelo.VendaStatus);
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
                 cmd.Parameters.AddWithValue("@aVista", modelo.VendaAVista);
-                cmd.Parameters.AddWithValue("@cliente", modelo.ClienteID);
+                if (modelo.ClienteID == 0)
+                {
+                    cmd.Parameters.AddWithValue("@cliente", DBNull.Value); // Indica que o valor é nulo no banco de dados
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@cliente", modelo.ClienteID);
+                }
 
 
                 modelo.VendaID = Convert.ToInt32(cmd.ExecuteScalar());
@@ -206,19 +213,20 @@ namespace DAL
             {
                 registro.Read();
                 modelo.VendaID = Convert.ToInt32(registro["venda_id"]);
-                modelo.VendaData = Convert.ToDateTime(registro["venda_data"]);
-                modelo.VendaNotaFiscal = Convert.ToInt32(registro["venda_notaFiscal"]);
-                modelo.VendaTotal = Convert.ToDouble(registro["venda_total"]);
-                modelo.VendaNumeroParcelas = Convert.ToInt32(registro["venda_numeroParcelas"]);
-                modelo.VendaStatus = Convert.ToString(registro["venda_status"]);
-                modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);
-                modelo.VendaAVista = Convert.ToInt32(registro["venda_aVista"]);
-                modelo.ClienteID = Convert.ToInt32(registro["cliente_id"]);
+                modelo.VendaData = registro["venda_data"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(registro["venda_data"]);
+                modelo.VendaNotaFiscal = registro["venda_notaFiscal"] == DBNull.Value ? 0 : Convert.ToInt32(registro["venda_notaFiscal"]);
+                modelo.VendaTotal = registro["venda_total"] == DBNull.Value ? 0.0 : Convert.ToDouble(registro["venda_total"]);
+                modelo.VendaNumeroParcelas = registro["venda_numeroParcelas"] == DBNull.Value ? 0 : Convert.ToInt32(registro["venda_numeroParcelas"]);
+                modelo.VendaStatus = registro["venda_status"] == DBNull.Value ? string.Empty : Convert.ToString(registro["venda_status"]);
+                modelo.TipoPagamentoID = registro["tipoPagamento_id"] == DBNull.Value ? 0 : Convert.ToInt32(registro["tipoPagamento_id"]);
+                modelo.VendaAVista = registro["venda_aVista"] == DBNull.Value ? 0 : Convert.ToInt32(registro["venda_aVista"]);
+                modelo.ClienteID = registro["cliente_id"] == DBNull.Value ? 0 : Convert.ToInt32(registro["cliente_id"]);
             }
             registro.Close();
             conexao.Desconectar();
             return modelo;
         }
-        
+
+
     }
 }
