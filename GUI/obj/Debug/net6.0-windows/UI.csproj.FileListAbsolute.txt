@@ -91,3 +91,5 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.pd
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\ref\UI.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formLogin.resources
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Diogo\Documents\GitHub\estoque_facil\GUI\bin\Debug\net6.0-windows\itextsharp.dll

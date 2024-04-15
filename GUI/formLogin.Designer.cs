@@ -113,6 +113,7 @@
             Name = "formLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Estoque Fácil";
+            Load += formLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

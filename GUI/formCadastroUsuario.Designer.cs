@@ -39,9 +39,9 @@
             lblSenha = new Label();
             cmbNivelAcesso = new ComboBox();
             lblNivelAcesso = new Label();
-            txtNomeSubCategoria = new TextBox();
+            txtNome = new TextBox();
             txtUsuarioID = new TextBox();
-            lblNomeUsuario = new Label();
+            lblNome = new Label();
             lblUsuarioID = new Label();
             panelBotoes.SuspendLayout();
             panelDados.SuspendLayout();
@@ -67,6 +67,7 @@
             btnCancelar.TabIndex = 9;
             btnCancelar.Text = "LIMPAR";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnInserir
             // 
@@ -76,6 +77,7 @@
             btnInserir.TabIndex = 5;
             btnInserir.Text = "INSERIR";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // btnLocalizar
             // 
@@ -85,6 +87,7 @@
             btnLocalizar.TabIndex = 6;
             btnLocalizar.Text = "LOCALIZAR";
             btnLocalizar.UseVisualStyleBackColor = true;
+            btnLocalizar.Click += btnLocalizar_Click;
             // 
             // btnSalvar
             // 
@@ -94,6 +97,7 @@
             btnSalvar.TabIndex = 8;
             btnSalvar.Text = "SALVAR";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnAlterar
             // 
@@ -103,6 +107,7 @@
             btnAlterar.TabIndex = 7;
             btnAlterar.Text = "ALTERAR";
             btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // panelDados
             // 
@@ -110,9 +115,9 @@
             panelDados.Controls.Add(lblSenha);
             panelDados.Controls.Add(cmbNivelAcesso);
             panelDados.Controls.Add(lblNivelAcesso);
-            panelDados.Controls.Add(txtNomeSubCategoria);
+            panelDados.Controls.Add(txtNome);
             panelDados.Controls.Add(txtUsuarioID);
-            panelDados.Controls.Add(lblNomeUsuario);
+            panelDados.Controls.Add(lblNome);
             panelDados.Controls.Add(lblUsuarioID);
             panelDados.Location = new Point(12, 12);
             panelDados.Name = "panelDados";
@@ -155,12 +160,12 @@
             lblNivelAcesso.TabIndex = 0;
             lblNivelAcesso.Text = "Nivel de acesso";
             // 
-            // txtNomeSubCategoria
+            // txtNome
             // 
-            txtNomeSubCategoria.Location = new Point(3, 98);
-            txtNomeSubCategoria.Name = "txtNomeSubCategoria";
-            txtNomeSubCategoria.Size = new Size(215, 23);
-            txtNomeSubCategoria.TabIndex = 2;
+            txtNome.Location = new Point(3, 98);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(215, 23);
+            txtNome.TabIndex = 2;
             // 
             // txtUsuarioID
             // 
@@ -170,14 +175,14 @@
             txtUsuarioID.Size = new Size(81, 23);
             txtUsuarioID.TabIndex = 1;
             // 
-            // lblNomeUsuario
+            // lblNome
             // 
-            lblNomeUsuario.AutoSize = true;
-            lblNomeUsuario.Location = new Point(3, 80);
-            lblNomeUsuario.Name = "lblNomeUsuario";
-            lblNomeUsuario.Size = new Size(215, 15);
-            lblNomeUsuario.TabIndex = 1;
-            lblNomeUsuario.Text = "Nome de usuário(o mesmo para Login)";
+            lblNome.AutoSize = true;
+            lblNome.Location = new Point(3, 80);
+            lblNome.Name = "lblNome";
+            lblNome.Size = new Size(215, 15);
+            lblNome.TabIndex = 1;
+            lblNome.Text = "Nome de usuário(o mesmo para Login)";
             // 
             // lblUsuarioID
             // 
@@ -216,9 +221,9 @@
         protected Panel panelDados;
         private ComboBox cmbNivelAcesso;
         private Label lblNivelAcesso;
-        private TextBox txtNomeSubCategoria;
+        private TextBox txtNome;
         private TextBox txtUsuarioID;
-        private Label lblNomeUsuario;
+        private Label lblNome;
         private Label lblUsuarioID;
         private TextBox txtSenha;
         private Label lblSenha;

@@ -14,6 +14,7 @@ namespace UI
     public partial class FormPrincipal : Form
     {
         AUsuario _usuario;
+
         public FormPrincipal(AUsuario usuario)
         {
             InitializeComponent();
@@ -39,6 +40,8 @@ namespace UI
             relatóriosDeVendaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formRelatorioAcesso;
             pagamentoToolStripMenuItem.Enabled = usuario.NivelAcesso2._formPagamentoAcesso;
             rEcebimentoToolStripMenuItem.Enabled = usuario.NivelAcesso2._formRecebimentoAcesso;
+
+            lblUsuarioAtual.Text = "Usuário logado: " + _usuario.Nome;
         }
 
         private void CategoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,13 +189,16 @@ namespace UI
         }
         private void SairToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
 
             formLogin f = new formLogin();
+            f.Show();
+            MessageBox.Show("Você foi desconectado.");
+        }
 
-            f.ShowDialog();
-            f.Dispose();
-            this.Show();
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bem-vindo, " + _usuario.Nome + "!");
         }
     }
 }

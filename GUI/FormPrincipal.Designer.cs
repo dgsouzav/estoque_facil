@@ -61,6 +61,7 @@
             toolStripSeparator3 = new ToolStripSeparator();
             relatóriosDeVendaToolStripMenuItem = new ToolStripMenuItem();
             SairToolStripMenuItem1 = new ToolStripMenuItem();
+            lblUsuarioAtual = new Label();
             menuPrincipal.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             menuPrincipal.Items.AddRange(new ToolStripItem[] { CadastroToolStripMenuItem, ConsultasToolStripMenuItem, MovimentacoesToolStripMenuItem, SairToolStripMenuItem1 });
             menuPrincipal.Location = new Point(0, 0);
             menuPrincipal.Name = "menuPrincipal";
-            menuPrincipal.Size = new Size(784, 25);
+            menuPrincipal.Size = new Size(1370, 25);
             menuPrincipal.TabIndex = 0;
             menuPrincipal.Text = "menuStrip1";
             // 
@@ -284,12 +285,24 @@
             SairToolStripMenuItem1.Text = "Sair";
             SairToolStripMenuItem1.Click += SairToolStripMenuItem1_Click;
             // 
+            // lblUsuarioAtual
+            // 
+            lblUsuarioAtual.BackColor = Color.Red;
+            lblUsuarioAtual.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUsuarioAtual.ForeColor = SystemColors.ControlText;
+            lblUsuarioAtual.Location = new Point(1068, 41);
+            lblUsuarioAtual.Name = "lblUsuarioAtual";
+            lblUsuarioAtual.Size = new Size(290, 33);
+            lblUsuarioAtual.TabIndex = 11;
+            lblUsuarioAtual.Text = "Usuário: ";
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(1370, 643);
+            Controls.Add(lblUsuarioAtual);
             Controls.Add(menuPrincipal);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             MainMenuStrip = menuPrincipal;
@@ -297,6 +310,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Estoque Fácil";
             WindowState = FormWindowState.Maximized;
+            Load += FormPrincipal_Load;
             menuPrincipal.ResumeLayout(false);
             menuPrincipal.PerformLayout();
             ResumeLayout(false);
@@ -338,5 +352,6 @@
         private ToolStripMenuItem rEcebimentoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem relatóriosDeVendaToolStripMenuItem;
+        private Label lblUsuarioAtual;
     }
 }

@@ -29,7 +29,6 @@ namespace UI
             txtLogin.Clear();
             txtSenha.Clear();
         }
-        
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -62,8 +61,7 @@ namespace UI
 
                 FormPrincipal formPrincipal = new FormPrincipal(usuario);
                 formPrincipal.ShowDialog();
-
-                this.Close();
+                this.LimpaTela();
             }
             else
             {
@@ -74,6 +72,11 @@ namespace UI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.LimpaTela();
+        }
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

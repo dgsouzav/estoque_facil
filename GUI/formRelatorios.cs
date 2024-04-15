@@ -10,6 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Windows.Forms;
+using System.Reflection.Metadata;
+using Document = iTextSharp.text.Document;
 
 namespace UI
 {
@@ -161,7 +167,7 @@ namespace UI
 
         private void dtgvRelatorios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            List<string> colunasParaFormatar = new List<string> { "ValorPago", "ValorVenda", "NumeroDeCompras", "TotalDeCompras", "NumeroDeVendas",
+            List<string> colunasParaFormatar = new List<string> { "ValorPago", "ValorVenda", "TotalDeCompras",
             "TotalDeVendas"};
 
             if (colunasParaFormatar.Contains(dtgvRelatorios.Columns[e.ColumnIndex].Name))
@@ -171,8 +177,46 @@ namespace UI
                     e.Value = valor.ToString("C2");
                 }
             }
+        }
 
+        private void btnExportarRelatorio_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Arquivo PDF|*.pdf";
+            saveDialog.Title = "Salvar Relatório";
+            saveDialog.FileName = "Relatorio.pdf";
+            DialogResult result = saveDialog.ShowDialog();
 
+            if (result == DialogResult.OK)
+            {
+                iTextSharp.text.Document document = new Document();
+                PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(saveDialog.FileName, FileMode.Create));
+                document.Open();
+
+                PdfPTable table = new PdfPTable(dtgvRelatorios.Columns.Count);
+
+                // Adiciona os cabeçalhos
+                for (int i = 0; i < dtgvRelatorios.Columns.Count; i++)
+                {
+                    table.AddCell(new Phrase(dtgvRelatorios.Columns[i].HeaderText));
+                }
+
+                // Adiciona os dados
+                for (int i = 0; i < dtgvRelatorios.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dtgvRelatorios.Columns.Count; j++)
+                    {
+                        if (dtgvRelatorios[j, i].Value != null)
+                        {
+                            table.AddCell(new Phrase(dtgvRelatorios[j, i].Value.ToString()));
+                        }
+                    }
+                }
+
+                document.Add(table);
+                document.Close();
+                MessageBox.Show("Relatório exportado com sucesso.");
+            }
         }
     }
 }

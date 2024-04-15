@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelBotoes = new Panel();
+            btnExportarRelatorio = new Button();
             btnLimparTela = new Button();
             btnInserir = new Button();
             btnGerarRelatorio = new Button();
@@ -40,7 +41,6 @@
             dtpDataInicial = new DateTimePicker();
             cmbTipoRelatorio = new ComboBox();
             lblOpcao = new Label();
-            btnExportarRelatorio = new Button();
             panelBotoes.SuspendLayout();
             panelDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRelatorios).BeginInit();
@@ -56,6 +56,16 @@
             panelBotoes.Name = "panelBotoes";
             panelBotoes.Size = new Size(118, 469);
             panelBotoes.TabIndex = 7;
+            // 
+            // btnExportarRelatorio
+            // 
+            btnExportarRelatorio.Location = new Point(21, 109);
+            btnExportarRelatorio.Name = "btnExportarRelatorio";
+            btnExportarRelatorio.Size = new Size(80, 50);
+            btnExportarRelatorio.TabIndex = 10;
+            btnExportarRelatorio.Text = "EXPORTAR RELATÓRIO";
+            btnExportarRelatorio.UseVisualStyleBackColor = true;
+            btnExportarRelatorio.Click += btnExportarRelatorio_Click;
             // 
             // btnLimparTela
             // 
@@ -167,15 +177,6 @@
             lblOpcao.Size = new Size(97, 15);
             lblOpcao.TabIndex = 0;
             lblOpcao.Text = "Selecionar opção";
-            // 
-            // btnExportarRelatorio
-            // 
-            btnExportarRelatorio.Location = new Point(21, 109);
-            btnExportarRelatorio.Name = "btnExportarRelatorio";
-            btnExportarRelatorio.Size = new Size(80, 50);
-            btnExportarRelatorio.TabIndex = 10;
-            btnExportarRelatorio.Text = "EXPORTAR RELATÓRIO";
-            btnExportarRelatorio.UseVisualStyleBackColor = true;
             // 
             // formRelatorios
             // 
