@@ -2,14 +2,32 @@
 
 namespace Validacoes
 {
-    public class ValidaCEP
+    public class ValidaCEPCNPJ
     {
         static public String cep = "";
         static public String cidade = "";
         static public String estado = "";
         static public String endereco = "";
         static public String bairro = "";
-
+        static public String razao = "";
+        // como faço para validar o cnpj
+        public static Boolean verificaCNPJ(String CNPJ)
+        {
+            bool flag = false;
+            try
+            {
+                DataSet ds = new DataSet();
+                string xml = "http://www.receitaws.com.br/v1/cnpj/@cnpj".Replace("@cnpj", CNPJ);
+                ds.ReadXml(xml);
+                razao = ds.Tables[0].Rows[0]["razaoSocial"].ToString();
+                flag = true;
+            }
+            catch (Exception ex)
+            {
+                razao = "";
+            }
+            return flag;
+        }
         public static Boolean verificaCEP(String CEP)
         {
             bool flag = false;

@@ -2,6 +2,7 @@
 using DAL;
 using Modelo;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace UI
 {

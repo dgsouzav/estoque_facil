@@ -159,12 +159,12 @@ namespace UI
 
         private void txtCEP_Leave(object sender, EventArgs e)
         {
-            if (ValidaCEP.verificaCEP(txtCEP.Text) == true)
+            if (ValidaCEPCNPJ.verificaCEP(txtCEP.Text) == true)
             {
-                txtEnderecoFornecedor.Text = ValidaCEP.endereco;
-                txtBairro.Text = ValidaCEP.bairro;
-                txtCidade.Text = ValidaCEP.cidade;
-                txtEstado.Text = ValidaCEP.estado;
+                txtEnderecoFornecedor.Text = ValidaCEPCNPJ.endereco;
+                txtBairro.Text = ValidaCEPCNPJ.bairro;
+                txtCidade.Text = ValidaCEPCNPJ.cidade;
+                txtEstado.Text = ValidaCEPCNPJ.estado;
             }
             else
             {
@@ -177,11 +177,14 @@ namespace UI
 
         private void txtCNPJ_Leave(object sender, EventArgs e)
         {
-            //lblCnpjInvalido.Visible = false;
-            //if (ValidaCNPJ.IsCnpj(txtCNPJ.Text) == false)
-            //{
-            //    lblCnpjInvalido.Visible = true;
-            //}
+            if (ValidaCEPCNPJ.verificaCNPJ(txtCNPJ.Text) == true)
+            {
+                txtRazaoSocial.Text = ValidaCEPCNPJ.razao;
+            }
+            else
+            {
+                txtRazaoSocial.Clear();
+            }
         }
 
         private void txtCNPJ_KeyPress(object sender, KeyPressEventArgs e)

@@ -138,5 +138,13 @@ namespace UI
                 e.Handled = true;
             }
         }
+
+        private void txtNomeCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

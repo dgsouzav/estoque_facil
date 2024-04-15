@@ -18,8 +18,8 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.Gen
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.AssemblyInfoInputs.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.AssemblyInfo.cs
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.sourcelink.json
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\refint\Modelo.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.pdb
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\ref\Modelo.dll
-C:\Users\Diogo\Documents\GitHub\estoque_facil\Modelo\obj\Debug\net6.0\Modelo.sourcelink.json

@@ -20,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "DLL\BLL.csproj", "{F
 		{3FEC0590-E776-496E-8485-3AD288B3B3B1} = {3FEC0590-E776-496E-8485-3AD288B3B3B1}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validacoes", "Validacoes\Validacoes.csproj", "{3FEC0590-E776-496E-8485-3AD288B3B3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validacoes", "Validacoes\Validacoes.csproj", "{3FEC0590-E776-496E-8485-3AD288B3B3B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,15 +1,10 @@
 ﻿using BLL;
 using DAL;
 using Modelo;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Validacoes;
+using System.Data.SqlClient;
+
 
 namespace UI
 {
@@ -18,10 +13,11 @@ namespace UI
         public double totalVenda = 0;
         private int numeroNotaFiscal = 0;
         private int ClienteIDSelecionado = 0;
+        public String operacao;
 
         private static DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
         BLLTipoPagamento bll = new BLLTipoPagamento(cx);
-      
+
         public formVenda()
         {
             InitializeComponent();
@@ -29,37 +25,9 @@ namespace UI
             this.KeyPreview = true;
 
             this.KeyDown += formVenda_KeyDown;
+
+            txtNotaFiscal.Leave += txtNotaFiscal_Leave;
         }
-        public String operacao;
-
-        /*public void menuBotoes(int op)
-        {
-            panelDados.Enabled = false;
-            btnInserir.Enabled = false;
-            btnSalvar.Enabled = false;
-            btnCancelar.Enabled = false;
-            btnLocalizar.Enabled = false;
-            btnCancelarVenda.Enabled = false;
-
-            if (op == 1)
-            {
-                btnInserir.Enabled = true;
-                btnLocalizar.Enabled = true;
-            }
-
-            if (op == 2)
-            {
-                panelDados.Enabled = true;
-                btnSalvar.Enabled = true;
-                btnCancelar.Enabled = true;
-            }
-
-            if (op == 3)
-            {
-                btnCancelarVenda.Enabled = true;
-                btnCancelar.Enabled = true;
-            }
-        }*/
 
         public void LimpaTela()
         {
@@ -75,6 +43,7 @@ namespace UI
             lblProdutoNome.Text = "Informe o código do produto ou clique em localizar";
             cmbNumeroParcelas.SelectedIndex = 0;
             txtClienteFidelidade.Clear();
+            txtValorPago.Clear();
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -148,16 +117,7 @@ namespace UI
             DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
             if (d.ToString() == "Yes")
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bll = new BLLVenda(cx);
-                if (bll.CancelarVenda(Convert.ToInt32(txtVendaID.Text)) == true)
-                {
-                    MessageBox.Show("Venda cancelada com sucesso");
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao cancelar a venda");
-                }
+                panelFinalizaVenda.Visible = false;
             }
             this.LimpaTela();
         }
@@ -166,6 +126,7 @@ namespace UI
             try
             {
                 numeroNotaFiscal++;
+
                 if (totalVenda <= 0)
                 {
                     MessageBox.Show("Informe um produto para continuar");
@@ -206,15 +167,10 @@ namespace UI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //this.LimpaTela();
             btnInserir_Click(sender, e);
-            //this.menuBotoes(1);
 
             lblCaixaLivre.Visible = true;
             lblCaixaLivre.BringToFront();
-
-            // Volta ao início e oculta o lblVendaCancelada quando o botão btnCancelar for pressionado
-            lblVendaCancelada.Visible = false;
         }
 
         private void btnLocalizarProduto_Click(object sender, EventArgs e)
@@ -310,9 +266,6 @@ namespace UI
         private void formVenda_Load(object sender, EventArgs e)
         {
             this.Focus();
-
-            //DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //BLLTipoPagamento bll = new BLLTipoPagamento(cx);
             cmbTipoPagamento.DataSource = bll.Localizar("");
             cmbTipoPagamento.DisplayMember = "tipoPagamento_nome";
             cmbTipoPagamento.ValueMember = "tipoPagamento_id";
@@ -320,7 +273,6 @@ namespace UI
             cmbNumeroParcelas.SelectedIndex = 0;
 
             checkBoxVendaAVista.Checked = false;
-            lblVendaCancelada.Visible = false;
 
             this.operacao = "inserir";
             this.totalVenda = 0;
@@ -357,10 +309,9 @@ namespace UI
 
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
+            this.LimpaTela();
             panelFinalizaVenda.Visible = false;
-
-            lblVendaCancelada.Visible = true;
-            lblVendaCancelada.BringToFront();
+            lblCaixaLivre.Visible = true;
         }
 
         private void btnSalvarPagamento_Click(object sender, EventArgs e)
@@ -437,7 +388,8 @@ namespace UI
                 cx.CancelarTransacao();
                 cx.Desconectar();
             }
-            lblCaixaLivre.Visible = false;
+            this.LimpaTela();
+            lblCaixaLivre.Visible = true;
         }
 
         private void txtValorPago_TextChanged(object sender, EventArgs e)
@@ -472,9 +424,9 @@ namespace UI
 
             listBoxClientes.DataSource = null;
 
-            listBoxClientes.DataSource = cliente; 
-            listBoxClientes.DisplayMember = "cliente_nome"; 
-            listBoxClientes.ValueMember = "cliente_id"; 
+            listBoxClientes.DataSource = cliente;
+            listBoxClientes.DisplayMember = "cliente_nome";
+            listBoxClientes.ValueMember = "cliente_id";
         }
 
 
@@ -491,14 +443,6 @@ namespace UI
 
         private void formVenda_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
-            {
-                btnInserir_Click(sender, e);
-            }
-            if (e.KeyCode == Keys.F2)
-            {
-                btnLocalizar_Click(sender, e);
-            }
             if (e.KeyCode == Keys.F3)
             {
                 btnSalvar_Click(sender, e);
@@ -511,7 +455,6 @@ namespace UI
             {
                 btnCancelar_Click(sender, e);
             }
-            
             if (e.KeyCode == Keys.F9)
             {
                 btnCancelarPagamento_Click(sender, e);
@@ -519,6 +462,76 @@ namespace UI
             if (e.KeyCode == Keys.F10)
             {
                 btnSalvarPagamento_Click(sender, e);
+            }
+        }
+
+        private void txtNotaFiscal_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQtde_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValorPago_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNotaFiscal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dtgvItensVenda_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dtgvItensVenda.Columns["produtoValor"].Index ||
+                e.ColumnIndex == dtgvItensVenda.Columns["produtoValorTotal"].Index)
+            {
+                if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                {
+                    e.Value = valor.ToString("C2");
+                }
+            }
+        }
+
+        private void txtQtde_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTroco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dtgvParcelasVenda_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dtgvParcelasVenda.Columns["parcelaValorPagamento"].Index)
+            {
+                if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                {
+                    e.Value = valor.ToString("C2");
+                }
+            }
+        }
+
+        private void txtValorPago_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
     }

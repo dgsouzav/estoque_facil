@@ -7,14 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
 
 namespace UI
 {
     public partial class FormPrincipal : Form
     {
-        public FormPrincipal()
+        AUsuario _usuario;
+        public FormPrincipal(AUsuario usuario)
         {
             InitializeComponent();
+            this._usuario = usuario;
+            VendaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formVendaAcesso;
+            CategoriaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroCategoriaAcesso;
+            FornecedorToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroFornecedorAcesso;
+            ProdutoToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroProdutoAcesso;
+            SubCategoriaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroSubCategoriaAcesso;
+            TipoPagamentoToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroTipoDePagamentoAcesso;
+            UnidadeMedidaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroUnidadeMedidaAcesso;
+            UsuarioToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcadastroUsuarioAcesso;
+            CompraToolStripMenuItem.Enabled = usuario.NivelAcesso2._formcompraAcesso;
+            CategoriaToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formconsultaCategoriaAcesso;
+            FornecedorToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formconsultaFornecedorAcesso;
+            ProdutoToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formconsultaProdutoAcesso;
+            SubCategoriaToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formconsultaSubCategoriaAcesso;
+            tIPODEPAGAMENTOToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formconsultaTipoDePagamentoAcesso;
+            UnidadeMedidaToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formconsultaUnidadeMedidaAcesso;
+            UsuarioToolStripMenuItem2.Enabled = usuario.NivelAcesso2._formconsultaUsuarioAcesso;
+            compraToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formConsultaCompraAcesso;
+            vendaToolStripMenuItem1.Enabled = usuario.NivelAcesso2._formConsultaVendaAcesso;
+            relatóriosDeVendaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formRelatorioAcesso;
+            pagamentoToolStripMenuItem.Enabled = usuario.NivelAcesso2._formPagamentoAcesso;
+            rEcebimentoToolStripMenuItem.Enabled = usuario.NivelAcesso2._formRecebimentoAcesso;
         }
 
         private void CategoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -23,7 +47,6 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
-
 
         private void CategoriaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -74,20 +97,6 @@ namespace UI
             f.Dispose();
         }
 
-        private void tIPODEPAGAMENTOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formCadastroTipoPagamento f = new formCadastroTipoPagamento();
-            f.ShowDialog();
-            f.Dispose();
-        }
-
-        private void tIPODEPAGAMENTOToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
-            f.ShowDialog();
-            f.Dispose();
-        }
-
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formCadastroFornecedor f = new formCadastroFornecedor();
@@ -108,11 +117,9 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
-
-        private void SairToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void UsuarioToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            // fechar fomulario principal ao clicar em sair e depois abir o formulario de login
-            formLogin f = new formLogin();
+            formConsultaUsuario f = new formConsultaUsuario();
             f.ShowDialog();
             f.Dispose();
         }
@@ -123,29 +130,9 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void compraToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             formConsultaCompra f = new formConsultaCompra();
-            f.ShowDialog();
-            f.Dispose();
-        }
-
-        private void TipoPagamentoToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            formCadastroTipoPagamento f = new formCadastroTipoPagamento();
-            f.ShowDialog();
-            f.Dispose();
-        }
-
-        private void pagamentoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formPagamentoCompra f = new formPagamentoCompra();
             f.ShowDialog();
             f.Dispose();
         }
@@ -163,6 +150,26 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+        private void TipoPagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroTipoPagamento f = new formCadastroTipoPagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void TipoPagamentoToolStripMenuItem_1_Click(object sender, EventArgs e)
+        {
+            formConsultaTipoPagamento f = new formConsultaTipoPagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void pagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formPagamentoCompra f = new formPagamentoCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
 
         private void rEcebimentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -171,11 +178,21 @@ namespace UI
             f.Dispose();
         }
 
-        private void uSUÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
+        private void relatóriosDeVendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formConsultaUsuario f = new formConsultaUsuario();
+            formRelatorios f = new formRelatorios();
             f.ShowDialog();
             f.Dispose();
+        }
+        private void SairToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            formLogin f = new formLogin();
+
+            f.ShowDialog();
+            f.Dispose();
+            this.Show();
         }
     }
 }

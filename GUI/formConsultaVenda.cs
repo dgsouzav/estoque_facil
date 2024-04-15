@@ -127,5 +127,52 @@ namespace UI
                 this.Close();
             }
         }
+
+        private void btnCancelarVenda_Click(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
+            if (d == DialogResult.Yes)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLVenda bll = new BLLVenda(cx);
+
+                if (dtgvDadosVenda.SelectedRows.Count > 0)
+                {
+                    int vendaID = Convert.ToInt32(dtgvDadosVenda.SelectedRows[0].Cells["venda_id"].Value);
+
+                    string status = dtgvDadosVenda.SelectedRows[0].Cells["venda_status"].Value.ToString();
+
+                    if (status == "Cancelada")
+                    {
+                        MessageBox.Show("Esta venda já está cancelada.");
+                        return;
+                    }
+
+                    if (bll.CancelarVenda(vendaID))
+                    {
+                        MessageBox.Show("Venda cancelada com sucesso");
+                        rbVendas_CheckedChanged(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao cancelar a venda");
+                    }
+                }
+            }
+        }
+
+        private void dtgvDadosVenda_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dtgvDadosVenda.Columns["venda_total"].Index)
+                {
+                    if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                    {
+                        e.Value = valor.ToString("C2");
+                    }
+                }
+            }
+        }
     }
 }

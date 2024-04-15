@@ -28,79 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblLogin=new Label();
-            lblSenha=new Label();
-            txtLogin=new TextBox();
-            txtSenha=new TextBox();
-            lbEstoqueFacil=new Label();
-            btnEntrar=new Button();
-            btnCancelar=new Button();
+            lblLogin = new Label();
+            lblSenha = new Label();
+            txtLogin = new TextBox();
+            txtSenha = new TextBox();
+            lbEstoqueFacil = new Label();
+            btnEntrar = new Button();
+            btnCancelar = new Button();
             SuspendLayout();
             // 
             // lblLogin
             // 
-            lblLogin.AutoSize=true;
-            lblLogin.Location=new Point(63, 104);
-            lblLogin.Name="lblLogin";
-            lblLogin.Size=new Size(37, 15);
-            lblLogin.TabIndex=0;
-            lblLogin.Text="Login";
+            lblLogin.AutoSize = true;
+            lblLogin.Location = new Point(63, 104);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(37, 15);
+            lblLogin.TabIndex = 0;
+            lblLogin.Text = "Login";
             // 
             // lblSenha
             // 
-            lblSenha.AutoSize=true;
-            lblSenha.Location=new Point(63, 154);
-            lblSenha.Name="lblSenha";
-            lblSenha.Size=new Size(39, 15);
-            lblSenha.TabIndex=1;
-            lblSenha.Text="Senha";
+            lblSenha.AutoSize = true;
+            lblSenha.Location = new Point(63, 154);
+            lblSenha.Name = "lblSenha";
+            lblSenha.Size = new Size(39, 15);
+            lblSenha.TabIndex = 1;
+            lblSenha.Text = "Senha";
             // 
             // txtLogin
             // 
-            txtLogin.Location=new Point(63, 122);
-            txtLogin.Name="txtLogin";
-            txtLogin.Size=new Size(216, 23);
-            txtLogin.TabIndex=1;
+            txtLogin.Location = new Point(63, 122);
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(216, 23);
+            txtLogin.TabIndex = 1;
             // 
             // txtSenha
             // 
-            txtSenha.Location=new Point(63, 172);
-            txtSenha.Name="txtSenha";
-            txtSenha.Size=new Size(216, 23);
-            txtSenha.TabIndex=2;
+            txtSenha.Location = new Point(63, 172);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(216, 23);
+            txtSenha.TabIndex = 2;
             // 
             // lbEstoqueFacil
             // 
-            lbEstoqueFacil.AutoSize=true;
-            lbEstoqueFacil.Location=new Point(125, 42);
-            lbEstoqueFacil.Name="lbEstoqueFacil";
-            lbEstoqueFacil.Size=new Size(76, 15);
-            lbEstoqueFacil.TabIndex=0;
-            lbEstoqueFacil.Text="Estoque Fácil";
+            lbEstoqueFacil.AutoSize = true;
+            lbEstoqueFacil.Location = new Point(125, 42);
+            lbEstoqueFacil.Name = "lbEstoqueFacil";
+            lbEstoqueFacil.Size = new Size(76, 15);
+            lbEstoqueFacil.TabIndex = 0;
+            lbEstoqueFacil.Text = "Estoque Fácil";
             // 
             // btnEntrar
             // 
-            btnEntrar.Location=new Point(63, 219);
-            btnEntrar.Name="btnEntrar";
-            btnEntrar.Size=new Size(90, 23);
-            btnEntrar.TabIndex=3;
-            btnEntrar.Text="Entrar";
-            btnEntrar.UseVisualStyleBackColor=true;
+            btnEntrar.Location = new Point(63, 219);
+            btnEntrar.Name = "btnEntrar";
+            btnEntrar.Size = new Size(90, 23);
+            btnEntrar.TabIndex = 3;
+            btnEntrar.Text = "Entrar";
+            btnEntrar.UseVisualStyleBackColor = true;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location=new Point(189, 219);
-            btnCancelar.Name="btnCancelar";
-            btnCancelar.Size=new Size(90, 23);
-            btnCancelar.TabIndex=4;
-            btnCancelar.Text="Cancelar";
-            btnCancelar.UseVisualStyleBackColor=true;
+            btnCancelar.Location = new Point(189, 219);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(90, 23);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // formLogin
             // 
-            AutoScaleDimensions=new SizeF(7F, 15F);
-            AutoScaleMode=AutoScaleMode.Font;
-            ClientSize=new Size(354, 331);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(354, 331);
             Controls.Add(btnCancelar);
             Controls.Add(btnEntrar);
             Controls.Add(lbEstoqueFacil);
@@ -108,9 +110,9 @@
             Controls.Add(txtLogin);
             Controls.Add(lblSenha);
             Controls.Add(lblLogin);
-            Name="formLogin";
-            StartPosition=FormStartPosition.CenterScreen;
-            Text="Estoque Fácil";
+            Name = "formLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Estoque Fácil";
             ResumeLayout(false);
             PerformLayout();
         }

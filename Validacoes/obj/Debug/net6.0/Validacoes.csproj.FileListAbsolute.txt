@@ -7,9 +7,9 @@ C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Valida
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.AssemblyInfoInputs.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.AssemblyInfo.cs
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.sourcelink.json
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\refint\Validacoes.dll
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.pdb
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.genruntimeconfig.cache
 C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\ref\Validacoes.dll
-C:\Users\Diogo\Documents\GitHub\estoque_facil\Validacoes\obj\Debug\net6.0\Validacoes.sourcelink.json
