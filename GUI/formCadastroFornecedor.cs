@@ -9,7 +9,7 @@ namespace UI
     public partial class formCadastroFornecedor : Form
     {
         public String operacao;
-        
+
         public void menuBotoes(int op)
         {
             panelDados.Enabled = false;
@@ -186,95 +186,131 @@ namespace UI
                 txtRazaoSocial.Clear();
             }
         }
-
         private void txtCNPJ_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Verifica se o caractere digitado não é um dígito ou a tecla de backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
 
-            if (txtCNPJ.Text.Length == 2 || txtCNPJ.Text.Length == 6 || txtCNPJ.Text.Length == 10 || txtCNPJ.Text.Length == 15)
+            // Verifica se o comprimento atual do CNPJ corresponde a um ponto, barra ou traço
+            if (txtCNPJ.Text.Length >= 18)
             {
                 e.Handled = true;
             }
 
+            // Verifica se o caractere digitado não é a tecla de backspace
             if (e.KeyChar != (char)8)
             {
+                // Verifica o comprimento atual do CNPJ
                 if (txtCNPJ.Text.Length == 2 || txtCNPJ.Text.Length == 6)
                 {
+                    // Insere um ponto após o bloco correspondente
                     txtCNPJ.Text = txtCNPJ.Text + ".";
+                    // Move o cursor para após o ponto
                     txtCNPJ.SelectionStart = txtCNPJ.Text.Length + 1;
                 }
                 else if (txtCNPJ.Text.Length == 10)
                 {
+                    // Insere uma barra após o bloco correspondente
                     txtCNPJ.Text = txtCNPJ.Text + "/";
+                    // Move o cursor para após a barra
                     txtCNPJ.SelectionStart = txtCNPJ.Text.Length + 1;
                 }
                 else if (txtCNPJ.Text.Length == 15)
                 {
+                    // Insere um traço após o último bloco
                     txtCNPJ.Text = txtCNPJ.Text + "-";
+                    // Move o cursor para após o traço
                     txtCNPJ.SelectionStart = txtCNPJ.Text.Length + 1;
                 }
             }
         }
-
         private void txtInscricaoEstadual_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Verifica se o caractere digitado não é um dígito ou a tecla de backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
 
-            if (txtInscricaoEstadual.Text.Length == 3 || txtInscricaoEstadual.Text.Length == 7 || txtInscricaoEstadual.Text.Length == 11 || txtInscricaoEstadual.Text.Length == 15)
+            // Verifica se o comprimento atual da inscrição estadual corresponde a um ponto ou traço
+            if (txtInscricaoEstadual.Text.Length >= 18)
             {
                 e.Handled = true;
             }
 
+            // Verifica se o caractere digitado não é a tecla de backspace
             if (e.KeyChar != (char)8)
             {
+                // Verifica o comprimento atual da inscrição estadual
                 if (txtInscricaoEstadual.Text.Length == 3 || txtInscricaoEstadual.Text.Length == 7 || txtInscricaoEstadual.Text.Length == 11)
                 {
+                    // Insere um ponto após o bloco correspondente
                     txtInscricaoEstadual.Text = txtInscricaoEstadual.Text + ".";
+                    // Move o cursor para após o ponto
                     txtInscricaoEstadual.SelectionStart = txtInscricaoEstadual.Text.Length + 1;
                 }
                 else if (txtInscricaoEstadual.Text.Length == 15)
                 {
+                    // Insere um traço após o último bloco
                     txtInscricaoEstadual.Text = txtInscricaoEstadual.Text + "-";
+                    // Move o cursor para após o traço
                     txtInscricaoEstadual.SelectionStart = txtInscricaoEstadual.Text.Length + 1;
                 }
             }
         }
-
-
         private void txtFone_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Verifica se o caractere digitado não é um dígito ou a tecla de backspace
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
             }
+
+            // Verifica se o comprimento atual do número de telefone não ultrapassa o limite de 14 caracteres
+            if (txtFone.Text.Length >= 14 && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+                return; // Impede que outros blocos de código sejam executados se o limite for atingido
+            }
+
+            // Verifica se o caractere digitado não é a tecla de backspace
             if (e.KeyChar != (char)8)
             {
+                // Verifica o comprimento atual do número de telefone
                 if (txtFone.Text.Length == 0)
                 {
+                    // Insere o parêntese aberto no início do número
                     txtFone.Text = "(";
+                    // Define o cursor para após o parêntese
                     txtFone.SelectionStart = txtFone.Text.Length + 1;
                 }
                 else if (txtFone.Text.Length == 3)
                 {
+                    // Insere o parêntese fechado após o DDD
                     txtFone.Text = txtFone.Text + ")";
+                    // Move o cursor para após o parêntese fechado
                     txtFone.SelectionStart = txtFone.Text.Length + 1;
                 }
-                else if (txtFone.Text.Length == 9)
+                else if (txtFone.Text.Length == 8)
                 {
+                    // Insere o traço após os primeiros 4 dígitos do número
                     txtFone.Text = txtFone.Text + "-";
+                    // Move o cursor para após o traço
                     txtFone.SelectionStart = txtFone.Text.Length + 1;
-                }
-                else if (txtFone.Text.Length == 14)
-                {
-                    e.Handled = true;
                 }
             }
+        }
+        private void txtNomeFornecedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtEndNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }

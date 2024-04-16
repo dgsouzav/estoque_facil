@@ -55,6 +55,14 @@
           }
         }
       },
+      "MaterialIcons/1.0.3": {
+        "runtime": {
+          "lib/MaterialIcons.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
@@ -142,6 +150,7 @@
       },
       "DAL/1.0.0": {
         "dependencies": {
+          "MaterialIcons": "1.0.3",
           "Modelo": "1.0.0",
           "System.Data.SqlClient": "4.8.6"
         },
@@ -197,6 +206,13 @@
       "sha512": "sha512-vtnMhTEJdZFCkLqaQLjD8aqTBIVKHPrSFuSXnxbLEJlvE/j/l88fvG9wtsejXTmhtErMo0lA9T2LdfdfbwplYw==",
       "path": "itextsharp/5.5.13.3",
       "hashPath": "itextsharp.5.5.13.3.nupkg.sha512"
+    },
+    "MaterialIcons/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qV5ffWTm3TKhIZBBNDxFjkAS19YR2xXnPQd7l45T5KNcXVrTPQr2MCumV+xMNnMFoGqi8hnJD6hmauOXSHgIVQ==",
+      "path": "materialicons/1.0.3",
+      "hashPath": "materialicons.1.0.3.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",

@@ -55,6 +55,15 @@
           "lib/itextsharp.dll": {}
         }
       },
+      "MaterialIcons/1.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/MaterialIcons.dll": {}
+        },
+        "runtime": {
+          "lib/MaterialIcons.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -207,6 +216,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "MaterialIcons": "1.0.3",
           "Modelo": "1.0.0",
           "System.Data.SqlClient": "4.8.6"
         },
@@ -369,6 +379,18 @@
         "lib/iTextSharp.xml",
         "lib/itextsharp.dll",
         "notice.txt"
+      ]
+    },
+    "MaterialIcons/1.0.3": {
+      "sha512": "qV5ffWTm3TKhIZBBNDxFjkAS19YR2xXnPQd7l45T5KNcXVrTPQr2MCumV+xMNnMFoGqi8hnJD6hmauOXSHgIVQ==",
+      "type": "package",
+      "path": "materialicons/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MaterialIcons.dll",
+        "materialicons.1.0.3.nupkg.sha512",
+        "materialicons.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
@@ -768,6 +790,16 @@
       "warningLevel": 1,
       "message": "O pacote 'iTextSharp 5.5.13.3' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net6.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "iTextSharp",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'MaterialIcons 1.0.3' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net6.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "MaterialIcons",
       "targetGraphs": [
         "net6.0-windows7.0"
       ]

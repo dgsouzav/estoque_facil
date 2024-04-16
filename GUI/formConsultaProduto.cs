@@ -69,7 +69,7 @@ namespace UI
             dtgvDados.Columns[3].Width = 50;
             dtgvDados.Columns[4].HeaderText = "Valor de venda";
             dtgvDados.Columns[4].Width = 50;
-            dtgvDados.Columns[5].HeaderText = "Quantidade";
+            dtgvDados.Columns[5].HeaderText = "Lote";
             dtgvDados.Columns[5].Width = 80;
             dtgvDados.Columns[6].HeaderText = "Unidade de medida";
             dtgvDados.Columns[6].Width = 50;
@@ -77,7 +77,22 @@ namespace UI
             dtgvDados.Columns[7].Width = 100;
             dtgvDados.Columns[8].HeaderText = "Subcategoria";
             dtgvDados.Columns[8].Width = 100;
+            dtgvDados.Columns[9].HeaderText = "Fornecedor";
+            dtgvDados.Columns[9].Width = 100;
         }
 
+        private void dtgvDados_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dtgvDados.Columns["produto_valorPago"].Index || e.ColumnIndex == dtgvDados.Columns["produto_valorVenda"].Index)
+                {
+                    if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                    {
+                        e.Value = valor.ToString("C2");
+                    }
+                }
+            }
+        }
     }
 }

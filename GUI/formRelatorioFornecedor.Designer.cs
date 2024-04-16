@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class formRelatorios
+    partial class formRelatorioFornecedor
     {
         /// <summary>
         /// Required designer variable.
@@ -34,13 +34,12 @@
             btnInserir = new Button();
             btnGerarRelatorio = new Button();
             panelDados = new Panel();
+            label1 = new Label();
             dtgvRelatorios = new DataGridView();
             lblDataFinal = new Label();
             lblDataInicial = new Label();
             dtpDataFinal = new DateTimePicker();
             dtpDataInicial = new DateTimePicker();
-            cmbTipoRelatorio = new ComboBox();
-            lblOpcao = new Label();
             panelBotoes.SuspendLayout();
             panelDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRelatorios).BeginInit();
@@ -52,14 +51,14 @@
             panelBotoes.Controls.Add(btnLimparTela);
             panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnGerarRelatorio);
-            panelBotoes.Location = new Point(831, 12);
+            panelBotoes.Location = new Point(828, 12);
             panelBotoes.Name = "panelBotoes";
             panelBotoes.Size = new Size(118, 469);
-            panelBotoes.TabIndex = 7;
+            panelBotoes.TabIndex = 11;
             // 
             // btnExportarRelatorio
             // 
-            btnExportarRelatorio.Location = new Point(21, 109);
+            btnExportarRelatorio.Location = new Point(20, 160);
             btnExportarRelatorio.Name = "btnExportarRelatorio";
             btnExportarRelatorio.Size = new Size(80, 50);
             btnExportarRelatorio.TabIndex = 10;
@@ -69,47 +68,55 @@
             // 
             // btnLimparTela
             // 
-            btnLimparTela.Location = new Point(21, 272);
+            btnLimparTela.Location = new Point(20, 323);
             btnLimparTela.Name = "btnLimparTela";
             btnLimparTela.Size = new Size(80, 50);
             btnLimparTela.TabIndex = 9;
             btnLimparTela.Text = "LIMPAR";
             btnLimparTela.UseVisualStyleBackColor = true;
-            btnLimparTela.Click += btnLimparTela_Click;
+            btnLimparTela.Click += btnLimparTela_Click_1;
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(21, 31);
+            btnInserir.Location = new Point(20, 82);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(80, 50);
             btnInserir.TabIndex = 5;
             btnInserir.Text = "INSERIR";
             btnInserir.UseVisualStyleBackColor = true;
-            btnInserir.Click += btnInserir_Click;
+            btnInserir.Click += btnInserir_Click_1;
             // 
             // btnGerarRelatorio
             // 
-            btnGerarRelatorio.Location = new Point(21, 188);
+            btnGerarRelatorio.Location = new Point(20, 239);
             btnGerarRelatorio.Name = "btnGerarRelatorio";
             btnGerarRelatorio.Size = new Size(80, 50);
             btnGerarRelatorio.TabIndex = 8;
             btnGerarRelatorio.Text = "GERAR RELATÓRIO";
             btnGerarRelatorio.UseVisualStyleBackColor = true;
-            btnGerarRelatorio.Click += btnGerarRelatorio_Click;
+            btnGerarRelatorio.Click += btnGerarRelatorio_Click_1;
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(label1);
             panelDados.Controls.Add(dtgvRelatorios);
             panelDados.Controls.Add(lblDataFinal);
             panelDados.Controls.Add(lblDataInicial);
             panelDados.Controls.Add(dtpDataFinal);
             panelDados.Controls.Add(dtpDataInicial);
-            panelDados.Controls.Add(cmbTipoRelatorio);
-            panelDados.Controls.Add(lblOpcao);
-            panelDados.Location = new Point(12, 12);
+            panelDados.Location = new Point(9, 12);
             panelDados.Name = "panelDados";
             panelDados.Size = new Size(813, 469);
-            panelDados.TabIndex = 6;
+            panelDados.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(241, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(78, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Fornecedores";
             // 
             // dtgvRelatorios
             // 
@@ -124,12 +131,11 @@
             dtgvRelatorios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvRelatorios.Size = new Size(567, 435);
             dtgvRelatorios.TabIndex = 13;
-            dtgvRelatorios.CellFormatting += dtgvRelatorios_CellFormatting;
             // 
             // lblDataFinal
             // 
             lblDataFinal.AutoSize = true;
-            lblDataFinal.Location = new Point(3, 118);
+            lblDataFinal.Location = new Point(4, 64);
             lblDataFinal.Name = "lblDataFinal";
             lblDataFinal.Size = new Size(57, 15);
             lblDataFinal.TabIndex = 8;
@@ -138,7 +144,7 @@
             // lblDataInicial
             // 
             lblDataInicial.AutoSize = true;
-            lblDataInicial.Location = new Point(3, 67);
+            lblDataInicial.Location = new Point(4, 13);
             lblDataInicial.Name = "lblDataInicial";
             lblDataInicial.Size = new Size(65, 15);
             lblDataInicial.TabIndex = 7;
@@ -146,48 +152,29 @@
             // 
             // dtpDataFinal
             // 
-            dtpDataFinal.Location = new Point(3, 136);
+            dtpDataFinal.Location = new Point(4, 82);
             dtpDataFinal.Name = "dtpDataFinal";
             dtpDataFinal.Size = new Size(232, 23);
             dtpDataFinal.TabIndex = 6;
             // 
             // dtpDataInicial
             // 
-            dtpDataInicial.Location = new Point(3, 85);
+            dtpDataInicial.Location = new Point(4, 31);
             dtpDataInicial.Name = "dtpDataInicial";
             dtpDataInicial.Size = new Size(232, 23);
             dtpDataInicial.TabIndex = 5;
             // 
-            // cmbTipoRelatorio
-            // 
-            cmbTipoRelatorio.AutoCompleteMode = AutoCompleteMode.Suggest;
-            cmbTipoRelatorio.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cmbTipoRelatorio.FormattingEnabled = true;
-            cmbTipoRelatorio.Items.AddRange(new object[] { "Relatório de compra", "Relatório de clientes", "Relatório de venda", "Relatório de produto" });
-            cmbTipoRelatorio.Location = new Point(3, 31);
-            cmbTipoRelatorio.Name = "cmbTipoRelatorio";
-            cmbTipoRelatorio.Size = new Size(232, 23);
-            cmbTipoRelatorio.TabIndex = 4;
-            // 
-            // lblOpcao
-            // 
-            lblOpcao.AutoSize = true;
-            lblOpcao.Location = new Point(3, 13);
-            lblOpcao.Name = "lblOpcao";
-            lblOpcao.Size = new Size(97, 15);
-            lblOpcao.TabIndex = 0;
-            lblOpcao.Text = "Selecionar opção";
-            // 
-            // formRelatorios
+            // formRelatorioFornecedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(956, 484);
+            ClientSize = new Size(952, 488);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
-            Name = "formRelatorios";
-            Text = "Relatorios";
-            Load += formRelatorios_Load;
+            Name = "formRelatorioFornecedor";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "formRelatorioFornecedor";
+            Load += formRelatorioFornecedor_Load;
             panelBotoes.ResumeLayout(false);
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();
@@ -198,19 +185,16 @@
         #endregion
 
         protected Panel panelBotoes;
+        protected Button btnExportarRelatorio;
         protected Button btnLimparTela;
         protected Button btnInserir;
-        protected Button btnLocalizar;
         protected Button btnGerarRelatorio;
-        protected Button btnAlterar;
         protected Panel panelDados;
-        private ComboBox cmbTipoRelatorio;
-        private Label lblOpcao;
+        private DataGridView dtgvRelatorios;
         private Label lblDataFinal;
         private Label lblDataInicial;
         private DateTimePicker dtpDataFinal;
         private DateTimePicker dtpDataInicial;
-        private DataGridView dtgvRelatorios;
-        protected Button btnExportarRelatorio;
+        private Label label1;
     }
 }

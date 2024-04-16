@@ -149,10 +149,24 @@ namespace UI
 
         private void dtgvDadosCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 this.id = Convert.ToInt32(dtgvDadosCompra.Rows[e.RowIndex].Cells[0].Value);
                 this.Close();
+            }
+        }
+
+        private void dtgvDadosCompra_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dtgvDadosCompra.Columns["compra_total"].Index)
+                {
+                    if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                    {
+                        e.Value = valor.ToString("C2");
+                    }
+                }
             }
         }
     }

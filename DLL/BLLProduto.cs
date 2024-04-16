@@ -135,5 +135,10 @@ namespace BLL
             DALProduto DALobj = new DALProduto(conexao);
             return DALobj.CarregaModeloProduto(id);
         }
+        public DataTable LocalizarProdutoFaltante(String valor)
+        {
+            DALProduto DALobj = new DALProduto(conexao);
+            return DALobj.LocalizarProdutoFaltante(valor);
+        }
     }
 }

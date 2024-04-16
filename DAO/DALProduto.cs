@@ -107,6 +107,15 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
+        public DataTable LocalizarProdutoFaltante(String valor)
+        {
+            DataTable tabela = new DataTable();
+            string query = "SELECT p.produto_id, p.produto_nome, p.produto_qtde FROM produto p WHERE p.produto_qtde < 1000;";
+
+            SqlDataAdapter da = new SqlDataAdapter(query, conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
         public void Alterar(ModeloProduto obj, Boolean transacao)
         {
             SqlCommand cmd = new SqlCommand();
@@ -164,6 +173,7 @@ namespace DAL
                 modelo.ProdutoValorPago = Convert.ToDouble(registro["produto_valorpago"]);
                 modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorvenda"]);
                 modelo.ProdutoLote = Convert.ToDouble(registro["produto_lote"]);
+                modelo.ProdutoQtde = Convert.ToInt32(registro["produto_qtde"]);
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
@@ -195,6 +205,7 @@ namespace DAL
                 modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorvenda"]);
                 modelo.UndMedID = Convert.ToInt32(registro["undmed_id"]);
                 modelo.ProdutoLote = Convert.ToDouble(registro["produto_lote"]);
+                modelo.ProdutoQtde = Convert.ToInt32(registro["produto_qtde"]);
                 modelo.CategoriaID = Convert.ToInt32(registro["categoria_id"]);
                 modelo.SubCategoriaID = Convert.ToInt32(registro["subCategoria_id"]);
                 modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
@@ -203,6 +214,5 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
-        
     }
 }

@@ -86,5 +86,19 @@ namespace UI
                 MessageBox.Show(erro.Message);
             }
         }
+
+        private void dtgvParcelas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dtgvParcelas.Columns["parcelasVenda_valor"].Index)
+                {
+                    if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                    {
+                        e.Value = valor.ToString("C2");
+                    }
+                }
+            }
+        }
     }
 }

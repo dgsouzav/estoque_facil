@@ -42,7 +42,7 @@
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(80, 60);
             btnExcluir.TabIndex = 8;
-            btnExcluir.Text = "EXCLUIR";
+            btnExcluir.Text = "INATIVAR";
             btnExcluir.UseVisualStyleBackColor = true;
             btnExcluir.Click += btnExcluir_Click;
             // 
