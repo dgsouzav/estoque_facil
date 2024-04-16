@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\dao\\dalperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\dll\\bllperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|solutionrelative:dll\\bllperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\modelo\\modeloperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|solutionrelative:modelo\\modeloperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 309,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +35,57 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ModeloPerca.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\ModeloPerca.cs",
+              "RelativeDocumentMoniker": "Modelo\\ModeloPerca.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\ModeloPerca.cs",
+              "RelativeToolTip": "Modelo\\ModeloPerca.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:09:49.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BLLPerca.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DLL\\BLLPerca.cs",
+              "RelativeDocumentMoniker": "DLL\\BLLPerca.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DLL\\BLLPerca.cs",
+              "RelativeToolTip": "DLL\\BLLPerca.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:09:30.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DALPerca.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALPerca.cs",
+              "RelativeDocumentMoniker": "DAO\\DALPerca.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALPerca.cs",
+              "RelativeToolTip": "DAO\\DALPerca.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:09:03.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "formVenda.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs",
+              "RelativeDocumentMoniker": "GUI\\formVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formVenda.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T21:04:57.488Z",
+              "EditorCaption": " [Projeto]"
             }
           ]
         }
