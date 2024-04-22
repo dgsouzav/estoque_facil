@@ -16,6 +16,23 @@ namespace BLL
         {
             this.conexao = cx;
         }
+        public void IncluirGasto(ModeloVenda modelo)
+        {
+            if (modelo.VendaNumeroParcelas <= 0)
+            {
+                throw new Exception("O número de parcelas deve ser maior que zero.");
+            }
+            if (modelo.VendaTotal >= 0)
+            {
+                throw new Exception("O valor da venda deve ser maior que zero.");
+            }
+            if (modelo.VendaNotaFiscal <= 0)
+            {
+                throw new Exception("O número da nota fiscal deve ser maior que zero.");
+            }
+            DALVenda DALobj = new DALVenda(conexao);
+            DALobj.IncluirGasto(modelo);
+        }
         public void Incluir(Modelo.ModeloVenda modelo)
         {
             if (modelo.VendaNumeroParcelas <= 0)

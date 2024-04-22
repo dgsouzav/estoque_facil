@@ -109,7 +109,7 @@
             panelFinalizaVenda.Controls.Add(lblTraço);
             panelFinalizaVenda.Controls.Add(lblDadosPagamento);
             panelFinalizaVenda.Controls.Add(dtgvParcelasVenda);
-            panelFinalizaVenda.Location = new Point(9, 6);
+            panelFinalizaVenda.Location = new Point(12, 6);
             panelFinalizaVenda.Name = "panelFinalizaVenda";
             panelFinalizaVenda.Size = new Size(1346, 731);
             panelFinalizaVenda.TabIndex = 7;
@@ -140,6 +140,7 @@
             // txtTroco
             // 
             txtTroco.Enabled = false;
+            txtTroco.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             txtTroco.Location = new Point(1153, 569);
             txtTroco.Multiline = true;
             txtTroco.Name = "txtTroco";
@@ -272,7 +273,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(200, 7);
+            btnCancelar.Location = new Point(200, 8);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(90, 28);
             btnCancelar.TabIndex = 17;
@@ -282,7 +283,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(3, 7);
+            btnSalvar.Location = new Point(3, 8);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(90, 28);
             btnSalvar.TabIndex = 15;
@@ -657,9 +658,9 @@
             // 
             // txtNotaFiscal
             // 
-            txtNotaFiscal.Location = new Point(210, 30);
+            txtNotaFiscal.Location = new Point(109, 30);
             txtNotaFiscal.Name = "txtNotaFiscal";
-            txtNotaFiscal.Size = new Size(100, 23);
+            txtNotaFiscal.Size = new Size(201, 23);
             txtNotaFiscal.TabIndex = 1;
             txtNotaFiscal.KeyPress += txtNotaFiscal_KeyPress;
             txtNotaFiscal.Leave += txtNotaFiscal_Leave;
@@ -667,7 +668,7 @@
             // lblNotaFiscal
             // 
             lblNotaFiscal.AutoSize = true;
-            lblNotaFiscal.Location = new Point(210, 12);
+            lblNotaFiscal.Location = new Point(109, 12);
             lblNotaFiscal.Name = "lblNotaFiscal";
             lblNotaFiscal.Size = new Size(63, 15);
             lblNotaFiscal.TabIndex = 6;
@@ -687,7 +688,7 @@
             txtVendaID.Enabled = false;
             txtVendaID.Location = new Point(2, 30);
             txtVendaID.Name = "txtVendaID";
-            txtVendaID.Size = new Size(202, 23);
+            txtVendaID.Size = new Size(101, 23);
             txtVendaID.TabIndex = 3;
             // 
             // lblVenda

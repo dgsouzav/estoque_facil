@@ -79,10 +79,7 @@ namespace UI
 
             DateTime dataInicial = dtpDataInicial.Value.Date;
             DateTime dataFinal = dtpDataFinal.Value.Date;
-        }
-        private void RelatorioCompra(string compra, DateTime dataInicial, DateTime dataFinal)
-        {
-            List<CompraRelatorio> dadosRelatorio = dalRelatorioCompra.ObterLinhasCompra(compra, dataInicial, dataFinal);
+            List<CompraRelatorio> dadosRelatorio = dalRelatorioCompra.ObterLinhasCompra(nomeTabela, dataInicial, dataFinal);
 
             if (dadosRelatorio != null)
             {

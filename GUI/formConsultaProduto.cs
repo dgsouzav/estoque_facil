@@ -69,7 +69,7 @@ namespace UI
             dtgvDados.Columns[3].Width = 50;
             dtgvDados.Columns[4].HeaderText = "Valor de venda";
             dtgvDados.Columns[4].Width = 50;
-            dtgvDados.Columns[5].HeaderText = "Lote";
+            dtgvDados.Columns[5].HeaderText = "Quantidade";
             dtgvDados.Columns[5].Width = 80;
             dtgvDados.Columns[6].HeaderText = "Unidade de medida";
             dtgvDados.Columns[6].Width = 50;

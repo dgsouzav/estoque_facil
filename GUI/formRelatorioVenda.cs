@@ -36,6 +36,7 @@ namespace UI
             btnInserir.Enabled = false;
             btnGerarRelatorio.Enabled = false;
             btnLimparTela.Enabled = false;
+            btnExportarRelatorio.Enabled = false;
 
             if (op == 1)
             {
@@ -47,6 +48,7 @@ namespace UI
                 panelDados.Enabled = true;
                 btnGerarRelatorio.Enabled = true;
                 btnLimparTela.Enabled = true;
+                btnExportarRelatorio.Enabled = true;
             }
 
             if (op == 3)
@@ -71,6 +73,7 @@ namespace UI
         }
         private void btnGerarRelatorio_Click_1(object sender, EventArgs e)
         {
+
             string nomeTabela = "ControleDeEstoque";
             this.conexao = new DALConexao(connectionString);
             this.dalRelatorioVenda = new DALRelatorioVenda(conexao);
@@ -126,20 +129,6 @@ namespace UI
                 document.Add(table);
                 document.Close();
                 MessageBox.Show("Relatório exportado com sucesso.");
-            }
-        }
-        private void RelatorioVenda(string venda, DateTime dataInicial, DateTime dataFinal)
-        {
-            List<VendaRelatorio> dadosRelatorio = dalRelatorioVenda.ObterLinhasVenda(venda, dataInicial, dataFinal);
-
-            if (dadosRelatorio != null)
-            {
-                dtgvRelatorios.DataSource = dadosRelatorio;
-                dtgvRelatorios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-            else
-            {
-                MessageBox.Show("Erro ao obter nomes das colunas.");
             }
         }
         private void dtgvRelatorios_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)

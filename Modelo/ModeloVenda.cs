@@ -20,9 +20,13 @@ namespace Modelo
             this.venda_aVista = 1;
             this.fornecedor_id = 0;
             this.cliente_id = 0;
+            this.venda_descricao = "";
+            this.venda_tipoTransacao = "Gasto";
+            this.venda_gastoNome = "";
         }
         public ModeloVenda(int id, DateTime data, int notaFiscal, Double total, int numeroParcelas, 
-            String status, int tipoPagamento_id, int aVista, int fornecedor_id, int cliente_id)
+            String status, int tipoPagamento_id, int aVista, int fornecedor_id, int cliente_id, string venda_descricao, string venda_tipoTransacao,
+            string venda_gastoNome)
         {
             this.venda_id = id;
             this.venda_data = data;
@@ -37,6 +41,9 @@ namespace Modelo
             {
                 this.cliente_id = cliente_id;
             }
+            this.venda_descricao = venda_descricao;
+            this.venda_tipoTransacao = venda_tipoTransacao;
+            this.venda_gastoNome = venda_gastoNome;
         }
         private int venda_id;
         public int VendaID
@@ -97,6 +104,24 @@ namespace Modelo
         {
             get { return this.cliente_id; }
             set { this.cliente_id = value; }
+        }
+        private string venda_descricao;
+        public string VendaDescricao
+        {
+            get { return this.venda_descricao; }
+            set { this.venda_descricao = value; }
+        }
+        private string venda_tipoTransacao;
+        public string VendaTipoTransacao
+        {
+            get { return this.venda_tipoTransacao; }
+            set { this.venda_tipoTransacao = value; }
+        }
+        private string venda_gastoNome;
+        public string VendaGastoNome
+        {
+            get { return this.venda_gastoNome; }
+            set { this.venda_gastoNome = value; }
         }
     }
 }

@@ -214,7 +214,7 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
                 ModeloProduto modelo = bll.CarregaModeloProduto(ProdutoID);
-                QtdeEstoque = modelo.ProdutoLote;
+                QtdeEstoque = modelo.ProdutoQtde;
                 for (int i = 0; i < dtgvItensVenda.RowCount; i++)
                 {
                     if (Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[0].Value) == ProdutoID)
@@ -247,7 +247,11 @@ namespace UI
                     }
                     Double TotalLocal = Convert.ToDouble(txtQtde.Text) * Convert.ToDouble(txtValor.Text);
                     this.totalVenda = this.totalVenda + TotalLocal;
-                    String[] i = new String[] { txtProdutoID.Text, lblProdutoID.Text, txtQtde.Text, txtValor.Text, TotalLocal.ToString() };
+
+                    // Buscar o nome do produto
+                    string nomeProduto = lblProdutoNome.Text;
+
+                    String[] i = new String[] { txtProdutoID.Text, nomeProduto, txtQtde.Text, txtValor.Text, TotalLocal.ToString() };
                     this.dtgvItensVenda.Rows.Add(i);
 
                     txtProdutoID.Clear();
@@ -262,6 +266,7 @@ namespace UI
                 MessageBox.Show("Informe apenas números nos campos referentes a quantidade e valor do produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void formVenda_Load(object sender, EventArgs e)
         {
@@ -534,5 +539,6 @@ namespace UI
                 e.Handled = true;
             }
         }
+        
     }
 }

@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\dao\\dalproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\dao\\dalperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\dao\\dalrelatoriocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalrelatoriocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\dll\\bllperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|solutionrelative:dll\\bllperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\dao\\dalcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\modelo\\modeloperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|solutionrelative:modelo\\modeloperca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\dao\\dalitenscompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalitenscompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\dao\\dalvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\dao\\dalrelatoriogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalrelatoriogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\gui\\formrelatoriovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formrelatoriovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\gui\\formrelatoriogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formrelatoriogastos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\github\\estoque_facil\\gui\\formrelatoriovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formrelatoriovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,53 +58,117 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ModeloPerca.cs",
-              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\ModeloPerca.cs",
-              "RelativeDocumentMoniker": "Modelo\\ModeloPerca.cs",
-              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Modelo\\ModeloPerca.cs",
-              "RelativeToolTip": "Modelo\\ModeloPerca.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
+              "DocumentIndex": 1,
+              "Title": "DALRelatorioCompra.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALRelatorioCompra.cs",
+              "RelativeDocumentMoniker": "DAO\\DALRelatorioCompra.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALRelatorioCompra.cs",
+              "RelativeToolTip": "DAO\\DALRelatorioCompra.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T21:09:49.441Z",
+              "WhenOpened": "2024-04-20T01:29:54.243Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BLLPerca.cs",
-              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DLL\\BLLPerca.cs",
-              "RelativeDocumentMoniker": "DLL\\BLLPerca.cs",
-              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DLL\\BLLPerca.cs",
-              "RelativeToolTip": "DLL\\BLLPerca.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
+              "Title": "DALCompra.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALCompra.cs",
+              "RelativeDocumentMoniker": "DAO\\DALCompra.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALCompra.cs",
+              "RelativeToolTip": "DAO\\DALCompra.cs",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAkwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T21:09:30.742Z",
+              "WhenOpened": "2024-04-20T01:29:39.738Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DALPerca.cs",
-              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALPerca.cs",
-              "RelativeDocumentMoniker": "DAO\\DALPerca.cs",
-              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALPerca.cs",
-              "RelativeToolTip": "DAO\\DALPerca.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "DocumentIndex": 3,
+              "Title": "DALItensCompra.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALItensCompra.cs",
+              "RelativeDocumentMoniker": "DAO\\DALItensCompra.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALItensCompra.cs",
+              "RelativeToolTip": "DAO\\DALItensCompra.cs",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAmwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T21:09:03.432Z",
+              "WhenOpened": "2024-04-20T01:29:32.122Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "formVenda.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs",
-              "RelativeDocumentMoniker": "GUI\\formVenda.cs",
-              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formVenda.cs [Projeto]",
-              "RelativeToolTip": "GUI\\formVenda.cs [Projeto]",
+              "Title": "DALProduto.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALProduto.cs",
+              "RelativeDocumentMoniker": "DAO\\DALProduto.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALProduto.cs",
+              "RelativeToolTip": "DAO\\DALProduto.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAIwHAAAAB5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T21:04:57.488Z",
+              "WhenOpened": "2024-04-20T01:29:20.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DALVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALVenda.cs",
+              "RelativeDocumentMoniker": "DAO\\DALVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALVenda.cs",
+              "RelativeToolTip": "DAO\\DALVenda.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T01:28:56.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DALRelatorioGastos.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALRelatorioGastos.cs",
+              "RelativeDocumentMoniker": "DAO\\DALRelatorioGastos.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\DAO\\DALRelatorioGastos.cs",
+              "RelativeToolTip": "DAO\\DALRelatorioGastos.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAYwBEAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T01:22:24.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "formRelatorioVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formRelatorioVenda.cs",
+              "RelativeDocumentMoniker": "GUI\\formRelatorioVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formRelatorioVenda.cs",
+              "RelativeToolTip": "GUI\\formRelatorioVenda.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAswFIAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T01:15:01.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "formRelatorioVenda.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formRelatorioVenda.cs",
+              "RelativeDocumentMoniker": "GUI\\formRelatorioVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formRelatorioVenda.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formRelatorioVenda.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T01:14:58.775Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "formRelatorioGastos.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formRelatorioGastos.cs",
+              "RelativeDocumentMoniker": "GUI\\formRelatorioGastos.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\GUI\\formRelatorioGastos.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formRelatorioGastos.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T01:14:00.638Z",
               "EditorCaption": " [Projeto]"
             }
           ]

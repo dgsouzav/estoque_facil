@@ -51,7 +51,7 @@
             panelBotoes.Controls.Add(btnLimparTela);
             panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnGerarRelatorio);
-            panelBotoes.Location = new Point(827, 12);
+            panelBotoes.Location = new Point(729, 12);
             panelBotoes.Name = "panelBotoes";
             panelBotoes.Size = new Size(118, 469);
             panelBotoes.TabIndex = 9;
@@ -106,13 +106,13 @@
             panelDados.Controls.Add(dtpDataInicial);
             panelDados.Location = new Point(8, 12);
             panelDados.Name = "panelDados";
-            panelDados.Size = new Size(813, 469);
+            panelDados.Size = new Size(715, 469);
             panelDados.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(241, 13);
+            label1.Location = new Point(4, 103);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
             label1.TabIndex = 14;
@@ -124,19 +124,19 @@
             dtgvRelatorios.AllowUserToDeleteRows = false;
             dtgvRelatorios.AllowUserToOrderColumns = true;
             dtgvRelatorios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvRelatorios.Location = new Point(241, 31);
+            dtgvRelatorios.Location = new Point(4, 121);
             dtgvRelatorios.Name = "dtgvRelatorios";
             dtgvRelatorios.ReadOnly = true;
             dtgvRelatorios.RowTemplate.Height = 25;
             dtgvRelatorios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvRelatorios.Size = new Size(567, 435);
+            dtgvRelatorios.Size = new Size(567, 341);
             dtgvRelatorios.TabIndex = 13;
             dtgvRelatorios.CellFormatting += dtgvRelatorios_CellFormatting_1;
             // 
             // lblDataFinal
             // 
             lblDataFinal.AutoSize = true;
-            lblDataFinal.Location = new Point(4, 64);
+            lblDataFinal.Location = new Point(242, 13);
             lblDataFinal.Name = "lblDataFinal";
             lblDataFinal.Size = new Size(57, 15);
             lblDataFinal.TabIndex = 8;
@@ -153,7 +153,7 @@
             // 
             // dtpDataFinal
             // 
-            dtpDataFinal.Location = new Point(4, 82);
+            dtpDataFinal.Location = new Point(242, 31);
             dtpDataFinal.Name = "dtpDataFinal";
             dtpDataFinal.Size = new Size(232, 23);
             dtpDataFinal.TabIndex = 6;
@@ -169,7 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(949, 486);
+            ClientSize = new Size(852, 486);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name = "formRelatorioCompra";

@@ -15,6 +15,8 @@ namespace UI
             VerificarEstoqueBaixo();
         }
 
+
+
         private void VerificarEstoqueBaixo()
         {
             BLLProduto bllProduto = new BLLProduto(new DALConexao(DadosDaConexao.StringDeConexao));
@@ -44,6 +46,7 @@ namespace UI
         }
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            VerificarEstoqueBaixo();
             timerVerificarEstoque.Start();
         }
         public FormPrincipal(AUsuario usuario)
@@ -94,8 +97,8 @@ namespace UI
             timerVerificarEstoque = new Timer();
             timerVerificarEstoque.Interval = 24 * 60 * 60 * 1000;
             timerVerificarEstoque.Tick += TimerVerificarEstoque_Tick;
-
             timerVerificarEstoque.Start();
+
         }
 
 
@@ -295,6 +298,20 @@ namespace UI
         private void relatorioCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formRelatorioCompra f = new formRelatorioCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formCadastroGastos f = new formCadastroGastos();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void relatorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formRelatorioGastos f = new formRelatorioGastos();
             f.ShowDialog();
             f.Dispose();
         }

@@ -110,7 +110,7 @@ namespace DAL
         public DataTable LocalizarProdutoFaltante(String valor)
         {
             DataTable tabela = new DataTable();
-            string query = "SELECT p.produto_id, p.produto_nome, p.produto_qtde FROM produto p WHERE p.produto_qtde < 1000;";
+            string query = "SELECT p.produto_id, p.produto_nome, p.produto_qtde FROM produto p WHERE p.produto_qtde < 100;";
 
             SqlDataAdapter da = new SqlDataAdapter(query, conexao.StringConexao);
             da.Fill(tabela);

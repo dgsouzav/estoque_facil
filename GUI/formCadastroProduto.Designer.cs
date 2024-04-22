@@ -43,7 +43,6 @@
             lblUnidadeMedidaID = new Label();
             lblCategoriaID = new Label();
             lblSubCategoriaID = new Label();
-            txtValorPagoProduto = new TextBox();
             txtLoteProduto = new TextBox();
             txtValorVendaProduto = new TextBox();
             lblLoteProduto = new Label();
@@ -55,6 +54,7 @@
             txtNomeProduto = new TextBox();
             lblProdutoID = new Label();
             lblNomeProduto = new Label();
+            txtValorPagoProduto = new TextBox();
             panelBotoes.SuspendLayout();
             panelDados.SuspendLayout();
             SuspendLayout();
@@ -225,15 +225,6 @@
             lblSubCategoriaID.TabIndex = 12;
             lblSubCategoriaID.Text = "Sub Categoria";
             // 
-            // txtValorPagoProduto
-            // 
-            txtValorPagoProduto.Location = new Point(3, 235);
-            txtValorPagoProduto.Name = "txtValorPagoProduto";
-            txtValorPagoProduto.Size = new Size(129, 23);
-            txtValorPagoProduto.TabIndex = 3;
-            txtValorPagoProduto.KeyPress += txtValorPagoProduto_KeyPress;
-            txtValorPagoProduto.Leave += txtValorPagoProduto_Leave;
-            // 
             // txtLoteProduto
             // 
             txtLoteProduto.Location = new Point(3, 287);
@@ -327,6 +318,15 @@
             lblNomeProduto.TabIndex = 0;
             lblNomeProduto.Text = "Nome do Produto";
             // 
+            // txtValorPagoProduto
+            // 
+            txtValorPagoProduto.Location = new Point(3, 235);
+            txtValorPagoProduto.Name = "txtValorPagoProduto";
+            txtValorPagoProduto.Size = new Size(129, 23);
+            txtValorPagoProduto.TabIndex = 3;
+            txtValorPagoProduto.KeyPress += txtValorPagoProduto_KeyPress;
+            txtValorPagoProduto.Leave += txtValorPagoProduto_Leave;
+            // 
             // formCadastroProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -362,7 +362,6 @@
         private Label lblValorPagoProduto;
         private Label lblLoteProduto;
         private Label lblValorVendaProduto;
-        private TextBox txtValorPagoProduto;
         private TextBox txtLoteProduto;
         private TextBox txtValorVendaProduto;
         private Label lblUnidadeMedidaID;
@@ -373,5 +372,6 @@
         private ComboBox cmbSubCategoriaID;
         private Label lblFornecedor;
         private ComboBox cmbFornecedorID;
+        private TextBox txtValorPagoProduto;
     }
 }

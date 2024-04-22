@@ -11,6 +11,33 @@ namespace DAL
         {
             this.conexao = cx;
         }
+        public void IncluirGasto(ModeloVenda modelo)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.Transaction = conexao.ObjetoTransacao;
+                cmd.CommandText = "insert into venda (venda_gastoNome, venda_data, venda_notaFiscal, venda_total, venda_numeroParcelas, " +
+                    "venda_status, venda_tipoTransacao, venda_descricao) values (@gastoNome, @data, @notaFiscal, @total, @numeroParcelas, " +
+                    "@status, @tipoTransacao, @descricao); select @@IDENTITY;";
+                cmd.Parameters.Add("@data", SqlDbType.DateTime);
+                cmd.Parameters["@data"].Value = modelo.VendaData;
+                cmd.Parameters.AddWithValue("@notaFiscal", modelo.VendaNotaFiscal);
+                cmd.Parameters.AddWithValue("@total", modelo.VendaTotal);
+                cmd.Parameters.AddWithValue("@numeroParcelas", modelo.VendaNumeroParcelas);
+                cmd.Parameters.AddWithValue("@status", modelo.VendaStatus);
+                cmd.Parameters.AddWithValue("@tipoTransacao", modelo.VendaTipoTransacao);
+                cmd.Parameters.AddWithValue("@descricao", modelo.VendaDescricao);
+                cmd.Parameters.AddWithValue("gastoNome", modelo.VendaGastoNome);
+
+                modelo.VendaID = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch(Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
         public void Incluir(ModeloVenda modelo)
         {
             try
@@ -31,7 +58,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@aVista", modelo.VendaAVista);
                 if (modelo.ClienteID == 0)
                 {
-                    cmd.Parameters.AddWithValue("@cliente", DBNull.Value); // Indica que o valor é nulo no banco de dados
+                    cmd.Parameters.AddWithValue("@cliente", DBNull.Value); 
                 }
                 else
                 {

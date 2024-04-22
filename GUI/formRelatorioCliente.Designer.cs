@@ -34,12 +34,12 @@
             btnInserir = new Button();
             btnGerarRelatorio = new Button();
             panelDados = new Panel();
+            label1 = new Label();
             dtgvRelatorios = new DataGridView();
             lblDataFinal = new Label();
             lblDataInicial = new Label();
             dtpDataFinal = new DateTimePicker();
             dtpDataInicial = new DateTimePicker();
-            label1 = new Label();
             panelBotoes.SuspendLayout();
             panelDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRelatorios).BeginInit();
@@ -51,7 +51,7 @@
             panelBotoes.Controls.Add(btnLimparTela);
             panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnGerarRelatorio);
-            panelBotoes.Location = new Point(828, 12);
+            panelBotoes.Location = new Point(734, 12);
             panelBotoes.Name = "panelBotoes";
             panelBotoes.Size = new Size(118, 469);
             panelBotoes.TabIndex = 11;
@@ -106,8 +106,17 @@
             panelDados.Controls.Add(dtpDataInicial);
             panelDados.Location = new Point(9, 12);
             panelDados.Name = "panelDados";
-            panelDados.Size = new Size(813, 469);
+            panelDados.Size = new Size(719, 469);
             panelDados.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(4, 99);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 15);
+            label1.TabIndex = 15;
+            label1.Text = "Clientes";
             // 
             // dtgvRelatorios
             // 
@@ -115,18 +124,18 @@
             dtgvRelatorios.AllowUserToDeleteRows = false;
             dtgvRelatorios.AllowUserToOrderColumns = true;
             dtgvRelatorios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvRelatorios.Location = new Point(241, 31);
+            dtgvRelatorios.Location = new Point(4, 117);
             dtgvRelatorios.Name = "dtgvRelatorios";
             dtgvRelatorios.ReadOnly = true;
             dtgvRelatorios.RowTemplate.Height = 25;
             dtgvRelatorios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvRelatorios.Size = new Size(567, 435);
+            dtgvRelatorios.Size = new Size(567, 345);
             dtgvRelatorios.TabIndex = 13;
             // 
             // lblDataFinal
             // 
             lblDataFinal.AutoSize = true;
-            lblDataFinal.Location = new Point(4, 64);
+            lblDataFinal.Location = new Point(240, 13);
             lblDataFinal.Name = "lblDataFinal";
             lblDataFinal.Size = new Size(57, 15);
             lblDataFinal.TabIndex = 8;
@@ -143,7 +152,7 @@
             // 
             // dtpDataFinal
             // 
-            dtpDataFinal.Location = new Point(4, 82);
+            dtpDataFinal.Location = new Point(240, 31);
             dtpDataFinal.Name = "dtpDataFinal";
             dtpDataFinal.Size = new Size(232, 23);
             dtpDataFinal.TabIndex = 6;
@@ -155,20 +164,11 @@
             dtpDataInicial.Size = new Size(232, 23);
             dtpDataInicial.TabIndex = 5;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(241, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(49, 15);
-            label1.TabIndex = 15;
-            label1.Text = "Clientes";
-            // 
             // formRelatorioCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(952, 486);
+            ClientSize = new Size(857, 486);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name = "formRelatorioCliente";
