@@ -64,7 +64,7 @@
             btnExportarRelatorio.TabIndex = 10;
             btnExportarRelatorio.Text = "EXPORTAR RELATÓRIO";
             btnExportarRelatorio.UseVisualStyleBackColor = true;
-            btnExportarRelatorio.Click += btnExportarRelatorio_Click_1;
+            btnExportarRelatorio.Click += btnExportarRelatorio_Click;
             // 
             // btnLimparTela
             // 

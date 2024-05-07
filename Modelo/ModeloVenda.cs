@@ -18,14 +18,13 @@ namespace Modelo
             this.venda_status = "Válida";
             this.tipoPagamento_id = 0;
             this.venda_aVista = 1;
-            this.fornecedor_id = 0;
             this.cliente_id = 0;
             this.venda_descricao = "";
             this.venda_tipoTransacao = "Gasto";
             this.venda_gastoNome = "";
         }
         public ModeloVenda(int id, DateTime data, int notaFiscal, Double total, int numeroParcelas, 
-            String status, int tipoPagamento_id, int aVista, int fornecedor_id, int cliente_id, string venda_descricao, string venda_tipoTransacao,
+            String status, int tipoPagamento_id, int aVista, int cliente_id, string venda_descricao, string venda_tipoTransacao,
             string venda_gastoNome)
         {
             this.venda_id = id;
@@ -36,7 +35,6 @@ namespace Modelo
             this.venda_status = status;
             this.tipoPagamento_id = tipoPagamento_id;
             this.venda_aVista = aVista;
-            this.fornecedor_id = fornecedor_id;
             if (cliente_id != 0)
             {
                 this.cliente_id = cliente_id;
@@ -92,12 +90,6 @@ namespace Modelo
         {
             get { return this.venda_aVista; }
             set { this.venda_aVista = value; }
-        }
-        private int fornecedor_id;
-        public int FornecedorID
-        {
-            get { return this.fornecedor_id; }
-            set { this.fornecedor_id = value; }
         }
         private int cliente_id;
         public int ClienteID

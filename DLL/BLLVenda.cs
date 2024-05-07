@@ -24,7 +24,7 @@ namespace BLL
             }
             if (modelo.VendaTotal >= 0)
             {
-                throw new Exception("O valor da venda deve ser maior que zero.");
+                throw new Exception("O valor do gasto deve ser maior que zero.");
             }
             if (modelo.VendaNotaFiscal <= 0)
             {
@@ -35,10 +35,6 @@ namespace BLL
         }
         public void Incluir(Modelo.ModeloVenda modelo)
         {
-            if (modelo.VendaNumeroParcelas <= 0)
-            {
-                throw new Exception("O número de parcelas deve ser maior que zero.");
-            }
             if (modelo.VendaTotal <= 0)
             {
                 throw new Exception("O valor da venda deve ser maior que zero.");
@@ -52,10 +48,6 @@ namespace BLL
         }
         public void Alterar(Modelo.ModeloVenda modelo)
         {
-            if (modelo.VendaNumeroParcelas <= 0)
-            {
-                throw new Exception("O número de parcelas deve ser maior que zero.");
-            }
             if (modelo.VendaTotal <= 0)
             {
                 throw new Exception("O valor da venda deve ser maior que zero.");

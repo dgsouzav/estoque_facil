@@ -35,6 +35,7 @@
             btnInserir = new Button();
             btnGerarRelatorio = new Button();
             panelDados = new Panel();
+            lblTotal = new Label();
             label1 = new Label();
             lblDataFinal = new Label();
             lblDataInicial = new Label();
@@ -113,6 +114,7 @@
             // 
             // panelDados
             // 
+            panelDados.Controls.Add(lblTotal);
             panelDados.Controls.Add(label1);
             panelDados.Controls.Add(dtgvRelatorios);
             panelDados.Controls.Add(lblDataFinal);
@@ -124,14 +126,24 @@
             panelDados.Size = new Size(710, 469);
             panelDados.TabIndex = 12;
             // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotal.Location = new Point(576, 443);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(65, 20);
+            lblTotal.TabIndex = 15;
+            lblTotal.Text = "????????";
+            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(3, 102);
             label1.Name = "label1";
-            label1.Size = new Size(42, 15);
+            label1.Size = new Size(55, 15);
             label1.TabIndex = 14;
-            label1.Text = "Gastos";
+            label1.Text = "Despesas";
             // 
             // lblDataFinal
             // 
@@ -173,7 +185,8 @@
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name = "formRelatorioGastos";
-            Text = "formGastos";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Despesas";
             Load += formGastos_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvRelatorios).EndInit();
             panelBotoes.ResumeLayout(false);
@@ -196,5 +209,6 @@
         private Label lblDataInicial;
         private DateTimePicker dtpDataFinal;
         private DateTimePicker dtpDataInicial;
+        private Label lblTotal;
     }
 }

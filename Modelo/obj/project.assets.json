@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Google.Api.CommonProtos/2.14.0": {
+      "Google.Api.CommonProtos/2.15.0": {
         "type": "package",
         "dependencies": {
           "Google.Protobuf": "[3.25.0, 4.0.0)"
@@ -37,10 +37,10 @@
     }
   },
   "libraries": {
-    "Google.Api.CommonProtos/2.14.0": {
-      "sha512": "gtlUPKYxA2/zfVDlXNOolefFULxFo94ukTduTdoqRR5FlvzDafORarPH1DdknupP8/g6qCLnK0TlkWpnD52u7Q==",
+    "Google.Api.CommonProtos/2.15.0": {
+      "sha512": "k+43CTEgMbT4C2JjcIJon3GvMNFJ3kLMjPTedOkXUAt0D5cFfrlee+M4oieueAVhbXktR89yoj5O/kVmC/AKJw==",
       "type": "package",
-      "path": "google.api.commonprotos/2.14.0",
+      "path": "google.api.commonprotos/2.15.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -103,7 +103,7 @@
         "content/protos/google/type/postal_address.proto",
         "content/protos/google/type/quaternion.proto",
         "content/protos/google/type/timeofday.proto",
-        "google.api.commonprotos.2.14.0.nupkg.sha512",
+        "google.api.commonprotos.2.15.0.nupkg.sha512",
         "google.api.commonprotos.nuspec",
         "lib/net461/Google.Api.CommonProtos.dll",
         "lib/net461/Google.Api.CommonProtos.pdb",
@@ -139,7 +139,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Google.Api.CommonProtos >= 2.14.0"
+      "Google.Api.CommonProtos >= 2.15.0"
     ]
   },
   "packageFolders": {
@@ -188,7 +188,7 @@
         "dependencies": {
           "Google.Api.CommonProtos": {
             "target": "Package",
-            "version": "[2.14.0, )"
+            "version": "[2.15.0, )"
           }
         },
         "imports": [
@@ -207,7 +207,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

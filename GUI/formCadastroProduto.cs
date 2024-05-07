@@ -194,25 +194,7 @@ namespace UI
 
         private void txtValorPagoProduto_Leave(object sender, EventArgs e)
         {
-            if (txtValorPagoProduto.Text.Contains(",") == false)
-            {
-                txtValorPagoProduto.Text += ",00";
-            }
-            else
-            {
-                if (txtValorPagoProduto.Text.IndexOf(",") == txtValorPagoProduto.Text.Length-1)
-                {
-                    txtValorPagoProduto.Text += "00";
-                }
-            }
-            try
-            {
-                Double d = Convert.ToDouble(txtValorPagoProduto.Text);
-            }
-            catch
-            {
-                txtValorPagoProduto.Text = "0,00";
-            }
+            
         }
 
         private void txtValorVendaProduto_KeyPress(object sender, KeyPressEventArgs e)

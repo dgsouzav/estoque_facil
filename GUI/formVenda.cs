@@ -41,7 +41,6 @@ namespace UI
             dtgvItensVenda.Rows.Clear();
             cmbTipoPagamento.SelectedIndex = 0;
             lblProdutoNome.Text = "Informe o código do produto ou clique em localizar";
-            cmbNumeroParcelas.SelectedIndex = 0;
             txtClienteFidelidade.Clear();
             txtValorPago.Clear();
         }
@@ -63,106 +62,73 @@ namespace UI
             }
         }
 
-        private void btnLocalizar_Click(object sender, EventArgs e)
-        {
-            formConsultaVenda f = new formConsultaVenda();
-            f.ShowDialog();
-            if (f.id != 0)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bll = new BLLVenda(cx);
-                ModeloVenda modelo = bll.CarregaModeloVenda(f.id);
-
-                txtVendaID.Text = modelo.VendaID.ToString();
-                txtNotaFiscal.Text = modelo.VendaNotaFiscal.ToString();
-                dtpDataVenda.Value = modelo.VendaData;
-                cmbTipoPagamento.SelectedValue = modelo.TipoPagamentoID;
-                cmbNumeroParcelas.Text = modelo.VendaNumeroParcelas.ToString();
-                txtVendaTotal.Text = modelo.VendaTotal.ToString();
-                if (modelo.VendaAVista == 1)
-                {
-                    checkBoxVendaAVista.Checked = true;
-                }
-                else
-                {
-                    checkBoxVendaAVista.Checked = false;
-                }
-                this.totalVenda = modelo.VendaTotal;
-
-                BLLItensVenda bLLItensVenda = new BLLItensVenda(cx);
-                DataTable tabela = bLLItensVenda.Localizar(modelo.VendaID);
-
-                for (int i = 0; i < tabela.Rows.Count; i++)
-                {
-                    string id = tabela.Rows[i]["produto_id"].ToString();
-                    string nome = tabela.Rows[i]["produto_nome"].ToString();
-                    string qtde = tabela.Rows[i]["itensVenda_qtde"].ToString();
-                    string valor = tabela.Rows[i]["itensVenda_valor"].ToString();
-
-                    Double TotalLocal = Convert.ToDouble(tabela.Rows[i]["itensVenda_qtde"]) * Convert.ToDouble(tabela.Rows[i]["itensVenda_valor"]);
-
-                    String[] k = new String[] { id, nome, qtde, valor, TotalLocal.ToString() };
-                    this.dtgvItensVenda.Rows.Add(k);
-                }
-            }
-            else
-            {
-                this.LimpaTela();
-            }
-            f.Dispose();
-        }
-
         private void btnCancelarVenda_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
-            if (d.ToString() == "Yes")
-            {
-                panelFinalizaVenda.Visible = false;
-            }
             this.LimpaTela();
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            cx.Conectar();
+            cx.IniciarTransacao();
+
             try
             {
-                numeroNotaFiscal++;
-
-                if (totalVenda <= 0)
-                {
-                    MessageBox.Show("Informe um produto para continuar");
-                    return;
-                }
-
-                dtgvParcelasVenda.Rows.Clear();
-                int parcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
-                Double totalLocal = this.totalVenda;
-                Double valorLocal = totalLocal / parcelas;
-                DateTime dt = new DateTime();
-                dt = dtpDataInicial.Value;
-                lbl0000.Text = "" + valorLocal.ToString();
-
-                for (int i = 1; i <= parcelas; i++)
-                {
-                    String[] k = new String[] { i.ToString(), valorLocal.ToString(), dt.Date.ToString() };
-                    this.dtgvParcelasVenda.Rows.Add(k);
-                    if (dt.Month != 12)
-                    {
-                        dt = new DateTime(dt.Year, dt.Month + 1, dt.Day);
-                    }
-                    else
-                    {
-                        dt = new DateTime(dt.Year + 1, 1, dt.Day);
-                    }
-                }
-                panelFinalizaVenda.Visible = true;
+                // leitura dos dados
                 ModeloVenda modeloVenda = new ModeloVenda();
-                modeloVenda.VendaNotaFiscal = numeroNotaFiscal;
+                modeloVenda.VendaData = DateTime.Now;
+                modeloVenda.VendaNotaFiscal = Convert.ToInt32(txtNotaFiscal.Text);
+                modeloVenda.VendaStatus = "Ativa";
+                modeloVenda.VendaTotal = this.totalVenda;
+                modeloVenda.TipoPagamentoID = Convert.ToInt32(cmbTipoPagamento.SelectedValue);
+                modeloVenda.ClienteID = this.ClienteIDSelecionado;
+
+                BLLVenda bll = new BLLVenda(cx);
+
+                ModeloItensVenda itens = new ModeloItensVenda();
+                BLLItensVenda bitens = new BLLItensVenda(cx);
+
+                if (this.operacao == "inserir")
+                {
+                    // inserir uma Venda
+                    bll.Incluir(modeloVenda);
+                    for (int i = 0; i < dtgvItensVenda.RowCount; i++)
+                    {
+                        itens.ItensVendaID = i + 1;
+                        itens.VendaID = modeloVenda.VendaID;
+                        itens.ProdutoID = Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[0].Value);
+                        itens.ItensVendaQtde = Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[2].Value);
+                        itens.ItensVendaValor = Convert.ToDouble(dtgvItensVenda.Rows[i].Cells[3].Value);
+                        bitens.Incluir(itens);
+                        // trigger decrementa quantidade de produtos
+                    }
+
+                }
+
+                // mensagem de sucesso
+                MessageBox.Show("Venda efetuada: Código " + modeloVenda.VendaID.ToString());
+
+                this.LimpaTela();
+                cx.TerminarTransacao();
+                cx.Desconectar();
+
+                // Após salvar com sucesso, volta o lblCaixaLivre ao estado inicial
+                if (this.operacao == "inserir")
+                {
+                    lblCaixaLivre.Visible = true;
+                    lblCaixaLivre.BringToFront();
+                }
 
             }
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
+                cx.CancelarTransacao();
+                cx.Desconectar();
             }
+            this.LimpaTela();
+            lblCaixaLivre.Visible = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -275,12 +241,19 @@ namespace UI
             cmbTipoPagamento.DisplayMember = "tipoPagamento_nome";
             cmbTipoPagamento.ValueMember = "tipoPagamento_id";
 
-            cmbNumeroParcelas.SelectedIndex = 0;
-
-            checkBoxVendaAVista.Checked = false;
-
             this.operacao = "inserir";
             this.totalVenda = 0;
+
+            GerarNumeroNotaFiscal();
+            txtNotaFiscal.ReadOnly = true;
+        }
+
+        private void GerarNumeroNotaFiscal()
+        {
+            Random random = new Random();
+            numeroNotaFiscal = random.Next(100000, 999999);
+
+            txtNotaFiscal.Text = numeroNotaFiscal.ToString();
         }
 
         private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -299,100 +272,8 @@ namespace UI
             }
         }
 
-        private void checkBoxVendaAVista_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxVendaAVista.Checked == true)
-            {
-                cmbNumeroParcelas.SelectedIndex = 0;
-                cmbNumeroParcelas.Enabled = false;
-            }
-            else
-            {
-                cmbNumeroParcelas.Enabled = true;
-            }
-        }
-
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
-            this.LimpaTela();
-            panelFinalizaVenda.Visible = false;
-            lblCaixaLivre.Visible = true;
-        }
-
-        private void btnSalvarPagamento_Click(object sender, EventArgs e)
-        {
-            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            cx.Conectar();
-            cx.IniciarTransacao();
-
-            try
-            {
-                // leitura dos dados
-                ModeloVenda modeloVenda = new ModeloVenda();
-                modeloVenda.VendaData = dtpDataVenda.Value;
-                modeloVenda.VendaNotaFiscal = Convert.ToInt32(txtNotaFiscal.Text);
-                modeloVenda.VendaNumeroParcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
-                modeloVenda.VendaStatus = "Ativa";
-                modeloVenda.VendaTotal = this.totalVenda;
-                modeloVenda.TipoPagamentoID = Convert.ToInt32(cmbTipoPagamento.SelectedValue);
-                modeloVenda.ClienteID = this.ClienteIDSelecionado;
-                if (checkBoxVendaAVista.Checked == true)
-                {
-                    modeloVenda.VendaAVista = 1;
-                }
-                else
-                {
-                    modeloVenda.VendaAVista = 0;
-                }
-
-                BLLVenda bll = new BLLVenda(cx);
-
-                ModeloItensVenda itens = new ModeloItensVenda();
-                BLLItensVenda bitens = new BLLItensVenda(cx);
-
-                ModeloParcelasVenda parcelas = new ModeloParcelasVenda();
-                BLLParcelasVenda bparcelas = new BLLParcelasVenda(cx);
-
-                if (this.operacao == "inserir")
-                {
-                    // inserir uma Venda
-                    bll.Incluir(modeloVenda);
-                    for (int i = 0; i < dtgvItensVenda.RowCount; i++)
-                    {
-                        itens.ItensVendaID = i + 1;
-                        itens.VendaID = modeloVenda.VendaID;
-                        itens.ProdutoID = Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[0].Value);
-                        itens.ItensVendaQtde = Convert.ToInt32(dtgvItensVenda.Rows[i].Cells[2].Value);
-                        itens.ItensVendaValor = Convert.ToDouble(dtgvItensVenda.Rows[i].Cells[3].Value);
-                        bitens.Incluir(itens);
-                        // trigger decrementa quantidade de produtos
-                    }
-
-                    // inserir as parcelas
-                    for (int i = 0; i < dtgvParcelasVenda.RowCount; i++)
-                    {
-                        parcelas.ParcelasVendaID = i + 1;
-                        parcelas.VendaID = modeloVenda.VendaID;
-                        parcelas.ParcelasVendaID = Convert.ToInt32(dtgvParcelasVenda.Rows[i].Cells[0].Value);
-                        parcelas.ParcelasVendaValor = Convert.ToDouble(dtgvParcelasVenda.Rows[i].Cells[1].Value);
-                        parcelas.ParcelasVendaDataVencimento = Convert.ToDateTime(dtgvParcelasVenda.Rows[i].Cells[2].Value);
-                        bparcelas.Incluir(parcelas);
-                    }
-                    MessageBox.Show("Venda efetuada com sucesso! Código: " + modeloVenda.VendaID.ToString());
-                }
-
-                this.LimpaTela();
-                panelFinalizaVenda.Visible = false;
-                cx.TerminarTransacao();
-                cx.Desconectar();
-
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-                cx.CancelarTransacao();
-                cx.Desconectar();
-            }
             this.LimpaTela();
             lblCaixaLivre.Visible = true;
         }
@@ -464,15 +345,16 @@ namespace UI
             {
                 btnCancelarPagamento_Click(sender, e);
             }
-            if (e.KeyCode == Keys.F10)
-            {
-                btnSalvarPagamento_Click(sender, e);
-            }
         }
 
         private void txtNotaFiscal_Leave(object sender, EventArgs e)
         {
-
+            // Verifica se o txtNotaFiscal está preenchido
+            if (!string.IsNullOrEmpty(txtNotaFiscal.Text))
+            {
+                // Se estiver preenchido, desativa o lblCaixaLivre
+                lblCaixaLivre.Enabled = false;
+            }
         }
 
         private void txtQtde_Leave(object sender, EventArgs e)
@@ -521,17 +403,6 @@ namespace UI
             }
         }
 
-        private void dtgvParcelasVenda_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex == dtgvParcelasVenda.Columns["parcelaValorPagamento"].Index)
-            {
-                if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
-                {
-                    e.Value = valor.ToString("C2");
-                }
-            }
-        }
-
         private void txtValorPago_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -539,6 +410,5 @@ namespace UI
                 e.Handled = true;
             }
         }
-        
     }
 }

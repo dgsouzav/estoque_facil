@@ -20,18 +20,15 @@ namespace DAL
             string _data;
             int _numero_de_vendas;
             int _total_de_vendas;
-            int _numero_de_parcelas;
-            public VendaRelatorio(string data, int numero_de_vendas, int total_de_vendas, int numero_de_parcelas)
+            public VendaRelatorio(string data, int numero_de_vendas, int total_de_vendas)
             {
                 this._data = data;
                 this._numero_de_vendas = numero_de_vendas;
                 this._total_de_vendas = total_de_vendas;
-                this._numero_de_parcelas = numero_de_parcelas;
             }
             public string Data { get { return _data; } }
             public int NumeroDeVendas { get { return _numero_de_vendas; } }
             public int TotalDeVendas { get { return _total_de_vendas; } }
-            public int NumeroDeParcelas { get { return _numero_de_parcelas; } }
         }
 
         public List<VendaRelatorio>? ObterLinhasVenda(string nomeTabela, DateTime dataInicial, DateTime dataFinal)
@@ -50,7 +47,7 @@ namespace DAL
                 while (dr.Read())
                 {
                     VendaRelatorio venda = new VendaRelatorio(Convert.ToString(dr["data"]), Convert.ToInt32(dr["numero_de_vendas"]),
-                        Convert.ToInt32(dr["total_de_vendas"]), Convert.ToInt32(dr["media_de_parcelas"]));
+                        Convert.ToInt32(dr["total_de_vendas"]));
                     vendaColunas.Add(venda);
                 }
             }
@@ -63,6 +60,29 @@ namespace DAL
                 this.conexao.Desconectar();
             }
             return vendaColunas;
+        }
+        public double ObterTotalVendas(DateTime dataInicial, DateTime dataFinal)
+        {
+            double totalVendas = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT SUM(total_de_vendas) FROM vwrelatoriovendas WHERE data BETWEEN @DataInicial AND @DataFinal;");
+                cmd.Parameters.AddWithValue("@DataInicial", dataInicial);
+                cmd.Parameters.AddWithValue("@DataFinal", dataFinal);
+
+                cmd.Connection = conexao.ObjetoConexao;
+                this.conexao.Conectar();
+                totalVendas = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                this.conexao.Desconectar();
+            }
+            return totalVendas;
         }
     }
 }

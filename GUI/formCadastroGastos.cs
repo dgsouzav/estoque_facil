@@ -1,6 +1,8 @@
 ﻿using BLL;
 using DAL;
 using Modelo;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace UI
 {
@@ -19,7 +21,6 @@ namespace UI
         public void LimpaTela()
         {
             txtValor.Clear();
-            cmbNumeroParcelas.SelectedIndex = -1;
             txtNomeProduto.Clear();
             txtDescricao.Clear();
         }
@@ -55,12 +56,21 @@ namespace UI
                 modeloVenda.VendaGastoNome = txtNomeProduto.Text;
                 modeloVenda.VendaData = DateTime.Now;
                 modeloVenda.VendaNotaFiscal = random.Next(100000, 999999);
-                modeloVenda.VendaNumeroParcelas = Convert.ToInt32(cmbNumeroParcelas.Text);
                 modeloVenda.VendaDescricao = txtDescricao.Text;
                 modeloVenda.VendaStatus = "Ativa";
 
-                // Convertendo o valor para negativo antes de atribuir à propriedade VendaTotal
-                modeloVenda.VendaTotal = -1 * Convert.ToInt32(txtValor.Text);
+                // Expressão regular para extrair apenas os dígitos e pontos decimais
+                string valorTexto = Regex.Replace(txtValor.Text, @"[^\d,.]", "");
+
+                // Converte o texto restante para um número com ponto flutuante (double)
+                if (double.TryParse(valorTexto, NumberStyles.Currency, CultureInfo.CurrentCulture, out double valor))
+                {
+                    modeloVenda.VendaTotal = -1 * valor;
+                }
+                else
+                {
+                    throw new Exception("O valor do gasto não é válido.");
+                }
 
                 BLLVenda bll = new BLLVenda(cx);
 
@@ -82,7 +92,6 @@ namespace UI
             this.LimpaTela();
         }
 
-
         private void btnInserir_Click(object sender, EventArgs e)
         {
             this.menuBotoes(2);
@@ -93,6 +102,39 @@ namespace UI
         {
             this.LimpaTela();
             this.menuBotoes(1);
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void txtValor_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtValor.Text))
+            {
+                txtValor.Text = "0,00";
+            }
+            else
+            {
+                if (double.TryParse(txtValor.Text, out double valor))
+                {
+                    txtValor.Text = valor.ToString("C2");
+                }
+                else
+                {
+                    txtValor.Text = "0,00";
+                }
+            }
+        }
+
+        private void cmbNumeroParcelas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

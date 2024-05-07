@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Document = iTextSharp.text.Document;
 using DAL;
 using static DAL.DALRelatorioGastos;
+using Font = System.Drawing.Font;
 
 namespace UI
 {
@@ -28,6 +29,7 @@ namespace UI
         private void formGastos_Load(object sender, EventArgs e)
         {
             this.menuBotoes(1);
+            dtgvRelatorios.CellFormatting += dtgvRelatorios_CellFormatting;
         }
         public void menuBotoes(int op)
         {
@@ -75,31 +77,57 @@ namespace UI
 
             if (result == DialogResult.OK)
             {
-                iTextSharp.text.Document document = new Document();
+                iTextSharp.text.Document document = new iTextSharp.text.Document(); // Correção aqui
                 PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(saveDialog.FileName, FileMode.Create));
                 document.Open();
 
+                // Adiciona título ao relatório
+                iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK); // Correção aqui
+                Paragraph title = new Paragraph("Relatório de Despesas", titleFont);
+                title.Alignment = Element.ALIGN_CENTER;
+                document.Add(title);
+                document.Add(Chunk.NEWLINE);
+
                 PdfPTable table = new PdfPTable(dtgvRelatorios.Columns.Count);
 
-                // Adiciona os cabeçalhos
-                for (int i = 0; i < dtgvRelatorios.Columns.Count; i++)
+                // Adiciona cabeçalhos da tabela
+                iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE); // Correção aqui
+                PdfPCell headerCell;
+                foreach (DataGridViewColumn column in dtgvRelatorios.Columns)
                 {
-                    table.AddCell(new Phrase(dtgvRelatorios.Columns[i].HeaderText));
+                    headerCell = new PdfPCell(new Phrase(column.HeaderText, headerFont));
+                    headerCell.BackgroundColor = BaseColor.GRAY;
+                    table.AddCell(headerCell);
                 }
 
-                // Adiciona os dados
-                for (int i = 0; i < dtgvRelatorios.Rows.Count; i++)
+                // Adiciona os dados da tabela
+                iTextSharp.text.Font cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK); // Correção aqui
+                foreach (DataGridViewRow row in dtgvRelatorios.Rows)
                 {
-                    for (int j = 0; j < dtgvRelatorios.Columns.Count; j++)
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if (dtgvRelatorios[j, i].Value != null)
+                        if (cell.Value != null)
                         {
-                            table.AddCell(new Phrase(dtgvRelatorios[j, i].Value.ToString()));
+                            table.AddCell(new Phrase(cell.Value.ToString(), cellFont));
                         }
                     }
                 }
 
                 document.Add(table);
+
+                // Adiciona a soma do valor_venda
+                double total = CalcularSomaColuna(dtgvRelatorios.DataSource as List<GastosRelatorio>, "valor_venda");
+                // Corrigido para declaração após o uso
+                iTextSharp.text.Font dateFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10, BaseColor.GRAY); // Correção aqui
+                Paragraph totalParagraph = new Paragraph($"Total de despesas: {total:C2}", dateFont);
+                totalParagraph.Alignment = Element.ALIGN_RIGHT;
+                document.Add(totalParagraph);
+
+                // Adiciona parágrafo com as datas selecionadas no final do documento
+                Paragraph datasSelecionadas = new Paragraph($"Período Selecionado: {dtpDataInicial.Value.ToShortDateString()} - {dtpDataFinal.Value.ToShortDateString()}", dateFont);
+                datasSelecionadas.Alignment = Element.ALIGN_RIGHT;
+                document.Add(datasSelecionadas);
+
                 document.Close();
                 MessageBox.Show("Relatório exportado com sucesso.");
             }
@@ -117,8 +145,13 @@ namespace UI
             List<GastosRelatorio> dadosRelatorio = dalRelatorioGastos.ObterLinhasGastos(nomeTabela, dataInicial, dataFinal);
             if (dadosRelatorio != null)
             {
+                dtgvRelatorios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
                 dtgvRelatorios.DataSource = dadosRelatorio;
                 dtgvRelatorios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                double total = CalcularSomaColuna(dadosRelatorio, "valor_venda");
+                lblTotal.Text = $"Total: {total:C2}";
             }
             else
             {
@@ -134,15 +167,31 @@ namespace UI
 
         private void dtgvRelatorios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            List<string> colunasParaFormatar = new List<string> { "venda_total" };
-
-            if (colunasParaFormatar.Contains(dtgvRelatorios.Columns[e.ColumnIndex].Name))
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0 && dtgvRelatorios.Columns[e.ColumnIndex].Name == "venda_total")
             {
                 if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
                 {
                     e.Value = valor.ToString("C2");
                 }
             }
+        }
+
+        private double CalcularSomaColuna(List<GastosRelatorio> gastos, string nomeDaColuna)
+        {
+            double soma = 0.0;
+
+            foreach (var gasto in gastos)
+            {
+                switch (nomeDaColuna)
+                {
+                    case "valor_venda":
+                        soma += gasto.Valor; // Considerando que a propriedade Valor armazena o valor da venda
+                        break;
+                        // Adicione outros casos conforme necessário para outras colunas
+                }
+            }
+
+            return soma;
         }
     }
 }

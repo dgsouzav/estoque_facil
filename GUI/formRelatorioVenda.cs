@@ -1,17 +1,9 @@
 ﻿using DAL;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using static DAL.DALRelatorioVenda;
 using Document = iTextSharp.text.Document;
+using System.Data.SqlClient;
 
 namespace UI
 {
@@ -92,7 +84,7 @@ namespace UI
             }
         }
 
-        private void btnExportarRelatorio_Click_1(object sender, EventArgs e)
+        private void btnExportarRelatorio_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Arquivo PDF|*.pdf";
@@ -102,31 +94,57 @@ namespace UI
 
             if (result == DialogResult.OK)
             {
-                iTextSharp.text.Document document = new Document();
+                iTextSharp.text.Document document = new iTextSharp.text.Document(); // Correção aqui
                 PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(saveDialog.FileName, FileMode.Create));
                 document.Open();
 
+                // Adiciona título ao relatório
+                iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK); // Correção aqui
+                Paragraph title = new Paragraph("Relatório de Vendas", titleFont);
+                title.Alignment = Element.ALIGN_CENTER;
+                document.Add(title);
+                document.Add(Chunk.NEWLINE);
+
                 PdfPTable table = new PdfPTable(dtgvRelatorios.Columns.Count);
 
-                // Adiciona os cabeçalhos
-                for (int i = 0; i < dtgvRelatorios.Columns.Count; i++)
+                // Adiciona cabeçalhos da tabela
+                iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE); // Correção aqui
+                PdfPCell headerCell;
+                foreach (DataGridViewColumn column in dtgvRelatorios.Columns)
                 {
-                    table.AddCell(new Phrase(dtgvRelatorios.Columns[i].HeaderText));
+                    headerCell = new PdfPCell(new Phrase(column.HeaderText, headerFont));
+                    headerCell.BackgroundColor = BaseColor.GRAY;
+                    table.AddCell(headerCell);
                 }
 
-                // Adiciona os dados
-                for (int i = 0; i < dtgvRelatorios.Rows.Count; i++)
+                // Adiciona os dados da tabela
+                iTextSharp.text.Font cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK); // Correção aqui
+                foreach (DataGridViewRow row in dtgvRelatorios.Rows)
                 {
-                    for (int j = 0; j < dtgvRelatorios.Columns.Count; j++)
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if (dtgvRelatorios[j, i].Value != null)
+                        if (cell.Value != null)
                         {
-                            table.AddCell(new Phrase(dtgvRelatorios[j, i].Value.ToString()));
+                            table.AddCell(new Phrase(cell.Value.ToString(), cellFont));
                         }
                     }
                 }
 
                 document.Add(table);
+
+                // Adiciona a soma do valor_venda
+                double total = CalcularSomaColuna(dtgvRelatorios.DataSource as List<VendaRelatorio>, "total_de_vendas");
+                // Corrigido para declaração após o uso
+                iTextSharp.text.Font dateFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10, BaseColor.GRAY); // Correção aqui
+                Paragraph totalParagraph = new Paragraph($"Total de vendas: {total:C2}", dateFont);
+                totalParagraph.Alignment = Element.ALIGN_RIGHT;
+                document.Add(totalParagraph);
+
+                // Adiciona parágrafo com as datas selecionadas no final do documento
+                Paragraph datasSelecionadas = new Paragraph($"Período Selecionado: {dtpDataInicial.Value.ToShortDateString()} - {dtpDataFinal.Value.ToShortDateString()}", dateFont);
+                datasSelecionadas.Alignment = Element.ALIGN_RIGHT;
+                document.Add(datasSelecionadas);
+
                 document.Close();
                 MessageBox.Show("Relatório exportado com sucesso.");
             }
@@ -143,5 +161,24 @@ namespace UI
                 }
             }
         }
+        private double CalcularSomaColuna(List<DALRelatorioVenda.VendaRelatorio> vendas, string nomeDaColuna)
+        {
+            double soma = 0.0;
+
+            foreach (var venda in vendas)
+            {
+                switch (nomeDaColuna)
+                {
+                    case "total_de_vendas":
+                        soma += venda.TotalDeVendas; // Correção aqui
+                        break;
+                        // Adicione outros casos conforme necessário para outras colunas
+                }
+            }
+
+            return soma;
+        }
+
+        
     }
 }

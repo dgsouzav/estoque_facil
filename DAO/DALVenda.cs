@@ -38,6 +38,7 @@ namespace DAL
                 throw new Exception(erro.Message);
             }
         }
+
         public void Incluir(ModeloVenda modelo)
         {
             try

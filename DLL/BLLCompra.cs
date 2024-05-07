@@ -20,17 +20,9 @@ namespace BLL
 
         public void Incluir(ModeloCompra modelo)
         {
-            if (modelo.CompraData == DateTime.Now)
-            {
-                  throw new Exception("A data da compra deve ser igual a data atual.");
-            }
             if (modelo.CompraTotal <= 0)
             {
                 throw new Exception("O valor da compra deve ser maior que zero.");
-            }
-            if(modelo.CompraNumeroParcelas <= 0)
-            {
-                throw new Exception("O número de parcelas deve ser maior que zero.");
             }
             if (modelo.FornecedorID <= 0)
             {
@@ -50,17 +42,9 @@ namespace BLL
             {
                 throw new Exception("O código da compra é obrigatório.");
             }
-            if (modelo.CompraData == DateTime.Now)
-            {
-                throw new Exception("A data da compra deve ser igual a data atual.");
-            }
             if (modelo.CompraTotal <= 0)
             {
                 throw new Exception("O valor da compra deve ser maior que zero.");
-            }
-            if (modelo.CompraNumeroParcelas <= 0)
-            {
-                throw new Exception("O número de parcelas deve ser maior que zero.");
             }
             if (modelo.FornecedorID <= 0)
             {

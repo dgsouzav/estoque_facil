@@ -31,8 +31,6 @@
             panelDados = new Panel();
             txtVendaID = new TextBox();
             lblVenda = new Label();
-            cmbNumeroParcelas = new ComboBox();
-            lblNumeroParcelas = new Label();
             txtValor = new TextBox();
             lblValor = new Label();
             lblDescricaoProduto = new Label();
@@ -51,8 +49,6 @@
             // 
             panelDados.Controls.Add(txtVendaID);
             panelDados.Controls.Add(lblVenda);
-            panelDados.Controls.Add(cmbNumeroParcelas);
-            panelDados.Controls.Add(lblNumeroParcelas);
             panelDados.Controls.Add(txtValor);
             panelDados.Controls.Add(lblValor);
             panelDados.Controls.Add(lblDescricaoProduto);
@@ -81,31 +77,14 @@
             lblVenda.TabIndex = 12;
             lblVenda.Text = "Código";
             // 
-            // cmbNumeroParcelas
-            // 
-            cmbNumeroParcelas.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbNumeroParcelas.FormattingEnabled = true;
-            cmbNumeroParcelas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            cmbNumeroParcelas.Location = new Point(3, 286);
-            cmbNumeroParcelas.Name = "cmbNumeroParcelas";
-            cmbNumeroParcelas.Size = new Size(257, 25);
-            cmbNumeroParcelas.TabIndex = 11;
-            // 
-            // lblNumeroParcelas
-            // 
-            lblNumeroParcelas.AutoSize = true;
-            lblNumeroParcelas.Location = new Point(3, 268);
-            lblNumeroParcelas.Name = "lblNumeroParcelas";
-            lblNumeroParcelas.Size = new Size(50, 15);
-            lblNumeroParcelas.TabIndex = 10;
-            lblNumeroParcelas.Text = "Parcelas";
-            // 
             // txtValor
             // 
             txtValor.Location = new Point(3, 232);
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(257, 23);
             txtValor.TabIndex = 7;
+            txtValor.KeyPress += txtValor_KeyPress;
+            txtValor.Leave += txtValor_Leave;
             // 
             // lblValor
             // 
@@ -219,8 +198,6 @@
         protected Button btnLimpar;
         protected Button btnInserir;
         protected Button btnSalvar;
-        private ComboBox cmbNumeroParcelas;
-        private Label lblNumeroParcelas;
         private TextBox txtVendaID;
         private Label lblVenda;
     }

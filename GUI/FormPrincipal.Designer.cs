@@ -64,9 +64,6 @@
             vendaToolStripMenuItem1 = new ToolStripMenuItem();
             consultaVendaToolStripMenuItem = new ToolStripMenuItem();
             relatorioVendaToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator9 = new ToolStripSeparator();
-            pagamentoToolStripMenuItem = new ToolStripMenuItem();
-            rEcebimentoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             compraToolStripMenuItem = new ToolStripMenuItem();
             cadastroCompraToolStripMenuItem = new ToolStripMenuItem();
@@ -76,10 +73,13 @@
             gastosToolStripMenuItem = new ToolStripMenuItem();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             relatorioToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            abrirCaixaToolStripMenuItem = new ToolStripMenuItem();
             SairToolStripMenuItem1 = new ToolStripMenuItem();
             lblUsuarioAtual = new Label();
             lblProdutosFaltantes = new Label();
             lblBemVindo = new Label();
+            fecharCaixaToolStripMenuItem = new ToolStripMenuItem();
             menuPrincipal.SuspendLayout();
             SuspendLayout();
             // 
@@ -301,7 +301,7 @@
             // 
             // MovimentacoesToolStripMenuItem
             // 
-            MovimentacoesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { VendaToolStripMenuItem, toolStripSeparator9, pagamentoToolStripMenuItem, rEcebimentoToolStripMenuItem, toolStripSeparator3, compraToolStripMenuItem, toolStripSeparator1, gastosToolStripMenuItem });
+            MovimentacoesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { VendaToolStripMenuItem, toolStripSeparator3, compraToolStripMenuItem, toolStripSeparator1, gastosToolStripMenuItem, toolStripSeparator2, abrirCaixaToolStripMenuItem, fecharCaixaToolStripMenuItem });
             MovimentacoesToolStripMenuItem.Name = "MovimentacoesToolStripMenuItem";
             MovimentacoesToolStripMenuItem.Size = new Size(112, 21);
             MovimentacoesToolStripMenuItem.Text = "Movimentações";
@@ -334,25 +334,6 @@
             relatorioVendaToolStripMenuItem.Size = new Size(129, 22);
             relatorioVendaToolStripMenuItem.Text = "Relatório";
             relatorioVendaToolStripMenuItem.Click += relatórioVendaToolStripMenuItem_Click;
-            // 
-            // toolStripSeparator9
-            // 
-            toolStripSeparator9.Name = "toolStripSeparator9";
-            toolStripSeparator9.Size = new Size(177, 6);
-            // 
-            // pagamentoToolStripMenuItem
-            // 
-            pagamentoToolStripMenuItem.Name = "pagamentoToolStripMenuItem";
-            pagamentoToolStripMenuItem.Size = new Size(180, 22);
-            pagamentoToolStripMenuItem.Text = "Pagamento";
-            pagamentoToolStripMenuItem.Click += pagamentoToolStripMenuItem_Click;
-            // 
-            // rEcebimentoToolStripMenuItem
-            // 
-            rEcebimentoToolStripMenuItem.Name = "rEcebimentoToolStripMenuItem";
-            rEcebimentoToolStripMenuItem.Size = new Size(180, 22);
-            rEcebimentoToolStripMenuItem.Text = "Recebimento";
-            rEcebimentoToolStripMenuItem.Click += rEcebimentoToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
@@ -397,21 +378,33 @@
             gastosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, relatorioToolStripMenuItem });
             gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
             gastosToolStripMenuItem.Size = new Size(180, 22);
-            gastosToolStripMenuItem.Text = "Gastos";
+            gastosToolStripMenuItem.Text = "Despesa";
             // 
             // cadastroToolStripMenuItem
             // 
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            cadastroToolStripMenuItem.Size = new Size(180, 22);
+            cadastroToolStripMenuItem.Size = new Size(129, 22);
             cadastroToolStripMenuItem.Text = "Cadastro";
             cadastroToolStripMenuItem.Click += cadastroToolStripMenuItem_Click;
             // 
             // relatorioToolStripMenuItem
             // 
             relatorioToolStripMenuItem.Name = "relatorioToolStripMenuItem";
-            relatorioToolStripMenuItem.Size = new Size(180, 22);
+            relatorioToolStripMenuItem.Size = new Size(129, 22);
             relatorioToolStripMenuItem.Text = "Relatorio";
             relatorioToolStripMenuItem.Click += relatorioToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(177, 6);
+            // 
+            // abrirCaixaToolStripMenuItem
+            // 
+            abrirCaixaToolStripMenuItem.Name = "abrirCaixaToolStripMenuItem";
+            abrirCaixaToolStripMenuItem.Size = new Size(180, 22);
+            abrirCaixaToolStripMenuItem.Text = "Abrir caixa";
+            abrirCaixaToolStripMenuItem.Click += abrirCaixaToolStripMenuItem_Click;
             // 
             // SairToolStripMenuItem1
             // 
@@ -453,6 +446,13 @@
             lblBemVindo.TabIndex = 13;
             lblBemVindo.TextAlign = ContentAlignment.TopCenter;
             // 
+            // fecharCaixaToolStripMenuItem
+            // 
+            fecharCaixaToolStripMenuItem.Name = "fecharCaixaToolStripMenuItem";
+            fecharCaixaToolStripMenuItem.Size = new Size(180, 22);
+            fecharCaixaToolStripMenuItem.Text = "Fechar caixa";
+            fecharCaixaToolStripMenuItem.Click += fecharCaixaToolStripMenuItem_Click;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -482,9 +482,6 @@
         private ToolStripMenuItem MovimentacoesToolStripMenuItem;
         private ToolStripMenuItem VendaToolStripMenuItem;
         private ToolStripMenuItem SairToolStripMenuItem1;
-        private ToolStripSeparator toolStripSeparator9;
-        private ToolStripMenuItem pagamentoToolStripMenuItem;
-        private ToolStripMenuItem rEcebimentoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
         private Label lblUsuarioAtual;
         private Label lblProdutosFaltantes;
@@ -530,5 +527,8 @@
         private ToolStripMenuItem gastosToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem relatorioToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem abrirCaixaToolStripMenuItem;
+        private ToolStripMenuItem fecharCaixaToolStripMenuItem;
     }
 }

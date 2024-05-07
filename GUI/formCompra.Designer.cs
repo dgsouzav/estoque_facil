@@ -44,38 +44,20 @@
             btnLocalizarFornecedor = new Button();
             txtFornecedorID = new TextBox();
             lblFornecedorID = new Label();
-            lblDataInicial = new Label();
             dtgvItensCompra = new DataGridView();
             produtoID = new DataGridViewTextBoxColumn();
             produtoNome = new DataGridViewTextBoxColumn();
             produtoQtde = new DataGridViewTextBoxColumn();
             produtoValor = new DataGridViewTextBoxColumn();
             produtoValorTotal = new DataGridViewTextBoxColumn();
-            dtpDataInicial = new DateTimePicker();
             cmbTipoPagamento = new ComboBox();
-            cmbNumeroParcelas = new ComboBox();
-            dtpDataCompra = new DateTimePicker();
             txtCompraTotal = new TextBox();
             lblCompraTotal = new Label();
-            lblDataCompra = new Label();
             txtNotaFiscal = new TextBox();
             lblNotaFiscal = new Label();
-            lblNumeroParcelas = new Label();
             txtCompraID = new TextBox();
             lblCompra = new Label();
             lblTipoPagamento = new Label();
-            panelFinalizaCompra = new Panel();
-            lbl0000 = new Label();
-            lblCompraTotal2 = new Label();
-            btnCancelarPagamento = new Button();
-            btnSalvarPagamento = new Button();
-            lblParcelasCompra = new Label();
-            lblTraço = new Label();
-            lblDadosPagamento = new Label();
-            dtgvParcelasCompra = new DataGridView();
-            parcelaID = new DataGridViewTextBoxColumn();
-            parcelaValorPagamento = new DataGridViewTextBoxColumn();
-            parcelaDataVencimento = new DataGridViewTextBoxColumn();
             btnAlterar = new Button();
             btnSalvar = new Button();
             btnLocalizar = new Button();
@@ -85,8 +67,6 @@
             btnExcluir = new Button();
             panelDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvItensCompra).BeginInit();
-            panelFinalizaCompra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvParcelasCompra).BeginInit();
             panelBotoes.SuspendLayout();
             SuspendLayout();
             // 
@@ -107,18 +87,12 @@
             panelDados.Controls.Add(btnLocalizarFornecedor);
             panelDados.Controls.Add(txtFornecedorID);
             panelDados.Controls.Add(lblFornecedorID);
-            panelDados.Controls.Add(lblDataInicial);
             panelDados.Controls.Add(dtgvItensCompra);
-            panelDados.Controls.Add(dtpDataInicial);
             panelDados.Controls.Add(cmbTipoPagamento);
-            panelDados.Controls.Add(cmbNumeroParcelas);
-            panelDados.Controls.Add(dtpDataCompra);
             panelDados.Controls.Add(txtCompraTotal);
             panelDados.Controls.Add(lblCompraTotal);
-            panelDados.Controls.Add(lblDataCompra);
             panelDados.Controls.Add(txtNotaFiscal);
             panelDados.Controls.Add(lblNotaFiscal);
-            panelDados.Controls.Add(lblNumeroParcelas);
             panelDados.Controls.Add(txtCompraID);
             panelDados.Controls.Add(lblCompra);
             panelDados.Controls.Add(lblTipoPagamento);
@@ -260,15 +234,6 @@
             lblFornecedorID.TabIndex = 26;
             lblFornecedorID.Text = "Fornecedor";
             // 
-            // lblDataInicial
-            // 
-            lblDataInicial.AutoSize = true;
-            lblDataInicial.Location = new Point(223, 383);
-            lblDataInicial.Name = "lblDataInicial";
-            lblDataInicial.Size = new Size(145, 15);
-            lblDataInicial.TabIndex = 25;
-            lblDataInicial.Text = "Data inicial de pagamento";
-            // 
             // dtgvItensCompra
             // 
             dtgvItensCompra.AllowUserToAddRows = false;
@@ -316,38 +281,15 @@
             produtoValorTotal.Name = "produtoValorTotal";
             produtoValorTotal.ReadOnly = true;
             // 
-            // dtpDataInicial
-            // 
-            dtpDataInicial.Location = new Point(223, 401);
-            dtpDataInicial.Name = "dtpDataInicial";
-            dtpDataInicial.Size = new Size(183, 23);
-            dtpDataInicial.TabIndex = 9;
-            // 
             // cmbTipoPagamento
             // 
             cmbTipoPagamento.AutoCompleteMode = AutoCompleteMode.Suggest;
             cmbTipoPagamento.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbTipoPagamento.FormattingEnabled = true;
-            cmbTipoPagamento.Location = new Point(104, 401);
+            cmbTipoPagamento.Location = new Point(6, 401);
             cmbTipoPagamento.Name = "cmbTipoPagamento";
             cmbTipoPagamento.Size = new Size(113, 23);
             cmbTipoPagamento.TabIndex = 8;
-            // 
-            // cmbNumeroParcelas
-            // 
-            cmbNumeroParcelas.FormattingEnabled = true;
-            cmbNumeroParcelas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            cmbNumeroParcelas.Location = new Point(6, 401);
-            cmbNumeroParcelas.Name = "cmbNumeroParcelas";
-            cmbNumeroParcelas.Size = new Size(92, 23);
-            cmbNumeroParcelas.TabIndex = 7;
-            // 
-            // dtpDataCompra
-            // 
-            dtpDataCompra.Location = new Point(281, 31);
-            dtpDataCompra.Name = "dtpDataCompra";
-            dtpDataCompra.Size = new Size(252, 23);
-            dtpDataCompra.TabIndex = 2;
             // 
             // txtCompraTotal
             // 
@@ -366,15 +308,6 @@
             lblCompraTotal.TabIndex = 16;
             lblCompraTotal.Text = "Total da compra";
             // 
-            // lblDataCompra
-            // 
-            lblDataCompra.AutoSize = true;
-            lblDataCompra.Location = new Point(281, 13);
-            lblDataCompra.Name = "lblDataCompra";
-            lblDataCompra.Size = new Size(91, 15);
-            lblDataCompra.TabIndex = 12;
-            lblDataCompra.Text = "Data da compra";
-            // 
             // txtNotaFiscal
             // 
             txtNotaFiscal.Location = new Point(104, 30);
@@ -391,15 +324,6 @@
             lblNotaFiscal.Size = new Size(63, 15);
             lblNotaFiscal.TabIndex = 6;
             lblNotaFiscal.Text = "Nota fiscal";
-            // 
-            // lblNumeroParcelas
-            // 
-            lblNumeroParcelas.AutoSize = true;
-            lblNumeroParcelas.Location = new Point(6, 383);
-            lblNumeroParcelas.Name = "lblNumeroParcelas";
-            lblNumeroParcelas.Size = new Size(50, 15);
-            lblNumeroParcelas.TabIndex = 4;
-            lblNumeroParcelas.Text = "Parcelas";
             // 
             // txtCompraID
             // 
@@ -421,128 +345,11 @@
             // lblTipoPagamento
             // 
             lblTipoPagamento.AutoSize = true;
-            lblTipoPagamento.Location = new Point(107, 383);
+            lblTipoPagamento.Location = new Point(3, 383);
             lblTipoPagamento.Name = "lblTipoPagamento";
             lblTipoPagamento.Size = new Size(110, 15);
             lblTipoPagamento.TabIndex = 0;
             lblTipoPagamento.Text = "Tipo de pagamento";
-            // 
-            // panelFinalizaCompra
-            // 
-            panelFinalizaCompra.Controls.Add(lbl0000);
-            panelFinalizaCompra.Controls.Add(lblCompraTotal2);
-            panelFinalizaCompra.Controls.Add(btnCancelarPagamento);
-            panelFinalizaCompra.Controls.Add(btnSalvarPagamento);
-            panelFinalizaCompra.Controls.Add(lblParcelasCompra);
-            panelFinalizaCompra.Controls.Add(lblTraço);
-            panelFinalizaCompra.Controls.Add(lblDadosPagamento);
-            panelFinalizaCompra.Controls.Add(dtgvParcelasCompra);
-            panelFinalizaCompra.Location = new Point(6, 12);
-            panelFinalizaCompra.Name = "panelFinalizaCompra";
-            panelFinalizaCompra.Size = new Size(660, 441);
-            panelFinalizaCompra.TabIndex = 4;
-            panelFinalizaCompra.Visible = false;
-            // 
-            // lbl0000
-            // 
-            lbl0000.AutoSize = true;
-            lbl0000.BackColor = Color.FromArgb(255, 128, 128);
-            lbl0000.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl0000.Location = new Point(476, 389);
-            lbl0000.Name = "lbl0000";
-            lbl0000.Size = new Size(35, 15);
-            lbl0000.TabIndex = 15;
-            lbl0000.Text = "0000";
-            // 
-            // lblCompraTotal2
-            // 
-            lblCompraTotal2.AutoSize = true;
-            lblCompraTotal2.Location = new Point(378, 389);
-            lblCompraTotal2.Name = "lblCompraTotal2";
-            lblCompraTotal2.Size = new Size(92, 15);
-            lblCompraTotal2.TabIndex = 14;
-            lblCompraTotal2.Text = "Total da compra";
-            // 
-            // btnCancelarPagamento
-            // 
-            btnCancelarPagamento.Location = new Point(553, 152);
-            btnCancelarPagamento.Name = "btnCancelarPagamento";
-            btnCancelarPagamento.Size = new Size(90, 60);
-            btnCancelarPagamento.TabIndex = 17;
-            btnCancelarPagamento.Text = "CANCELAR";
-            btnCancelarPagamento.UseVisualStyleBackColor = true;
-            btnCancelarPagamento.Click += btnCancelarPagamento_Click;
-            // 
-            // btnSalvarPagamento
-            // 
-            btnSalvarPagamento.Location = new Point(553, 83);
-            btnSalvarPagamento.Name = "btnSalvarPagamento";
-            btnSalvarPagamento.Size = new Size(90, 60);
-            btnSalvarPagamento.TabIndex = 16;
-            btnSalvarPagamento.Text = "SALVAR";
-            btnSalvarPagamento.UseVisualStyleBackColor = true;
-            btnSalvarPagamento.Click += btnSalvarPagamento_Click;
-            // 
-            // lblParcelasCompra
-            // 
-            lblParcelasCompra.AutoSize = true;
-            lblParcelasCompra.Location = new Point(3, 60);
-            lblParcelasCompra.Name = "lblParcelasCompra";
-            lblParcelasCompra.Size = new Size(110, 15);
-            lblParcelasCompra.TabIndex = 3;
-            lblParcelasCompra.Text = "Parcelas da compra";
-            // 
-            // lblTraço
-            // 
-            lblTraço.AutoSize = true;
-            lblTraço.Location = new Point(3, 34);
-            lblTraço.Name = "lblTraço";
-            lblTraço.Size = new Size(557, 15);
-            lblTraço.TabIndex = 2;
-            lblTraço.Text = "______________________________________________________________________________________________________________";
-            // 
-            // lblDadosPagamento
-            // 
-            lblDadosPagamento.AutoSize = true;
-            lblDadosPagamento.Location = new Point(3, 19);
-            lblDadosPagamento.Name = "lblDadosPagamento";
-            lblDadosPagamento.Size = new Size(121, 15);
-            lblDadosPagamento.TabIndex = 1;
-            lblDadosPagamento.Text = "Dados do pagamento";
-            // 
-            // dtgvParcelasCompra
-            // 
-            dtgvParcelasCompra.AllowUserToAddRows = false;
-            dtgvParcelasCompra.AllowUserToDeleteRows = false;
-            dtgvParcelasCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvParcelasCompra.Columns.AddRange(new DataGridViewColumn[] { parcelaID, parcelaValorPagamento, parcelaDataVencimento });
-            dtgvParcelasCompra.Location = new Point(3, 85);
-            dtgvParcelasCompra.Name = "dtgvParcelasCompra";
-            dtgvParcelasCompra.ReadOnly = true;
-            dtgvParcelasCompra.RowTemplate.Height = 25;
-            dtgvParcelasCompra.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvParcelasCompra.Size = new Size(544, 301);
-            dtgvParcelasCompra.TabIndex = 0;
-            // 
-            // parcelaID
-            // 
-            parcelaID.HeaderText = "ID da parcela";
-            parcelaID.Name = "parcelaID";
-            parcelaID.ReadOnly = true;
-            // 
-            // parcelaValorPagamento
-            // 
-            parcelaValorPagamento.HeaderText = "Valor";
-            parcelaValorPagamento.Name = "parcelaValorPagamento";
-            parcelaValorPagamento.ReadOnly = true;
-            parcelaValorPagamento.Width = 200;
-            // 
-            // parcelaDataVencimento
-            // 
-            parcelaDataVencimento.HeaderText = "Data de vencimento";
-            parcelaDataVencimento.Name = "parcelaDataVencimento";
-            parcelaDataVencimento.ReadOnly = true;
-            parcelaDataVencimento.Width = 200;
             // 
             // btnAlterar
             // 
@@ -622,7 +429,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(675, 461);
-            Controls.Add(panelFinalizaCompra);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Name = "formCompra";
@@ -633,9 +439,6 @@
             panelDados.ResumeLayout(false);
             panelDados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvItensCompra).EndInit();
-            panelFinalizaCompra.ResumeLayout(false);
-            panelFinalizaCompra.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvParcelasCompra).EndInit();
             panelBotoes.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -647,18 +450,12 @@
         private Button btnLocalizarFornecedor;
         private TextBox txtFornecedorID;
         private Label lblFornecedorID;
-        private Label lblDataInicial;
         private DataGridView dtgvItensCompra;
-        private DateTimePicker dtpDataInicial;
         private ComboBox cmbTipoPagamento;
-        private ComboBox cmbNumeroParcelas;
-        private DateTimePicker dtpDataCompra;
         private TextBox txtCompraTotal;
         private Label lblCompraTotal;
-        private Label lblDataCompra;
         private TextBox txtNotaFiscal;
         private Label lblNotaFiscal;
-        private Label lblNumeroParcelas;
         private TextBox txtCompraID;
         private Label lblCompra;
         private Label lblTipoPagamento;
@@ -683,20 +480,8 @@
         private DataGridViewTextBoxColumn produtoQtde;
         private DataGridViewTextBoxColumn produtoValor;
         private DataGridViewTextBoxColumn produtoValorTotal;
-        private Panel panelFinalizaCompra;
-        private Label lblParcelasCompra;
-        private Label lblTraço;
-        private Label lblDadosPagamento;
-        private DataGridView dtgvParcelasCompra;
-        protected Button btnCancelarPagamento;
-        protected Button btnSalvarPagamento;
-        private Label lbl0000;
-        private Label lblCompraTotal2;
-        private DataGridViewTextBoxColumn parcelaID;
-        private DataGridViewTextBoxColumn parcelaValorPagamento;
-        private DataGridViewTextBoxColumn parcelaDataVencimento;
-        protected Button btnExcluir;
         private Label label2;
         private Label label1;
+        protected Button btnExcluir;
     }
 }
