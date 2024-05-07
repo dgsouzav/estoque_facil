@@ -20,3 +20,5 @@
 ### Movimentações
 - Compra
 - Venda(frente de caixa)
+- Abertura de caixa
+- Fechamento de caixa
