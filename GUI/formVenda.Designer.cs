@@ -42,12 +42,10 @@
             txtValorPago = new TextBox();
             lblValorPago = new Label();
             checkBoxVerificaEstoque = new CheckBox();
-            label2 = new Label();
             label1 = new Label();
             btnAddProduto = new Button();
             txtValor = new TextBox();
             txtQtde = new TextBox();
-            lblValor = new Label();
             lblQtde = new Label();
             lblProdutoNome = new Label();
             lblCliente = new Label();
@@ -125,12 +123,10 @@
             panelDados.Controls.Add(txtValorPago);
             panelDados.Controls.Add(lblValorPago);
             panelDados.Controls.Add(checkBoxVerificaEstoque);
-            panelDados.Controls.Add(label2);
             panelDados.Controls.Add(label1);
             panelDados.Controls.Add(btnAddProduto);
             panelDados.Controls.Add(txtValor);
             panelDados.Controls.Add(txtQtde);
-            panelDados.Controls.Add(lblValor);
             panelDados.Controls.Add(lblQtde);
             panelDados.Controls.Add(lblProdutoNome);
             panelDados.Controls.Add(lblCliente);
@@ -250,17 +246,6 @@
             checkBoxVerificaEstoque.Text = "Verificar quantidade de produtos em estoque";
             checkBoxVerificaEstoque.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(255, 128, 128);
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(1102, 364);
-            label2.Name = "label2";
-            label2.Size = new Size(29, 21);
-            label2.TabIndex = 41;
-            label2.Text = "R$";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -286,16 +271,17 @@
             // 
             txtValor.Enabled = false;
             txtValor.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValor.Location = new Point(1132, 352);
+            txtValor.Location = new Point(1132, 283);
             txtValor.Multiline = true;
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(198, 43);
             txtValor.TabIndex = 6;
+            txtValor.Visible = false;
             // 
             // txtQtde
             // 
             txtQtde.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtQtde.Location = new Point(1132, 283);
+            txtQtde.Location = new Point(1132, 352);
             txtQtde.Multiline = true;
             txtQtde.Name = "txtQtde";
             txtQtde.Size = new Size(198, 43);
@@ -303,23 +289,12 @@
             txtQtde.KeyPress += txtQtde_KeyPress_1;
             txtQtde.Leave += txtQtde_Leave;
             // 
-            // lblValor
-            // 
-            lblValor.AutoSize = true;
-            lblValor.BackColor = Color.LightCoral;
-            lblValor.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblValor.Location = new Point(1132, 329);
-            lblValor.Name = "lblValor";
-            lblValor.Size = new Size(98, 20);
-            lblValor.TabIndex = 35;
-            lblValor.Text = "Valor unitário";
-            // 
             // lblQtde
             // 
             lblQtde.AutoSize = true;
             lblQtde.BackColor = Color.LightCoral;
             lblQtde.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQtde.Location = new Point(1132, 260);
+            lblQtde.Location = new Point(1132, 329);
             lblQtde.Name = "lblQtde";
             lblQtde.Size = new Size(87, 20);
             lblQtde.TabIndex = 34;
@@ -532,7 +507,6 @@
         private Button btnAddProduto;
         private TextBox txtValor;
         private TextBox txtQtde;
-        private Label lblValor;
         private Label lblQtde;
         private Label lblProdutoNome;
         private Label lblProdutoID;
@@ -552,7 +526,6 @@
         private TextBox txtVendaID;
         private Label lblVenda;
         private Label lblTipoPagamento;
-        private Label label2;
         private Label label1;
         private CheckBox checkBoxVerificaEstoque;
         private Label label3;

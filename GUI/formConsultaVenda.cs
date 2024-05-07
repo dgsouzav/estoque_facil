@@ -30,7 +30,6 @@ namespace UI
             panelData.Visible = false;
             dtgvDadosVenda.DataSource = null;
             dtgvItensVenda.DataSource = null;
-            dtgvParcelasVenda.DataSource = null;
 
             if (rbVendas.Checked == true)
             {
@@ -42,13 +41,6 @@ namespace UI
             if (rbData.Checked == true)
             {
                 panelData.Visible = true;
-            }
-            if (rbParcelas.Checked == true)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bll = new BLLVenda(cx);
-                dtgvDadosVenda.DataSource = bll.LocalizarParcelasNaoPagas();
-                this.CabecalhoDtgvDadosVenda();
             }
         }
         public void CabecalhoDtgvItensVenda()
@@ -63,12 +55,6 @@ namespace UI
                 dtgvItensVenda.Columns[4].Visible = false;
                 dtgvItensVenda.Columns[5].HeaderText = "Produto";
 
-                dtgvParcelasVenda.Columns[0].HeaderText = "ID da Venda";
-                dtgvParcelasVenda.Columns[1].HeaderText = "Parcela";
-                dtgvParcelasVenda.Columns[2].HeaderText = "Valor";
-                dtgvParcelasVenda.Columns[3].HeaderText = "Data de Pagamento";
-                dtgvParcelasVenda.Columns[4].HeaderText = "Data de Vencimento";
-                dtgvParcelasVenda.Columns[0].Visible = false;
             }
             catch { }
 
@@ -83,8 +69,6 @@ namespace UI
             dtgvDadosVenda.Columns[2].Width = 100;
             dtgvDadosVenda.Columns[3].HeaderText = "Total";
             dtgvDadosVenda.Columns[3].Width = 100;
-            dtgvDadosVenda.Columns[4].HeaderText = "Número de Parcelas";
-            dtgvDadosVenda.Columns[4].Width = 100;
             dtgvDadosVenda.Columns[5].HeaderText = "Status";
             dtgvDadosVenda.Columns[5].Width = 100;
             dtgvDadosVenda.Columns[6].HeaderText = "Código do tipo de pagamento";

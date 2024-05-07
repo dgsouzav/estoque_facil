@@ -12,20 +12,18 @@ namespace Modelo
             this.CompraData = DateTime.Now;
             this.CompraNotaFiscal = 0;
             this.CompraTotal = 0;
-            this.CompraNumeroParcelas = 0;
             this.CompraStatus = "Válida";
             this.FornecedorID = 0;
             this.TipoPagamentoID = 0;
         }
 
         public ModeloCompra(int compra_id, DateTime compra_data, int compra_notaFiscal, 
-            double compra_total, int compra_numeroParcelas, String compra_status, int fornecedor_id, int tipoPagamento_id)
+            double compra_total, String compra_status, int fornecedor_id, int tipoPagamento_id)
         {
             this.CompraID = compra_id;
             this.CompraData = compra_data;
             this.CompraNotaFiscal = compra_notaFiscal;
             this.CompraTotal = compra_total;
-            this.CompraNumeroParcelas = compra_numeroParcelas;
             this.CompraStatus = compra_status;
             this.FornecedorID = fornecedor_id;
             this.TipoPagamentoID = tipoPagamento_id;
@@ -56,12 +54,6 @@ namespace Modelo
         {
             get { return this.compra_total; }
             set { this.compra_total = value; }
-        }
-        private int compra_numeroParcelas;
-        public int CompraNumeroParcelas
-        {
-            get { return this.compra_numeroParcelas; }
-            set { this.compra_numeroParcelas = value; }
         }
         private String compra_status;
         public String CompraStatus

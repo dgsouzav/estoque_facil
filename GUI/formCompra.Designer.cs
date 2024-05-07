@@ -30,11 +30,9 @@
         {
             panelDados = new Panel();
             label2 = new Label();
-            label1 = new Label();
             btnAddProduto = new Button();
             txtValor = new TextBox();
             txtQtde = new TextBox();
-            lblValor = new Label();
             lblQtde = new Label();
             lblProdutoNome = new Label();
             lblProdutoID = new Label();
@@ -73,11 +71,9 @@
             // panelDados
             // 
             panelDados.Controls.Add(label2);
-            panelDados.Controls.Add(label1);
             panelDados.Controls.Add(btnAddProduto);
             panelDados.Controls.Add(txtValor);
             panelDados.Controls.Add(txtQtde);
-            panelDados.Controls.Add(lblValor);
             panelDados.Controls.Add(lblQtde);
             panelDados.Controls.Add(lblProdutoNome);
             panelDados.Controls.Add(lblProdutoID);
@@ -112,17 +108,6 @@
             label2.TabIndex = 42;
             label2.Text = "R$";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.LightCoral;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(974, 590);
-            label1.Name = "label1";
-            label1.Size = new Size(26, 20);
-            label1.TabIndex = 41;
-            label1.Text = "R$";
-            // 
             // btnAddProduto
             // 
             btnAddProduto.Location = new Point(419, 135);
@@ -136,37 +121,27 @@
             // txtValor
             // 
             txtValor.Enabled = false;
-            txtValor.Location = new Point(1006, 579);
+            txtValor.Location = new Point(1006, 487);
             txtValor.Multiline = true;
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(198, 43);
             txtValor.TabIndex = 37;
+            txtValor.Visible = false;
             // 
             // txtQtde
             // 
-            txtQtde.Location = new Point(1005, 502);
+            txtQtde.Location = new Point(1005, 572);
             txtQtde.Multiline = true;
             txtQtde.Name = "txtQtde";
             txtQtde.Size = new Size(199, 43);
             txtQtde.TabIndex = 36;
-            // 
-            // lblValor
-            // 
-            lblValor.AutoSize = true;
-            lblValor.BackColor = Color.LightCoral;
-            lblValor.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblValor.Location = new Point(1006, 556);
-            lblValor.Name = "lblValor";
-            lblValor.Size = new Size(98, 20);
-            lblValor.TabIndex = 35;
-            lblValor.Text = "Valor unitário";
             // 
             // lblQtde
             // 
             lblQtde.AutoSize = true;
             lblQtde.BackColor = Color.LightCoral;
             lblQtde.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQtde.Location = new Point(1006, 479);
+            lblQtde.Location = new Point(1006, 549);
             lblQtde.Name = "lblQtde";
             lblQtde.Size = new Size(87, 20);
             lblQtde.TabIndex = 34;
@@ -486,7 +461,6 @@
         private Button btnLocalizarProduto;
         private Label lblProdutoNome;
         private TextBox txtNomeCategoria;
-        private Label lblValor;
         private Label lblQtde;
         private TextBox txtValor;
         private TextBox txtQtde;
@@ -497,7 +471,6 @@
         private DataGridViewTextBoxColumn produtoValor;
         private DataGridViewTextBoxColumn produtoValorTotal;
         private Label label2;
-        private Label label1;
         protected Button btnExcluir;
     }
 }

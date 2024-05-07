@@ -98,7 +98,7 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("select p.produto_id, p.produto_nome, p.produto_descricao, p.produto_valorpago, " +
-                "p.produto_valorvenda, p.produto_lote, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome, f.fornecedor_nome from produto p " +
+                "p.produto_valorvenda, p.produto_lote, p.produto_qtde, u.undmed_nome, c.nome_categoria, sc.subCategoria_nome, f.fornecedor_nome from produto p " +
                 "inner join unidadeMedida u on p.undmed_id = u.undmed_id " +
                 "inner join categoria c on p.categoria_id = c.categoria_id " +
                 "inner join subCategoria sc on p.subCategoria_id = sc.subcategoria_id " +

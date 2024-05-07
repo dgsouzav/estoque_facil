@@ -35,16 +35,19 @@ namespace UI
             dtgvDadosCompra.Columns[2].Width = 100;
             dtgvDadosCompra.Columns[3].HeaderText = "Fornecedor";
             dtgvDadosCompra.Columns[3].Width = 100;
-            dtgvDadosCompra.Columns[4].HeaderText = "Número de Parcelas";
-            dtgvDadosCompra.Columns[4].Visible = false;
-            dtgvDadosCompra.Columns[5].HeaderText = "Status";
+            dtgvDadosCompra.Columns[4].HeaderText = "Status";
+            dtgvDadosCompra.Columns[4].Width = 100;
+            dtgvDadosCompra.Columns[5].HeaderText = "Total";
             dtgvDadosCompra.Columns[5].Visible = false;
-            dtgvDadosCompra.Columns[6].HeaderText = "Código do Fornecedor";
+            dtgvDadosCompra.Columns[6].HeaderText = "Código do tipo de pagamento";
             dtgvDadosCompra.Columns[6].Visible = false;
-            dtgvDadosCompra.Columns[7].HeaderText = "Código do tipo de pagamento";
-            dtgvDadosCompra.Columns[7].Visible = false;
-            dtgvDadosCompra.Columns[8].HeaderText = "Total";
-            dtgvDadosCompra.Columns[8].Width = 100;
+            dtgvDadosCompra.Columns[7].HeaderText = "Total";
+            dtgvDadosCompra.Columns[7].Width = 100;
+            if (dtgvDadosCompra.Columns.Count > 8)
+            {
+                dtgvDadosCompra.Columns[8].HeaderText = "Total";
+                dtgvDadosCompra.Columns[8].Width = 100;
+            }
         }
         private void btnLocalizarFornecedor_Click(object sender, EventArgs e)
         {
@@ -76,7 +79,6 @@ namespace UI
             panelData.Visible = false;
             dtgvDadosCompra.DataSource = null;
             dtgvItensCompra.DataSource = null;
-            dtgvParcelasCompra.DataSource = null;
 
             if (rbCompras.Checked == true)
             {
@@ -92,13 +94,6 @@ namespace UI
             if (rbData.Checked == true)
             {
                 panelData.Visible = true;
-            }
-            if (rbParcelas.Checked == true)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLCompra bll = new BLLCompra(cx);
-                dtgvDadosCompra.DataSource = bll.LocalizarParcelasNaoPagas();
-                this.CabecalhoDtgvDadosCompra();
             }
         }
 
@@ -123,11 +118,6 @@ namespace UI
                 dtgvItensCompra.Columns[4].HeaderText = "Quantidade";
                 dtgvItensCompra.Columns[5].HeaderText = "Valor";
 
-                dtgvParcelasCompra.Columns[0].HeaderText = "Parcela";
-                dtgvParcelasCompra.Columns[1].HeaderText = "Valor";
-                dtgvParcelasCompra.Columns[2].HeaderText = "Data de Pagamento";
-                dtgvParcelasCompra.Columns[3].HeaderText = "Data de Vencimento";
-                dtgvParcelasCompra.Columns[4].Visible = false;
             }
             catch { }
 

@@ -131,10 +131,5 @@ namespace UI
                 }
             }
         }
-
-        private void cmbNumeroParcelas_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
     }
 }

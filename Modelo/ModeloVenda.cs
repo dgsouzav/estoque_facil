@@ -14,7 +14,6 @@ namespace Modelo
             this.venda_data = DateTime.Now;
             this.venda_notaFiscal = 0;
             this.venda_total = 0;
-            this.venda_numeroParcelas = 0;
             this.venda_status = "Válida";
             this.tipoPagamento_id = 0;
             this.venda_aVista = 1;
@@ -23,7 +22,7 @@ namespace Modelo
             this.venda_tipoTransacao = "Gasto";
             this.venda_gastoNome = "";
         }
-        public ModeloVenda(int id, DateTime data, int notaFiscal, Double total, int numeroParcelas, 
+        public ModeloVenda(int id, DateTime data, int notaFiscal, Double total, 
             String status, int tipoPagamento_id, int aVista, int cliente_id, string venda_descricao, string venda_tipoTransacao,
             string venda_gastoNome)
         {
@@ -31,7 +30,6 @@ namespace Modelo
             this.venda_data = data;
             this.venda_notaFiscal = notaFiscal;
             this.venda_total = total;
-            this.venda_numeroParcelas = numeroParcelas;
             this.venda_status = status;
             this.tipoPagamento_id = tipoPagamento_id;
             this.venda_aVista = aVista;
@@ -66,12 +64,6 @@ namespace Modelo
         {
             get { return this.venda_total; }
             set { this.venda_total = value; }
-        }
-        private int venda_numeroParcelas;
-        public int VendaNumeroParcelas
-        {
-            get { return this.venda_numeroParcelas; }
-            set { this.venda_numeroParcelas = value; }
         }
         private String venda_status;
         public String VendaStatus

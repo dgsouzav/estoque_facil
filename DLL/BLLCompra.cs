@@ -83,16 +83,6 @@ namespace BLL
             DALCompra DALobj = new DALCompra(conexao);
             return DALobj.Localizar();
         }
-        public DataTable LocalizarParcelasNaoPagas()
-        {
-            DALCompra DALobj = new DALCompra(conexao);
-            return DALobj.LocalizarParcelasNaoPagas();
-        }
-        public int QuantidadeParcelasNaoPagas(int compra_id)
-        {
-            DALCompra DALobj = new DALCompra(conexao);
-            return DALobj.QuantidadeParcelasNaoPagas(compra_id);
-        }
         public ModeloCompra CarregaModeloCompra(int id)
         {
             DALCompra DALobj = new DALCompra(conexao);

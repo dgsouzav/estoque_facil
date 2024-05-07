@@ -1,14 +1,5 @@
 ﻿using BLL;
 using DAL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UI
 {
@@ -69,14 +60,16 @@ namespace UI
             dtgvDados.Columns[3].Width = 50;
             dtgvDados.Columns[4].HeaderText = "Valor de venda";
             dtgvDados.Columns[4].Width = 50;
-            dtgvDados.Columns[5].HeaderText = "Quantidade";
+            dtgvDados.Columns[5].HeaderText = "Lote";
             dtgvDados.Columns[5].Width = 80;
-            dtgvDados.Columns[6].HeaderText = "Unidade de medida";
+            dtgvDados.Columns[6].HeaderText = "Quantidade";
             dtgvDados.Columns[6].Width = 50;
-            dtgvDados.Columns[7].HeaderText = "Categoria";
+            dtgvDados.Columns[7].HeaderText = "Unidade de medida";
             dtgvDados.Columns[7].Width = 100;
-            dtgvDados.Columns[8].HeaderText = "Subcategoria";
+            dtgvDados.Columns[8].HeaderText = "Categoria";
             dtgvDados.Columns[8].Width = 100;
+            dtgvDados.Columns[9].HeaderText = "Subcategoria";
+            dtgvDados.Columns[9].Width = 100;
             dtgvDados.Columns[9].HeaderText = "Fornecedor";
             dtgvDados.Columns[9].Width = 100;
         }

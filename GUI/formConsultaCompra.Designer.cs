@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dtgvDadosCompra = new DataGridView();
             rbFornecedor = new RadioButton();
             rbData = new RadioButton();
             lblConsultarPelo = new Label();
-            rbParcelas = new RadioButton();
             rbCompras = new RadioButton();
             panelRB = new Panel();
             panelFornecedor = new Panel();
@@ -40,46 +38,26 @@
             btnLocalizarFornecedor = new Button();
             txtFornecedorID = new TextBox();
             lblFornecedorID = new Label();
-            panelData = new Panel();
-            lblDataFinal = new Label();
-            dtpDataFinal = new DateTimePicker();
-            dtpDataInicial = new DateTimePicker();
-            lblDataInicial = new Label();
             btnData = new Button();
-            tbcDados = new TabControl();
-            tabPageCompra = new TabPage();
+            lblDataInicial = new Label();
+            dtpDataInicial = new DateTimePicker();
+            dtpDataFinal = new DateTimePicker();
+            lblDataFinal = new Label();
+            panelData = new Panel();
             tabPageItens = new TabPage();
             dtgvItensCompra = new DataGridView();
-            tabPageParcelas = new TabPage();
-            dtgvParcelasCompra = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dtgvDadosCompra).BeginInit();
+            tabPageCompra = new TabPage();
+            dtgvDadosCompra = new DataGridView();
+            tbcDados = new TabControl();
             panelRB.SuspendLayout();
             panelFornecedor.SuspendLayout();
             panelData.SuspendLayout();
-            tbcDados.SuspendLayout();
-            tabPageCompra.SuspendLayout();
             tabPageItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvItensCompra).BeginInit();
-            tabPageParcelas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvParcelasCompra).BeginInit();
+            tabPageCompra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgvDadosCompra).BeginInit();
+            tbcDados.SuspendLayout();
             SuspendLayout();
-            // 
-            // dtgvDadosCompra
-            // 
-            dtgvDadosCompra.AllowUserToAddRows = false;
-            dtgvDadosCompra.AllowUserToDeleteRows = false;
-            dtgvDadosCompra.AllowUserToOrderColumns = true;
-            dtgvDadosCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvDadosCompra.Location = new Point(6, 6);
-            dtgvDadosCompra.Name = "dtgvDadosCompra";
-            dtgvDadosCompra.ReadOnly = true;
-            dtgvDadosCompra.RowTemplate.Height = 25;
-            dtgvDadosCompra.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvDadosCompra.Size = new Size(643, 227);
-            dtgvDadosCompra.TabIndex = 12;
-            dtgvDadosCompra.CellClick += dtgvDadosCompra_CellClick;
-            dtgvDadosCompra.CellDoubleClick += dtgvDadosCompra_CellDoubleClick;
-            dtgvDadosCompra.CellFormatting += dtgvDadosCompra_CellFormatting;
             // 
             // rbFornecedor
             // 
@@ -112,17 +90,6 @@
             lblConsultarPelo.TabIndex = 16;
             lblConsultarPelo.Text = "Consultar pelo:";
             // 
-            // rbParcelas
-            // 
-            rbParcelas.AutoSize = true;
-            rbParcelas.Location = new Point(3, 110);
-            rbParcelas.Name = "rbParcelas";
-            rbParcelas.Size = new Size(115, 19);
-            rbParcelas.TabIndex = 17;
-            rbParcelas.Text = "Parcelas a vencer";
-            rbParcelas.UseVisualStyleBackColor = true;
-            rbParcelas.CheckedChanged += rbCompras_CheckedChanged;
-            // 
             // rbCompras
             // 
             rbCompras.AutoSize = true;
@@ -141,11 +108,10 @@
             panelRB.Controls.Add(lblConsultarPelo);
             panelRB.Controls.Add(rbCompras);
             panelRB.Controls.Add(rbFornecedor);
-            panelRB.Controls.Add(rbParcelas);
             panelRB.Controls.Add(rbData);
-            panelRB.Location = new Point(12, 1);
+            panelRB.Location = new Point(12, 9);
             panelRB.Name = "panelRB";
-            panelRB.Size = new Size(120, 139);
+            panelRB.Size = new Size(120, 117);
             panelRB.TabIndex = 23;
             // 
             // panelFornecedor
@@ -196,6 +162,48 @@
             lblFornecedorID.TabIndex = 0;
             lblFornecedorID.Text = "ID do Fornecedor";
             // 
+            // btnData
+            // 
+            btnData.Location = new Point(206, 21);
+            btnData.Name = "btnData";
+            btnData.Size = new Size(75, 23);
+            btnData.TabIndex = 7;
+            btnData.Text = "Localizar";
+            btnData.UseVisualStyleBackColor = true;
+            btnData.Click += btnData_Click;
+            // 
+            // lblDataInicial
+            // 
+            lblDataInicial.AutoSize = true;
+            lblDataInicial.Location = new Point(3, 4);
+            lblDataInicial.Name = "lblDataInicial";
+            lblDataInicial.Size = new Size(65, 15);
+            lblDataInicial.TabIndex = 5;
+            lblDataInicial.Text = "Data inicial";
+            // 
+            // dtpDataInicial
+            // 
+            dtpDataInicial.Location = new Point(6, 21);
+            dtpDataInicial.Name = "dtpDataInicial";
+            dtpDataInicial.Size = new Size(200, 23);
+            dtpDataInicial.TabIndex = 8;
+            // 
+            // dtpDataFinal
+            // 
+            dtpDataFinal.Location = new Point(6, 65);
+            dtpDataFinal.Name = "dtpDataFinal";
+            dtpDataFinal.Size = new Size(200, 23);
+            dtpDataFinal.TabIndex = 9;
+            // 
+            // lblDataFinal
+            // 
+            lblDataFinal.AutoSize = true;
+            lblDataFinal.Location = new Point(6, 47);
+            lblDataFinal.Name = "lblDataFinal";
+            lblDataFinal.Size = new Size(57, 15);
+            lblDataFinal.TabIndex = 10;
+            lblDataFinal.Text = "Data final";
+            // 
             // panelData
             // 
             panelData.Controls.Add(lblDataFinal);
@@ -207,70 +215,6 @@
             panelData.Name = "panelData";
             panelData.Size = new Size(284, 95);
             panelData.TabIndex = 25;
-            // 
-            // lblDataFinal
-            // 
-            lblDataFinal.AutoSize = true;
-            lblDataFinal.Location = new Point(6, 47);
-            lblDataFinal.Name = "lblDataFinal";
-            lblDataFinal.Size = new Size(57, 15);
-            lblDataFinal.TabIndex = 10;
-            lblDataFinal.Text = "Data final";
-            // 
-            // dtpDataFinal
-            // 
-            dtpDataFinal.Location = new Point(6, 65);
-            dtpDataFinal.Name = "dtpDataFinal";
-            dtpDataFinal.Size = new Size(200, 23);
-            dtpDataFinal.TabIndex = 9;
-            // 
-            // dtpDataInicial
-            // 
-            dtpDataInicial.Location = new Point(6, 21);
-            dtpDataInicial.Name = "dtpDataInicial";
-            dtpDataInicial.Size = new Size(200, 23);
-            dtpDataInicial.TabIndex = 8;
-            // 
-            // lblDataInicial
-            // 
-            lblDataInicial.AutoSize = true;
-            lblDataInicial.Location = new Point(3, 4);
-            lblDataInicial.Name = "lblDataInicial";
-            lblDataInicial.Size = new Size(65, 15);
-            lblDataInicial.TabIndex = 5;
-            lblDataInicial.Text = "Data inicial";
-            // 
-            // btnData
-            // 
-            btnData.Location = new Point(206, 21);
-            btnData.Name = "btnData";
-            btnData.Size = new Size(75, 23);
-            btnData.TabIndex = 7;
-            btnData.Text = "Localizar";
-            btnData.UseVisualStyleBackColor = true;
-            btnData.Click += btnData_Click;
-            // 
-            // tbcDados
-            // 
-            tbcDados.Controls.Add(tabPageCompra);
-            tbcDados.Controls.Add(tabPageItens);
-            tbcDados.Controls.Add(tabPageParcelas);
-            tbcDados.Location = new Point(12, 146);
-            tbcDados.Name = "tbcDados";
-            tbcDados.SelectedIndex = 0;
-            tbcDados.Size = new Size(660, 267);
-            tbcDados.TabIndex = 26;
-            // 
-            // tabPageCompra
-            // 
-            tabPageCompra.Controls.Add(dtgvDadosCompra);
-            tabPageCompra.Location = new Point(4, 24);
-            tabPageCompra.Name = "tabPageCompra";
-            tabPageCompra.Padding = new Padding(3);
-            tabPageCompra.Size = new Size(652, 239);
-            tabPageCompra.TabIndex = 0;
-            tabPageCompra.Text = "Compra";
-            tabPageCompra.UseVisualStyleBackColor = true;
             // 
             // tabPageItens
             // 
@@ -297,30 +241,43 @@
             dtgvItensCompra.Size = new Size(643, 227);
             dtgvItensCompra.TabIndex = 13;
             // 
-            // tabPageParcelas
+            // tabPageCompra
             // 
-            tabPageParcelas.Controls.Add(dtgvParcelasCompra);
-            tabPageParcelas.Location = new Point(4, 24);
-            tabPageParcelas.Name = "tabPageParcelas";
-            tabPageParcelas.Padding = new Padding(3);
-            tabPageParcelas.Size = new Size(652, 239);
-            tabPageParcelas.TabIndex = 2;
-            tabPageParcelas.Text = "Parcelas";
-            tabPageParcelas.UseVisualStyleBackColor = true;
+            tabPageCompra.Controls.Add(dtgvDadosCompra);
+            tabPageCompra.Location = new Point(4, 24);
+            tabPageCompra.Name = "tabPageCompra";
+            tabPageCompra.Padding = new Padding(3);
+            tabPageCompra.Size = new Size(652, 239);
+            tabPageCompra.TabIndex = 0;
+            tabPageCompra.Text = "Compra";
+            tabPageCompra.UseVisualStyleBackColor = true;
             // 
-            // dtgvParcelasCompra
+            // dtgvDadosCompra
             // 
-            dtgvParcelasCompra.AllowUserToAddRows = false;
-            dtgvParcelasCompra.AllowUserToDeleteRows = false;
-            dtgvParcelasCompra.AllowUserToOrderColumns = true;
-            dtgvParcelasCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvParcelasCompra.Location = new Point(5, 6);
-            dtgvParcelasCompra.Name = "dtgvParcelasCompra";
-            dtgvParcelasCompra.ReadOnly = true;
-            dtgvParcelasCompra.RowTemplate.Height = 25;
-            dtgvParcelasCompra.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvParcelasCompra.Size = new Size(643, 227);
-            dtgvParcelasCompra.TabIndex = 13;
+            dtgvDadosCompra.AllowUserToAddRows = false;
+            dtgvDadosCompra.AllowUserToDeleteRows = false;
+            dtgvDadosCompra.AllowUserToOrderColumns = true;
+            dtgvDadosCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvDadosCompra.Location = new Point(6, 6);
+            dtgvDadosCompra.Name = "dtgvDadosCompra";
+            dtgvDadosCompra.ReadOnly = true;
+            dtgvDadosCompra.RowTemplate.Height = 25;
+            dtgvDadosCompra.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvDadosCompra.Size = new Size(643, 227);
+            dtgvDadosCompra.TabIndex = 12;
+            dtgvDadosCompra.CellClick += dtgvDadosCompra_CellClick;
+            dtgvDadosCompra.CellDoubleClick += dtgvDadosCompra_CellDoubleClick;
+            dtgvDadosCompra.CellFormatting += dtgvDadosCompra_CellFormatting;
+            // 
+            // tbcDados
+            // 
+            tbcDados.Controls.Add(tabPageCompra);
+            tbcDados.Controls.Add(tabPageItens);
+            tbcDados.Location = new Point(12, 146);
+            tbcDados.Name = "tbcDados";
+            tbcDados.SelectedIndex = 0;
+            tbcDados.Size = new Size(660, 267);
+            tbcDados.TabIndex = 26;
             // 
             // formConsultaCompra
             // 
@@ -335,28 +292,24 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta de Compra";
             Load += formConsultaCompra_Load;
-            ((System.ComponentModel.ISupportInitialize)dtgvDadosCompra).EndInit();
             panelRB.ResumeLayout(false);
             panelRB.PerformLayout();
             panelFornecedor.ResumeLayout(false);
             panelFornecedor.PerformLayout();
             panelData.ResumeLayout(false);
             panelData.PerformLayout();
-            tbcDados.ResumeLayout(false);
-            tabPageCompra.ResumeLayout(false);
             tabPageItens.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvItensCompra).EndInit();
-            tabPageParcelas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgvParcelasCompra).EndInit();
+            tabPageCompra.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtgvDadosCompra).EndInit();
+            tbcDados.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private DataGridView dtgvDadosCompra;
         private RadioButton rbFornecedor;
         private RadioButton rbData;
         private Label lblConsultarPelo;
-        private RadioButton rbParcelas;
         private RadioButton rbCompras;
         private Panel panelRB;
         private Panel panelFornecedor;
@@ -364,17 +317,16 @@
         private TextBox txtFornecedorID;
         private Label lblFornecedorID;
         private Label lblNomeFornecedor2;
-        private Panel panelData;
-        private Label lblDataInicial;
         private Button btnData;
+        private Label lblDataInicial;
         private DateTimePicker dtpDataInicial;
         private DateTimePicker dtpDataFinal;
         private Label lblDataFinal;
-        private TabControl tbcDados;
-        private TabPage tabPageCompra;
+        private Panel panelData;
         private TabPage tabPageItens;
-        private TabPage tabPageParcelas;
         private DataGridView dtgvItensCompra;
-        private DataGridView dtgvParcelasCompra;
+        private TabPage tabPageCompra;
+        private DataGridView dtgvDadosCompra;
+        private TabControl tbcDados;
     }
 }

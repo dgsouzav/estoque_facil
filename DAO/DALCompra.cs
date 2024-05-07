@@ -1,11 +1,7 @@
 ﻿using Modelo;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DAL
 {
@@ -26,13 +22,12 @@ namespace DAL
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "insert into compra(compra_data, compra_notaFiscal, compra_total, " +
-                    "compra_numeroParcelas, compra_status, fornecedor_id, tipoPagamento_id) values " +
-                    "(@data, @notaFiscal, @total, @numeroParcelas, @status, @fornecedor, @tipoPagamento); select @@IDENTITY;";
+                    "compra_status, fornecedor_id, tipoPagamento_id) values " +
+                    "(@data, @notaFiscal, @total, @status, @fornecedor, @tipoPagamento); select @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@data", SqlDbType.DateTime);
                 cmd.Parameters["@data"].Value = modelo.CompraData;
                 cmd.Parameters.AddWithValue("@notaFiscal", modelo.CompraNotaFiscal);
                 cmd.Parameters.AddWithValue("@total", modelo.CompraTotal);
-                cmd.Parameters.AddWithValue("@numeroParcelas", modelo.CompraNumeroParcelas);
                 cmd.Parameters.AddWithValue("@status", modelo.CompraStatus);
                 cmd.Parameters.AddWithValue("@fornecedor", modelo.FornecedorID);
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
@@ -55,13 +50,12 @@ namespace DAL
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.Transaction = conexao.ObjetoTransacao;
                 cmd.CommandText = "update compra set compra_data = @data, compra_notaFiscal = @notaFiscal, compra_total = @total," +
-                    " compra_numeroParcelas = @numeroParcelas, compra_status = @status, fornecedor_id = @fornecedor, " +
+                    " compra_status = @status, fornecedor_id = @fornecedor, " +
                     "tipoPagamento_id = @tipoPagamento where compra_id = @id;";
                 cmd.Parameters.AddWithValue("@data", SqlDbType.DateTime);
                 cmd.Parameters["@data"].Value = modelo.CompraData;
                 cmd.Parameters.AddWithValue("@notaFiscal", modelo.CompraNotaFiscal);
                 cmd.Parameters.AddWithValue("@total", modelo.CompraTotal);
-                cmd.Parameters.AddWithValue("@numeroParcelas", modelo.CompraNumeroParcelas);
                 cmd.Parameters.AddWithValue("@status", modelo.CompraStatus);
                 cmd.Parameters.AddWithValue("@fornecedor", modelo.FornecedorID);
                 cmd.Parameters.AddWithValue("@tipoPagamento", modelo.TipoPagamentoID);
@@ -99,7 +93,7 @@ namespace DAL
         public DataTable Localizar(int id)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, " +
                  "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
                  "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
                  "c.fornecedor_id = " + id.ToString(), conexao.StringConexao);
@@ -110,7 +104,7 @@ namespace DAL
         public DataTable Localizar(string nome)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, " +
                  "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
                  "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
                 "f.fornecedor_nome like '%" + nome + "%'", conexao.StringConexao);
@@ -123,7 +117,7 @@ namespace DAL
             DataTable tabela = new DataTable();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+            cmd.CommandText = "select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, " +
                  "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
                  "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id where " +
                  "c.compra_data between @dataInicial and @dataFinal";
@@ -139,36 +133,13 @@ namespace DAL
         public DataTable Localizar()
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
+            SqlDataAdapter da = new SqlDataAdapter("select c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, " +
                  "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total " +
                  "from compra c inner join fornecedor f on c.fornecedor_id = f.fornecedor_id", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
-        // localizar pelas parcelas nao pagas
-        public DataTable LocalizarParcelasNaoPagas()
-        {
-            DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select distinct c.compra_id, c.compra_data, c.compra_notaFiscal, f.fornecedor_nome, c.compra_numeroParcelas, " +
-                "c.compra_status, c.fornecedor_id, c.tipoPagamento_id, c.compra_total from compra c inner join fornecedor f on " +
-                "c.fornecedor_id = f.fornecedor_id inner join parcelasCompra p on c.compra_id = p.compra_id where p.parcelasCompra_dataPagamento is NULL", conexao.StringConexao);
-            da.Fill(tabela);
-            return tabela;
-        }
-        // retorna a quantidade de parcelas nao pagas
-        public int QuantidadeParcelasNaoPagas(int compra_id)
-        {
-            int qtde = 0;
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "select count(compra_id) from parcelasCompra where compra_id = @id and parcelasCompra_dataPagamento is NULL";
-            cmd.Parameters.AddWithValue("@id", compra_id);
-
-            conexao.Conectar();
-            qtde = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
-            return qtde;
-        }
+        
         public ModeloCompra CarregaModeloCompra(int id)
         {
             ModeloCompra modelo = new ModeloCompra();
@@ -185,7 +156,6 @@ namespace DAL
                 modelo.CompraData = Convert.ToDateTime(registro["compra_data"]);
                 modelo.CompraNotaFiscal = Convert.ToInt32(registro["compra_notaFiscal"]);
                 modelo.CompraTotal = Convert.ToDouble(registro["compra_total"]);
-                modelo.CompraNumeroParcelas = Convert.ToInt32(registro["compra_numeroParcelas"]);
                 modelo.CompraStatus = Convert.ToString(registro["compra_status"]);
                 modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
                 modelo.TipoPagamentoID = Convert.ToInt32(registro["tipoPagamento_id"]);

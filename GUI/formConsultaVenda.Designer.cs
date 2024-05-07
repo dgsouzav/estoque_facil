@@ -33,8 +33,6 @@
             dtgvDadosVenda = new DataGridView();
             tabPageItens = new TabPage();
             dtgvItensVenda = new DataGridView();
-            tabPageParcelas = new TabPage();
-            dtgvParcelasVenda = new DataGridView();
             panelData = new Panel();
             lblDataFinal = new Label();
             dtpDataFinal = new DateTimePicker();
@@ -45,15 +43,12 @@
             panelRB = new Panel();
             lblConsultarPelo = new Label();
             rbVendas = new RadioButton();
-            rbParcelas = new RadioButton();
             rbData = new RadioButton();
             tbcDados.SuspendLayout();
             tabPageVenda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvDadosVenda).BeginInit();
             tabPageItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvItensVenda).BeginInit();
-            tabPageParcelas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvParcelasVenda).BeginInit();
             panelData.SuspendLayout();
             panelRB.SuspendLayout();
             SuspendLayout();
@@ -62,7 +57,6 @@
             // 
             tbcDados.Controls.Add(tabPageVenda);
             tbcDados.Controls.Add(tabPageItens);
-            tbcDados.Controls.Add(tabPageParcelas);
             tbcDados.Location = new Point(12, 116);
             tbcDados.Name = "tbcDados";
             tbcDados.SelectedIndex = 0;
@@ -121,31 +115,6 @@
             dtgvItensVenda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvItensVenda.Size = new Size(643, 259);
             dtgvItensVenda.TabIndex = 13;
-            // 
-            // tabPageParcelas
-            // 
-            tabPageParcelas.Controls.Add(dtgvParcelasVenda);
-            tabPageParcelas.Location = new Point(4, 24);
-            tabPageParcelas.Name = "tabPageParcelas";
-            tabPageParcelas.Padding = new Padding(3);
-            tabPageParcelas.Size = new Size(652, 271);
-            tabPageParcelas.TabIndex = 2;
-            tabPageParcelas.Text = "Parcelas";
-            tabPageParcelas.UseVisualStyleBackColor = true;
-            // 
-            // dtgvParcelasVenda
-            // 
-            dtgvParcelasVenda.AllowUserToAddRows = false;
-            dtgvParcelasVenda.AllowUserToDeleteRows = false;
-            dtgvParcelasVenda.AllowUserToOrderColumns = true;
-            dtgvParcelasVenda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvParcelasVenda.Location = new Point(5, 6);
-            dtgvParcelasVenda.Name = "dtgvParcelasVenda";
-            dtgvParcelasVenda.ReadOnly = true;
-            dtgvParcelasVenda.RowTemplate.Height = 25;
-            dtgvParcelasVenda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvParcelasVenda.Size = new Size(643, 259);
-            dtgvParcelasVenda.TabIndex = 13;
             // 
             // panelData
             // 
@@ -215,11 +184,10 @@
             // 
             panelRB.Controls.Add(lblConsultarPelo);
             panelRB.Controls.Add(rbVendas);
-            panelRB.Controls.Add(rbParcelas);
             panelRB.Controls.Add(rbData);
             panelRB.Location = new Point(12, 12);
             panelRB.Name = "panelRB";
-            panelRB.Size = new Size(120, 98);
+            panelRB.Size = new Size(120, 75);
             panelRB.TabIndex = 27;
             // 
             // lblConsultarPelo
@@ -243,17 +211,6 @@
             rbVendas.Text = "Todas vendas";
             rbVendas.UseVisualStyleBackColor = true;
             rbVendas.CheckedChanged += rbVendas_CheckedChanged;
-            // 
-            // rbParcelas
-            // 
-            rbParcelas.AutoSize = true;
-            rbParcelas.Location = new Point(3, 75);
-            rbParcelas.Name = "rbParcelas";
-            rbParcelas.Size = new Size(115, 19);
-            rbParcelas.TabIndex = 3;
-            rbParcelas.Text = "Parcelas a vencer";
-            rbParcelas.UseVisualStyleBackColor = true;
-            rbParcelas.CheckedChanged += rbVendas_CheckedChanged;
             // 
             // rbData
             // 
@@ -284,8 +241,6 @@
             ((System.ComponentModel.ISupportInitialize)dtgvDadosVenda).EndInit();
             tabPageItens.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgvItensVenda).EndInit();
-            tabPageParcelas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgvParcelasVenda).EndInit();
             panelData.ResumeLayout(false);
             panelData.PerformLayout();
             panelRB.ResumeLayout(false);
@@ -300,8 +255,6 @@
         private DataGridView dtgvDadosVenda;
         private TabPage tabPageItens;
         private DataGridView dtgvItensVenda;
-        private TabPage tabPageParcelas;
-        private DataGridView dtgvParcelasVenda;
         private Panel panelData;
         private Label lblDataFinal;
         private DateTimePicker dtpDataFinal;
@@ -311,7 +264,6 @@
         private Panel panelRB;
         private Label lblConsultarPelo;
         private RadioButton rbVendas;
-        private RadioButton rbParcelas;
         private RadioButton rbData;
         private Button btnCancelarVenda;
     }
