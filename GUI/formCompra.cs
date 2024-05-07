@@ -8,6 +8,7 @@ namespace UI
 {
     public partial class formCompra : Form
     {
+        private int numeroNotaFiscal = 0;
         public Double totalCompra = 0;
 
         public String operacao;
@@ -84,7 +85,7 @@ namespace UI
             {
                 MessageBox.Show("Não é possível alterar uma compra cancelada!");
             }
-          
+
         }
 
 
@@ -288,7 +289,7 @@ namespace UI
                 }
                 else
                 {
-                    lblProdutoNome.Text = modelo.ProdutoNome;
+                    lblProdutoID.Text = modelo.ProdutoNome; // Corrigido para lblProdutoID.Text
                 }
             }
             catch
@@ -321,15 +322,28 @@ namespace UI
                 MessageBox.Show("Informe apenas números nos campos referentes a quantidade e valor do produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void GerarNumeroNotaFiscal()
+        {
+            Random random = new Random();
+            numeroNotaFiscal = random.Next(100000, 999999);
+
+            txtNotaFiscal.Text = numeroNotaFiscal.ToString();
+        }
 
         private void formCompra_Load(object sender, EventArgs e)
         {
             this.menuBotoes(1);
+
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTipoPagamento bll = new BLLTipoPagamento(cx);
             cmbTipoPagamento.DataSource = bll.Localizar("");
             cmbTipoPagamento.DisplayMember = "tipoPagamento_nome";
             cmbTipoPagamento.ValueMember = "tipoPagamento_id";
+
+            dtgvItensCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            GerarNumeroNotaFiscal();
+            txtNotaFiscal.Text = numeroNotaFiscal.ToString();
         }
 
         private void dtgvItensCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -357,7 +371,7 @@ namespace UI
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCompra bll3 = new BLLCompra(cx);
-               
+
                 bll3.Excluir(compraid);
                 this.LimpaTela();
                 this.menuBotoes(1);
@@ -370,6 +384,23 @@ namespace UI
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtNotaFiscal_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvItensCompra_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dtgvItensCompra.Columns["produtoValor"].Index ||
+                e.ColumnIndex == dtgvItensCompra.Columns["produtoValorTotal"].Index)
+            {
+                if (e.Value != null && double.TryParse(e.Value.ToString(), out double valor))
+                {
+                    e.Value = valor.ToString("C2");
+                }
             }
         }
     }

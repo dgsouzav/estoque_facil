@@ -113,8 +113,6 @@ namespace UI
                 BLLItensVenda bllItens = new BLLItensVenda(cx);
                 dtgvItensVenda.DataSource = bllItens.Localizar(Convert.ToInt32(dtgvDadosVenda.Rows[e.RowIndex].Cells[0].Value));
 
-                BLLParcelasVenda bllParcelas = new BLLParcelasVenda(cx);
-                dtgvParcelasVenda.DataSource = bllParcelas.Localizar(Convert.ToInt32(dtgvDadosVenda.Rows[e.RowIndex].Cells[0].Value));
                 CabecalhoDtgvItensVenda();
             }
         }

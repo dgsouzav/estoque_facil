@@ -313,16 +313,41 @@ namespace UI
         {
             Form promptForm = new Form()
             {
-                Width = 500,
-                Height = 150,
+                Width = 550, // Aumentar a largura para acomodar o texto completo
+                Height = 200, // Aumentar a altura para dar mais espaço aos controles
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 Text = caption,
                 StartPosition = FormStartPosition.CenterScreen
             };
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = prompt };
-            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
-            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+
+            Label textLabel = new Label()
+            {
+                Left = 25, // Ajustar a posição para a esquerda
+                Top = 20, // Ajustar a posição para cima
+                Width = 500, // Ajustar a largura para acomodar o texto completo
+                Text = prompt
+            };
+
+            TextBox textBox = new TextBox()
+            {
+                Left = 25, // Ajustar a posição para a esquerda
+                Top = 50, // Ajustar a posição para baixo
+                Width = 500 // Ajustar a largura para corresponder à largura da Label
+            };
+
+            Button confirmation = new Button()
+            {
+                Text = "Ok",
+                Width = 100, // Reduzir ligeiramente a largura para melhorar o layout
+                DialogResult = DialogResult.OK
+            };
+
+            // Ajustar a posição e a largura do botão para centralizá-lo
+            confirmation.Left = (promptForm.Width - confirmation.Width) / 2;
+            confirmation.Top = 100; // Ajustar a posição para baixo
+
             confirmation.Click += (sender, e) => { promptForm.Close(); };
+
             promptForm.Controls.Add(confirmation);
             promptForm.Controls.Add(textLabel);
             promptForm.Controls.Add(textBox);
@@ -340,7 +365,7 @@ namespace UI
                 return; // Sair do método sem abrir um novo caixa
             }
 
-            string valorInicialStr = ShowInputDialog("Abertura de Caixa", "Por favor, insira o valor inicial do caixa:");
+            string valorInicialStr = ShowInputDialog("Abertura de Caixa", "Por favor, insira o valor inicial do caixa: ");
 
             if (!string.IsNullOrEmpty(valorInicialStr))
             {
@@ -386,7 +411,7 @@ namespace UI
                 // Verificar a sessão usando o método VerificarSessao de dalAbertura
                 ModeloAbertura abertura = dalAbertura.VerificarSessao();
 
-                if (abertura != null)
+                if (abertura != null && abertura.dataInicial != null) // Verifica se há uma abertura de caixa válida
                 {
                     // Continuar com o restante do código como antes
                     var relatorioVenda = new DALRelatorioVenda(new DALConexao(DadosDaConexao.StringDeConexao));
@@ -405,7 +430,6 @@ namespace UI
 
                     // Gerar o cupom fiscal em PDF, passando o nome do usuário atual como parâmetro
                     GerarCupomFiscalPDF(abertura.dataInicial, abertura.dataFinal, abertura.ValorInicial, totalVendas, totalDespesas, valorFinalCaixa, _usuario.Nome);
-
                 }
                 else
                 {
@@ -418,12 +442,14 @@ namespace UI
             }
         }
 
+
         public void GerarCupomFiscalPDF(DateTime dataInicial, DateTime dataFinal, decimal valorInicial, double totalVendas, double totalDespesas, decimal valorFinalCaixa, string nomeUsuario)
         {
             // Crie uma instância do SaveFileDialog
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Arquivo PDF|*.pdf";
-            saveDialog.Title = "Salvar Cupom Fiscal";
+            saveDialog.Title = "Salvar cupom não fiscal";
+            saveDialog.FileName = "Cupom não fiscal.pdf";
 
             // Exibe o diálogo e verifica se o usuário clicou em "Salvar"
             if (saveDialog.ShowDialog() == DialogResult.OK)
@@ -444,7 +470,7 @@ namespace UI
 
                     // Adiciona título ao cupom fiscal
                     iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK);
-                    Paragraph title = new Paragraph("Cupom Fiscal", titleFont);
+                    Paragraph title = new Paragraph("Cupom não fiscal", titleFont);
                     title.Alignment = Element.ALIGN_CENTER;
                     doc.Add(title);
                     doc.Add(Chunk.NEWLINE);
@@ -474,14 +500,14 @@ namespace UI
                     doc.Add(new Chunk("\n"));
 
                     // Exiba uma mensagem informando que o PDF foi criado com sucesso
-                    MessageBox.Show("Cupom fiscal gerado com sucesso.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cupom não fiscal gerado com sucesso.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Feche o documento
                     doc.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ocorreu um erro ao gerar o cupom fiscal: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ocorreu um erro ao gerar o cupom não fiscal: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -141,8 +141,6 @@ namespace UI
                 BLLItensCompra bllItens = new BLLItensCompra(cx);
                 dtgvItensCompra.DataSource = bllItens.Localizar(Convert.ToInt32(dtgvDadosCompra.Rows[e.RowIndex].Cells[0].Value));
 
-                BLLParcelasCompra bllParcelas = new BLLParcelasCompra(cx);
-                dtgvParcelasCompra.DataSource = bllParcelas.Localizar(Convert.ToInt32(dtgvDadosCompra.Rows[e.RowIndex].Cells[0].Value));
                 CabecalhoDtgvItensCompra();
             }
         }

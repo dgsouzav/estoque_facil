@@ -176,11 +176,11 @@
             // lblTroco
             // 
             lblTroco.AutoSize = true;
-            lblTroco.BackColor = Color.Red;
-            lblTroco.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTroco.Location = new Point(1132, 541);
+            lblTroco.BackColor = Color.LightCoral;
+            lblTroco.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTroco.Location = new Point(1132, 536);
             lblTroco.Name = "lblTroco";
-            lblTroco.Size = new Size(36, 15);
+            lblTroco.Size = new Size(46, 20);
             lblTroco.TabIndex = 53;
             lblTroco.Text = "Troco";
             // 
@@ -188,9 +188,9 @@
             // 
             listBoxClientes.FormattingEnabled = true;
             listBoxClientes.ItemHeight = 15;
-            listBoxClientes.Location = new Point(965, 55);
+            listBoxClientes.Location = new Point(1132, 109);
             listBoxClientes.Name = "listBoxClientes";
-            listBoxClientes.Size = new Size(120, 94);
+            listBoxClientes.Size = new Size(198, 139);
             listBoxClientes.TabIndex = 49;
             listBoxClientes.SelectedIndexChanged += listBoxClientes_SelectedIndexChanged;
             // 
@@ -211,7 +211,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.FromArgb(255, 128, 128);
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(1102, 496);
+            label3.Location = new Point(1102, 502);
             label3.Name = "label3";
             label3.Size = new Size(29, 21);
             label3.TabIndex = 46;
@@ -220,7 +220,7 @@
             // txtValorPago
             // 
             txtValorPago.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValorPago.Location = new Point(1132, 482);
+            txtValorPago.Location = new Point(1132, 490);
             txtValorPago.Multiline = true;
             txtValorPago.Name = "txtValorPago";
             txtValorPago.Size = new Size(198, 43);
@@ -232,10 +232,11 @@
             // lblValorPago
             // 
             lblValorPago.AutoSize = true;
-            lblValorPago.BackColor = Color.Red;
-            lblValorPago.Location = new Point(1132, 464);
+            lblValorPago.BackColor = Color.LightCoral;
+            lblValorPago.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblValorPago.Location = new Point(1132, 467);
             lblValorPago.Name = "lblValorPago";
-            lblValorPago.Size = new Size(63, 15);
+            lblValorPago.Size = new Size(82, 20);
             lblValorPago.TabIndex = 45;
             lblValorPago.Text = "Valor pago";
             // 
@@ -254,7 +255,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.FromArgb(255, 128, 128);
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(1102, 344);
+            label2.Location = new Point(1102, 364);
             label2.Name = "label2";
             label2.Size = new Size(29, 21);
             label2.TabIndex = 41;
@@ -265,7 +266,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(255, 128, 128);
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(1102, 423);
+            label1.Location = new Point(1102, 433);
             label1.Name = "label1";
             label1.Size = new Size(29, 21);
             label1.TabIndex = 40;
@@ -273,7 +274,7 @@
             // 
             // btnAddProduto
             // 
-            btnAddProduto.Location = new Point(536, 94);
+            btnAddProduto.Location = new Point(316, 95);
             btnAddProduto.Name = "btnAddProduto";
             btnAddProduto.Size = new Size(100, 24);
             btnAddProduto.TabIndex = 7;
@@ -285,7 +286,7 @@
             // 
             txtValor.Enabled = false;
             txtValor.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtValor.Location = new Point(1132, 332);
+            txtValor.Location = new Point(1132, 352);
             txtValor.Multiline = true;
             txtValor.Name = "txtValor";
             txtValor.Size = new Size(198, 43);
@@ -293,11 +294,11 @@
             // 
             // txtQtde
             // 
-            txtQtde.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtQtde.Location = new Point(319, 95);
+            txtQtde.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtQtde.Location = new Point(1132, 283);
             txtQtde.Multiline = true;
             txtQtde.Name = "txtQtde";
-            txtQtde.Size = new Size(198, 23);
+            txtQtde.Size = new Size(198, 43);
             txtQtde.TabIndex = 5;
             txtQtde.KeyPress += txtQtde_KeyPress_1;
             txtQtde.Leave += txtQtde_Leave;
@@ -305,19 +306,22 @@
             // lblValor
             // 
             lblValor.AutoSize = true;
-            lblValor.BackColor = Color.Red;
-            lblValor.Location = new Point(1132, 313);
+            lblValor.BackColor = Color.LightCoral;
+            lblValor.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblValor.Location = new Point(1132, 329);
             lblValor.Name = "lblValor";
-            lblValor.Size = new Size(77, 15);
+            lblValor.Size = new Size(98, 20);
             lblValor.TabIndex = 35;
             lblValor.Text = "Valor unitário";
             // 
             // lblQtde
             // 
             lblQtde.AutoSize = true;
-            lblQtde.Location = new Point(319, 78);
+            lblQtde.BackColor = Color.LightCoral;
+            lblQtde.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblQtde.Location = new Point(1132, 260);
             lblQtde.Name = "lblQtde";
-            lblQtde.Size = new Size(69, 15);
+            lblQtde.Size = new Size(87, 20);
             lblQtde.TabIndex = 34;
             lblQtde.Text = "Quantidade";
             // 
@@ -333,7 +337,7 @@
             // lblCliente
             // 
             lblCliente.AutoSize = true;
-            lblCliente.Location = new Point(965, 12);
+            lblCliente.Location = new Point(1132, 66);
             lblCliente.Name = "lblCliente";
             lblCliente.Size = new Size(101, 15);
             lblCliente.TabIndex = 32;
@@ -350,9 +354,9 @@
             // 
             // txtClienteFidelidade
             // 
-            txtClienteFidelidade.Location = new Point(965, 30);
+            txtClienteFidelidade.Location = new Point(1132, 84);
             txtClienteFidelidade.Name = "txtClienteFidelidade";
-            txtClienteFidelidade.Size = new Size(120, 23);
+            txtClienteFidelidade.Size = new Size(198, 23);
             txtClienteFidelidade.TabIndex = 3;
             txtClienteFidelidade.TextChanged += txtClienteFidelidade_TextChanged;
             txtClienteFidelidade.Leave += txtProdutoID_Leave;
@@ -438,7 +442,7 @@
             // 
             txtVendaTotal.Enabled = false;
             txtVendaTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtVendaTotal.Location = new Point(1132, 413);
+            txtVendaTotal.Location = new Point(1132, 421);
             txtVendaTotal.Multiline = true;
             txtVendaTotal.Name = "txtVendaTotal";
             txtVendaTotal.Size = new Size(198, 43);
@@ -447,10 +451,11 @@
             // lblVendaTotal
             // 
             lblVendaTotal.AutoSize = true;
-            lblVendaTotal.BackColor = Color.Red;
-            lblVendaTotal.Location = new Point(1132, 395);
+            lblVendaTotal.BackColor = Color.LightCoral;
+            lblVendaTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVendaTotal.Location = new Point(1132, 398);
             lblVendaTotal.Name = "lblVendaTotal";
-            lblVendaTotal.Size = new Size(83, 15);
+            lblVendaTotal.Size = new Size(108, 20);
             lblVendaTotal.TabIndex = 16;
             lblVendaTotal.Text = "Total da Venda";
             // 

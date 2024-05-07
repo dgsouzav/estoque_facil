@@ -232,8 +232,6 @@ namespace UI
                 MessageBox.Show("Informe apenas números nos campos referentes a quantidade e valor do produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
         private void formVenda_Load(object sender, EventArgs e)
         {
             this.Focus();
@@ -246,8 +244,9 @@ namespace UI
 
             GerarNumeroNotaFiscal();
             txtNotaFiscal.ReadOnly = true;
-        }
 
+            dtgvItensVenda.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void GerarNumeroNotaFiscal()
         {
             Random random = new Random();
@@ -255,7 +254,6 @@ namespace UI
 
             txtNotaFiscal.Text = numeroNotaFiscal.ToString();
         }
-
         private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -271,13 +269,11 @@ namespace UI
                 txtVendaTotal.Text = this.totalVenda.ToString();
             }
         }
-
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
             this.LimpaTela();
             lblCaixaLivre.Visible = true;
         }
-
         private void txtValorPago_TextChanged(object sender, EventArgs e)
         {
             if (decimal.TryParse(txtValorPago.Text, out decimal valorPago))

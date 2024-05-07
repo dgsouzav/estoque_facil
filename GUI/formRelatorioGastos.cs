@@ -77,12 +77,14 @@ namespace UI
 
             if (result == DialogResult.OK)
             {
-                iTextSharp.text.Document document = new iTextSharp.text.Document(); // Correção aqui
+                double total = CalcularSomaColuna(dtgvRelatorios.DataSource as List<GastosRelatorio>, "valor_venda");
+
+                iTextSharp.text.Document document = new iTextSharp.text.Document();
                 PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(saveDialog.FileName, FileMode.Create));
                 document.Open();
 
                 // Adiciona título ao relatório
-                iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK); // Correção aqui
+                iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK);
                 Paragraph title = new Paragraph("Relatório de Despesas", titleFont);
                 title.Alignment = Element.ALIGN_CENTER;
                 document.Add(title);
@@ -91,7 +93,7 @@ namespace UI
                 PdfPTable table = new PdfPTable(dtgvRelatorios.Columns.Count);
 
                 // Adiciona cabeçalhos da tabela
-                iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE); // Correção aqui
+                iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
                 PdfPCell headerCell;
                 foreach (DataGridViewColumn column in dtgvRelatorios.Columns)
                 {
@@ -101,7 +103,7 @@ namespace UI
                 }
 
                 // Adiciona os dados da tabela
-                iTextSharp.text.Font cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK); // Correção aqui
+                iTextSharp.text.Font cellFont = FontFactory.GetFont(FontFactory.HELVETICA, 10, BaseColor.BLACK);
                 foreach (DataGridViewRow row in dtgvRelatorios.Rows)
                 {
                     foreach (DataGridViewCell cell in row.Cells)
@@ -113,17 +115,16 @@ namespace UI
                     }
                 }
 
+                // Adiciona a célula com o total de despesas na última linha, alinhado com a coluna de valores de despesa
+                PdfPCell totalCell = new PdfPCell(new Phrase($"Total: {total:C2}", cellFont));
+                totalCell.Colspan = dtgvRelatorios.Columns.Count; // Colspan para ocupar todas as colunas
+                totalCell.HorizontalAlignment = Element.ALIGN_RIGHT; // Alinhamento à esquerda
+                table.AddCell(totalCell);
+
                 document.Add(table);
 
-                // Adiciona a soma do valor_venda
-                double total = CalcularSomaColuna(dtgvRelatorios.DataSource as List<GastosRelatorio>, "valor_venda");
-                // Corrigido para declaração após o uso
-                iTextSharp.text.Font dateFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10, BaseColor.GRAY); // Correção aqui
-                Paragraph totalParagraph = new Paragraph($"Total de despesas: {total:C2}", dateFont);
-                totalParagraph.Alignment = Element.ALIGN_RIGHT;
-                document.Add(totalParagraph);
-
                 // Adiciona parágrafo com as datas selecionadas no final do documento
+                iTextSharp.text.Font dateFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10, BaseColor.GRAY);
                 Paragraph datasSelecionadas = new Paragraph($"Período Selecionado: {dtpDataInicial.Value.ToShortDateString()} - {dtpDataFinal.Value.ToShortDateString()}", dateFont);
                 datasSelecionadas.Alignment = Element.ALIGN_RIGHT;
                 document.Add(datasSelecionadas);
