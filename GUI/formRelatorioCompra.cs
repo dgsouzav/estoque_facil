@@ -73,7 +73,7 @@ namespace UI
 
         private void btnGerarRelatorio_Click_1(object sender, EventArgs e)
         {
-            string nomeTabela = "ControleDeEstoque";
+            string nomeTabela = "Estoque";
             this.conexao = new DALConexao(connectionString);
             this.dalRelatorioCompra = new DALRelatorioCompra(conexao);
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\Validacoes.csproj": {}
+    "C:\\Users\\Diogo\\Documents\\estoque_facil\\Validacoes\\Validacoes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\Validacoes.csproj": {
+    "C:\\Users\\Diogo\\Documents\\estoque_facil\\Validacoes\\Validacoes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\Validacoes.csproj",
+        "projectUniqueName": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Validacoes\\Validacoes.csproj",
         "projectName": "Validacoes",
-        "projectPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\Validacoes.csproj",
+        "projectPath": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Validacoes\\Validacoes.csproj",
         "packagesPath": "C:\\Users\\Diogo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Diogo\\Documents\\GitHub\\estoque_facil\\Validacoes\\obj\\",
+        "outputPath": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Validacoes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,12 +56,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.30, 6.0.30]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.30, 6.0.30]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.30, 6.0.30]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.30, 6.0.30]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -29,7 +29,6 @@ namespace UI
             txtLogin.Clear();
             txtSenha.Clear();
         }
-
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             string nome = txtLogin.Text;

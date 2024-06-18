@@ -24,9 +24,9 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.Transaction = conexao.ObjetoTransacao;
-                cmd.CommandText = "insert into itensVenda(itensVenda_id, itensVenda_qtde, itensVenda_valor, venda_id, produto_id) values " +
-                    "(@itensVenda_id, @itensVenda_qtde, @itensVenda_valor, @venda_id, @produto_id);";
-                cmd.Parameters.AddWithValue("@itensVenda_id", modelo.ItensVendaID);
+                cmd.CommandText = "insert into itensVenda(itensVenda_qtde, itensVenda_valor, venda_id, produto_id) values " +
+                    "(@itensVenda_qtde, @itensVenda_valor, @venda_id, @produto_id);";
+                //cmd.Parameters.AddWithValue("@itensVenda_id", modelo.ItensVendaID);
                 cmd.Parameters.AddWithValue("@itensVenda_qtde", modelo.ItensVendaQtde);
                 cmd.Parameters.AddWithValue("@itensVenda_valor", modelo.ItensVendaValor);
                 cmd.Parameters.AddWithValue("@venda_id", modelo.VendaID);

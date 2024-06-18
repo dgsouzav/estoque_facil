@@ -12,7 +12,7 @@ namespace Modelo
             this.CompraData = DateTime.Now;
             this.CompraNotaFiscal = 0;
             this.CompraTotal = 0;
-            this.CompraStatus = "Válida";
+            this.CompraStatus = "Ativa";
             this.FornecedorID = 0;
             this.TipoPagamentoID = 0;
         }

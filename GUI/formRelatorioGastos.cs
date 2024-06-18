@@ -136,7 +136,7 @@ namespace UI
 
         private void btnGerarRelatorio_Click(object sender, EventArgs e)
         {
-            string nomeTabela = "ControleDeEstoque";
+            string nomeTabela = "Estoque";
             this.conexao = new DALConexao(connectionString);
             this.dalRelatorioGastos = new DALRelatorioGastos(conexao);
 

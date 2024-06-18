@@ -248,12 +248,6 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
-        private void VendaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formVenda f = new formVenda();
-            f.ShowDialog();
-            f.Dispose();
-        }
         private void consultaVendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formConsultaVenda f = new formConsultaVenda();
@@ -358,46 +352,56 @@ namespace UI
 
         private void abrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Verificar se já há um caixa aberto sem valor ou data final inserida
-            if (abertura != null && abertura.dataFinal == null && abertura.ValorFinal == null)
+            try
             {
-                MessageBox.Show("Já há um caixa aberto sem valor ou data final inserida. Por favor, feche o caixa atual antes de abrir um novo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Sair do método sem abrir um novo caixa
-            }
+                // Verificar se há um caixa aberto
+                DALAbertura dalAbertura = new DALAbertura(new DALConexao(DadosDaConexao.StringDeConexao));
+                ModeloAbertura caixaAberto = dalAbertura.VerificarSessao();
 
-            string valorInicialStr = ShowInputDialog("Abertura de Caixa", "Por favor, insira o valor inicial do caixa: ");
-
-            if (!string.IsNullOrEmpty(valorInicialStr))
-            {
-                if (decimal.TryParse(valorInicialStr, out decimal valorInicial))
+                if (caixaAberto != null && caixaAberto.dataInicial != null)
                 {
-                    int valorInicialInt = (int)Math.Round(valorInicial);
+                    MessageBox.Show("Já há um caixa aberto!\nPor favor, feche o caixa atual antes de abrir um novo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Sair do método sem abrir um novo caixa
+                }
 
-                    string valorInicialFormatado = valorInicialInt.ToString("C");
+                string valorInicialStr = ShowInputDialog("Abertura de Caixa", "Por favor, insira o valor inicial do caixa: ");
 
-                    MessageBox.Show("Valor inicial do caixa: " + valorInicialFormatado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Inicializar a variável abertura
-                    abertura = new ModeloAbertura();
-                    abertura.ValorInicial = valorInicialInt;
-
-                    // Inicializar a variável dalAbertura se ainda não estiver inicializada
-                    if (dalAbertura == null)
+                if (!string.IsNullOrEmpty(valorInicialStr))
+                {
+                    if (decimal.TryParse(valorInicialStr, out decimal valorInicial))
                     {
-                        dalAbertura = new DALAbertura(new DALConexao(DadosDaConexao.StringDeConexao));
-                    }
-                    dalAbertura.IncluirAbertura(abertura);
+                        int valorInicialInt = (int)Math.Round(valorInicial);
 
-                    vendaToolStripMenuItem1.Enabled = true;
+                        string valorInicialFormatado = valorInicialInt.ToString("C");
+
+                        MessageBox.Show("Valor inicial do caixa: " + valorInicialFormatado, "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Inicializar a variável abertura
+                        abertura = new ModeloAbertura();
+                        abertura.ValorInicial = valorInicialInt;
+
+                        // Inicializar a variável dalAbertura se ainda não estiver inicializada
+                        if (dalAbertura == null)
+                        {
+                            dalAbertura = new DALAbertura(new DALConexao(DadosDaConexao.StringDeConexao));
+                        }
+                        dalAbertura.IncluirAbertura(abertura);
+
+                        vendaToolStripMenuItem1.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, insira um valor numérico válido para o valor inicial do caixa.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, insira um valor numérico válido para o valor inicial do caixa.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nenhum valor inserido. A abertura do caixa foi cancelada.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Nenhum valor inserido. A abertura do caixa foi cancelada.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Ocorreu um erro ao abrir o caixa: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -405,43 +409,39 @@ namespace UI
         {
             try
             {
-                // Verificar se há uma abertura de caixa ativa
+                // Verificar se há um caixa aberto para fechar
                 DALAbertura dalAbertura = new DALAbertura(new DALConexao(DadosDaConexao.StringDeConexao));
+                ModeloAbertura caixaAberto = dalAbertura.VerificarSessao();
 
-                // Verificar a sessão usando o método VerificarSessao de dalAbertura
-                ModeloAbertura abertura = dalAbertura.VerificarSessao();
-
-                if (abertura != null && abertura.dataInicial != null) // Verifica se há uma abertura de caixa válida
-                {
-                    // Continuar com o restante do código como antes
-                    var relatorioVenda = new DALRelatorioVenda(new DALConexao(DadosDaConexao.StringDeConexao));
-                    double totalVendas = relatorioVenda.ObterTotalVendas(abertura.dataInicial, DateTime.Now);
-
-                    var relatorioGastos = new DALRelatorioGastos(new DALConexao(DadosDaConexao.StringDeConexao));
-                    double totalDespesas = relatorioGastos.ObterTotalDespesas(abertura.dataInicial, DateTime.Now);
-
-                    decimal valorFinalCaixa = abertura.ValorInicial + (decimal)totalVendas - Math.Abs((decimal)totalDespesas);
-
-                    abertura.dataFinal = DateTime.Now;
-                    abertura.ValorFinal = Convert.ToInt32(valorFinalCaixa);
-                    dalAbertura.IncluirFechamento(abertura);
-
-                    MessageBox.Show($"Caixa fechado com sucesso. Valor final do caixa: {valorFinalCaixa:C}", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Gerar o cupom fiscal em PDF, passando o nome do usuário atual como parâmetro
-                    GerarCupomFiscalPDF(abertura.dataInicial, abertura.dataFinal, abertura.ValorInicial, totalVendas, totalDespesas, valorFinalCaixa, _usuario.Nome);
-                }
-                else
+                if (caixaAberto == null || caixaAberto.dataFinal == null)
                 {
                     MessageBox.Show("Não há caixa aberto para fechar.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return; // Sair do método sem tentar fechar o caixa
                 }
+
+                // Continuar com o restante do código como antes
+                var relatorioVenda = new DALRelatorioVenda(new DALConexao(DadosDaConexao.StringDeConexao));
+                double totalVendas = relatorioVenda.ObterTotalVendas(caixaAberto.dataInicial, DateTime.Now);
+
+                var relatorioGastos = new DALRelatorioGastos(new DALConexao(DadosDaConexao.StringDeConexao));
+                double totalDespesas = relatorioGastos.ObterTotalDespesas(caixaAberto.dataInicial, DateTime.Now);
+
+                decimal valorFinalCaixa = caixaAberto.ValorInicial + (decimal)totalVendas - Math.Abs((decimal)totalDespesas);
+
+                caixaAberto.dataFinal = DateTime.Now;
+                caixaAberto.ValorFinal = Convert.ToInt32(valorFinalCaixa);
+                dalAbertura.IncluirFechamento(caixaAberto);
+
+                MessageBox.Show($"Caixa fechado com sucesso. Valor final do caixa: {valorFinalCaixa:C}", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Gerar o cupom fiscal em PDF, passando o nome do usuário atual como parâmetro
+                GerarCupomFiscalPDF(caixaAberto.dataInicial, caixaAberto.dataFinal, caixaAberto.ValorInicial, totalVendas, totalDespesas, valorFinalCaixa, _usuario.Nome);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro ao fechar o caixa: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         public void GerarCupomFiscalPDF(DateTime dataInicial, DateTime dataFinal, decimal valorInicial, double totalVendas, double totalDespesas, decimal valorFinalCaixa, string nomeUsuario)
         {
@@ -529,6 +529,13 @@ namespace UI
             // Adiciona as células à tabela
             table.AddCell(chaveCell);
             table.AddCell(valorCell);
+        }
+
+        private void relatórioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formRelatorioFluxoCaixa f = new formRelatorioFluxoCaixa();
+            f.ShowDialog();
+            f.Dispose();
         }
     }
 }

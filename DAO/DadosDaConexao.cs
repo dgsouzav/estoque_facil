@@ -6,7 +6,7 @@
         {
             get
             {
-                return "Data Source=dgsouzav-pc; Initial Catalog = ControleDeEstoque; Integrated Security = True";
+                return "Data Source=DGSOUZAV-PC; Initial Catalog = Estoque; Integrated Security = True";
             }
         }
     }

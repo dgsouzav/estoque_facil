@@ -61,6 +61,9 @@
     <Compile Update="formConsultaVenda.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formRelatorioFluxoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="formRelatorioGastos.cs">
       <SubType>Form</SubType>
     </Compile>
