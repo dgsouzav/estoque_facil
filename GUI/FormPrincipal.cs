@@ -111,12 +111,16 @@ namespace UI
 
         private void cadastroClienteToolStripMenuItem5_Click(object sender, EventArgs e)
         {
-
+            formCadastroCliente f = new formCadastroCliente();
+            f.ShowDialog();
+            f.Dispose();
         }
 
         private void consultaClienteToolStripMenuItem4_Click(object sender, EventArgs e)
         {
-
+            formConsultaCliente f = new formConsultaCliente();
+            f.ShowDialog();
+            f.Dispose();
         }
 
         private void relatórioClienteToolStripMenuItem3_Click(object sender, EventArgs e)

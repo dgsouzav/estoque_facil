@@ -161,3 +161,6 @@ C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRelat
 C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRelatorioFornecedor.resources
 C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRelatorioProduto.resources
 C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroCategoria.resources
+C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroCliente.resources
+C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCliente.resources
+C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formConsultaCategoria.resources
