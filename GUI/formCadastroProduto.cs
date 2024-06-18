@@ -194,7 +194,7 @@ namespace UI
 
         private void txtValorPagoProduto_Leave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtValorVendaProduto_KeyPress(object sender, KeyPressEventArgs e)
@@ -251,5 +251,28 @@ namespace UI
             catch { }
         }
 
+        private void txtValorPagoProduto_TextChanged(object sender, EventArgs e)
+        {
+            string valor = txtValorPagoProduto.Text.Replace("R$", "").Trim();
+            if (decimal.TryParse(valor, out decimal valorDecimal))
+            {
+                txtValorPagoProduto.TextChanged -= txtValorPagoProduto_TextChanged;
+                txtValorPagoProduto.Text = valorDecimal.ToString("C2");
+                txtValorPagoProduto.SelectionStart = txtValorPagoProduto.Text.Length;
+                txtValorPagoProduto.TextChanged += txtValorPagoProduto_TextChanged;
+            }
+        }
+
+        private void txtValorVendaProduto_TextChanged(object sender, EventArgs e)
+        {
+            string valor = txtValorVendaProduto.Text.Replace("R$", "").Trim();
+            if (decimal.TryParse(valor, out decimal valorDecimal))
+            {
+                txtValorVendaProduto.TextChanged -= txtValorVendaProduto_TextChanged;
+                txtValorVendaProduto.Text = valorDecimal.ToString("C2");
+                txtValorVendaProduto.SelectionStart = txtValorVendaProduto.Text.Length;
+                txtValorVendaProduto.TextChanged += txtValorVendaProduto_TextChanged;
+            }
+        }
     }
 }

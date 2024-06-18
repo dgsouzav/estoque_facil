@@ -51,16 +51,18 @@
             panelBotoes.Controls.Add(btnLimparTela);
             panelBotoes.Controls.Add(btnInserir);
             panelBotoes.Controls.Add(btnGerarRelatorio);
-            panelBotoes.Location = new Point(736, 12);
+            panelBotoes.Location = new Point(841, 15);
+            panelBotoes.Margin = new Padding(3, 4, 3, 4);
             panelBotoes.Name = "panelBotoes";
-            panelBotoes.Size = new Size(118, 469);
+            panelBotoes.Size = new Size(135, 594);
             panelBotoes.TabIndex = 11;
             // 
             // btnExportarRelatorio
             // 
-            btnExportarRelatorio.Location = new Point(20, 160);
+            btnExportarRelatorio.Location = new Point(23, 203);
+            btnExportarRelatorio.Margin = new Padding(3, 4, 3, 4);
             btnExportarRelatorio.Name = "btnExportarRelatorio";
-            btnExportarRelatorio.Size = new Size(80, 50);
+            btnExportarRelatorio.Size = new Size(91, 63);
             btnExportarRelatorio.TabIndex = 10;
             btnExportarRelatorio.Text = "EXPORTAR RELATÓRIO";
             btnExportarRelatorio.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@
             // 
             // btnLimparTela
             // 
-            btnLimparTela.Location = new Point(20, 323);
+            btnLimparTela.Location = new Point(23, 409);
+            btnLimparTela.Margin = new Padding(3, 4, 3, 4);
             btnLimparTela.Name = "btnLimparTela";
-            btnLimparTela.Size = new Size(80, 50);
+            btnLimparTela.Size = new Size(91, 63);
             btnLimparTela.TabIndex = 9;
             btnLimparTela.Text = "LIMPAR";
             btnLimparTela.UseVisualStyleBackColor = true;
@@ -78,9 +81,10 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(20, 82);
+            btnInserir.Location = new Point(23, 104);
+            btnInserir.Margin = new Padding(3, 4, 3, 4);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(80, 50);
+            btnInserir.Size = new Size(91, 63);
             btnInserir.TabIndex = 5;
             btnInserir.Text = "INSERIR";
             btnInserir.UseVisualStyleBackColor = true;
@@ -88,9 +92,10 @@
             // 
             // btnGerarRelatorio
             // 
-            btnGerarRelatorio.Location = new Point(20, 239);
+            btnGerarRelatorio.Location = new Point(23, 303);
+            btnGerarRelatorio.Margin = new Padding(3, 4, 3, 4);
             btnGerarRelatorio.Name = "btnGerarRelatorio";
-            btnGerarRelatorio.Size = new Size(80, 50);
+            btnGerarRelatorio.Size = new Size(91, 63);
             btnGerarRelatorio.TabIndex = 8;
             btnGerarRelatorio.Text = "GERAR RELATÓRIO";
             btnGerarRelatorio.UseVisualStyleBackColor = true;
@@ -104,17 +109,18 @@
             panelDados.Controls.Add(lblDataInicial);
             panelDados.Controls.Add(dtpDataFinal);
             panelDados.Controls.Add(dtpDataInicial);
-            panelDados.Location = new Point(10, 12);
+            panelDados.Location = new Point(11, 15);
+            panelDados.Margin = new Padding(3, 4, 3, 4);
             panelDados.Name = "panelDados";
-            panelDados.Size = new Size(720, 469);
+            panelDados.Size = new Size(823, 594);
             panelDados.TabIndex = 10;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(4, 104);
+            label1.Location = new Point(5, 132);
             label1.Name = "label1";
-            label1.Size = new Size(52, 15);
+            label1.Size = new Size(62, 19);
             label1.TabIndex = 14;
             label1.Text = "Usuários";
             // 
@@ -124,56 +130,61 @@
             dtgvRelatorios.AllowUserToDeleteRows = false;
             dtgvRelatorios.AllowUserToOrderColumns = true;
             dtgvRelatorios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvRelatorios.Location = new Point(4, 122);
+            dtgvRelatorios.Location = new Point(5, 155);
+            dtgvRelatorios.Margin = new Padding(3, 4, 3, 4);
             dtgvRelatorios.Name = "dtgvRelatorios";
             dtgvRelatorios.ReadOnly = true;
+            dtgvRelatorios.RowHeadersWidth = 47;
             dtgvRelatorios.RowTemplate.Height = 25;
             dtgvRelatorios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvRelatorios.Size = new Size(567, 344);
+            dtgvRelatorios.Size = new Size(648, 436);
             dtgvRelatorios.TabIndex = 13;
             // 
             // lblDataFinal
             // 
             lblDataFinal.AutoSize = true;
-            lblDataFinal.Location = new Point(242, 13);
+            lblDataFinal.Location = new Point(277, 16);
             lblDataFinal.Name = "lblDataFinal";
-            lblDataFinal.Size = new Size(57, 15);
+            lblDataFinal.Size = new Size(67, 19);
             lblDataFinal.TabIndex = 8;
             lblDataFinal.Text = "Data final";
             // 
             // lblDataInicial
             // 
             lblDataInicial.AutoSize = true;
-            lblDataInicial.Location = new Point(4, 13);
+            lblDataInicial.Location = new Point(5, 16);
             lblDataInicial.Name = "lblDataInicial";
-            lblDataInicial.Size = new Size(65, 15);
+            lblDataInicial.Size = new Size(75, 19);
             lblDataInicial.TabIndex = 7;
             lblDataInicial.Text = "Data inicial";
             // 
             // dtpDataFinal
             // 
-            dtpDataFinal.Location = new Point(242, 31);
+            dtpDataFinal.Location = new Point(277, 39);
+            dtpDataFinal.Margin = new Padding(3, 4, 3, 4);
             dtpDataFinal.Name = "dtpDataFinal";
-            dtpDataFinal.Size = new Size(232, 23);
+            dtpDataFinal.Size = new Size(265, 26);
             dtpDataFinal.TabIndex = 6;
             // 
             // dtpDataInicial
             // 
-            dtpDataInicial.Location = new Point(4, 31);
+            dtpDataInicial.Location = new Point(5, 39);
+            dtpDataInicial.Margin = new Padding(3, 4, 3, 4);
             dtpDataInicial.Name = "dtpDataInicial";
-            dtpDataInicial.Size = new Size(232, 23);
+            dtpDataInicial.Size = new Size(265, 26);
             dtpDataInicial.TabIndex = 5;
             // 
             // formRelatorioUsuario
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(863, 490);
+            ClientSize = new Size(986, 621);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "formRelatorioUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "formRelatorioUsuario";
+            Text = "Relatorio de Usuario";
             Load += formRelatorioUsuario_Load;
             panelBotoes.ResumeLayout(false);
             panelDados.ResumeLayout(false);

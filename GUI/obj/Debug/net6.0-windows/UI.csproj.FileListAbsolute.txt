@@ -160,3 +160,4 @@ C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formLogin
 C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRelatorioFluxoCaixa.resources
 C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRelatorioFornecedor.resources
 C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formRelatorioProduto.resources
+C:\Users\Diogo\Documents\estoque_facil\GUI\obj\Debug\net6.0-windows\UI.formCadastroCategoria.resources
