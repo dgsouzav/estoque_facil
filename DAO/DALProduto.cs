@@ -114,6 +114,13 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
+        public DataTable Localizar2(String valor)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select produto_nome from produto where produto_nome like '%" + valor + "%'", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
 
         public DataTable Localizar(String valor)
         {
@@ -235,5 +242,6 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
+
     }
 }

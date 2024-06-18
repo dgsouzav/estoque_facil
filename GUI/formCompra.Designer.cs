@@ -307,6 +307,7 @@
             txtCompraTotal.Name = "txtCompraTotal";
             txtCompraTotal.Size = new Size(226, 53);
             txtCompraTotal.TabIndex = 17;
+            txtCompraTotal.TextChanged += txtCompraTotal_TextChanged;
             // 
             // lblCompraTotal
             // 

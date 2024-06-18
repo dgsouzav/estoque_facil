@@ -92,6 +92,12 @@ namespace UI
 
                 if (this.operacao == "inserir")
                 {
+                    // Verificar se o valor pago é suficiente
+                    if (!decimal.TryParse(txtValorPago.Text, out decimal valorPago) || valorPago < (decimal)modeloVenda.VendaTotal)
+                    {
+                        MessageBox.Show("O valor pago é menor que o total da venda.");
+                        return;
+                    }
                     // inserir uma Venda
                     bll.Incluir(modeloVenda);
                     for (int i = 0; i < dtgvItensVenda.RowCount; i++)
@@ -159,20 +165,30 @@ namespace UI
         {
             try
             {
-                if (int.TryParse(txtProdutoID.Text, out int produtoID))
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLProduto bll = new BLLProduto(cx);
+
+                int produtoID;
+                if (!int.TryParse(txtProdutoID.Text, out produtoID))
                 {
-                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                    BLLProduto bll = new BLLProduto(cx);
+                    // Se o texto não for um número, buscar pelo nome do produto
+                    ModeloProduto modelo = bll.CarregaModeloProdutoPorNome(txtProdutoID.Text);
+                    if (modelo != null)
+                    {
+                        produtoID = modelo.ProdutoID;
+                        txtProdutoID.Text = produtoID.ToString();
+                    }
+                    else
+                    {
+                        throw new Exception("Produto não encontrado");
+                    }
+                }
+                else
+                {
                     ModeloProduto modelo = bll.CarregaModeloProduto(produtoID);
                     txtValor.Text = modelo.ProdutoValorVenda.ToString();
                     txtQtde.Text = "1";
                     lblProdutoNome.Text = modelo.ProdutoNome;
-                }
-                else
-                {
-                    MessageBox.Show("Informe um código de produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtProdutoID.Clear();
-                    lblProdutoNome.Text = "Informe o nome do Produto ou localize";
                 }
             }
             catch
@@ -181,6 +197,7 @@ namespace UI
                 lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             }
         }
+
 
         private Double VerificaQtdeProdutos(int ProdutoID)
         {
@@ -258,6 +275,25 @@ namespace UI
             txtNotaFiscal.ReadOnly = true;
 
             dtgvItensVenda.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Configurar AutoComplete para txtProdutoID
+            ConfigurarAutoCompleteProdutoID();
+        }
+
+        private void ConfigurarAutoCompleteProdutoID()
+        {
+            BLLProduto bllProduto = new BLLProduto(cx);
+            DataTable produtos = bllProduto.Localizar2(""); // Use Localizar para obter produtos
+
+            AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
+            foreach (DataRow row in produtos.Rows)
+            {
+                autoComplete.Add(row["produto_nome"].ToString());
+            }
+
+            txtProdutoID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtProdutoID.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtProdutoID.AutoCompleteCustomSource = autoComplete;
         }
 
         private void GerarNumeroNotaFiscal()
@@ -419,6 +455,16 @@ namespace UI
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtVendaTotal_TextChanged(object sender, EventArgs e)
+        {
+            string valor = txtVendaTotal.Text.Replace("R$", "").Trim();
+
+            if (decimal.TryParse(valor, out decimal valorDecimal))
+            {
+                txtVendaTotal.Text = valorDecimal.ToString("C2");
             }
         }
     }

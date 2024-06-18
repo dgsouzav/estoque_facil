@@ -428,5 +428,15 @@ namespace UI
                 }
             }
         }
+
+        private void txtCompraTotal_TextChanged(object sender, EventArgs e)
+        {
+            string valor = txtCompraTotal.Text.Replace("R$", "").Trim();
+
+            if (decimal.TryParse(valor, out decimal valorDecimal))
+            {
+                txtCompraTotal.Text = valorDecimal.ToString("C2");
+            }
+        }
     }
 }

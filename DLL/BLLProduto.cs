@@ -125,7 +125,12 @@ namespace BLL
             DALProduto DALobj = new DALProduto(conexao);
             DALobj.Excluir(id);
         }
-        public DataTable Localizar(String valor)
+        public DataTable Localizar(string valor)
+        {
+            DALProduto DALobj = new DALProduto(conexao);
+            return DALobj.Localizar(valor);
+        }
+        public DataTable Localizar2(string valor)
         {
             DALProduto DALobj = new DALProduto(conexao);
             return DALobj.Localizar(valor);
