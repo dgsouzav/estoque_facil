@@ -5,7 +5,6 @@ using System.Data;
 using Validacoes;
 using System.Data.SqlClient;
 
-
 namespace UI
 {
     public partial class formVenda : Form
@@ -27,6 +26,7 @@ namespace UI
             this.KeyDown += formVenda_KeyDown;
 
             txtNotaFiscal.Leave += txtNotaFiscal_Leave;
+            txtProdutoID.Leave += txtProdutoID_Leave; // Adicionando o evento Leave
         }
 
         public void LimpaTela()
@@ -67,6 +67,7 @@ namespace UI
             DialogResult d = MessageBox.Show("Deseja realmente cancelar a venda?", "Aviso", MessageBoxButtons.YesNo);
             this.LimpaTela();
         }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
@@ -103,7 +104,6 @@ namespace UI
                         bitens.Incluir(itens);
                         // trigger decrementa quantidade de produtos
                     }
-
                 }
 
                 // mensagem de sucesso
@@ -159,12 +159,21 @@ namespace UI
         {
             try
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLProduto bll = new BLLProduto(cx);
-                ModeloProduto modelo = bll.CarregaModeloProduto(Convert.ToInt32(txtProdutoID.Text));
-                txtValor.Text = modelo.ProdutoValorVenda.ToString();
-                txtQtde.Text = "1";
-                lblProdutoNome.Text = modelo.ProdutoNome;
+                if (int.TryParse(txtProdutoID.Text, out int produtoID))
+                {
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLProduto bll = new BLLProduto(cx);
+                    ModeloProduto modelo = bll.CarregaModeloProduto(produtoID);
+                    txtValor.Text = modelo.ProdutoValorVenda.ToString();
+                    txtQtde.Text = "1";
+                    lblProdutoNome.Text = modelo.ProdutoNome;
+                }
+                else
+                {
+                    MessageBox.Show("Informe um código de produto válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtProdutoID.Clear();
+                    lblProdutoNome.Text = "Informe o nome do Produto ou localize";
+                }
             }
             catch
             {
@@ -172,6 +181,7 @@ namespace UI
                 lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             }
         }
+
         private Double VerificaQtdeProdutos(int ProdutoID)
         {
             Double QtdeEstoque = 0;
@@ -195,6 +205,7 @@ namespace UI
             }
             return QtdeEstoque;
         }
+
         private void btnAddProduto_Click(object sender, EventArgs e)
         {
             Double qtde = 0;
@@ -232,6 +243,7 @@ namespace UI
                 MessageBox.Show("Informe apenas números nos campos referentes a quantidade e valor do produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void formVenda_Load(object sender, EventArgs e)
         {
             this.Focus();
@@ -247,6 +259,7 @@ namespace UI
 
             dtgvItensVenda.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+
         private void GerarNumeroNotaFiscal()
         {
             Random random = new Random();
@@ -254,6 +267,7 @@ namespace UI
 
             txtNotaFiscal.Text = numeroNotaFiscal.ToString();
         }
+
         private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -269,11 +283,13 @@ namespace UI
                 txtVendaTotal.Text = this.totalVenda.ToString();
             }
         }
+
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
             this.LimpaTela();
             lblCaixaLivre.Visible = true;
         }
+
         private void txtValorPago_TextChanged(object sender, EventArgs e)
         {
             if (decimal.TryParse(txtValorPago.Text, out decimal valorPago))
@@ -310,7 +326,6 @@ namespace UI
             listBoxClientes.DisplayMember = "cliente_nome";
             listBoxClientes.ValueMember = "cliente_id";
         }
-
 
         private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {

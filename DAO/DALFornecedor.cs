@@ -95,6 +95,26 @@ namespace DAL
                 throw new Exception(erro.Message);
             }
         }
+        public ModeloFornecedor CarregaModeloFornecedorPorNome(string nome)
+        {
+            ModeloFornecedor modelo = new ModeloFornecedor();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "SELECT * FROM fornecedor WHERE fornecedor_nome = @nome";
+            cmd.Parameters.AddWithValue("@nome", nome);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.FornecedorID = Convert.ToInt32(registro["fornecedor_id"]);
+                modelo.FornecedorNome = Convert.ToString(registro["fornecedor_nome"]);
+                // Adicione outros campos conforme necessário
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         public DataTable Localizar(string valor) 
         {
             DataTable tabela = new DataTable();

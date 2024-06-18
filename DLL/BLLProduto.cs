@@ -130,6 +130,11 @@ namespace BLL
             DALProduto DALobj = new DALProduto(conexao);
             return DALobj.Localizar(valor);
         }
+        public ModeloProduto CarregaModeloProdutoPorNome(string nome)
+        {
+            DALProduto dal = new DALProduto(conexao);
+            return dal.CarregaModeloProdutoPorNome(nome);
+        }
         public ModeloProduto CarregaModeloProduto(int id)
         {
             DALProduto DALobj = new DALProduto(conexao);

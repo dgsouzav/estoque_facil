@@ -141,6 +141,11 @@ namespace BLL
             da.Fill(tabela);
             return tabela;
         }
+        public ModeloFornecedor CarregaModeloFornecedorPorNome(string nome)
+        {
+            DALFornecedor dal = new DALFornecedor(conexao);
+            return dal.CarregaModeloFornecedorPorNome(nome);
+        }
         public DataTable LocalizarPorNome(String valor)
         {
             return Localizar(valor);

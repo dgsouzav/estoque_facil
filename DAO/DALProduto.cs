@@ -94,6 +94,27 @@ namespace DAL
                 throw new Exception(ex.Message);
             }
         }
+        public ModeloProduto CarregaModeloProdutoPorNome(string nome)
+        {
+            ModeloProduto modelo = new ModeloProduto();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "SELECT * FROM produto WHERE produto_nome = @nome";
+            cmd.Parameters.AddWithValue("@nome", nome);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.ProdutoID = Convert.ToInt32(registro["produto_id"]);
+                modelo.ProdutoNome = Convert.ToString(registro["produto_nome"]);
+                modelo.ProdutoValorVenda = Convert.ToDouble(registro["produto_valorVenda"]);
+                // Adicione outros campos conforme necessário
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
         public DataTable Localizar(String valor)
         {
             DataTable tabela = new DataTable();

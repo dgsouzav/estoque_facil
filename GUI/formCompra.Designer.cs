@@ -92,10 +92,10 @@
             panelDados.Controls.Add(txtCompraID);
             panelDados.Controls.Add(lblCompra);
             panelDados.Controls.Add(lblTipoPagamento);
-            panelDados.Location = new Point(10, 16);
+            panelDados.Location = new Point(10, 15);
             panelDados.Margin = new Padding(3, 4, 3, 4);
             panelDados.Name = "panelDados";
-            panelDados.Size = new Size(1880, 903);
+            panelDados.Size = new Size(1880, 858);
             panelDados.TabIndex = 2;
             // 
             // label2
@@ -103,7 +103,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.LightCoral;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(1613, 856);
+            label2.Location = new Point(1613, 813);
             label2.Name = "label2";
             label2.Size = new Size(33, 25);
             label2.TabIndex = 42;
@@ -111,10 +111,10 @@
             // 
             // btnAddProduto
             // 
-            btnAddProduto.Location = new Point(479, 180);
+            btnAddProduto.Location = new Point(479, 171);
             btnAddProduto.Margin = new Padding(3, 4, 3, 4);
             btnAddProduto.Name = "btnAddProduto";
-            btnAddProduto.Size = new Size(126, 32);
+            btnAddProduto.Size = new Size(126, 30);
             btnAddProduto.TabIndex = 38;
             btnAddProduto.Text = "ADD PRODUTO";
             btnAddProduto.UseVisualStyleBackColor = true;
@@ -123,21 +123,22 @@
             // txtValor
             // 
             txtValor.Enabled = false;
-            txtValor.Location = new Point(1650, 622);
+            txtValor.Location = new Point(1650, 591);
             txtValor.Margin = new Padding(3, 4, 3, 4);
             txtValor.Multiline = true;
             txtValor.Name = "txtValor";
-            txtValor.Size = new Size(226, 56);
+            txtValor.Size = new Size(226, 53);
             txtValor.TabIndex = 37;
             txtValor.Visible = false;
             // 
             // txtQtde
             // 
-            txtQtde.Location = new Point(1649, 736);
+            txtQtde.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            txtQtde.Location = new Point(1649, 699);
             txtQtde.Margin = new Padding(3, 4, 3, 4);
             txtQtde.Multiline = true;
             txtQtde.Name = "txtQtde";
-            txtQtde.Size = new Size(227, 56);
+            txtQtde.Size = new Size(227, 53);
             txtQtde.TabIndex = 36;
             // 
             // lblQtde
@@ -145,45 +146,45 @@
             lblQtde.AutoSize = true;
             lblQtde.BackColor = Color.LightCoral;
             lblQtde.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblQtde.Location = new Point(1650, 705);
+            lblQtde.Location = new Point(1650, 670);
             lblQtde.Name = "lblQtde";
-            lblQtde.Size = new Size(111, 25);
+            lblQtde.Size = new Size(105, 25);
             lblQtde.TabIndex = 34;
             lblQtde.Text = "Quantidade";
             // 
             // lblProdutoNome
             // 
             lblProdutoNome.AutoSize = true;
-            lblProdutoNome.Location = new Point(358, 159);
+            lblProdutoNome.Location = new Point(358, 151);
             lblProdutoNome.Name = "lblProdutoNome";
-            lblProdutoNome.Size = new Size(271, 20);
+            lblProdutoNome.Size = new Size(249, 19);
             lblProdutoNome.TabIndex = 33;
             lblProdutoNome.Text = "Informe o nome do Produto ou localize";
             // 
             // lblProdutoID
             // 
             lblProdutoID.AutoSize = true;
-            lblProdutoID.Location = new Point(7, 159);
+            lblProdutoID.Location = new Point(7, 151);
             lblProdutoID.Name = "lblProdutoID";
-            lblProdutoID.Size = new Size(62, 20);
+            lblProdutoID.Size = new Size(59, 19);
             lblProdutoID.TabIndex = 32;
             lblProdutoID.Text = "Produto";
             // 
             // txtProdutoID
             // 
-            txtProdutoID.Location = new Point(7, 181);
+            txtProdutoID.Location = new Point(7, 172);
             txtProdutoID.Margin = new Padding(3, 4, 3, 4);
             txtProdutoID.Name = "txtProdutoID";
-            txtProdutoID.Size = new Size(343, 27);
+            txtProdutoID.Size = new Size(343, 26);
             txtProdutoID.TabIndex = 5;
             txtProdutoID.Leave += txtProdutoID_Leave;
             // 
             // btnLocalizarProduto
             // 
-            btnLocalizarProduto.Location = new Point(358, 180);
+            btnLocalizarProduto.Location = new Point(358, 171);
             btnLocalizarProduto.Margin = new Padding(3, 4, 3, 4);
             btnLocalizarProduto.Name = "btnLocalizarProduto";
-            btnLocalizarProduto.Size = new Size(114, 32);
+            btnLocalizarProduto.Size = new Size(114, 30);
             btnLocalizarProduto.TabIndex = 6;
             btnLocalizarProduto.Text = "Localizar";
             btnLocalizarProduto.UseVisualStyleBackColor = true;
@@ -192,18 +193,18 @@
             // lblFornecedorNome
             // 
             lblFornecedorNome.AutoSize = true;
-            lblFornecedorNome.Location = new Point(358, 92);
+            lblFornecedorNome.Location = new Point(358, 87);
             lblFornecedorNome.Name = "lblFornecedorNome";
-            lblFornecedorNome.Size = new Size(293, 20);
+            lblFornecedorNome.Size = new Size(268, 19);
             lblFornecedorNome.TabIndex = 29;
             lblFornecedorNome.Text = "Informe o nome do Fornecedor ou localize";
             // 
             // btnLocalizarFornecedor
             // 
-            btnLocalizarFornecedor.Location = new Point(358, 116);
+            btnLocalizarFornecedor.Location = new Point(358, 110);
             btnLocalizarFornecedor.Margin = new Padding(3, 4, 3, 4);
             btnLocalizarFornecedor.Name = "btnLocalizarFornecedor";
-            btnLocalizarFornecedor.Size = new Size(114, 32);
+            btnLocalizarFornecedor.Size = new Size(114, 30);
             btnLocalizarFornecedor.TabIndex = 4;
             btnLocalizarFornecedor.Text = "Localizar";
             btnLocalizarFornecedor.UseVisualStyleBackColor = true;
@@ -211,19 +212,19 @@
             // 
             // txtFornecedorID
             // 
-            txtFornecedorID.Location = new Point(7, 116);
+            txtFornecedorID.Location = new Point(7, 110);
             txtFornecedorID.Margin = new Padding(3, 4, 3, 4);
             txtFornecedorID.Name = "txtFornecedorID";
-            txtFornecedorID.Size = new Size(343, 27);
+            txtFornecedorID.Size = new Size(343, 26);
             txtFornecedorID.TabIndex = 3;
             txtFornecedorID.Leave += txtFornecedorID_Leave;
             // 
             // lblFornecedorID
             // 
             lblFornecedorID.AutoSize = true;
-            lblFornecedorID.Location = new Point(7, 92);
+            lblFornecedorID.Location = new Point(7, 87);
             lblFornecedorID.Name = "lblFornecedorID";
-            lblFornecedorID.Size = new Size(84, 20);
+            lblFornecedorID.Size = new Size(78, 19);
             lblFornecedorID.TabIndex = 26;
             lblFornecedorID.Text = "Fornecedor";
             // 
@@ -233,14 +234,14 @@
             dtgvItensCompra.AllowUserToDeleteRows = false;
             dtgvItensCompra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvItensCompra.Columns.AddRange(new DataGridViewColumn[] { produtoID, produtoNome, produtoQtde, produtoValor, produtoValorTotal });
-            dtgvItensCompra.Location = new Point(7, 231);
+            dtgvItensCompra.Location = new Point(7, 219);
             dtgvItensCompra.Margin = new Padding(3, 4, 3, 4);
             dtgvItensCompra.Name = "dtgvItensCompra";
             dtgvItensCompra.ReadOnly = true;
             dtgvItensCompra.RowHeadersWidth = 51;
             dtgvItensCompra.RowTemplate.Height = 25;
             dtgvItensCompra.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvItensCompra.Size = new Size(1601, 668);
+            dtgvItensCompra.Size = new Size(1601, 635);
             dtgvItensCompra.TabIndex = 22;
             dtgvItensCompra.CellDoubleClick += dtgvItensCompra_CellDoubleClick;
             dtgvItensCompra.CellFormatting += dtgvItensCompra_CellFormatting;
@@ -290,21 +291,21 @@
             cmbTipoPagamento.AutoCompleteMode = AutoCompleteMode.Suggest;
             cmbTipoPagamento.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbTipoPagamento.FormattingEnabled = true;
-            cmbTipoPagamento.Location = new Point(1614, 41);
+            cmbTipoPagamento.Location = new Point(1614, 39);
             cmbTipoPagamento.Margin = new Padding(3, 4, 3, 4);
             cmbTipoPagamento.Name = "cmbTipoPagamento";
-            cmbTipoPagamento.Size = new Size(262, 28);
+            cmbTipoPagamento.Size = new Size(262, 27);
             cmbTipoPagamento.TabIndex = 8;
             // 
             // txtCompraTotal
             // 
             txtCompraTotal.Enabled = false;
             txtCompraTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCompraTotal.Location = new Point(1650, 838);
+            txtCompraTotal.Location = new Point(1650, 796);
             txtCompraTotal.Margin = new Padding(3, 4, 3, 4);
             txtCompraTotal.Multiline = true;
             txtCompraTotal.Name = "txtCompraTotal";
-            txtCompraTotal.Size = new Size(226, 56);
+            txtCompraTotal.Size = new Size(226, 53);
             txtCompraTotal.TabIndex = 17;
             // 
             // lblCompraTotal
@@ -312,18 +313,18 @@
             lblCompraTotal.AutoSize = true;
             lblCompraTotal.BackColor = Color.LightCoral;
             lblCompraTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCompraTotal.Location = new Point(1650, 806);
+            lblCompraTotal.Location = new Point(1650, 766);
             lblCompraTotal.Name = "lblCompraTotal";
-            lblCompraTotal.Size = new Size(147, 25);
+            lblCompraTotal.Size = new Size(140, 25);
             lblCompraTotal.TabIndex = 16;
             lblCompraTotal.Text = "Total da compra";
             // 
             // txtNotaFiscal
             // 
-            txtNotaFiscal.Location = new Point(155, 41);
+            txtNotaFiscal.Location = new Point(155, 39);
             txtNotaFiscal.Margin = new Padding(3, 4, 3, 4);
             txtNotaFiscal.Name = "txtNotaFiscal";
-            txtNotaFiscal.Size = new Size(195, 27);
+            txtNotaFiscal.Size = new Size(195, 26);
             txtNotaFiscal.TabIndex = 1;
             txtNotaFiscal.KeyPress += txtNotaFiscal_KeyPress;
             txtNotaFiscal.Leave += txtNotaFiscal_Leave;
@@ -331,46 +332,46 @@
             // lblNotaFiscal
             // 
             lblNotaFiscal.AutoSize = true;
-            lblNotaFiscal.Location = new Point(155, 17);
+            lblNotaFiscal.Location = new Point(155, 16);
             lblNotaFiscal.Name = "lblNotaFiscal";
-            lblNotaFiscal.Size = new Size(80, 20);
+            lblNotaFiscal.Size = new Size(72, 19);
             lblNotaFiscal.TabIndex = 6;
             lblNotaFiscal.Text = "Nota fiscal";
             // 
             // txtCompraID
             // 
             txtCompraID.Enabled = false;
-            txtCompraID.Location = new Point(7, 41);
+            txtCompraID.Location = new Point(7, 39);
             txtCompraID.Margin = new Padding(3, 4, 3, 4);
             txtCompraID.Name = "txtCompraID";
-            txtCompraID.Size = new Size(141, 27);
+            txtCompraID.Size = new Size(141, 26);
             txtCompraID.TabIndex = 3;
             // 
             // lblCompra
             // 
             lblCompra.AutoSize = true;
-            lblCompra.Location = new Point(7, 17);
+            lblCompra.Location = new Point(7, 16);
             lblCompra.Name = "lblCompra";
-            lblCompra.Size = new Size(136, 20);
+            lblCompra.Size = new Size(125, 19);
             lblCompra.TabIndex = 1;
             lblCompra.Text = "Código da Compra";
             // 
             // lblTipoPagamento
             // 
             lblTipoPagamento.AutoSize = true;
-            lblTipoPagamento.Location = new Point(1614, 17);
+            lblTipoPagamento.Location = new Point(1614, 16);
             lblTipoPagamento.Name = "lblTipoPagamento";
-            lblTipoPagamento.Size = new Size(141, 20);
+            lblTipoPagamento.Size = new Size(128, 19);
             lblTipoPagamento.TabIndex = 0;
             lblTipoPagamento.Text = "Tipo de pagamento";
             // 
             // btnAlterar
             // 
-            btnAlterar.Location = new Point(829, 16);
+            btnAlterar.Location = new Point(848, 15);
             btnAlterar.Margin = new Padding(3, 4, 3, 4);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.RightToLeft = RightToLeft.Yes;
-            btnAlterar.Size = new Size(121, 64);
+            btnAlterar.Size = new Size(121, 61);
             btnAlterar.TabIndex = 12;
             btnAlterar.TabStop = false;
             btnAlterar.Text = "ALTERAR";
@@ -379,11 +380,11 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(938, 16);
+            btnSalvar.Location = new Point(996, 15);
             btnSalvar.Margin = new Padding(3, 4, 3, 4);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.RightToLeft = RightToLeft.Yes;
-            btnSalvar.Size = new Size(121, 64);
+            btnSalvar.Size = new Size(121, 61);
             btnSalvar.TabIndex = 13;
             btnSalvar.TabStop = false;
             btnSalvar.Text = "SALVAR";
@@ -392,11 +393,11 @@
             // 
             // btnLocalizar
             // 
-            btnLocalizar.Location = new Point(720, 16);
+            btnLocalizar.Location = new Point(700, 15);
             btnLocalizar.Margin = new Padding(3, 4, 3, 4);
             btnLocalizar.Name = "btnLocalizar";
             btnLocalizar.RightToLeft = RightToLeft.Yes;
-            btnLocalizar.Size = new Size(121, 64);
+            btnLocalizar.Size = new Size(121, 61);
             btnLocalizar.TabIndex = 11;
             btnLocalizar.TabStop = false;
             btnLocalizar.Text = "LOCALIZAR";
@@ -405,11 +406,11 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(611, 16);
+            btnInserir.Location = new Point(552, 15);
             btnInserir.Margin = new Padding(3, 4, 3, 4);
             btnInserir.Name = "btnInserir";
             btnInserir.RightToLeft = RightToLeft.Yes;
-            btnInserir.Size = new Size(121, 64);
+            btnInserir.Size = new Size(121, 61);
             btnInserir.TabIndex = 10;
             btnInserir.TabStop = false;
             btnInserir.Text = "INSERIR";
@@ -418,11 +419,11 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(1156, 16);
+            btnCancelar.Location = new Point(1292, 15);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.RightToLeft = RightToLeft.Yes;
-            btnCancelar.Size = new Size(121, 64);
+            btnCancelar.Size = new Size(121, 61);
             btnCancelar.TabIndex = 15;
             btnCancelar.TabStop = false;
             btnCancelar.Text = "LIMPAR";
@@ -437,19 +438,19 @@
             panelBotoes.Controls.Add(btnLocalizar);
             panelBotoes.Controls.Add(btnSalvar);
             panelBotoes.Controls.Add(btnAlterar);
-            panelBotoes.Location = new Point(12, 927);
+            panelBotoes.Location = new Point(12, 881);
             panelBotoes.Margin = new Padding(3, 4, 3, 4);
             panelBotoes.Name = "panelBotoes";
-            panelBotoes.Size = new Size(1878, 93);
+            panelBotoes.Size = new Size(1878, 88);
             panelBotoes.TabIndex = 3;
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(1047, 16);
+            btnExcluir.Location = new Point(1144, 15);
             btnExcluir.Margin = new Padding(3, 4, 3, 4);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.RightToLeft = RightToLeft.Yes;
-            btnExcluir.Size = new Size(121, 64);
+            btnExcluir.Size = new Size(121, 61);
             btnExcluir.TabIndex = 14;
             btnExcluir.TabStop = false;
             btnExcluir.Text = "EXCLUIR";
@@ -458,9 +459,9 @@
             // 
             // formCompra
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1902, 1033);
+            ClientSize = new Size(1902, 981);
             Controls.Add(panelBotoes);
             Controls.Add(panelDados);
             Margin = new Padding(3, 4, 3, 4);

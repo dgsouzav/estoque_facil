@@ -234,17 +234,12 @@ namespace UI
         {
             try
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLFornecedor bll = new BLLFornecedor(cx);
-                ModeloFornecedor modelo = bll.CarregaModeloFornecedor(Convert.ToInt32(txtFornecedorID.Text));
-                txtFornecedorID.Text = modelo.FornecedorID.ToString();
-                if (modelo.FornecedorID <= 0)
+                if (!string.IsNullOrEmpty(txtFornecedorID.Text))
                 {
-                    txtFornecedorID.Clear();
-                    lblFornecedorNome.Text = "Informe o código do fornecedor ou clique em localizar";
-                }
-                else
-                {
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLFornecedor bll = new BLLFornecedor(cx);
+                    ModeloFornecedor modelo = bll.CarregaModeloFornecedorPorNome(txtFornecedorID.Text); // Ajustado para buscar por nome
+                    txtFornecedorID.Text = modelo.FornecedorID.ToString();
                     lblFornecedorNome.Text = modelo.FornecedorNome;
                 }
             }
@@ -276,20 +271,15 @@ namespace UI
         {
             try
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLProduto bll = new BLLProduto(cx);
-                ModeloProduto modelo = bll.CarregaModeloProduto(Convert.ToInt32(txtProdutoID.Text));
-                txtQtde.Text = "1";
-                txtValor.Text = modelo.ProdutoValorVenda.ToString();
-
-                if (modelo.ProdutoLote <= 0)
+                if (!string.IsNullOrEmpty(txtProdutoID.Text))
                 {
-                    txtProdutoID.Clear();
-                    lblProdutoNome.Text = "Informe o nome do Produto ou localize";
-                }
-                else
-                {
-                    lblProdutoID.Text = modelo.ProdutoNome; // Corrigido para lblProdutoID.Text
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLProduto bll = new BLLProduto(cx);
+                    ModeloProduto modelo = bll.CarregaModeloProdutoPorNome(txtProdutoID.Text); // Ajustado para buscar por nome
+                    txtProdutoID.Text = modelo.ProdutoID.ToString();
+                    lblProdutoNome.Text = modelo.ProdutoNome;
+                    txtQtde.Text = "1";
+                    txtValor.Text = modelo.ProdutoValorVenda.ToString();
                 }
             }
             catch
@@ -344,7 +334,42 @@ namespace UI
 
             GerarNumeroNotaFiscal();
             txtNotaFiscal.Text = numeroNotaFiscal.ToString();
+
+            // Configurar autocomplete para txtFornecedorID
+            ConfigureAutocomplete(txtFornecedorID, "SELECT fornecedor_id, fornecedor_nome FROM fornecedor");
+
+            // Configurar autocomplete para txtProdutoID
+            ConfigureAutocomplete(txtProdutoID, "SELECT produto_id, produto_nome FROM produto");
         }
+        private void ConfigureAutocomplete(TextBox textBox, string query)
+        {
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
+            LoadAutoCompleteData(autoCompleteCollection, query);
+
+            textBox.AutoCompleteCustomSource = autoCompleteCollection;
+            textBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        private void LoadAutoCompleteData(AutoCompleteStringCollection autoCompleteCollection, string query)
+        {
+            string connectionString = DadosDaConexao.StringDeConexao;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    autoCompleteCollection.Add(reader[1].ToString()); // Adiciona o nome do fornecedor ou produto
+                }
+
+                reader.Close();
+            }
+        }
+
 
         private void dtgvItensCompra_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
