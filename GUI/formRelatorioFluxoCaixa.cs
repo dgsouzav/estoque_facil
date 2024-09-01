@@ -1,7 +1,6 @@
 ﻿using DAL;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
-using static DAL.DALRelatorioFluxoCaixa;
 using Document = iTextSharp.text.Document;
 using System.Data.SqlClient;
 using static DAL.DALRelatorioFluxoDeCaixa;

@@ -36,10 +36,6 @@
             panelDados = new Panel();
             label1 = new Label();
             dtgvRelatorios = new DataGridView();
-            lblDataFinal = new Label();
-            lblDataInicial = new Label();
-            dtpDataFinal = new DateTimePicker();
-            dtpDataInicial = new DateTimePicker();
             panelBotoes.SuspendLayout();
             panelDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvRelatorios).BeginInit();
@@ -105,10 +101,6 @@
             // 
             panelDados.Controls.Add(label1);
             panelDados.Controls.Add(dtgvRelatorios);
-            panelDados.Controls.Add(lblDataFinal);
-            panelDados.Controls.Add(lblDataInicial);
-            panelDados.Controls.Add(dtpDataFinal);
-            panelDados.Controls.Add(dtpDataInicial);
             panelDados.Location = new Point(10, 15);
             panelDados.Margin = new Padding(3, 4, 3, 4);
             panelDados.Name = "panelDados";
@@ -140,40 +132,6 @@
             dtgvRelatorios.Size = new Size(648, 436);
             dtgvRelatorios.TabIndex = 13;
             // 
-            // lblDataFinal
-            // 
-            lblDataFinal.AutoSize = true;
-            lblDataFinal.Location = new Point(277, 16);
-            lblDataFinal.Name = "lblDataFinal";
-            lblDataFinal.Size = new Size(67, 19);
-            lblDataFinal.TabIndex = 8;
-            lblDataFinal.Text = "Data final";
-            // 
-            // lblDataInicial
-            // 
-            lblDataInicial.AutoSize = true;
-            lblDataInicial.Location = new Point(5, 16);
-            lblDataInicial.Name = "lblDataInicial";
-            lblDataInicial.Size = new Size(75, 19);
-            lblDataInicial.TabIndex = 7;
-            lblDataInicial.Text = "Data inicial";
-            // 
-            // dtpDataFinal
-            // 
-            dtpDataFinal.Location = new Point(277, 39);
-            dtpDataFinal.Margin = new Padding(3, 4, 3, 4);
-            dtpDataFinal.Name = "dtpDataFinal";
-            dtpDataFinal.Size = new Size(265, 26);
-            dtpDataFinal.TabIndex = 6;
-            // 
-            // dtpDataInicial
-            // 
-            dtpDataInicial.Location = new Point(5, 39);
-            dtpDataInicial.Margin = new Padding(3, 4, 3, 4);
-            dtpDataInicial.Name = "dtpDataInicial";
-            dtpDataInicial.Size = new Size(265, 26);
-            dtpDataInicial.TabIndex = 5;
-            // 
             // formRelatorioProduto
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -202,10 +160,6 @@
         protected Button btnGerarRelatorio;
         protected Panel panelDados;
         private Label label1;
-        private Label lblDataFinal;
-        private Label lblDataInicial;
-        private DateTimePicker dtpDataFinal;
-        private DateTimePicker dtpDataInicial;
         private DataGridView dtgvRelatorios;
     }
 }

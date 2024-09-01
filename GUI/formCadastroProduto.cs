@@ -194,7 +194,25 @@ namespace UI
 
         private void txtValorPagoProduto_Leave(object sender, EventArgs e)
         {
-
+            if (txtValorPagoProduto.Text.Contains(",") == false)
+            {
+                txtValorPagoProduto.Text += ",00";
+            }
+            else
+            {
+                if (txtValorPagoProduto.Text.IndexOf(",") == txtValorPagoProduto.Text.Length - 1)
+                {
+                    txtValorPagoProduto.Text += "00";
+                }
+            }
+            try
+            {
+                Double d = Convert.ToDouble(txtValorPagoProduto.Text);
+            }
+            catch
+            {
+                txtValorPagoProduto.Text = "R$ 0,00";
+            }
         }
 
         private void txtValorVendaProduto_KeyPress(object sender, KeyPressEventArgs e)
@@ -232,7 +250,7 @@ namespace UI
             }
             catch
             {
-                txtValorVendaProduto.Text = "0,00";
+                txtValorVendaProduto.Text = "R$ 0,00";
             }
         }
 
@@ -253,26 +271,12 @@ namespace UI
 
         private void txtValorPagoProduto_TextChanged(object sender, EventArgs e)
         {
-            string valor = txtValorPagoProduto.Text.Replace("R$", "").Trim();
-            if (decimal.TryParse(valor, out decimal valorDecimal))
-            {
-                txtValorPagoProduto.TextChanged -= txtValorPagoProduto_TextChanged;
-                txtValorPagoProduto.Text = valorDecimal.ToString("C2");
-                txtValorPagoProduto.SelectionStart = txtValorPagoProduto.Text.Length;
-                txtValorPagoProduto.TextChanged += txtValorPagoProduto_TextChanged;
-            }
+
         }
 
         private void txtValorVendaProduto_TextChanged(object sender, EventArgs e)
         {
-            string valor = txtValorVendaProduto.Text.Replace("R$", "").Trim();
-            if (decimal.TryParse(valor, out decimal valorDecimal))
-            {
-                txtValorVendaProduto.TextChanged -= txtValorVendaProduto_TextChanged;
-                txtValorVendaProduto.Text = valorDecimal.ToString("C2");
-                txtValorVendaProduto.SelectionStart = txtValorVendaProduto.Text.Length;
-                txtValorVendaProduto.TextChanged += txtValorVendaProduto_TextChanged;
-            }
+           
         }
     }
 }

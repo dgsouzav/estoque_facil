@@ -96,7 +96,7 @@ namespace UI
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Arquivo PDF|*.pdf";
             saveDialog.Title = "Salvar Relatório";
-            saveDialog.FileName = "Relatorio.pdf";
+            saveDialog.FileName = "RelatorioCompra.pdf";
             DialogResult result = saveDialog.ShowDialog();
 
             if (result == DialogResult.OK)

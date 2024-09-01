@@ -1,13 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveCharts" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
     <PackageReference Include="MaterialIcons" Version="1.0.3" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.37" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.Views.Forms.WPF" Version="2.88.8" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 

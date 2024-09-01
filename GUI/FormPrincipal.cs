@@ -3,8 +3,6 @@ using BLL;
 using DAL;
 using Modelo;
 using Timer = System.Windows.Forms.Timer;
-using static DAL.DALRelatorioVenda;
-using static DAL.DALRelatorioGastos;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 

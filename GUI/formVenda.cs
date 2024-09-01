@@ -26,7 +26,7 @@ namespace UI
             this.KeyDown += formVenda_KeyDown;
 
             txtNotaFiscal.Leave += txtNotaFiscal_Leave;
-            txtProdutoID.Leave += txtProdutoID_Leave; // Adicionando o evento Leave
+            txtProdutoID.Leave += txtProdutoID_Leave; 
         }
 
         public void LimpaTela()
@@ -396,10 +396,8 @@ namespace UI
 
         private void txtNotaFiscal_Leave(object sender, EventArgs e)
         {
-            // Verifica se o txtNotaFiscal está preenchido
             if (!string.IsNullOrEmpty(txtNotaFiscal.Text))
             {
-                // Se estiver preenchido, desativa o lblCaixaLivre
                 lblCaixaLivre.Enabled = false;
             }
         }

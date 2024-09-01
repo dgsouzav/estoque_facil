@@ -35,7 +35,7 @@ namespace DAL
 
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM vwrelatoriocompras WHERE data BETWEEN @DataInicial AND @DataFinal;");
+                SqlCommand cmd = new SqlCommand("SELECT * FROM vwrelatoriocompras WHERE data >= @DataInicial AND data <= @DataFinal;");
                 cmd.Parameters.AddWithValue("@DataInicial", dataInicial);
                 cmd.Parameters.AddWithValue("@DataFinal", dataFinal);
                 cmd.Connection = conexao.ObjetoConexao;

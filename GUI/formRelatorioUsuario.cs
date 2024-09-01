@@ -69,7 +69,7 @@ namespace UI
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Arquivo PDF|*.pdf";
             saveDialog.Title = "Salvar Relatório";
-            saveDialog.FileName = "Relatorio.pdf";
+            saveDialog.FileName = "RelatorioUsuario.pdf";
             DialogResult result = saveDialog.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -110,8 +110,6 @@ namespace UI
             this.conexao = new DALConexao(connectionString);
             this.dalRelatorioUsuario = new DALRelatorioUsuario(conexao);
 
-            DateTime dataInicial = dtpDataInicial.Value.Date;
-            DateTime dataFinal = dtpDataFinal.Value.Date;
             List<UsuarioRelatorio> dadosRelatorio = dalRelatorioUsuario.ObterLinhasUsuario(nomeTabela);
 
             if (dadosRelatorio != null)
