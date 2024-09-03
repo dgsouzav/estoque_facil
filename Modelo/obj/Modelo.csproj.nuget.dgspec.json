@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[0.9.7.1, )"
             },
+            "ScottPlot": {
+              "target": "Package",
+              "version": "[5.0.37, )"
+            },
             "ScottPlot.WinForms": {
               "target": "Package",
               "version": "[5.0.37, )"

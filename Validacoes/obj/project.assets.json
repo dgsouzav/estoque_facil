@@ -1217,6 +1217,7 @@
     "net7.0": [
       "LiveCharts >= 0.9.7",
       "LiveCharts.WinForms >= 0.9.7.1",
+      "ScottPlot >= 5.0.37",
       "ScottPlot.WinForms >= 5.0.37",
       "SkiaSharp.Views.Forms >= 2.88.8",
       "SkiaSharp.Views.Forms.WPF >= 2.88.8"
@@ -1273,6 +1274,10 @@
           "LiveCharts.WinForms": {
             "target": "Package",
             "version": "[0.9.7.1, )"
+          },
+          "ScottPlot": {
+            "target": "Package",
+            "version": "[5.0.37, )"
           },
           "ScottPlot.WinForms": {
             "target": "Package",

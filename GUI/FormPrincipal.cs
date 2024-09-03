@@ -1,10 +1,12 @@
 ﻿using System.Data;
+using ScottPlot;
 using BLL;
 using DAL;
 using Modelo;
 using Timer = System.Windows.Forms.Timer;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
+using Label = System.Windows.Forms.Label;
 
 namespace UI
 {
@@ -21,7 +23,20 @@ namespace UI
             VerificarEstoqueBaixo();
         }
 
+        private void mostrarDados()
+        {
 
+        }
+
+        private void criarGrafico(double[] dataX, double[] dataY)
+        {
+            graficoVenda.Plot.XLabel("Mês");
+            graficoVenda.Plot.YLabel("Valor");
+            graficoVenda.Plot.Title("Valores mensais");
+
+            graficoVenda.Plot.Add.Scatter(dataX, dataY);
+            graficoVenda.Refresh();
+        }
 
         private void VerificarEstoqueBaixo()
         {
@@ -33,7 +48,7 @@ namespace UI
             {
                 string nomeProduto = produto["produto_nome"].ToString();
                 float qtde = Convert.ToSingle(produto["produto_qtde"]);
-                lblProdutosFaltantes.Text += $"O produto '{nomeProduto}' está com estoque baixo ({qtde} unidades).";
+                lblProdutosFaltantes.Text += $"O produto '{nomeProduto}' está com estoque baixo({qtde} unidades) / ";
             }
         }
         private void TimerEsconderBemVindo_Tick(object sender, EventArgs e)

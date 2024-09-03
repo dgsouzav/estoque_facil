@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Diogo\\Documents\\estoque_facil\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|C:\\Users\\Diogo\\Documents\\estoque_facil\\gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|c:\\users\\diogo\\documents\\estoque_facil\\dao\\dalvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE244AD4-391E-4877-9C6D-4D1DBC7808EB}|DAO\\DAL.csproj|solutionrelative:dao\\dalvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|c:\\users\\diogo\\documents\\estoque_facil\\modelo\\modelovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|solutionrelative:modelo\\modelovenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|c:\\users\\diogo\\documents\\estoque_facil\\dll\\bllvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAD93078-08D0-4B50-861F-933E58CAD7E4}|DLL\\BLL.csproj|solutionrelative:dll\\bllvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,17 +30,56 @@
       "DocumentGroups": [
         {
           "DockedHeight": 264,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ModeloVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Modelo\\ModeloVenda.cs",
+              "RelativeDocumentMoniker": "Modelo\\ModeloVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Modelo\\ModeloVenda.cs",
+              "RelativeToolTip": "Modelo\\ModeloVenda.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T00:04:56.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BLLVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\DLL\\BLLVenda.cs",
+              "RelativeDocumentMoniker": "DLL\\BLLVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\DLL\\BLLVenda.cs",
+              "RelativeToolTip": "DLL\\BLLVenda.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T00:02:47.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DALVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\DAO\\DALVenda.cs",
+              "RelativeDocumentMoniker": "DAO\\DALVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\DAO\\DALVenda.cs",
+              "RelativeToolTip": "DAO\\DALVenda.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T23:57:55.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FormPrincipal.cs",
               "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\FormPrincipal.cs",
               "RelativeDocumentMoniker": "GUI\\FormPrincipal.cs",
               "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\FormPrincipal.cs",
               "RelativeToolTip": "GUI\\FormPrincipal.cs",
-              "ViewState": "AgIAAA4CAAAAAAAAAAAhwB0CAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAUwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-01T02:22:46.51Z",
               "EditorCaption": ""

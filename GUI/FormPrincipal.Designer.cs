@@ -83,7 +83,7 @@
             lblUsuarioAtual = new Label();
             lblProdutosFaltantes = new Label();
             lblBemVindo = new Label();
-            graficoVenda = new ScottPlot.WinForms.FormsPlot();
+            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             menuPrincipal.SuspendLayout();
             SuspendLayout();
             // 
@@ -446,44 +446,47 @@
             // 
             // lblUsuarioAtual
             // 
-            lblUsuarioAtual.BackColor = Color.LightGreen;
+            lblUsuarioAtual.AutoSize = true;
+            lblUsuarioAtual.BackColor = Color.FromArgb(192, 255, 192);
             lblUsuarioAtual.Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblUsuarioAtual.ForeColor = SystemColors.ControlText;
-            lblUsuarioAtual.Location = new Point(10, 760);
+            lblUsuarioAtual.Location = new Point(10, 679);
             lblUsuarioAtual.Name = "lblUsuarioAtual";
-            lblUsuarioAtual.Size = new Size(344, 25);
+            lblUsuarioAtual.Size = new Size(78, 18);
             lblUsuarioAtual.TabIndex = 11;
             lblUsuarioAtual.Text = "Usuario";
             // 
             // lblProdutosFaltantes
             // 
-            lblProdutosFaltantes.BackColor = Color.IndianRed;
+            lblProdutosFaltantes.AutoSize = true;
+            lblProdutosFaltantes.BackColor = Color.FromArgb(255, 128, 128);
             lblProdutosFaltantes.Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblProdutosFaltantes.ForeColor = SystemColors.ControlText;
-            lblProdutosFaltantes.Location = new Point(1099, 760);
+            lblProdutosFaltantes.Location = new Point(10, 713);
             lblProdutosFaltantes.Name = "lblProdutosFaltantes";
-            lblProdutosFaltantes.Size = new Size(555, 25);
+            lblProdutosFaltantes.Size = new Size(88, 18);
             lblProdutosFaltantes.TabIndex = 12;
             lblProdutosFaltantes.Text = "Produtos";
             // 
             // lblBemVindo
             // 
+            lblBemVindo.AutoSize = true;
             lblBemVindo.BackColor = Color.Transparent;
             lblBemVindo.Font = new Font("Segoe UI Semilight", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             lblBemVindo.ForeColor = SystemColors.ControlText;
             lblBemVindo.Location = new Point(665, 25);
             lblBemVindo.Name = "lblBemVindo";
-            lblBemVindo.Size = new Size(295, 20);
+            lblBemVindo.Size = new Size(0, 20);
             lblBemVindo.TabIndex = 13;
             lblBemVindo.TextAlign = ContentAlignment.TopCenter;
             // 
-            // graficoVenda
+            // formsPlot1
             // 
-            graficoVenda.DisplayScale = 1F;
-            graficoVenda.Location = new Point(214, 162);
-            graficoVenda.Name = "graficoVenda";
-            graficoVenda.Size = new Size(338, 238);
-            graficoVenda.TabIndex = 14;
+            formsPlot1.DisplayScale = 1F;
+            formsPlot1.Location = new Point(10, 84);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new Size(867, 296);
+            formsPlot1.TabIndex = 14;
             // 
             // FormPrincipal
             // 
@@ -491,7 +494,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1664, 802);
-            Controls.Add(graficoVenda);
+            Controls.Add(formsPlot1);
             Controls.Add(lblBemVindo);
             Controls.Add(lblProdutosFaltantes);
             Controls.Add(lblUsuarioAtual);
@@ -568,5 +571,6 @@
         private ToolStripMenuItem relatórioToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
         private ScottPlot.WinForms.FormsPlot graficoVenda;
+        private ScottPlot.WinForms.FormsPlot formsPlot1;
     }
 }

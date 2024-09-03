@@ -11,6 +11,7 @@ namespace DAL
         {
             this.conexao = cx;
         }
+        
         public void IncluirGasto(ModeloVenda modelo)
         {
             try
