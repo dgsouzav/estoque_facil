@@ -55,11 +55,11 @@
             },
             "ScottPlot": {
               "target": "Package",
-              "version": "[5.0.37, )"
+              "version": "[4.1.74, )"
             },
             "ScottPlot.WinForms": {
               "target": "Package",
-              "version": "[5.0.37, )"
+              "version": "[4.1.74, )"
             },
             "SkiaSharp.Views.Forms": {
               "target": "Package",

@@ -14,11 +14,14 @@ namespace UI
         private int ClienteIDSelecionado = 0;
         public String operacao;
 
+        private FormPrincipal _formPrincipal;
+
         private static DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
         BLLTipoPagamento bll = new BLLTipoPagamento(cx);
 
-        public formVenda()
+        public formVenda(FormPrincipal formPrincipal)
         {
+            _formPrincipal = formPrincipal;
             InitializeComponent();
 
             this.KeyPreview = true;
@@ -26,7 +29,7 @@ namespace UI
             this.KeyDown += formVenda_KeyDown;
 
             txtNotaFiscal.Leave += txtNotaFiscal_Leave;
-            txtProdutoID.Leave += txtProdutoID_Leave; 
+            txtProdutoID.Leave += txtProdutoID_Leave;
         }
 
         public void LimpaTela()
@@ -135,6 +138,8 @@ namespace UI
             }
             this.LimpaTela();
             lblCaixaLivre.Visible = true;
+
+            _formPrincipal.AtualizarGraficoVenda();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -304,22 +309,6 @@ namespace UI
             txtNotaFiscal.Text = numeroNotaFiscal.ToString();
         }
 
-        private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                txtProdutoID.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[0].Value.ToString();
-                lblProdutoNome.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtQtde.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtValor.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-                Double valor = Convert.ToDouble(dtgvItensVenda.Rows[e.RowIndex].Cells[4].Value.ToString());
-                this.totalVenda = this.totalVenda - valor;
-                dtgvItensVenda.Rows.RemoveAt(e.RowIndex);
-                txtVendaTotal.Text = this.totalVenda.ToString();
-            }
-        }
-
         private void btnCancelarPagamento_Click(object sender, EventArgs e)
         {
             this.LimpaTela();
@@ -463,6 +452,22 @@ namespace UI
             if (decimal.TryParse(valor, out decimal valorDecimal))
             {
                 txtVendaTotal.Text = valorDecimal.ToString("C2");
+            }
+        }
+
+        private void dtgvItensVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtProdutoID.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[0].Value.ToString();
+                lblProdutoNome.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtQtde.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtValor.Text = dtgvItensVenda.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                Double valor = Convert.ToDouble(dtgvItensVenda.Rows[e.RowIndex].Cells[4].Value.ToString());
+                this.totalVenda = this.totalVenda - valor;
+                dtgvItensVenda.Rows.RemoveAt(e.RowIndex);
+                txtVendaTotal.Text = this.totalVenda.ToString();
             }
         }
     }

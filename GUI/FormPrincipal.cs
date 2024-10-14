@@ -7,6 +7,9 @@ using Timer = System.Windows.Forms.Timer;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using Label = System.Windows.Forms.Label;
+using static DAL.DALRelatorioVenda;
+using System.Data.SqlClient;
+using static DAL.DALRelatorioCompra;
 
 namespace UI
 {
@@ -23,21 +26,6 @@ namespace UI
             VerificarEstoqueBaixo();
         }
 
-        private void mostrarDados()
-        {
-
-        }
-
-        private void criarGrafico(double[] dataX, double[] dataY)
-        {
-            graficoVenda.Plot.XLabel("Mês");
-            graficoVenda.Plot.YLabel("Valor");
-            graficoVenda.Plot.Title("Valores mensais");
-
-            graficoVenda.Plot.Add.Scatter(dataX, dataY);
-            graficoVenda.Refresh();
-        }
-
         private void VerificarEstoqueBaixo()
         {
             BLLProduto bllProduto = new BLLProduto(new DALConexao(DadosDaConexao.StringDeConexao));
@@ -48,18 +36,16 @@ namespace UI
             {
                 string nomeProduto = produto["produto_nome"].ToString();
                 float qtde = Convert.ToSingle(produto["produto_qtde"]);
-                lblProdutosFaltantes.Text += $"O produto '{nomeProduto}' está com estoque baixo({qtde} unidades) / ";
+                lblProdutosFaltantes.Text += $"O produto '{nomeProduto}' está com estoque baixo({qtde} unidades)\r\n ";
             }
         }
         private void TimerEsconderBemVindo_Tick(object sender, EventArgs e)
         {
-            lblBemVindo.Text = "";
             timerEsconderBemVindo.Stop();
         }
 
         private void ConfigurarControles()
         {
-            lblBemVindo.Text = "Bem-vindo, " + _usuario.Nome + "!";
             lblUsuarioAtual.Text = "Usuário logado: " + _usuario.Nome + " (" + _usuario.NivelAcesso + ")";
             lblUsuarioAtual.AutoSize = true;
 
@@ -67,6 +53,8 @@ namespace UI
         }
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            AtualizarGraficoVenda();
+            AtualizarGraficoCompra();
             VerificarEstoqueBaixo();
             timerVerificarEstoque.Start();
             vendaToolStripMenuItem1.Enabled = false;
@@ -120,7 +108,6 @@ namespace UI
             timerVerificarEstoque.Start();
 
         }
-
 
         private void cadastroClienteToolStripMenuItem5_Click(object sender, EventArgs e)
         {
@@ -261,7 +248,7 @@ namespace UI
 
         private void vendaToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formVenda f = new formVenda();
+            formVenda f = new formVenda(this);
             f.ShowDialog();
             f.Dispose();
         }
@@ -288,7 +275,7 @@ namespace UI
         }
         private void cadastroCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formCompra f = new formCompra();
+            formCompra f = new formCompra(this);
             f.ShowDialog();
             f.Dispose();
         }
@@ -554,5 +541,149 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+
+
+
+
+        void PegarDadosVenda()
+        {
+            List<VendaGrafico> graficoColunas = new List<VendaGrafico>();
+            DALRelatorioVenda dalRelatorioVenda = new DALRelatorioVenda(new DALConexao(DadosDaConexao.StringDeConexao));
+            graficoColunas = dalRelatorioVenda.ObterGrafico();
+
+            if (graficoColunas == null || graficoColunas.Count == 0)
+            {
+                // Não há dados de vendas para exibir
+                return;
+            }
+
+            DateTime[] dataX = graficoColunas.Select(venda => venda.Data).ToArray();
+            double[] dataY = graficoColunas.Select(venda => (double)venda.TotalDeVendas).ToArray();
+
+            Dictionary<int, double> data = new()
+            {
+                { 1, 0 },
+                { 2, 0 },
+                { 3, 0 },
+                { 4, 0 },
+                { 5, 0 },
+                { 6, 0 },
+                { 7, 0 },
+                { 8, 0 },
+                { 9, 0 },
+                { 10, 0 },
+                { 11, 0 },
+                { 12, 0 }
+            };
+            
+            for (int i = 0; i < dataX.Length; i++)
+            {
+                if (data.ContainsKey(dataX[i].Month))
+                {
+                    data[dataX[i].Month] += dataY[i];
+                }
+                else
+                {
+                    data.Add(dataX[i].Month, dataY[i]);
+                }
+            }
+
+            criarGraficoVenda(data);
+            formsPlot1.Refresh();
+        }
+
+        private void criarGraficoVenda(Dictionary<int, double> data)
+        {
+            formsPlot1.Plot.Clear();
+            formsPlot1.Plot.XLabel("Mês");
+            formsPlot1.Plot.YLabel("Valor");
+            formsPlot1.Plot.Title("Valores de vendas por mês");
+
+            formsPlot1.Plot.Add.Scatter(data.Select(d => d.Key).ToArray(), data.Select(d => d.Value).ToArray());
+            
+            formsPlot1.Refresh();
+        }
+
+        public void AtualizarGraficoVenda()
+        {
+            formsPlot1.Plot.Clear();
+
+            PegarDadosVenda();
+            formsPlot1.Refresh();
+        }
+
+
+
+
+
+
+
+        void PegarDadosCompra()
+        {
+            List<CompraGrafico> graficoColunas = new List<CompraGrafico>();
+            DALRelatorioCompra dalRelatorioCompra = new DALRelatorioCompra(new DALConexao(DadosDaConexao.StringDeConexao));
+            graficoColunas = dalRelatorioCompra.ObterGraficoCompras();
+
+            if (graficoColunas == null || graficoColunas.Count == 0)
+            {
+                return;
+            }
+
+            DateTime[] dataX = graficoColunas.Select(compra => compra.Data).ToArray();
+            double[] dataY = graficoColunas.Select(compra => (double)compra.TotalDeCompras).ToArray();
+
+            Dictionary<int, double> data = new()
+            {
+                { 1, 0 },
+                { 2, 0 },
+                { 3, 0 },
+                { 4, 0 },
+                { 5, 0 },
+                { 6, 0 },
+                { 7, 0 },
+                { 8, 0 },
+                { 9, 0 },
+                { 10, 0 },
+                { 11, 0 },
+                { 12, 0 }
+            };
+
+            for (int i = 0; i < dataX.Length; i++)
+            {
+                if (data.ContainsKey(dataX[i].Month))
+                {
+                    data[dataX[i].Month] += dataY[i];
+                }
+                else
+                {
+                    data.Add(dataX[i].Month, dataY[i]);
+                }
+            }
+
+            criarGraficoCompra(data);
+            formsPlot2.Refresh();
+        }
+
+        private void criarGraficoCompra(Dictionary<int, double> data)
+        {
+            formsPlot2.Plot.Clear();
+            formsPlot2.Plot.XLabel("Mês");
+            formsPlot2.Plot.YLabel("Valor");
+            formsPlot2.Plot.Title("Valores de compras por mês");
+
+            formsPlot2.Plot.Add.Scatter(data.Select(d => d.Key).ToArray(), data.Select(d => d.Value).ToArray());
+
+            formsPlot2.Refresh();
+        }
+
+        public void AtualizarGraficoCompra()
+        {
+            formsPlot2.Plot.Clear();
+
+            PegarDadosCompra();
+            formsPlot2.Refresh();
+        }
+
     }
 }

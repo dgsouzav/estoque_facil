@@ -10,7 +10,7 @@ namespace UI
     {
         private int numeroNotaFiscal = 0;
         public Double totalCompra = 0;
-
+        private FormPrincipal _formPrincipal;
         public String operacao;
 
         public void menuBotoes(int op)
@@ -55,9 +55,11 @@ namespace UI
             txtCompraTotal.Clear();
             dtgvItensCompra.Rows.Clear();
         }
-        public formCompra()
+        public formCompra(FormPrincipal formPrincipal)
         {
             InitializeComponent();
+
+            _formPrincipal = formPrincipal;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -167,6 +169,8 @@ namespace UI
                 cx.CancelarTransacao();
                 cx.Desconectar();
             }
+
+            _formPrincipal.AtualizarGraficoCompra();
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)

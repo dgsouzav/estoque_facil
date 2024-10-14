@@ -47,7 +47,7 @@
           "dependencies": {
             "Google.Api.CommonProtos": {
               "target": "Package",
-              "version": "[2.15.0, )"
+              "version": "[2.16.0, )"
             },
             "LiveCharts": {
               "target": "Package",
@@ -59,11 +59,11 @@
             },
             "ScottPlot": {
               "target": "Package",
-              "version": "[5.0.37, )"
+              "version": "[5.0.39, )"
             },
             "ScottPlot.WinForms": {
               "target": "Package",
-              "version": "[5.0.37, )"
+              "version": "[5.0.39, )"
             },
             "SkiaSharp.Views.Forms": {
               "target": "Package",

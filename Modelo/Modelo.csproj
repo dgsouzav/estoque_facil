@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Api.CommonProtos" Version="2.15.0" />
+    <PackageReference Include="Google.Api.CommonProtos" Version="2.16.0" />
     <PackageReference Include="LiveCharts" Version="0.9.7" />
     <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
-    <PackageReference Include="ScottPlot" Version="5.0.37" />
-    <PackageReference Include="ScottPlot.WinForms" Version="5.0.37" />
+    <PackageReference Include="ScottPlot" Version="5.0.39" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.39" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.8" />
     <PackageReference Include="SkiaSharp.Views.Forms.WPF" Version="2.88.8" />
   </ItemGroup>

@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Google.Api.CommonProtos/2.15.0": {
+      "Google.Api.CommonProtos/2.16.0": {
         "type": "package",
         "dependencies": {
-          "Google.Protobuf": "[3.25.0, 4.0.0)"
+          "Google.Protobuf": "[3.28.2, 4.0.0)"
         },
         "compile": {
           "lib/netstandard2.0/Google.Api.CommonProtos.dll": {
@@ -21,7 +21,7 @@
           "build/Google.Api.CommonProtos.targets": {}
         }
       },
-      "Google.Protobuf/3.25.0": {
+      "Google.Protobuf/3.28.2": {
         "type": "package",
         "compile": {
           "lib/net5.0/Google.Protobuf.dll": {
@@ -140,7 +140,7 @@
           }
         }
       },
-      "ScottPlot/5.0.37": {
+      "ScottPlot/5.0.39": {
         "type": "package",
         "dependencies": {
           "SkiaSharp": "2.88.8",
@@ -157,10 +157,10 @@
           }
         }
       },
-      "ScottPlot.WinForms/5.0.37": {
+      "ScottPlot.WinForms/5.0.39": {
         "type": "package",
         "dependencies": {
-          "ScottPlot": "5.0.37",
+          "ScottPlot": "5.0.39",
           "SkiaSharp.Views.WindowsForms": "2.88.8"
         },
         "compile": {
@@ -424,10 +424,10 @@
     }
   },
   "libraries": {
-    "Google.Api.CommonProtos/2.15.0": {
-      "sha512": "k+43CTEgMbT4C2JjcIJon3GvMNFJ3kLMjPTedOkXUAt0D5cFfrlee+M4oieueAVhbXktR89yoj5O/kVmC/AKJw==",
+    "Google.Api.CommonProtos/2.16.0": {
+      "sha512": "37MuZrE9AAqHAdYgFLoTHydAiXDRriQZGVKEg6fr6ASnrY5GtauYXnQrGk5x2K3NmYzEXe+wkpaPVmxjb3NKjg==",
       "type": "package",
-      "path": "google.api.commonprotos/2.15.0",
+      "path": "google.api.commonprotos/2.16.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -490,7 +490,7 @@
         "content/protos/google/type/postal_address.proto",
         "content/protos/google/type/quaternion.proto",
         "content/protos/google/type/timeofday.proto",
-        "google.api.commonprotos.2.15.0.nupkg.sha512",
+        "google.api.commonprotos.2.16.0.nupkg.sha512",
         "google.api.commonprotos.nuspec",
         "lib/net461/Google.Api.CommonProtos.dll",
         "lib/net461/Google.Api.CommonProtos.pdb",
@@ -500,14 +500,14 @@
         "lib/netstandard2.0/Google.Api.CommonProtos.xml"
       ]
     },
-    "Google.Protobuf/3.25.0": {
-      "sha512": "pIEkH1IqZV1iK8J5MYdG1kOyY0EoQLB6yEKvBq12RYNtvGXwCvnQg5zQsFmcqAEPtIZvSqPozIbUZaEd5a2gCg==",
+    "Google.Protobuf/3.28.2": {
+      "sha512": "Z86ZKAB+v1B/m0LTM+EVamvZlYw/g3VND3/Gs4M/+aDIxa2JE9YPKjDxTpf0gv2sh26hrve3eI03brxBmzn92g==",
       "type": "package",
-      "path": "google.protobuf/3.25.0",
+      "path": "google.protobuf/3.28.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "google.protobuf.3.25.0.nupkg.sha512",
+        "google.protobuf.3.28.2.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
@@ -658,10 +658,10 @@
         "opentk.glcontrol.nuspec"
       ]
     },
-    "ScottPlot/5.0.37": {
-      "sha512": "d5jkB/eHbyjL1+gKPQGHhnmif/sOaJAhmqQg21dE3/tzgIvpu5r6JZPUpmV6TxB5f0q35zm0j9wKn2Xl4zIy5w==",
+    "ScottPlot/5.0.39": {
+      "sha512": "SyUIF7OPhieza8Lu/s5uLarBf6mhSPkRuwkJ3/KwTrRtpWmUwtTPWil4IQZ4HVp7Q15F/uRUmRDYTAeQcg9KGg==",
       "type": "package",
-      "path": "scottplot/5.0.37",
+      "path": "scottplot/5.0.39",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -675,14 +675,14 @@
         "lib/netstandard2.0/ScottPlot.dll",
         "lib/netstandard2.0/ScottPlot.xml",
         "readme.md",
-        "scottplot.5.0.37.nupkg.sha512",
+        "scottplot.5.0.39.nupkg.sha512",
         "scottplot.nuspec"
       ]
     },
-    "ScottPlot.WinForms/5.0.37": {
-      "sha512": "oCM53u8oaY3gjAfXrBY1yvSxLqZ95EizXaHOuFPP9SC64JiR5xzrVh57X32JCBONeyR+6GCNJyr788KnuqDDCQ==",
+    "ScottPlot.WinForms/5.0.39": {
+      "sha512": "aG6y5wWbsu/DSYz6vPGItNKTqK4Lw1B7dtsVft1zNSIKnZcWr9EdfVlM+eMj1lxENNU1u9+UTutglSUWSExLlA==",
       "type": "package",
-      "path": "scottplot.winforms/5.0.37",
+      "path": "scottplot.winforms/5.0.39",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -692,7 +692,7 @@
         "lib/net6.0-windows7.0/ScottPlot.WinForms.dll",
         "lib/net6.0-windows7.0/ScottPlot.WinForms.xml",
         "readme.md",
-        "scottplot.winforms.5.0.37.nupkg.sha512",
+        "scottplot.winforms.5.0.39.nupkg.sha512",
         "scottplot.winforms.nuspec"
       ]
     },
@@ -1346,11 +1346,11 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Google.Api.CommonProtos >= 2.15.0",
+      "Google.Api.CommonProtos >= 2.16.0",
       "LiveCharts >= 0.9.7",
       "LiveCharts.WinForms >= 0.9.7.1",
-      "ScottPlot >= 5.0.37",
-      "ScottPlot.WinForms >= 5.0.37",
+      "ScottPlot >= 5.0.39",
+      "ScottPlot.WinForms >= 5.0.39",
       "SkiaSharp.Views.Forms >= 2.88.8",
       "SkiaSharp.Views.Forms.WPF >= 2.88.8"
     ]
@@ -1401,7 +1401,7 @@
         "dependencies": {
           "Google.Api.CommonProtos": {
             "target": "Package",
-            "version": "[2.15.0, )"
+            "version": "[2.16.0, )"
           },
           "LiveCharts": {
             "target": "Package",
@@ -1413,11 +1413,11 @@
           },
           "ScottPlot": {
             "target": "Package",
-            "version": "[5.0.37, )"
+            "version": "[5.0.39, )"
           },
           "ScottPlot.WinForms": {
             "target": "Package",
-            "version": "[5.0.37, )"
+            "version": "[5.0.39, )"
           },
           "SkiaSharp.Views.Forms": {
             "target": "Package",
@@ -1503,7 +1503,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'ScottPlot.WinForms 5.0.37' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "O pacote 'ScottPlot.WinForms 5.0.39' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
       "libraryId": "ScottPlot.WinForms",
       "targetGraphs": [
         "net7.0"

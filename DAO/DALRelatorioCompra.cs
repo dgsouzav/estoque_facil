@@ -14,6 +14,56 @@ namespace DAL
         {
             this.conexao = cx;
         }
+        public class CompraGrafico
+        {
+            DateTime _data;
+            int _total_de_compras;
+
+            public CompraGrafico(DateTime data, int total_de_compras)
+            {
+                this._data = data;
+                this._total_de_compras = total_de_compras;
+            }
+
+            public DateTime Data { get { return _data; } }
+            public int TotalDeCompras { get { return _total_de_compras; } }
+        }
+
+        public List<CompraGrafico>? ObterGraficoCompras()
+        {
+            List<CompraGrafico> graficoColunas = new List<CompraGrafico>();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT SUM(total_de_compras) AS TotalDeCompras, CAST(data AS DATE) AS Data FROM vwrelatoriocompras GROUP BY CAST(data AS DATE)");
+
+                cmd.Connection = conexao.ObjetoConexao;
+                this.conexao.Conectar();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr != null)
+                {
+                    while (dr.Read())
+                    {
+                        int totalDeCompras = dr["TotalDeCompras"] != DBNull.Value ? Convert.ToInt32(dr["TotalDeCompras"]) : 0;
+
+                        DateTime data = Convert.ToDateTime(dr["data"]);
+
+                        CompraGrafico grafico = new CompraGrafico(data, totalDeCompras);
+                        graficoColunas.Add(grafico);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao obter os dados do gráfico de compras: " + ex.Message);
+                return null;
+            }
+            finally
+            {
+                this.conexao.Desconectar();
+            }
+            return graficoColunas;
+        }
         public class CompraRelatorio
         {
             string _data;
