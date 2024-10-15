@@ -87,7 +87,7 @@
             btnCancelarVenda.Name = "btnCancelarVenda";
             btnCancelarVenda.Size = new Size(120, 64);
             btnCancelarVenda.TabIndex = 16;
-            btnCancelarVenda.Text = "CANCELAR";
+            btnCancelarVenda.Text = "CANCELAR(F4)";
             btnCancelarVenda.UseVisualStyleBackColor = true;
             btnCancelarVenda.Click += btnCancelarVenda_Click;
             // 
@@ -98,7 +98,7 @@
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(121, 64);
             btnCancelar.TabIndex = 17;
-            btnCancelar.Text = "LIMPAR";
+            btnCancelar.Text = "LIMPAR(F5)";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
@@ -109,7 +109,7 @@
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(121, 64);
             btnSalvar.TabIndex = 15;
-            btnSalvar.Text = "SALVAR";
+            btnSalvar.Text = "SALVAR(F3)";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
@@ -280,9 +280,9 @@
             lblProdutoNome.AutoSize = true;
             lblProdutoNome.Location = new Point(240, 103);
             lblProdutoNome.Name = "lblProdutoNome";
-            lblProdutoNome.Size = new Size(20, 20);
+            lblProdutoNome.Size = new Size(108, 20);
             lblProdutoNome.TabIndex = 33;
-            lblProdutoNome.Text = "N";
+            lblProdutoNome.Text = "Nome produto";
             // 
             // lblCliente
             // 

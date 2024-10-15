@@ -61,6 +61,14 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "Microsoft.VisualStudio.LiveShare": {
+              "target": "Package",
+              "version": "[1.1.57, )"
+            },
+            "Microsoft.VisualStudio.LiveShare.LanguageServices": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
             "ScottPlot": {
               "target": "Package",
               "version": "[5.0.39, )"
@@ -161,6 +169,14 @@
               "target": "Package",
               "version": "[0.9.7.1, )"
             },
+            "Microsoft.VisualStudio.LiveShare": {
+              "target": "Package",
+              "version": "[1.1.57, )"
+            },
+            "Microsoft.VisualStudio.LiveShare.LanguageServices": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
             "ScottPlot": {
               "target": "Package",
               "version": "[5.0.39, )"
@@ -256,6 +272,14 @@
             "LiveCharts.WinForms": {
               "target": "Package",
               "version": "[0.9.7.1, )"
+            },
+            "Microsoft.VisualStudio.LiveShare": {
+              "target": "Package",
+              "version": "[1.1.57, )"
+            },
+            "Microsoft.VisualStudio.LiveShare.LanguageServices": {
+              "target": "Package",
+              "version": "[2.0.1, )"
             },
             "ScottPlot": {
               "target": "Package",
@@ -354,6 +378,14 @@
               "target": "Package",
               "version": "[0.9.7.1, )"
             },
+            "Microsoft.VisualStudio.LiveShare": {
+              "target": "Package",
+              "version": "[1.1.57, )"
+            },
+            "Microsoft.VisualStudio.LiveShare.LanguageServices": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
             "ScottPlot": {
               "target": "Package",
               "version": "[5.0.39, )"
@@ -440,13 +472,21 @@
               "target": "Package",
               "version": "[0.9.7.1, )"
             },
+            "Microsoft.VisualStudio.LiveShare": {
+              "target": "Package",
+              "version": "[1.1.57, )"
+            },
+            "Microsoft.VisualStudio.LiveShare.LanguageServices": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
             "ScottPlot": {
               "target": "Package",
-              "version": "[4.1.74, )"
+              "version": "[5.0.39, )"
             },
             "ScottPlot.WinForms": {
               "target": "Package",
-              "version": "[4.1.74, )"
+              "version": "[5.0.39, )"
             },
             "SkiaSharp.Views.Forms": {
               "target": "Package",

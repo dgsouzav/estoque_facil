@@ -3,12 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Diogo\\Documents\\estoque_facil\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|c:\\users\\diogo\\documents\\estoque_facil\\modelo\\modeloproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63C1B30C-74EC-4C91-AA91-D97C38067179}|Modelo\\Modelo.csproj|solutionrelative:modelo\\modeloproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formcompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formcadastroproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formcadastroproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formcadastroproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formcadastroproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|C:\\Users\\Diogo\\Documents\\estoque_facil\\gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formvenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formconsultavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formconsultavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|c:\\users\\diogo\\documents\\estoque_facil\\gui\\formconsultavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17027F13-4214-43E1-9375-7B1BBB293168}|GUI\\UI.csproj|solutionrelative:gui\\formconsultavenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +54,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "formCompra.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCompra.cs",
+              "RelativeDocumentMoniker": "GUI\\formCompra.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCompra.cs",
+              "RelativeToolTip": "GUI\\formCompra.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAiwEgBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T23:03:50.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "formCompra.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCompra.cs",
+              "RelativeDocumentMoniker": "GUI\\formCompra.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCompra.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formCompra.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T23:03:46.763Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ModeloProduto.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Modelo\\ModeloProduto.cs",
+              "RelativeDocumentMoniker": "Modelo\\ModeloProduto.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\Modelo\\ModeloProduto.cs",
+              "RelativeToolTip": "Modelo\\ModeloProduto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:48:33.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "formCadastroProduto.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCadastroProduto.cs",
+              "RelativeDocumentMoniker": "GUI\\formCadastroProduto.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCadastroProduto.cs",
+              "RelativeToolTip": "GUI\\formCadastroProduto.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAawGoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:48:16.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "formCadastroProduto.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCadastroProduto.cs",
+              "RelativeDocumentMoniker": "GUI\\formCadastroProduto.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formCadastroProduto.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formCadastroProduto.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:47:01.565Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "formConsultaVenda.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formConsultaVenda.cs",
+              "RelativeDocumentMoniker": "GUI\\formConsultaVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formConsultaVenda.cs",
+              "RelativeToolTip": "GUI\\formConsultaVenda.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAvwE4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:31:55.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "formConsultaVenda.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formConsultaVenda.cs",
+              "RelativeDocumentMoniker": "GUI\\formConsultaVenda.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formConsultaVenda.cs [Projeto]",
+              "RelativeToolTip": "GUI\\formConsultaVenda.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:31:44.903Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormPrincipal.cs",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\FormPrincipal.cs",
+              "RelativeDocumentMoniker": "GUI\\FormPrincipal.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\FormPrincipal.cs",
+              "RelativeToolTip": "GUI\\FormPrincipal.cs",
+              "ViewState": "AgIAAJsCAAAAAAAAAIA5wKgCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:30:03.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormPrincipal.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\FormPrincipal.cs",
+              "RelativeDocumentMoniker": "GUI\\FormPrincipal.cs",
+              "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\FormPrincipal.cs [Projeto]",
+              "RelativeToolTip": "GUI\\FormPrincipal.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T22:29:54.758Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "formVenda.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formVenda.cs",
               "RelativeDocumentMoniker": "GUI\\formVenda.cs",
@@ -34,13 +187,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "formVenda.cs",
               "DocumentMoniker": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formVenda.cs",
               "RelativeDocumentMoniker": "GUI\\formVenda.cs",
               "ToolTip": "C:\\Users\\Diogo\\Documents\\estoque_facil\\GUI\\formVenda.cs",
               "RelativeToolTip": "GUI\\formVenda.cs",
-              "ViewState": "AgIAAMEBAAAAAAAAAAArwNUBAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowI4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T21:57:47.632Z",
               "EditorCaption": ""

@@ -21,11 +21,12 @@ namespace Modelo
             this.subCategoria_id = 0;
             this.produto_qtde = 0;
             this.fornecedor_id = 0;
+            this.produto_validade = DateTime.MinValue;
         }
 
         public ModeloProduto(int produto_id, String produto_nome, String produto_descricao, 
             Double produto_valorpago, Double produto_valorvenda, Double produto_lote, 
-            int undmed_id, int categoria_id, int subCategoria_id, float produto_qtde, int fornecedor_id)
+            int undmed_id, int categoria_id, int subCategoria_id, float produto_qtde, int fornecedor_id, DateTime produto_validade)
         {
             this.produto_id = produto_id;
             this.produto_nome = produto_nome;
@@ -38,6 +39,7 @@ namespace Modelo
             this.subCategoria_id = subCategoria_id;
             this.produto_qtde = produto_qtde;
             this.produto_id = fornecedor_id;
+            this.produto_validade = produto_validade;
         }
 
         private int produto_id;
@@ -108,6 +110,12 @@ namespace Modelo
         {
             get { return this.fornecedor_id; }
             set { this.fornecedor_id = value; }
+        }
+        public DateTime produto_validade;
+        public DateTime ProdutoValidade
+        {
+            get { return this.produto_validade; }
+            set { this.produto_validade = value; }
         }
     }
 }

@@ -69,9 +69,11 @@ namespace UI
             dtgvDadosVenda.Columns[2].Width = 100;
             dtgvDadosVenda.Columns[3].HeaderText = "Total";
             dtgvDadosVenda.Columns[3].Width = 100;
-            dtgvDadosVenda.Columns[5].HeaderText = "Status";
-            dtgvDadosVenda.Columns[5].Width = 100;
-            dtgvDadosVenda.Columns[6].HeaderText = "Código do tipo de pagamento";
+            dtgvDadosVenda.Columns[4].HeaderText = "Status";
+            dtgvDadosVenda.Columns[4].Width = 100;
+            dtgvDadosVenda.Columns[5].HeaderText = "Código do tipo de pagamento";
+            dtgvDadosVenda.Columns[5].Visible = false;
+            dtgvDadosVenda.Columns[6].HeaderText = "Venda a vista";
             dtgvDadosVenda.Columns[6].Visible = false;
             dtgvDadosVenda.Columns[7].HeaderText = "Venda a vista";
             dtgvDadosVenda.Columns[7].Visible = false;

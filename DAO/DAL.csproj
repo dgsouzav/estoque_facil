@@ -10,6 +10,8 @@
     <PackageReference Include="LiveCharts" Version="0.9.7" />
     <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
     <PackageReference Include="MaterialIcons" Version="1.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.LiveShare" Version="1.1.57" />
+    <PackageReference Include="Microsoft.VisualStudio.LiveShare.LanguageServices" Version="2.0.1" />
     <PackageReference Include="ScottPlot" Version="5.0.39" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.39" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.8" />

@@ -53,7 +53,7 @@ namespace UI
         }
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            AtualizarGraficoVenda();
+            AtualizarGraficoVendaEstoque();
             AtualizarGraficoCompra();
             VerificarEstoqueBaixo();
             timerVerificarEstoque.Start();
@@ -605,7 +605,7 @@ namespace UI
             formsPlot1.Refresh();
         }
 
-        public void AtualizarGraficoVenda()
+        public void AtualizarGraficoVendaEstoque()
         {
             formsPlot1.Plot.Clear();
 
@@ -619,7 +619,7 @@ namespace UI
 
 
 
-        void PegarDadosCompra()
+        void PegarDadosCompraX()
         {
             List<CompraGrafico> graficoColunas = new List<CompraGrafico>();
             DALRelatorioCompra dalRelatorioCompra = new DALRelatorioCompra(new DALConexao(DadosDaConexao.StringDeConexao));
@@ -681,7 +681,7 @@ namespace UI
         {
             formsPlot2.Plot.Clear();
 
-            PegarDadosCompra();
+            PegarDadosCompraX();
             formsPlot2.Refresh();
         }
 

@@ -139,7 +139,7 @@ namespace UI
             this.LimpaTela();
             lblCaixaLivre.Visible = true;
 
-            _formPrincipal.AtualizarGraficoVenda();
+            _formPrincipal.AtualizarGraficoVendaEstoque();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -17,6 +17,7 @@
     <Import Project="$(NuGetPackageRoot)skiasharp.views.forms.wpf\2.88.8\build\SkiaSharp.Views.Forms.WPF.props" Condition="Exists('$(NuGetPackageRoot)skiasharp.views.forms.wpf\2.88.8\build\SkiaSharp.Views.Forms.WPF.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Diogo\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
     <PkgLiveCharts_Wpf Condition=" '$(PkgLiveCharts_Wpf)' == '' ">C:\Users\Diogo\.nuget\packages\livecharts.wpf\0.9.7</PkgLiveCharts_Wpf>
     <PkgLiveCharts_WinForms Condition=" '$(PkgLiveCharts_WinForms)' == '' ">C:\Users\Diogo\.nuget\packages\livecharts.winforms\0.9.7.1</PkgLiveCharts_WinForms>
   </PropertyGroup>
