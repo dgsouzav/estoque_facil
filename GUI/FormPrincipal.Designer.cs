@@ -84,6 +84,7 @@
             lblProdutosFaltantes = new Label();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             formsPlot2 = new ScottPlot.WinForms.FormsPlot();
+            formsPlot3 = new ScottPlot.WinForms.FormsPlot();
             menuPrincipal.SuspendLayout();
             SuspendLayout();
             // 
@@ -316,40 +317,40 @@
             // 
             VendaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { vendaToolStripMenuItem1, consultaVendaToolStripMenuItem, relatorioVendaToolStripMenuItem });
             VendaToolStripMenuItem.Name = "VendaToolStripMenuItem";
-            VendaToolStripMenuItem.Size = new Size(224, 28);
+            VendaToolStripMenuItem.Size = new Size(209, 28);
             VendaToolStripMenuItem.Text = "Frente de caixa";
             // 
             // vendaToolStripMenuItem1
             // 
             vendaToolStripMenuItem1.Name = "vendaToolStripMenuItem1";
-            vendaToolStripMenuItem1.Size = new Size(224, 28);
+            vendaToolStripMenuItem1.Size = new Size(162, 28);
             vendaToolStripMenuItem1.Text = "Venda";
             vendaToolStripMenuItem1.Click += vendaToolStripMenuItem1_Click_1;
             // 
             // consultaVendaToolStripMenuItem
             // 
             consultaVendaToolStripMenuItem.Name = "consultaVendaToolStripMenuItem";
-            consultaVendaToolStripMenuItem.Size = new Size(224, 28);
+            consultaVendaToolStripMenuItem.Size = new Size(162, 28);
             consultaVendaToolStripMenuItem.Text = "Consulta";
             consultaVendaToolStripMenuItem.Click += consultaVendaToolStripMenuItem_Click;
             // 
             // relatorioVendaToolStripMenuItem
             // 
             relatorioVendaToolStripMenuItem.Name = "relatorioVendaToolStripMenuItem";
-            relatorioVendaToolStripMenuItem.Size = new Size(224, 28);
+            relatorioVendaToolStripMenuItem.Size = new Size(162, 28);
             relatorioVendaToolStripMenuItem.Text = "Relatório";
             relatorioVendaToolStripMenuItem.Click += relatórioVendaToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(221, 6);
+            toolStripSeparator3.Size = new Size(206, 6);
             // 
             // compraToolStripMenuItem
             // 
             compraToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroCompraToolStripMenuItem, consultaCompraToolStripMenuItem, relatorioCompraToolStripMenuItem });
             compraToolStripMenuItem.Name = "compraToolStripMenuItem";
-            compraToolStripMenuItem.Size = new Size(224, 28);
+            compraToolStripMenuItem.Size = new Size(209, 28);
             compraToolStripMenuItem.Text = "Compra";
             // 
             // cadastroCompraToolStripMenuItem
@@ -376,13 +377,13 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            toolStripSeparator1.Size = new Size(206, 6);
             // 
             // fluxoDeCaixaToolStripMenuItem
             // 
             fluxoDeCaixaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { relatórioToolStripMenuItem });
             fluxoDeCaixaToolStripMenuItem.Name = "fluxoDeCaixaToolStripMenuItem";
-            fluxoDeCaixaToolStripMenuItem.Size = new Size(224, 28);
+            fluxoDeCaixaToolStripMenuItem.Size = new Size(209, 28);
             fluxoDeCaixaToolStripMenuItem.Text = "Fluxo de Caixa";
             // 
             // relatórioToolStripMenuItem
@@ -395,13 +396,13 @@
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(221, 6);
+            toolStripSeparator5.Size = new Size(206, 6);
             // 
             // gastosToolStripMenuItem
             // 
             gastosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroToolStripMenuItem, relatorioToolStripMenuItem });
             gastosToolStripMenuItem.Name = "gastosToolStripMenuItem";
-            gastosToolStripMenuItem.Size = new Size(224, 28);
+            gastosToolStripMenuItem.Size = new Size(209, 28);
             gastosToolStripMenuItem.Text = "Despesa";
             // 
             // cadastroToolStripMenuItem
@@ -421,19 +422,19 @@
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(221, 6);
+            toolStripSeparator2.Size = new Size(206, 6);
             // 
             // abrirCaixaToolStripMenuItem
             // 
             abrirCaixaToolStripMenuItem.Name = "abrirCaixaToolStripMenuItem";
-            abrirCaixaToolStripMenuItem.Size = new Size(224, 28);
+            abrirCaixaToolStripMenuItem.Size = new Size(209, 28);
             abrirCaixaToolStripMenuItem.Text = "Abrir caixa";
             abrirCaixaToolStripMenuItem.Click += abrirCaixaToolStripMenuItem_Click;
             // 
             // fecharCaixaToolStripMenuItem
             // 
             fecharCaixaToolStripMenuItem.Name = "fecharCaixaToolStripMenuItem";
-            fecharCaixaToolStripMenuItem.Size = new Size(224, 28);
+            fecharCaixaToolStripMenuItem.Size = new Size(209, 28);
             fecharCaixaToolStripMenuItem.Text = "Fechar caixa";
             fecharCaixaToolStripMenuItem.Click += fecharCaixaToolStripMenuItem_Click;
             // 
@@ -487,13 +488,22 @@
             formsPlot2.Size = new Size(898, 325);
             formsPlot2.TabIndex = 15;
             // 
+            // formsPlot3
+            // 
+            formsPlot3.DisplayScale = 1F;
+            formsPlot3.Location = new Point(943, 80);
+            formsPlot3.Margin = new Padding(3, 4, 3, 4);
+            formsPlot3.Name = "formsPlot3";
+            formsPlot3.Size = new Size(904, 325);
+            formsPlot3.TabIndex = 15;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1902, 1055);
-            Controls.Add(formsPlot2);
+            Controls.Add(formsPlot3);
             Controls.Add(formsPlot1);
             Controls.Add(lblProdutosFaltantes);
             Controls.Add(lblUsuarioAtual);
@@ -570,5 +580,6 @@
         private ScottPlot.WinForms.FormsPlot graficoVenda;
         private ScottPlot.WinForms.FormsPlot formsPlot1;
         private ScottPlot.WinForms.FormsPlot formsPlot2;
+        private ScottPlot.WinForms.FormsPlot formsPlot3;
     }
 }

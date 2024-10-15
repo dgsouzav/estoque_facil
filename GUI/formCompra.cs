@@ -170,7 +170,7 @@ namespace UI
                 cx.Desconectar();
             }
 
-            _formPrincipal.AtualizarGraficoCompra();
+            //_formPrincipal.AtualizarGraficoCompra();
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)

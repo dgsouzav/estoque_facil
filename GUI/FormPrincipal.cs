@@ -10,6 +10,7 @@ using Label = System.Windows.Forms.Label;
 using static DAL.DALRelatorioVenda;
 using System.Data.SqlClient;
 using static DAL.DALRelatorioCompra;
+using Microsoft.VisualStudio.Text.Editor;
 
 namespace UI
 {
@@ -20,6 +21,7 @@ namespace UI
         private Timer timerEsconderBemVindo;
         private DALAbertura dalAbertura;
         private ModeloAbertura abertura;
+        private Dictionary<int, string> meses;
 
         private void TimerVerificarEstoque_Tick(object sender, EventArgs e)
         {
@@ -61,6 +63,20 @@ namespace UI
         }
         public FormPrincipal(AUsuario usuario)
         {
+            meses = new(){
+                { 1 , "Janeiro" },
+                { 2, "Fevereiro" },
+                { 3, "Março" },
+                { 4, "Abril" },
+                { 5, "Maio" },
+                { 6, "Junho" },
+                { 7, "Julho" },
+                { 8, "Agosto" },
+                { 9, "Setembro" },
+                { 10, "Outubro" },
+                { 11, "Novembro" },
+                { 12, "Dezembro" },
+            };
             InitializeComponent();
             this._usuario = usuario;
             VendaToolStripMenuItem.Enabled = usuario.NivelAcesso2._formVendaAcesso;
@@ -106,7 +122,6 @@ namespace UI
             timerVerificarEstoque.Interval = 24 * 60 * 60 * 1000;
             timerVerificarEstoque.Tick += TimerVerificarEstoque_Tick;
             timerVerificarEstoque.Start();
-
         }
 
         private void cadastroClienteToolStripMenuItem5_Click(object sender, EventArgs e)
@@ -543,54 +558,39 @@ namespace UI
         }
 
 
-
-
+        List<VendaGrafico> PegarVendasGrafico()
+        {
+            DALRelatorioVenda conexaoDBvendas = new DALRelatorioVenda(new DALConexao(DadosDaConexao.StringDeConexao));
+            var vendas = conexaoDBvendas.ObterGraficoVenda();
+            if (vendas == null || vendas.Count == 0)
+            {
+                return new List<VendaGrafico>();
+            }
+            return vendas;
+        }
 
         void PegarDadosVenda()
         {
-            List<VendaGrafico> graficoColunas = new List<VendaGrafico>();
-            DALRelatorioVenda dalRelatorioVenda = new DALRelatorioVenda(new DALConexao(DadosDaConexao.StringDeConexao));
-            graficoColunas = dalRelatorioVenda.ObterGrafico();
+            var vendas = PegarVendasGrafico();
 
-            if (graficoColunas == null || graficoColunas.Count == 0)
-            {
-                // Não há dados de vendas para exibir
-                return;
-            }
+            DateTime[] dataX = vendas.Select(venda => venda.Data).ToArray();
+            double[] dataY = vendas.Select(venda => (double)venda.TotalDeVendas).ToArray();
 
-            DateTime[] dataX = graficoColunas.Select(venda => venda.Data).ToArray();
-            double[] dataY = graficoColunas.Select(venda => (double)venda.TotalDeVendas).ToArray();
+            Dictionary<int, double> data = Enumerable.Range(1, 12)
+                .ToDictionary(month => month, month => 0.0);
 
-            Dictionary<int, double> data = new()
-            {
-                { 1, 0 },
-                { 2, 0 },
-                { 3, 0 },
-                { 4, 0 },
-                { 5, 0 },
-                { 6, 0 },
-                { 7, 0 },
-                { 8, 0 },
-                { 9, 0 },
-                { 10, 0 },
-                { 11, 0 },
-                { 12, 0 }
-            };
-            
             for (int i = 0; i < dataX.Length; i++)
             {
                 if (data.ContainsKey(dataX[i].Month))
                 {
-                    data[dataX[i].Month] += dataY[i];
+                    data[(int)dataX[i].Month] += dataY[i];
                 }
                 else
                 {
-                    data.Add(dataX[i].Month, dataY[i]);
+                    data.Add((int)dataX[i].Month, dataY[i]);
                 }
             }
-
             criarGraficoVenda(data);
-            formsPlot1.Refresh();
         }
 
         private void criarGraficoVenda(Dictionary<int, double> data)
@@ -599,55 +599,39 @@ namespace UI
             formsPlot1.Plot.XLabel("Mês");
             formsPlot1.Plot.YLabel("Valor");
             formsPlot1.Plot.Title("Valores de vendas por mês");
-
-            formsPlot1.Plot.Add.Scatter(data.Select(d => d.Key).ToArray(), data.Select(d => d.Value).ToArray());
-            
-            formsPlot1.Refresh();
+            formsPlot1.Plot.Axes.Bottom.SetTicks(data.Select(d => (double)d.Key).ToArray(), data.Select(d => meses[d.Key]).ToArray());
+            formsPlot1.Plot.Add.Scatter(data.Select(d => (double)d.Key).ToArray(), data.Select(d => d.Value).ToArray());
         }
 
         public void AtualizarGraficoVendaEstoque()
         {
             formsPlot1.Plot.Clear();
 
-            PegarDadosVenda();
+            PegarDadosVenda(); // Pega dados da Venda e plota no gráfico.
+
             formsPlot1.Refresh();
         }
 
-
-
-
-
+        List<CompraGrafico> PegarComprasGrafico()
+        {
+            var conexaoDBvendas = new DALRelatorioCompra(new DALConexao(DadosDaConexao.StringDeConexao));
+            var compras = conexaoDBvendas.ObterGraficoCompras();
+            if (compras == null || compras.Count == 0)
+            {
+                return new List<CompraGrafico>();
+            }
+            return compras;
+        }
 
 
         void PegarDadosCompraX()
         {
-            List<CompraGrafico> graficoColunas = new List<CompraGrafico>();
-            DALRelatorioCompra dalRelatorioCompra = new DALRelatorioCompra(new DALConexao(DadosDaConexao.StringDeConexao));
-            graficoColunas = dalRelatorioCompra.ObterGraficoCompras();
+            var compras = PegarComprasGrafico();
+            DateTime[] dataX = compras.Select(compra => compra.Data).ToArray();
+            double[] dataY = compras.Select(compra => (double)compra.TotalDeCompras).ToArray();
 
-            if (graficoColunas == null || graficoColunas.Count == 0)
-            {
-                return;
-            }
-
-            DateTime[] dataX = graficoColunas.Select(compra => compra.Data).ToArray();
-            double[] dataY = graficoColunas.Select(compra => (double)compra.TotalDeCompras).ToArray();
-
-            Dictionary<int, double> data = new()
-            {
-                { 1, 0 },
-                { 2, 0 },
-                { 3, 0 },
-                { 4, 0 },
-                { 5, 0 },
-                { 6, 0 },
-                { 7, 0 },
-                { 8, 0 },
-                { 9, 0 },
-                { 10, 0 },
-                { 11, 0 },
-                { 12, 0 }
-            };
+            Dictionary<int, double> data = Enumerable.Range(1, 12)
+                .ToDictionary(month => month, month => 0.0);
 
             for (int i = 0; i < dataX.Length; i++)
             {
@@ -662,27 +646,25 @@ namespace UI
             }
 
             criarGraficoCompra(data);
-            formsPlot2.Refresh();
         }
 
         private void criarGraficoCompra(Dictionary<int, double> data)
         {
-            formsPlot2.Plot.Clear();
-            formsPlot2.Plot.XLabel("Mês");
-            formsPlot2.Plot.YLabel("Valor");
-            formsPlot2.Plot.Title("Valores de compras por mês");
-
-            formsPlot2.Plot.Add.Scatter(data.Select(d => d.Key).ToArray(), data.Select(d => d.Value).ToArray());
-
-            formsPlot2.Refresh();
+            formsPlot3.Plot.Clear();
+            formsPlot3.Plot.XLabel("Mês");
+            formsPlot3.Plot.YLabel("Valor");
+            formsPlot3.Plot.Title("Valores de compras por mês");
+            formsPlot3.Plot.Axes.Bottom.SetTicks(data.Select(d => (double)d.Key).ToArray(), data.Select(d => meses[d.Key]).ToArray());
+            formsPlot3.Plot.Add.Scatter(data.Select(d => (double)d.Key).ToArray(), data.Select(d => d.Value).ToArray());
         }
 
         public void AtualizarGraficoCompra()
         {
-            formsPlot2.Plot.Clear();
+            formsPlot3.Plot.Clear();
 
             PegarDadosCompraX();
-            formsPlot2.Refresh();
+
+            formsPlot3.Refresh();
         }
 
     }

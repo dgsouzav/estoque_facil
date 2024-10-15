@@ -229,7 +229,6 @@
             // 
             // btnAddProduto
             // 
-            btnAddProduto.Enabled = false;
             btnAddProduto.Location = new Point(375, 37);
             btnAddProduto.Margin = new Padding(3, 4, 3, 4);
             btnAddProduto.Name = "btnAddProduto";
@@ -237,7 +236,6 @@
             btnAddProduto.TabIndex = 7;
             btnAddProduto.Text = "ADD PRODUTO";
             btnAddProduto.UseVisualStyleBackColor = true;
-            btnAddProduto.Visible = false;
             btnAddProduto.Click += btnAddProduto_Click;
             // 
             // txtValor

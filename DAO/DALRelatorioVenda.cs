@@ -48,7 +48,7 @@ namespace DAL
             public int TotalDeVendas { get { return _total_de_vendas; } }
         }
 
-        public List<VendaGrafico>? ObterGrafico()
+        public List<VendaGrafico>? ObterGraficoVenda()
         {
             List<VendaGrafico> graficoColunas = new List<VendaGrafico>();
 
